@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-
   root to: 'profile#index'
-
-  
-
   resources :items do
   end
 
