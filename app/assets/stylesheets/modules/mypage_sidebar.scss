@@ -1,0 +1,56 @@
+.left-content{
+  flex-basis: 280px;
+  margin-right:40px;
+  &__bar{
+    margin-bottom: 40px;
+    h4{
+      font-weight: 700;
+      font-size: 16px;
+    }
+    ul{
+      padding-inline-start:0;
+      li{
+        display: flex;
+        position: relative;
+        padding: 16px;
+        align-items:center;
+        background-color:white;
+        @include tranzaction();
+        @include border_line;
+        a{
+          width: 95%;
+          color: #000;
+          font-size:14px;
+          @include tranzaction();
+        }
+        .fa{
+          width:5%;
+          color:rgb(210, 210, 214);
+        }
+        &:hover{
+        position: relative;
+        display: flex;
+        padding: 16px;
+        align-items:center;
+        background-color:rgb(248, 248, 248);
+        @include border_line;
+          a{
+            width: 97%;
+            color:#000;
+            font-size:14px;
+          }
+          .fa{
+            width:3%;
+            color:rgb(17, 17, 17);
+          }
+        }
+      }
+    }
+  }
+  li.notborder{
+    margin-top:0;
+    &:hover{
+      margin-top:0;
+    }
+  }
+}
