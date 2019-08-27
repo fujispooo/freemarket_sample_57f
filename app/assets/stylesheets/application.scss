@@ -1,6 +1,11 @@
 @import 'font-awesome';
 @import 'mixins/mixin';
+@import 'mixins/flex';
+@import 'mixins/variable';
 @import 'reset';
 @import 'items';
 @import 'details';
 @import 'profile';
+@import 'identification';
+@import 'modules/mypage_top';
+@import 'modules/mypage_sidebar';
