@@ -204,10 +204,10 @@
 
 
   ## prefecturesテーブル(マスタ)
-
-  |Column|Type|Options|
+  <!-- gemのactive_hashで作成可能 -->
+  <!-- |Column|Type|Options|
   |------|----|-------|
-  |prefecture|string|-------|
+  |prefecture|string|-------| -->
 
   ### Association
   - has_many :items
