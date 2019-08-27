@@ -1,0 +1,130 @@
+.iden_main-content {
+  padding: 40px;
+  width: 1100px;
+  margin: 40px auto 0;
+  display: flex;
+  align-items: flex-start;
+  background: #f5f5f5;
+}
+
+.iden_left-content {
+  flex-basis: 280px;
+  margin-right: 40px;
+}
+
+.iden_right-content {
+  float: right;
+  margin-right: 40px;
+  width: 700px;
+  margin: 0;
+  background: #fff;
+}
+
+.iden_head {
+  font-size: 24px;
+  padding: 8px 24px;
+  border-bottom: 1px solid #f5f5f5;
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.iden_form {
+  padding: 64px;
+  border-top: 1px solid #f5f5f5;
+    & p{
+      margin: 8px 0 0;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+}
+
+
+.iden_info-right {
+  text-align: right;
+    & a {
+      color: #0099e8;
+      text-decoration: none;
+    }
+}
+
+.iden_form-group {
+  margin: 40px 0 0;
+    & label {
+        font-weight: 600;
+        display: inline-block;
+        touch-action: manipulation;
+    }
+    & span {
+        background: #ccc;
+        margin: 0 0 0 8px;
+        padding: 3px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: middle;
+    }
+    & input {
+        width: 552px;
+        margin: 8px 0 0; 
+        padding: 15px 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        top: 50%;
+    }
+    .select-wrap {
+      margin: 8px 0 0;
+      position: relative;
+      background: #fff;
+        & i {
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          z-index: 2;
+          color: #888;
+          font-size: 17px;
+          transform: translate(0, -50%);
+          display: inline-block;
+          font-weight: 900;
+          line-height: 1;
+        }
+        & select {
+          width: 100%;
+          position: relative;
+          z-index: 2;
+          height: 52px;
+          padding: 0 16px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: 0;
+          font-size: 16px;
+          line-height: 1.5;
+          -webkit-appearance: none;
+          outline: 0;
+          cursor: pointer;
+          touch-action: manipulation;
+        }
+    }
+}
+
+.iden_btn{
+  margin: 40px 0 0 0;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.iden_form-group_info-right{
+  margin: 40px 0 0;
+  text-align: right;
+}
