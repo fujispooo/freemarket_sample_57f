@@ -1,0 +1,116 @@
+.main-content{
+  display: flex;
+  width: 1020px;
+  margin: 40px auto 0 ;
+  padding: 40px;
+  align-items:flex-start;
+}
+
+.ryofujii-right-content{
+  width: 700px;
+  #back-img{
+    height:200px;
+    margin-bottom: 0px;
+    background-image:image-url("mizutama.jpg");
+  }
+  &__block{
+    width:100%;
+    flex-direction:column;
+    margin-bottom: 40px;
+    &--avatar{
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+    &__user-name{
+      padding-top:8px;
+      font-weight: 600;
+    }
+    &__user-about{
+      padding-top: 8px;
+    }
+    p{
+      display: inline-block;
+    }
+    span{
+      margin-left:8px;
+      font-weight: 600;
+    }
+
+    &__tabs{
+      // @include flex-row;
+      display: flex;
+      height:74px;
+      width: 100%;
+      color:black;
+      li{
+        width: 50%;
+        height: 100%;
+        line-height: 74px;
+        text-align:center;
+        h4{
+          @include full-size;
+          color:black;
+          font-weight: 600;
+          font-size:16px;
+        }
+      }
+    }
+    &__object{
+      width: 100%;
+      li{
+        position: relative;
+      }
+      &__link-box{
+        padding:16px;
+        align-items:center;
+        background-color: white;
+        color: black;
+        @include flex-row;
+        @include border-line;
+        .fa-angle-right{
+          align-self:center;
+          @include arrow-right;
+        }
+        &__img{
+          position: relative;
+        }
+        &__body{
+          width: 560px;
+          padding-left: 20px;
+          &--time{
+            margin-top:4px;
+            color: rgb(156, 155, 155);
+            @include flex-row;
+          }
+          &__detail{
+            height: 30px;
+            @include flex-row;
+            &--count-box{
+              margin: 8px 6px 0 0;
+              @include flex-row;
+            }
+          }
+        }
+        &--string{
+          width: 660px;
+          height:50px;
+        }
+      &:hover{
+        background-color:rgb(248, 248, 248);
+      }
+      }
+    }
+    &__title{
+      width: 100%;
+      height: 72px;
+      padding: 0 16px;
+      font-weight: 600;
+      font-size:16px;
+    }
+  }
+}
+
+.show{
+  display: none;
+}
