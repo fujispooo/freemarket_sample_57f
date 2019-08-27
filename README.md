@@ -35,7 +35,7 @@
   |Column|Type|Options|
   |------|----|-------|
   |post_number|integer|null: false|
-  |prefecture_id|references|null: false,foreign_key: true|
+  <!-- |prefecture_id|references|null: false,foreign_key: true| -->
   |city|string|null: false|
   |address|string|null: false|
   |bulding_name|string|-------|
@@ -44,7 +44,7 @@
 
   ### Association
   - belongs_to :user
-  - belongs_to :prefecture
+  <!-- - belongs_to :prefecture -->
 
 
   ## cardsテーブル
@@ -85,7 +85,7 @@
   |brand_id|references|foreign_key: true|
   |item_state_id|references|null: false, foreign_key: true|
   |delivery_fee_id|references|null: false, foreign_key: true|
-  |prefecture_id|references|null: false,foreign_key: true|
+  <!-- |prefecture_id|references|null: false,foreign_key: true| -->
   |delivery_method_id|references|null: false, foreign_key: true|
   |delivery_day_id|references|null: false, foreign_key: true|
   |price|integer|null: false|
@@ -98,7 +98,7 @@
   - has_many :transactions, dependent: :destroy
   - belongs_to :user
   - belongs_to :brand
-  - belongs_to :prefecture
+  <!-- - belongs_to :prefecture -->
   - belongs_to :profit
   - belongs_to :item_state
   - belongs_to :size
@@ -120,7 +120,7 @@
   - belongs_to :item
 
 
-  ## category_grandparentsテーブル
+  <!-- ## category_grandparentsテーブル
 
   |Column|Type|Options|
   |------|----|-------|
@@ -140,7 +140,7 @@
 
   ### Association
   - belongs_to :category_grandparent
-  - has_many :categories
+  - has_many :categories -->
 
 
   ## categoriesテーブル
@@ -148,12 +148,12 @@
   |Column|Type|Options|
   |------|----|-------|
   |name|string|null: false|
-  |category_grandparent_id|references|null: false, foreign_key: true|
-  |category_parent_id|references|null: false, foreign_key: true|
+  |name|string|null: false|
+  |ancestry|string|-------|
 
   ### Association
-  - belongs_to :category_grandparent
-  - belongs_to :category_parent
+  <!-- - belongs_to :category_grandparent -->
+  <!-- - belongs_to :category_parent -->
   - has_many :items
 
 
@@ -203,15 +203,15 @@
   - belongs_to :item
 
 
-  ## prefecturesテーブル(マスタ)
+  <!-- ## prefecturesテーブル(マスタ) -->
   <!-- gemのactive_hashで作成可能 -->
   <!-- |Column|Type|Options|
   |------|----|-------|
   |prefecture|string|-------| -->
 
-  ### Association
+  <!-- ### Association
   - has_many :items
-  - has_many :addresses
+  - has_many :addresses -->
 
 
   ## item_statesテーブル(マスタ)
