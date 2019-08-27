@@ -41,7 +41,7 @@
       .tr
         .th 出品者
         .td
-          %a{:href => "https://www.mercari.com/jp/u/179175835/"} ☆☆ALEXIA☆☆
+          = link_to '☆☆ALEXIA☆☆','https://www.mercari.com/jp/u/179175835/'
           %div
             .item-user
               .item-user-ratings1
@@ -56,22 +56,13 @@
       .tr
         .th カテゴリー
         .td-sub
-          %a{:href => "https://www.mercari.com/jp/category/2/"}
-            %div メンズ
-          %a{:href => "https://www.mercari.com/jp/category/33/"}
-            .item-detail-table-sub-category
-              %i.icon-arrow-right
-              靴
-          %a{:href => "https://www.mercari.com/jp/category/345/"}
-            .item-detail-table-sub-sub-category
-              %i.icon-arrow-right
-              スニーカー
+          = link_to 'メンズ',class:'item-detail-table-category'
+          = link_to  '靴',class:'item-detail-table-sub-category'
+          = link_to 'スニーカー',class:'item-detail-table-sub-sub-category'
       .tr
         .th ブランド
         .td
-          %a{:href => "https://www.mercari.com/jp/brand/3485/"}
-            %div
-              バンズ
+          = link_to 'バンズ'
       .tr
         .th 商品のサイズ
         .td 27cm
@@ -87,7 +78,7 @@
       .tr
         .th 配送元地域
         .td
-          %a{:href => "https://www.mercari.com/jp/area/19/"} 山梨県
+          = link_to '山梨県'
       .tr
         .th 発送日の目安
         .td 2~3日で発送
@@ -98,7 +89,7 @@
   .text-center
     .sales-point-message
       P200 をお持ちです
-  %a.item-buy-btn.f18-24{"data-client" => "hidden", :href => "https://www.mercari.com/jp/transaction/buy/m11168273272/?_s=U2FsdGVkX1_cdkm5jqi1IF0GNlqYcWpX58J75jS9s1YW9x1h1_gGRyl-ME-aqWFC6FHgSaR87aw7uL9zNqh1h6j3B84_goa3I5BbQKtRJcYWT5XBu_mFg8RsiRQWWj4C"} 購入画面に進む
+  = link_to '購入画面に進む'
   -# -# %a.item-btn-client{:href => "https://www.mercari.com/jp/transaction/buy/m11168273272/?_s=U2FsdGVkX1_cdkm5jqi1IF0GNlqYcWpX58J75jS9s1YW9x1h1_gGRyl-ME-aqWFC6FHgSaR87aw7uL9zNqh1h6j3B84_goa3I5BbQKtRJcYWT5XBu_mFg8RsiRQWWj4C"}
   -#   %div{"data-client" => "visible"}
   -#     購入画面に進む
@@ -270,39 +261,7 @@
         %li
           %a{:href => "https://www.mercari.com/"} United States
   .footer-bottom
-    %a.footer-logo{:href => "https://www.mercari.com/jp/"}
-      %img{:alt => "mercari", :height => "33", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?575670517", :width => "124"}/
+    .footer-logo
+      = image_tag('https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-white.svg?4248847005')
     %span.footer-copyright
-      %small © 2019 Mercari
-
--# %script{:src => "//www-mercari-jp.akamaized.net/assets/js/app.js?3003975446"}
--# #fb-root
--# :javascript
--#   (function(d, s, id) {
--#     var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return;
--#     js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/ja_JP/sdk/xfbml.save.js#xfbml=1&version=v2.5&appId=466308336793848"; fjs.parentNode.insertBefore(js, fjs);
--#   }(document, 'script', 'facebook-jssdk'));
--# :javascript
--#   window.dataLayer = window.dataLayer || []
--#   dataLayer.push({
--#     'event': 'dynamic_product',
--#     'ecomm_pagetype': 'product',
--#     'ecomm_prodid': 'm85567368129',
--#     'ecomm_totalvalue': '18000',
--#     'uid': '103665627'
--#   });
--# :javascript
--#   window.dataLayer = window.dataLayer || [];
--#   dataLayer.push({
--#     'event': 'virtual_pageview',
--#     'uid': '103665627',
--#     'trackPageview': '/jp/m85567368129/on_sale/'
--#   });
--# / Google Tag Manager
--# :javascript
--#   (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
--#   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
--#   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
--#   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
--#   })(window,document,'script','dataLayer','GTM-KLPT5L5');
--# / End Google Tag Manager
+      © 2019 Mercari
