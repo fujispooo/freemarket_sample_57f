@@ -1,0 +1,295 @@
+.header {
+  height: 150px;
+  width: 100%;
+  background-color: aquamarine;
+}
+
+.mypage-nav-list {
+  height: 685px;
+  width: 280px;
+  background-color: aqua;
+}
+
+.l-single-content {
+  max-width: 343px;
+  margin: 0 auto;
+  max-width: 320px;
+}
+
+.l-single-inner {
+  padding: 64px;
+  margin: 0;
+  background: #fff;
+  margin-left: 50px;
+  height: 300px;
+}
+
+.l-chapter-sub-head {
+  font-size: 22px;
+  color: black;
+  font-weight: bold;
+}
+
+// ボタン、フォバーエフェクト
+  .btn-default {
+    position: relative;
+    z-index: 2;
+    background-color: red;
+    border: 2px solid red;
+    color: #fff;
+    line-height: 50px;
+  }
+  .btn-default:hover {
+    background-color: #fff;
+    border-color: #59b1eb;
+    color: #59b1eb;
+  }
+  .btn-default::before,
+  .btn-default::after {
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color:red;
+  }
+  .btn-default::before {
+    right: 0;
+  }
+  .btn-default::after {
+    left: 0;
+  }
+  .btn-default:hover::before,
+  .btn-default:hover::after {
+    width: 0;
+    background-color: #59b1eb;
+  }
+
+
+
+.clearfix a  {
+  color: #fff;
+}
+
+.settings-not-regist {
+  display: block;
+  margin: 40px 0 0;
+  text-align: right;
+  & a {
+    color: #0099e8;
+    text-decoration: none;
+  }
+}
+
+.settings-add-card {
+  padding: 24px 0;
+  border-bottom: 1px solid #eee;
+}
+
+
+
+.l-container {
+    margin: 40px auto 0;
+    width: 950px;
+}
+
+.l-chapter-container:first-child {
+  margin: 0;
+}
+
+.l-chapter-container {
+  margin: 0;
+  margin-left: 50px;
+}
+.l-chapter-head {
+  font-size: 24px;
+  padding: 8px 24px;
+  border-bottom: 1px solid #f5f5f5;
+  text-align: center;
+  margin: 0 auto;
+  font-weight: 600;
+}
+
+.l-single-inner.registration-form {
+  padding: 40px 40px 64px;
+}
+
+.registration-form  {
+  border-top: 1px solid #f5f5f5;
+  padding: 40px;
+
+}
+
+.form-group {
+  margin: 0;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: black;
+}
+
+.form-require {
+  background: #ea352d;
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.input-default {
+  // width: 100%;
+  margin: 8px 0 0;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.has-error-text {
+  color: #ea352d;
+  line-height: 1.5;
+  font-size: 14px;
+}
+
+.signup-card-list {
+  margin: 8px 0 0;
+  font-size: 0;
+  height: 20px;
+  & img {
+    height: 20px;
+    width:40px;
+    padding-left: -30px;
+  }
+}
+
+.signup-form-expire {
+  margin-top: 32px;
+}
+
+.signup-form-expire .select-wrap select {
+  width: calc(100% - 38px);
+  display: flex;
+
+}
+
+.select-wrap.half-main{
+  display: flex;
+}
+
+.select-wrap.half-1 {
+  margin: 8px 0 0;
+  display: inline-block;
+  width: calc(50% - -20px);
+}
+
+.select-wrap.half-2 {
+  margin: 8px 0 0;
+  display: inline-block;
+  width: calc(50% - 2px);
+}
+
+
+.select-default {
+  position: relative;
+  z-index: 2;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  cursor: pointer;
+  width: 132px;
+
+}
+// span {
+//   color: black;
+// }
+
+.form-group {
+  margin-top: 32px;
+}
+
+.signup-seqcode-text {
+  text-align: right;
+  color: #0099e8;
+  width: 377px;
+}
+
+.signup-seqcode {
+  position: relative;
+  margin: 8px 0 0;
+  
+}
+
+.settings-payment-num {
+  margin: 8px 0 0;
+  font-size: 22px;
+  color: black;
+}
+.settings-payment-list {
+  & li {
+    width: 572px;
+    padding: 24px 0;
+    border-bottom: 1px solid #eee;
+  }
+  & img {
+    width: 20%;
+  }
+}
+
+.settings-payment-remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 6px;
+  background: #fff;
+  border-radius: 3px;
+  border: 1px solid #ea352d;
+  color: #ea352d;
+  margin-top: 28%;
+  margin-right: 30%
+}
+
+.settings-payment-remove {
+  background-color: #fff;
+  color: #ea352d;
+}
+.settings-payment-remove:hover {
+  background-color: #ea352d;
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+.footer-sell-btn {
+  position: fixed;
+  bottom: 60px;
+  right: 32px;
+  z-index: 1000;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #ea352d;
+  color: #fff;
+  text-align: center;
+  font-size: 32px;
+  line-height: 2.8;
+}
+
+.contents__btn--icon {
+  font-size: 70px;
+  position: relative;
+  bottom: 20px;
+  right: 10px;
+}
