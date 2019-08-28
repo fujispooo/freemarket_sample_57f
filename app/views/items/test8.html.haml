@@ -27,7 +27,7 @@
           .field
             = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード",class:"sign-up-input"
             = f.submit "ログイン", class: "login_btn"
-            = link_to "パスワードをお忘れの方", new_user_password_path, class: "password"
+            = link_to "パスワードをお忘れの方", new_user_path, class: "password"
 .sign-up__footer
   %nav
     %ul
