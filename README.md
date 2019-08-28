@@ -13,7 +13,9 @@
   |last_name_kana|string|null: false|
   |introduction|text|-------|
   |avatar|string|-------|
-  |birthday|date|-------|
+  |birth_year|integer|-------|
+  |birth_month|integer|-------|
+  |birth_day|integer|-------|  
   |phone_number|integer|null: false,unipue: true|
 
   ### Association
@@ -35,12 +37,12 @@
   |Column|Type|Options|
   |------|----|-------|
   |post_number|integer|null: false|
-  <!-- |prefecture_id|references|null: false,foreign_key: true| -->
   |city|string|null: false|
   |address|string|null: false|
   |bulding_name|string|-------|
   |building_tel|integer|-------|
   |user_id|references|null: false, foreign_key: true|
+  <!-- |prefecture_id|references|null: false,foreign_key: true| -->
 
   ### Association
   - belongs_to :user
@@ -85,11 +87,11 @@
   |brand_id|references|foreign_key: true|
   |item_state_id|references|null: false, foreign_key: true|
   |delivery_fee_id|references|null: false, foreign_key: true|
-  <!-- |prefecture_id|references|null: false,foreign_key: true| -->
   |delivery_method_id|references|null: false, foreign_key: true|
   |delivery_day_id|references|null: false, foreign_key: true|
   |price|integer|null: false|
   |user_id|references|null: false, foreign_key: true|
+  <!-- |prefecture_id|references|null: false,foreign_key: true| -->
   <!-- |like_count|integer|| -->
 
   ### Association
