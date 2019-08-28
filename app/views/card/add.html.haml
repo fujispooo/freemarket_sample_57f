@@ -1,6 +1,8 @@
-.header 
+.header
+
 .l-container.clearfix
-  .mypage-nav-list
+
+  = render "modules/mypage-sidebar"
 
   %main.l-container.clearfix
     .l-content
@@ -27,3 +29,5 @@
   %div 出品
   %i.icon-camera
   = fa_icon 'camera', class: "contents__btn--icon"
+
+= render "shared/footer"
