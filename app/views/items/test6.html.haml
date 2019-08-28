@@ -27,20 +27,22 @@
       %h2 会員登録が完了しました。
     #form.done
       = link_to "メルカリをはじめる", "/", class: "buttom1"
+
   .complete-footer
-    = image_tag "https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?76384908", class: "complete"
-    .complete-footer__inner
-      .complete-footer__inner__index
-        %h2.smartphone \スマホでかんたんフリマアプリ/
-        %p.download 今すぐ無料ダウンロード！
-      .complete-footer__inner__icon
-        =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?863303983",class:"banner-icon"
-        %ul.clearfix
-          =link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", target: "_blank" do
-            =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?863303983", alt: "", class: "banner-button"
-          =link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", target: "_blank" do
-            =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?863303983", alt: "", class: "bannar-button"
-    =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?863303983" ,class:"banner-image"
+    .complete-footer__inner-left-box
+      .complete-footer__inner-left-box__index
+        %h2 \スマホでかんたんフリマアプリ/
+        %p 今すぐ無料ダウンロード！
+      .complete-footer__inner-left-box__icon
+        .complete-footer__inner-left-box__icon--left
+          =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/mercari_icon.png?863303983",class:"banner-icon",size:'60x60'
+        .complete-footer__inner-left-box__icon--right
+          %ul
+            =link_to "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", target: "_blank" do
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?863303983", alt: "", class: "banner-button"
+            =link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", target: "_blank" do
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?863303983", alt: "", class: "bannar-button"
+    .complete-footer__inner-right-box
 
 .sign-up__footer
   %nav
