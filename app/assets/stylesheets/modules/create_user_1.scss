@@ -208,6 +208,7 @@
           background-color: #ea352d;
           color: white;
         }
+        // メールアドレスで登録ボタン
         a.sign-up__by--mail {
           display: inline-flex;
           border: solid 1px #ea352d;
@@ -219,6 +220,14 @@
           border-radius: 5px;
           margin-bottom: 20px;
         }
+        .sign-up__by--mail--left{
+          width:19%;
+          margin-left:20px ;
+        }
+        .sign-up__by--mail--right{
+          width:81%;
+        }
+        // facebookのボタン
         a.facebook {
           display: inline-flex;
           border: solid 1px #385185;
@@ -230,6 +239,15 @@
           color: white;
           margin-bottom: 20px;
         }
+        .facebook--left{
+          width:20%;
+          margin-left:20px ;
+        }
+        .facebook--right{
+          width:80%;
+          margin-left:15px;
+        }
+        // googleのボタン
         a.google {
           display: inline-flex;
           border: solid 1px #ccc;
@@ -248,20 +266,16 @@
           width:80%;
           margin-left:30px;
         }
-        .facebook--left{
-          width:20%;
-          margin-left:20px ;
-        }
-        .facebook--right{
-          width:80%;
-          margin-left:15px;
-        }
-        .sign-up__by--mail--left{
-          width:19%;
-          margin-left:20px ;
-        }
-        .sign-up__by--mail--right{
-          width:81%;
+        // sign_upのボタン
+        a.signup_btn {
+          display: inline-block;
+          border: solid 1px #0099e8;
+          height: 50px;
+          width: 100%;
+          line-height: 50px;
+          background-color: #0099e8;
+          color:#fff;
+          text-align: center;
         }
         &__card-select-box{
           margin-top: 10px;
@@ -465,25 +479,3 @@ li.form {
     height: 270px;
   }
 }
-
-// .sign-up__main{
-//   &__body{
-//     &__sign_up{
-//       display: inline-block;
-
-//     }
-//     &__facebook{
-//       display: inline-block;
-//     }
-//     &__google{
-//       display: inline-block;
-//       text-align: center;
-//       border: solid 1px #ea352d;
-//       height: 40px;
-//       line-height: 40px;
-//       background-color: #ea352d;
-//       color: white;
-//       padding: 10px 50px;
-//     }
-//   }
-// }

@@ -1,0 +1,116 @@
+
+.user__login__header{
+  display: flex;
+  justify-content: center;
+  padding: 40px 80px 30px 80px;
+  &--image{
+    width: 190px;
+    height: 50px;
+  }
+}
+
+.user__login__main{
+  width:456px;
+  margin:0 auto;
+  background-color: #f5f5f5;
+  &__header{
+    padding: 40px 64px;
+    border-bottom: solid 2px #f5f5f5;
+    background-color: white;
+    text-align: center;
+    &__main-title{
+      font-size: 14px;
+    }
+    &__container{
+      max-width: 328px;
+      margin: 0 auto;
+      &__form-box{
+        width: 100%;
+        display: block;
+        a.signup_btn {
+          display: inline-block;
+          border: solid 1px #0099e8;
+          height: 42px;
+          width: 100%;
+          line-height: 42px;
+          background-color: #0099e8;
+          color:#fff;
+          text-align: center;
+          margin-top:8px;
+        }
+      }
+    }
+  }
+  &__body {
+    margin:0 auto;
+    background-color: white;
+    padding: 40px;
+    &__forms-container{
+      max-width: 328px;
+      margin: 0 auto;
+// formの入れ子（inputやselectの中身のことではない)
+      &__form-box{
+        width: 100%;
+        display: block;
+        // facebookのボタン
+        a.facebook {
+          display: inline-flex;
+          border: solid 1px #385185;
+          height: 42px;
+          width: 100%;
+          line-height: 42px;
+          background-color: #385185;
+          color: white;
+          margin-bottom: 20px;
+        }
+        .facebook--left{
+          width:20%;
+          margin-left:20px ;
+        }
+        .facebook--right{
+          width:80%;
+          margin-left:30px ;
+        }
+        // googleのボタン
+        a.google {
+          display: inline-flex;
+          border: solid 1px #ccc;
+          height: 42px;
+          width: 100%;
+          line-height: 42px;
+          background-color: #fff;
+          color: black;
+          margin-bottom: 60px;
+        }
+        .google--left{
+          width:20%;
+          margin-left:20px ;
+        }
+        .google--right{
+          width:80%;
+          margin-left:39px ;
+        }
+        .sign-up-input{
+          margin-bottom: 20px;
+          padding: 15px 8px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          width: 94%;
+        }
+        .field{
+          .login_btn{
+            display: inline-block;
+            border: solid 1px  #ea352d;
+            height: 42px;
+            width: 100%;
+            line-height: 42px;
+            background-color:  #ea352d;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
