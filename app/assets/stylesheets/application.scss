@@ -4,16 +4,20 @@
 @import 'mixins/variable';
 @import 'reset';
 @import 'items';
-
+@import 'logout';
 @import 'details';
 @import 'profile';
-// @import 'identification';
+
 @import 'modules/mypage_sidebar';
 @import 'card';
+
+
+@import 'modules/mypage_top';
+@import 'modules/mypage_sidebar';
 
 @import 'modules/mypage_identification';
 @import 'modules/mypage_top';
 @import 'modules/mypage_sidebar';
+@import 'modules/create_user_1';
 @import 'modules/mypage_logout';
-
 
