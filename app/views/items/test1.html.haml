@@ -67,18 +67,18 @@
             %li.form
               = f.text_field :first_name_kana, class: "small-left", placeholder: "例)ヤマダ", required: "true"
               = f.text_field :last_name_kana, class: "small-right", placeholder: "例)タロウ", required: "true"
-        -# #form1
-        -#   = f.label :name, '生年月日'
-        -#   = f.label :name, '必須', class: "attention"
-        -#   %br/
-        -#   = f.text_field :birth_year, class: "mini", required: "true"
-        -#   年
-        -#   = f.text_field :birth_month, class: "mini", required: "true"
-        -#   月
-        -#   = f.text_field :birth_day, class: "mini", required: "true"
-        -#   日
-        -#   %br/
-        -#   %h4.birth ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        #form1
+          = f.label :name, '生年月日'
+          = f.label :name, '必須', class: "attention"
+          %br/
+          = f.text_field :birth_year, class: "mini", required: "true"
+          年
+          = f.text_field :birth_month, class: "mini", required: "true"
+          月
+          = f.text_field :birth_day, class: "mini", required: "true"
+          日
+          %br/
+          %h4.birth ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
         #form1
           -# = recaptcha_tags
           %h4 次へ進むのボタンを押すことにより、利用規約に同意したものとみなします
