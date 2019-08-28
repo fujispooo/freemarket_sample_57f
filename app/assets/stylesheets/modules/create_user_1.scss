@@ -21,10 +21,10 @@
     text-align: center;
     text-overflow: ellipsis;
     color: #b0bec5;
-     -ms-flex: 1;
+    -ms-flex: 1;
     -moz-flex: 1;
     -webkit-box-flex: 1;
-         flex: 1;
+    flex: 1;
 }
 .cp_stepflow01 > li .bubble {
     display: block;
@@ -69,34 +69,37 @@
     background-color: #ea352d;
 }
 
-.sign_up2__header {
+// header部分
+.sign-up__header{
   display: flex;
   justify-content: center;
   padding: 40px 80px 30px 80px;
-  img.image_sign_up_small {
+  &--image{
     width: 190px;
     height: 50px;
   }
 }
-.sign_up2__main {
+
+// メインコンテナの部分
+.sign-up__main{
   width:700px;
   margin:0 auto;
   background-color: #f5f5f5;
-  &__header {
+  &__header{
     border-bottom: solid 2px #f5f5f5;
     background-color: white;
     text-align: center;
-    h2.main2 {
+    &__main-title{
       padding: 32px;
       font-size: 22px;
       font-weight: bold;
     }
   }
-  &__form {
+  &__body {
     margin:0 auto;
     background-color: white;
     padding: 40px 40px 64px;
-    .hhhh{
+    &__forms-container{
       max-width: 320px;
       margin: 0 auto;
       input.phone {
@@ -113,18 +116,27 @@
         font-size: 12px;
         font-weight: 300;
       }
-        // step1
-      #form1 {
+
+// step1
+      &__form-box{
         width: 100%;
         padding: 20px 0;
         display: block;
         font-weight: 600;
-        select {
+        select{
           height: 50px;
           width: 70px;
           background-color: white;
         }
-        .form__inner{
+        .phone{
+          margin-top: 5px;
+          padding: 15px 8px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          width: 100%;
+          
+        }
+        &__inner{
           font-weight: 400;
           input{
             margin-top: 10px;
@@ -132,6 +144,22 @@
             border-radius: 5px;
             border: 1px solid #ccc;
             width: 97%;
+            font-weight: 300;
+          }
+          input.big{
+            margin-top: 10px;
+            padding: 15px 0 15px 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 97%;
+            font-weight: 300;
+          }
+          select{
+            margin-top: 5px;
+            padding: 15px 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
           }
         }
         h4{
@@ -140,6 +168,23 @@
         }
         h4.birth {
           padding: 10px 0;
+        }
+        input.phone-authentication-btn{
+          text-align: center;
+          border: solid 1px #ea352d;
+          height: 40px;
+          width: 100%;
+          line-height: 40px;
+          background-color: #ea352d;
+          color: white;
+          margin: 30px 0;
+          font-weight: 300;
+        }
+        .form__link {
+          padding: 10px 0 20px 160px;
+          a.link1 {
+            color: #0099e8;
+          }
         }
       }
       input.buttom1 {
@@ -153,33 +198,18 @@
       }
     }
   }
-  .form__link {
-    padding: 10px 0 20px 160px;
-    a.link1 {
-      color: #0099e8;
-    }
-  }
-    // step3
-  #form1.phone {
+
+// step3
+  .sing-up__form-boxphone {
     padding: 10px 0;
     display: block;
     border-bottom: solid 1px #b0bec5;
     &__birth__field {
       padding-top: 10px;
     }
-    input.buttom2 {
-      text-align: center;
-      border: solid 1px #ea352d;
-      height: 40px;
-      width: 100%;
-      line-height: 40px;
-      background-color: #ea352d;
-      color: white;
-      margin: 30px 0;
-    }
   }
-      // step4
-  #form1 {
+// step4
+  .sing-up__form-box{
     input.form {
       margin-top: 3px;
     }
@@ -192,7 +222,7 @@
     font-size: 12px;
   }
   // step5
-  #form1 {
+  .sing-up__form-box{
     .card__logo {
       display: flex;
       list-style: none;
@@ -204,121 +234,8 @@
   }
 }
 
-.complete-footer {
-  position: relative;
-  justify-content: space-between;
-  img.complete {
-    height: 270px;
-    width: 680px;
-  }
-  &__inner {
-    color: white;
-    &__index {
-      text-align: center;
-      position: absolute;
-      top: 60px;
-      h2.smartphone {
-        font-size: 15px;
-      }
-      p.download {
-        font-size: 30px;
-      }
-    }
-    &__icon {
-      position: absolute;
-      bottom: 50px;
-      img.banner-icon {
-        float: left;
-        height: 40px;
-        width: 40px;
-        padding-left: 25px;
-      }
-      img.banner-button {
-        height: 40px;
-        width: 120px;
-      }
-    }
-  }
-  img.banner-image {
-    height: 270px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-  }
-  ul {
-    display: flex;
-    margin-left: 24px;
-    a {
-    padding-left: 20px;
-    &:hover{opacity:0.6;}
-    }
-  }
-}
-#form.done {
-padding-top: 20px;
-padding-bottom: 20px;
-text-align: center;
-a.buttom1 {
-  text-align: center;
-  border: solid 1px #ea352d;
-  height: 40px;
-  line-height: 40px;
-  background-color: #ea352d;
-  color: white;
-  padding: 10px 50px;
-}
-}
-img.card {
-  height: 20px;
-  width: 32px;
-}
-input.big {
-  margin-top: 5px;
-  padding: 15px 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 100%;
-}
-input.small{
-  &-left{
-    margin: 5px 10px 0 0;
-    padding: 10px 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 60%;
-  }
-  &-right{
-    margin: 5px 0 0 10px;
-    padding: 10px 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 60%;
-  }
-}
-input.mini {
-  margin-top: 5px;
-  padding: 10px 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 60px;
-}
-input.phone {
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 300px;
-}
-input.name {
-  height: 30px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 310px;
-}
-li.form {
-  display: flex;
-}
-
-
-.sign_up__footer{
+// 共通部分のfooter
+.sign-up__footer{
   width: 456px;
   height: 220px;
   margin: 0 auto;
@@ -348,4 +265,76 @@ li.form {
   .footer-campany-name{
     font-size:9px;
   }
+}
+
+
+
+// formの入力部分のcss
+#form.done {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  a.buttom1 {
+    text-align: center;
+    border: solid 1px #ea352d;
+    height: 40px;
+    line-height: 40px;
+    background-color: #ea352d;
+    color: white;
+    padding: 10px 50px;
+  }
+}
+img.card {
+  height: 20px;
+  width: 32px;
+}
+
+// 通常のフォーム（1行あたり1フォームのもの）
+input.big {
+  margin-top: 5px;
+  padding: 15px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+select.big {
+  margin-top: 5px;
+  padding: 15px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+// 小さいフォーム（1行あたり2フォームのもの）
+input.small{
+  &-left{
+    margin: 5px 10px 0 0;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 60%;
+  }
+  &-right{
+    margin: 5px 0 0 10px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 60%;
+  }
+}
+
+input.mini {
+  margin-top: 5px;
+  padding: 10px 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 60px;
+}
+input.phone {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 300px;
+}
+li.form {
+  display: flex;
 }
