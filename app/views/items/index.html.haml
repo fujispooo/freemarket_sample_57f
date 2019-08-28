@@ -1,0 +1,82 @@
+%header.main-header
+  .main-header-inner
+    .main-header-top
+      %a{:href => "https://www.mercari.com/jp/"}
+        %img{:alt => "mercari", :height => "36", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?273499512", :width => "134"}/
+      %form.main-header-form{:action => "https://www.mercari.com/jp/search/"}
+        %input.input-default{:name => "keyword", :placeholder => "何かお探しですか？", :type => "search", :value => ""}/
+      %i.fa.fa-search
+    .main-header-nav-box.clearfix
+      %nav.l-left
+        %ul.main-header-nav
+          %li
+            %h2
+              %a.main-header-nav-root.list-parent{:href => ""}
+                %i.icon-list.pc-header-cat-brand-icon
+                %span カテゴリーから探す
+            %ul.main-header-nav-parent-wrap{"data-mega" => "1", :style => "width: auto;"}
+            %i.icon-search
+            %li
+              %h2
+                %a.main-header-nav-root.list-parent{:href => ""}
+                  %i.icon-tag.main-header-cat-brand-icon
+                  %span ブランドから探す
+      %nav.l-right
+        %ul.main-header-user-nav
+          %li
+            %a.main-header-menu-link{"data-url" => ""}
+              %i.fa.fa-bell
+              %span お知らせ
+              %li
+                %a.main-header-menu-link
+                  %i.fa.fa-check
+                  %span やることリスト
+                %li
+                  %a.main-header-user-icon.pc-header-menu-link
+                    %div
+                      %img{:alt => "", :src => "", :width => "32"}/
+                      %span マイページ
+%main
+  .main-visual
+    = image_tag 'index_keyvisual.png', size: "700x380"
+  .pickup
+    %h2.pickup__heading ピックアップカテゴリー
+    .pickup__item
+      %h3.pickup__item__category
+        .pickup__item__category__title  レディース新着アイテム
+        = render partial:"shared/item_index"
+        = render partial:"shared/item_index"
+        = render partial:"shared/item_index"
+        = render partial:"shared/item_index"
+      .pickup__item__all
+        %p.pickup__item__all__link 全ての商品を見る
+    .pickup__item
+      %h3.pickup__item__category
+        .pickup__item__category__title  メンズ新着アイテム
+        = render partial:"shared/item_index"
+        = render partial:"shared/item_index"
+        = render partial:"shared/item_index"
+        = render partial:"shared/item_index"
+      .pickup__item__all
+        %p.pickup__item__all__link 全ての商品を見る
+    .pickup__item
+      %h3.pickup__item__category
+        .pickup__item__category__title  ベビー・キッズ新着アイテム
+        = render partial:"shared/item_index"
+        = render partial:"shared/item_index"
+        = render partial:"shared/item_index"
+        = render partial:"shared/item_index"
+      .pickup__item__all
+        %p.pickup__item__all__link 全ての商品を見る
+    .pickup__item
+      %h3.pickup__item__category
+        .pickup__item__category__title  コスメ・香水・美容 新着アイテム
+        = render partial:"shared/item_index"
+        = render partial:"shared/item_index"
+        = render partial:"shared/item_index"
+        = render partial:"shared/item_index"
+      .pickup__item__all
+        %p.pickup__item__all__link 全ての商品を見る
+
+
+
