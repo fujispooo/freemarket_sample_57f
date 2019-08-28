@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  root to: 'details#index'
+  root to: 'card# method'
   resources :items do
     collection do
       get 'mypage/identification' => 'items#show'
       get 'mypage/logout'         => 'items#logout'
       
     end
-  end
+  end 
 
   # devise_for :users
   # root 'items#index'
