@@ -19,7 +19,7 @@
         完了
         %span.bubble>
 .sign-up__main
-  = form_for @card, url: signup_index_path, method: :post do |f|
+  = form_for Card.new, url: new_user_path, method: :post do |f|
     .sign-up__main__header
       %h2.sign-up__main__header__main-title 支払い方法
     .sign-up__main__body
@@ -45,34 +45,32 @@
             %li
               = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?917505326", class: "card"
         .sign-up__main__body__forms-container__form-box
-          = f.label :name, "有効期限"
-          = f.label :name, "必須", class: "attention"
-          %br/
-          = f.select :exp_month, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12]],{} , class: "form", required: "true"
-          %span.expire-text 月
-          = f.select :exp_year, [[19,2019],[20,2020],[21,2021],[22,2022],[23,2023],[24,2024],[25,2025],[26,2026],[27,2027],[28,2028],[29,2029]],{} , class: "form", required: "true"
-          %span.expire-text 年
+          .sign-up__main__body__forms-container__form-box__card-label
+            = f.label :name, "有効期限"
+            = f.label :name, "必須", class: "attention"
+          .sign-up__main__body__forms-container__form-box__card-select-box
+            = f.select :explation_month, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12]],{} , class: "form", required: "true"
+            %span.expire-text 月
+          .sign-up__main__body__forms-container__form-box__card-select-box
+            = f.select :explation_year, [[19,2019],[20,2020],[21,2021],[22,2022],[23,2023],[24,2024],[25,2025],[26,2026],[27,2027],[28,2028],[29,2029]],{} , class: "form", required: "true"
+            %span.expire-text 年
         .sign-up__main__body__forms-container__form-box
           = f.label :name, "セキュリティコード"
           = f.label :name, "必須", class: "attention"
-          %br/
           .sign-up__main__body__forms-container__form-box__inner
-            = f.text_field :cvc, type: "text", class: "big", placeholder: "カード背面４桁もしくは３桁の番号", maxlength: "4", required: "true"
+            = f.text_field :security_code, type: "text", class: "big", placeholder: "カード背面４桁もしくは３桁の番号", maxlength: "4", required: "true"
         .sign-up__main__body__forms-container__form-box
-          .sign-up__main__body__forms-container__form-box__inner
-            =f.submit "次へ進む", class: "buttom1"
+          =f.submit "次へ進む", class: "phone-authentication-btn"
 .sign-up__footer
   %nav
-    %li
-      = link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/",class:"sign_up__footer--list"
-      &emsp;
-    %li
-      = link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/",class:"sign_up__footer--list"
-      &emsp;
-    %li
-      = link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/",class:"sign_up__footer--list"
-      &emsp;
+    %ul
+      %li
+        プライバシーポリシー
+      %li
+        メルカリ利用規約
+      %li
+        特定商取引に関する表記
   =link_to "https://www.mercari.com/jp/", class: "single-footer-logo" do
-    =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3791839826", alt: "mercari", class: "single-footer-logo"
+    =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3791839826", alt: "mercari", class: "single-footer-logo",size:'80px*65px'
   .footer-campany-name
     © 2019 Mercari

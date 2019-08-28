@@ -117,7 +117,7 @@
         font-weight: 300;
       }
 
-// step1
+// formの入れ子（inputやselectの中身のことではない)
       &__form-box{
         width: 100%;
         padding: 20px 0;
@@ -172,7 +172,7 @@
         input.phone-authentication-btn{
           text-align: center;
           border: solid 1px #ea352d;
-          height: 40px;
+          height: 50px;
           width: 100%;
           line-height: 40px;
           background-color: #ea352d;
@@ -186,15 +186,30 @@
             color: #0099e8;
           }
         }
-      }
-      input.buttom1 {
-        text-align: center;
-        border: solid 1px #ea352d;
-        height: 50px;
-        width: 100%;
-        line-height: 40px;
-        background-color: #ea352d;
-        color: white;
+        .card__logo {
+          display: flex;
+          list-style: none;
+          padding-top: 10px;
+          li {
+            margin-right: 3px;
+            list-style: none;
+          }
+        }
+        input.buttom1 {
+          text-align: center;
+          border: solid 1px #ea352d;
+          height: 50px;
+          width: 100%;
+          line-height: 40px;
+          background-color: #ea352d;
+          color: white;
+        }
+        &__card-select-box{
+          margin-top: 10px;
+          select{
+            width: 100px;
+          }
+        }
       }
     }
   }
@@ -229,6 +244,7 @@
       padding-top: 10px;
       li {
         margin-right: 3px;
+        list-style: none;
       }
     }
   }
@@ -266,7 +282,6 @@
     font-size:9px;
   }
 }
-
 
 
 // formの入力部分のcss
