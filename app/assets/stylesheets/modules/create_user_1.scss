@@ -49,11 +49,13 @@
 .cp_stepflow01 > li.completed,
 .cp_stepflow01 > li.completed .bubble {
     color: #ea352d;
+    z-index: 2;
 }
 .cp_stepflow01 > li.completed .bubble,
 .cp_stepflow01 > li.completed .bubble::after,
 .cp_stepflow01 > li.completed .bubble::before {
     background-color: #ea352d;
+    z-index: 2;
 }
 .cp_stepflow01 > li:last-child .bubble::after,
 .cp_stepflow01 > li:last-child .bubble::before {
@@ -63,10 +65,12 @@
 .cp_stepflow01 > li.active_step,
 .cp_stepflow01 > li.active_step .bubble {
     color: #ea352d;
+    z-index: 2;
 }
 .cp_stepflow01 > li.active_step .bubble,
 .cp_stepflow01 > li.active_step .bubble::before {
     background-color: #ea352d;
+    z-index: 2;
 }
 
 // header部分
@@ -203,6 +207,61 @@
           line-height: 40px;
           background-color: #ea352d;
           color: white;
+        }
+        a.sign-up__by--mail {
+          display: inline-flex;
+          border: solid 1px #ea352d;
+          height: 50px;
+          width: 100%;
+          line-height: 50px;
+          background-color: #ea352d;
+          color: white;
+          border-radius: 5px;
+          margin-bottom: 20px;
+        }
+        a.facebook {
+          display: inline-flex;
+          border: solid 1px #385185;
+          border-radius: 5px;
+          height: 50px;
+          width: 100%;
+          line-height: 50px;
+          background-color: #385185;
+          color: white;
+          margin-bottom: 20px;
+        }
+        a.google {
+          display: inline-flex;
+          border: solid 1px #ccc;
+          height: 50px;
+          width: 100%;
+          line-height: 50px;
+          background-color: #fff;
+          color: black;
+          border-radius: 5px;
+        }
+        .google--left{
+          width:20%;
+          margin-left:20px ;
+        }
+        .google--right{
+          width:80%;
+          margin-left:30px;
+        }
+        .facebook--left{
+          width:20%;
+          margin-left:20px ;
+        }
+        .facebook--right{
+          width:80%;
+          margin-left:15px;
+        }
+        .sign-up__by--mail--left{
+          width:19%;
+          margin-left:20px ;
+        }
+        .sign-up__by--mail--right{
+          width:81%;
         }
         &__card-select-box{
           margin-top: 10px;
@@ -355,6 +414,7 @@ li.form {
 }
 
 
+// 完了ページのフッター
 .complete-footer{
   justify-content: space-between;
   height: 270px;
@@ -405,3 +465,25 @@ li.form {
     height: 270px;
   }
 }
+
+// .sign-up__main{
+//   &__body{
+//     &__sign_up{
+//       display: inline-block;
+
+//     }
+//     &__facebook{
+//       display: inline-block;
+//     }
+//     &__google{
+//       display: inline-block;
+//       text-align: center;
+//       border: solid 1px #ea352d;
+//       height: 40px;
+//       line-height: 40px;
+//       background-color: #ea352d;
+//       color: white;
+//       padding: 10px 50px;
+//     }
+//   }
+// }
