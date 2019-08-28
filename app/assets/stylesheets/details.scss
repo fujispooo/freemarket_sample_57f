@@ -41,9 +41,8 @@
     height: 60px;
     width:  60px;
   }
-  
 }
-  
+
 .item-photo {
   float: left;
   min-width: 300px;
@@ -63,26 +62,23 @@
   text-align: left;
   font-weight: 400;
   background: #fafafa;
-  
 }
 
 .tr {
   display: flex;
 }
 
- .th {
+  .th {
   width: 39%;
   text-align: left;
   font-weight: 400;
   background: #fafafa;
   text-align: center;
   line-height: 3;
-  
 }
 .td-sub {
   height: 52px;
   width: 165px;
-
   background-color: white;
 }
 
@@ -224,11 +220,6 @@
   margin: 16px 0 0;
 }
 
-a {
-  color: #0099e8;
-  text-decoration: none;
-  font-size: 14px;
-}
 
 
 
@@ -248,28 +239,15 @@ a {
   margin: 0;
 }
 
-.inner {
-  white-space: pre-wrap;
-}
 .item-description {
   padding: 24px 0 0;
   line-height: 1.5;
   font-size: 14px;
 }
-p {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
 
 .item-button-container {
   margin: 16px 0 0;
   font-size: 0;
-}
-div {
-  display: block;
 }
 
 .item-button-like {
@@ -332,12 +310,20 @@ div {
     background: #fff;
 }
 
+.message-form {
+  height: 50px;
+  width: 600px;
+  background: #fff6de;
+  line-height: 2;
+}
 
-  //  p {
-  // padding: 8px;
-  // font-size: 14px;
-  // background: #fff6de;
-  // }
+
+.item-description-inner {
+  padding: 8px;
+  font-size: 14px;
+  background: #fff6de;
+  }
+
 
   .textarea-default {
     margin: 8px 0 0;
@@ -383,17 +369,11 @@ div {
   position: relative;
   width: 43%;
   word-wrap: break-word;
-  
 }
 
 .nav-item-link-prev {
-  float: left; 
+  float: left;
   padding: 0 0 0 14px;
-}
-
-a {
-  color: #0099e8;
-  text-decoration: none;
 }
 
 .nav-item-link-prev-next li, .nav-user-link-prev-next li {
@@ -430,7 +410,6 @@ a {
   width: 700px;
   margin: 0 auto;
   min-width: 768px;
-  
 }
 
 .items-box-content {
@@ -470,7 +449,6 @@ a {
   height: 330px;
   margin: 0 20px 20px 0;
   background-color: wheat;
-  
 }
 
 .img-photo {
@@ -479,14 +457,9 @@ a {
   background-color: #ccc;
 }
 
-
-
-
 .app-banner{
   height: 260px;
   width: 100%;
-  
-
 }
 
 .app-banner-pc {
@@ -500,10 +473,6 @@ a {
     width: 1440px;
     height: 260px;
   }
-}
-
-img {
-  font-size: 50px;
 }
 
 .global-footer {
@@ -523,21 +492,17 @@ img {
   color: #fafafa;
 }
 
-h2  {
-  font-size: 16px;
+.footer-cell {
+  padding: 15px 70px 0 0;
+  width: 20%;
+  a {
+    color:#fff;
+    font-size:12px;
+  }
 }
 
-  .footer-cell {
-    padding: 15px 70px 0 0;
-    width: 20%;
-    a{
-      color:#fff;
-      font-size:12px;
-    }
-  }
-
-  .footer-cell li:first-child {
-    margin: 16px 0 0;
+.footer-cell li:first-child {
+  margin: 16px 0 0;
 }
 
 .footer-cell li {

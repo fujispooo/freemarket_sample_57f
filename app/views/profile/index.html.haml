@@ -1,7 +1,18 @@
 .header
+-# ///////////////////////////////// パンくずlist///////////////////////////
+%nav.bread-crumbs
+  .bread-crumbs-box
+    = link_to 'https://www.mercari.com/jp/', class: "contents" do
+      メルカリ
+      = fa_icon 'angle-double-right'
+    = link_to 'https://www.mercari.com/jp/mypage/', class: "contents" do
+      マイページ
+      = fa_icon 'angle-double-right'
+    %span{itemprop: "title"} プロフィール
+-# ///////////////////////////////////////////////////////////////////////////////
 .l-container.clearfix
-  .mypage-nav-list
 
+  = render "modules/mypage-sidebar"
 
   .l-content
     %section.l-chapter-container
@@ -11,7 +22,7 @@
         .setting-profile-icon
           %figure
             %img{:height => "60", :src => "//static.mercdn.net/images/member_photo_noimage_thumb.png", :width => "60"}/
-          %input.input-default{:name => "nickname", :placeholder => "例)AYA☆セール中", :type => "text", :value => "Ryousuke Nishioka"}/
+          %input.input-default{:name => "nickname", :placeholder => "例)AYA☆セール中", :type => "text", :value => ""}/
         .setting-profile-content
           %textarea.textarea-default{:name => "introduction", :placeholder => "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪"}
           %input{:name => "after_save_callback", :type => "hidden", :value => "https://www.mercari.com/jp/mypage/profile/"}/
@@ -21,3 +32,5 @@
   %div 出品
   %i.icon-camera
   = fa_icon 'camera', class: "contents__btn--icon"
+
+= render "shared/footer"
