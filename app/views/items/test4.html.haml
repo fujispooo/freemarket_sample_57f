@@ -1,0 +1,76 @@
+
+.sign_up2__header
+  =link_to root_path do
+    =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863353983", alt: "mercari", class: "image_sign_up_small"
+  .step_bar
+    %ul.cp_stepflow01
+      %li.completed
+        会員情報
+        %span.bubble
+      %li.completed
+        電話番号認証
+        %span.bubble
+      %li.active_step
+        お届け先住所入力
+        %span.bubble
+      %li
+        支払い方法
+        %span.bubble
+      %li
+        完了
+        %span.bubble>
+.sign_up2__main
+  = form_for User.new, url: new_user_path, method: :get do |f|
+    .sign_up2__main__header 
+      %h2.main2 発送・お届け先住所入力
+    .sign_up2__main__form
+      #form1
+        = f.label :name, "お名前"
+        = f.label :name, "必須", class: "attention"
+        %input.name{type: "text"}
+        %input.name{type: "text"}
+      #form1
+        = f.label :name, "お名前カナ"
+        = f.label :name, "必須", class: "attention"
+        %input.name{type: "text"}
+        %input.name{type: "text"}
+      #form1
+        = f.label :name, "郵便番号"
+        = f.label :name, "必須", class: "attention"
+        = f.text_field :postnumber, class: "big", required: "true"
+      #form1
+        = f.label :name, "都道府県"
+        = f.label :name, "必須", class: "attention"
+        = f.text_field :prefectures, class: "big", required: "true"
+      #form1
+        = f.label :name, "市区町村"
+        = f.label :name, "必須", class: "attention"
+        = f.text_field :city, class: "big", required: "true"
+      #form1
+        = f.label :name, "番地"
+        = f.label :name, "必須", class: "attention"
+        = f.text_field :streetNumber, class: "big", required: "true"
+      #form1
+        = f.label :name, "建物名"
+        = f.label :name, "任意", class: "select"
+        = f.text_field :building, class: "big"
+      #form1
+        = f.label :name, "電話番号"
+        = f.label :name, "任意", class: "select"
+        = f.telephone_field :cordNumber, class: "big"
+      #form1
+        = f.submit "次へ進む", class: "buttom1"
+
+.sign_up__footer
+  %nav
+    %ul
+      %li
+        プライバシーポリシー
+      %li
+        メルカリ利用規約
+      %li
+        特定商取引に関する表記
+  =link_to "https://www.mercari.com/jp/", class: "single-footer-logo" do
+    =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3791839826", alt: "mercari", class: "single-footer-logo",size:'80px*65px'
+  %p
+    %small © 2019 Mercari
