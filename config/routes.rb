@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'card# method'
+  root to: 'card# information'
   resources :items do
     collection do
       get 'mypage/identification' => 'items#show'
