@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
 
+  root to: 'card# information'
+
+
+  root to: 'card# method'
+
+
   devise_for :users
   root to: 'items#index'
   root to: 'details#index'
 
   resources :users do
   end
+
+
 
   resources :items do
     collection do
@@ -21,6 +29,16 @@ Rails.application.routes.draw do
       get :test8
       get :test9
     end
+
+  end 
+
+  # devise_for :users
+  # root 'items#index'
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
+
   end
+
 end
 
