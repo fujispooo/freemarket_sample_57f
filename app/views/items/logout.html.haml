@@ -1,0 +1,10 @@
+.logout_main-content
+  .logout_left-content
+    = render 'modules/mypage-sidebar'
+
+  .logout_right-content
+    .logout_right-container
+      %form{action: "https://www.mercari.com/jp/logout/", method: "POST", novalidate: "novalidate"}
+        .logout_right-form
+          %button{type: "submit"} ログアウト
+          %input{name: "__csrf_value", type: "hidden", value: ""}/

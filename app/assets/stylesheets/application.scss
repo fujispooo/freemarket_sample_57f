@@ -1,4 +1,26 @@
 @import 'font-awesome';
 @import 'mixins/mixin';
+
 @import 'reset';
 @import 'items';
+
+@import 'mixins/flex';
+@import 'mixins/variable';
+@import 'reset';
+@import 'items';
+
+@import 'details';
+@import 'profile';
+@import 'logout';
+@import 'card';
+
+
+
+@import 'modules/mypage_identification';
+@import 'modules/mypage_top';
+@import 'modules/mypage_sidebar';
+@import 'modules/create_user_1';
+@import 'modules/mypage_logout';
+@import 'modules/item_sell';
+
+
