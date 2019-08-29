@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  root to: 'profile#index'
+  root to: 'items#index'
+
+
+
   devise_for :users
   root to: 'items#index'
   root to: 'profile#index'
@@ -24,4 +29,8 @@ Rails.application.routes.draw do
       get 'mypage/logout'         => 'items#logout'
     end
   end
+
 end
+
+end
+
