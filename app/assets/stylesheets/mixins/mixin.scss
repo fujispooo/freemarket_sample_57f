@@ -69,6 +69,7 @@
   margin: 0 auto;
 }
 
+// サインアップ画面で用いるボタン
 @mixin sign-up_botton($background-color,$border-color,$font-color){
   height: 50px;
   width: 100%;
@@ -80,6 +81,7 @@
   border: solid 1px $border-color;
 }
 
+// ログイン画面で用いるボタン
 @mixin login_botton($block-type,$font-color,$background-color,$border-color){
   height: 42px;
   width: 100%;
