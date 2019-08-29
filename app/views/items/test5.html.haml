@@ -28,7 +28,7 @@
           = f.label :name, "カード番号"
           = f.label :name, "必須", class: "attention"
           .sign-up__main__body__forms-container__form-box__inner
-            = f.text_field :card_number, type: "text", class: "big", placeholder: "半角数字のみ", maxlength: "16", required: "true"
+            = f.text_field :card_number, type: "text", class: "normal-form", placeholder: "半角数字のみ", maxlength: "16", required: "true"
           .card__logo
             %li
               = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?917505326", class: "card"
@@ -58,9 +58,9 @@
           = f.label :name, "セキュリティコード"
           = f.label :name, "必須", class: "attention"
           .sign-up__main__body__forms-container__form-box__inner
-            = f.text_field :security_code, type: "text", class: "big", placeholder: "カード背面４桁もしくは３桁の番号", maxlength: "4", required: "true"
+            = f.text_field :security_code, type: "text", class: "normal-form", placeholder: "カード背面４桁もしくは３桁の番号", maxlength: "4", required: "true"
         .sign-up__main__body__forms-container__form-box
-          =f.submit "次へ進む", class: "phone-authentication-btn"
+          =f.submit "次へ進む", class: "form__sent-btn"
 .sign-up__footer
   %nav
     %ul

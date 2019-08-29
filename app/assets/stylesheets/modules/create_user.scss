@@ -46,8 +46,8 @@
         background-color: $merukari-red;
         border: solid 1px $merukari-red;
       }
-
-// formの入れ子（inputやselectの中身のことではない)
+      
+      // formの入れ子（inputやselectの中身のことではない)
       &__form-box{
         width: 100%;
         padding: 20px 0;
@@ -58,24 +58,24 @@
           width: 70px;
           background-color: white;
         }
-        .phone{
-          margin-top: 5px;
-          padding: 15px 8px;
-          border-radius: 5px;
-          border: 1px solid #ccc;
+        .form__sent-btn{
+          height: 50px;
           width: 100%;
-          
+          display: block;
+          text-align: center;
+          margin: 20px 0;
+          line-height: 50px;
+          color: white;
+          border: solid 1px $merukari-red;
+          background-color: $merukari-red;
         }
         &__inner{
           font-weight: 400;
-          input{
-            @include normal-form();
-          }
-          input.big{
+          input.normal-form{
             @include normal-form();
           }
           // 小さいフォーム（1行あたり2フォームのもの）
-          input.small{
+          input.small-form{
             &-left{
               @include small_form-left();
             }
@@ -98,17 +98,6 @@
         h4.birth {
           padding: 10px 0;
         }
-        input.phone-authentication-btn{
-          height: 50px;
-          width: 100%;
-          margin: 30px 0;
-          line-height: 40px;
-          text-align: center;
-          font-weight: 300;
-          background-color: $merukari-red;
-          border: solid 1px $merukari-red;
-          color: white;
-        }
         .form__link {
           padding: 10px 0 20px 160px;
           a.link1 {
@@ -124,52 +113,43 @@
             list-style: none;
           }
         }
-        input.buttom1 {
-          height: 50px;
-          width: 100%;
-          text-align: center;
-          line-height: 40px;
-          color: white;
-          border: solid 1px $merukari-red;
-          background-color: $merukari-red;
-        }
         // メールアドレスで登録ボタン
-        a.sign-up__by--mail {
+        .sign-up__by--mail {
           @include sign-up_botton($merukari-red,$merukari-red,white);
           border-radius: 5px;
-        }
-        .sign-up__by--mail--left{
-          width:19%;
-          margin-left:20px ;
-        }
-        .sign-up__by--mail--right{
-          width:81%;
+          &--left{
+            width:19%;
+            margin-left:20px ;
+          }
+          &--right{
+            width:81%;
+          }
         }
         // facebookのボタン
-        a.facebook {
+        .facebook {
           @include sign-up_botton($facebook-navy,$facebook-navy,white);
           border-radius: 5px;
-        }
-        .facebook--left{
-          width:20%;
-          margin-left:20px ;
-        }
-        .facebook--right{
-          width:80%;
-          margin-left:15px;
+          &--left{
+            width:20%;
+            margin-left:20px ;
+          }
+          &--right{
+            width:80%;
+            margin-left:15px;
+          }
         }
         // googleのボタン
-        a.google {
+        .google {
           @include sign-up_botton(#fff,#ccc,black);
           border-radius: 5px;
-        }
-        .google--left{
-          width:20%;
-          margin-left:20px ;
-        }
-        .google--right{
-          width:80%;
-          margin-left:30px;
+          &--left{
+            width:20%;
+            margin-left:20px ;
+          }
+          &--right{
+            width:80%;
+            margin-left:30px;
+          }
         }
         &__card-select-box{
           margin-top: 10px;
@@ -181,15 +161,7 @@
     }
   }
 
-// step3
-  .sing-up__form-boxphone {
-    padding: 10px 0;
-    display: block;
-    border-bottom: solid 1px #b0bec5;
-    &__birth__field {
-      padding-top: 10px;
-    }
-  }
+
 // step4
   .sing-up__form-box{
     input.form {
@@ -251,21 +223,7 @@
 }
 
 
-// formの入力部分のcss
-#form.done {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-align: center;
-  a.buttom1 {
-    height: 40px;
-    padding: 10px 50px;
-    line-height: 40px;
-    text-align: center;
-    border: solid 1px $merukari-red;
-    background-color: $merukari-red;
-    color: white;
-  }
-}
+// クレジットカード会社の画像
 img.card {
   height: 20px;
   width: 32px;
