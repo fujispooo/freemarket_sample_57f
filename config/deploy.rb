@@ -36,8 +36,8 @@ set :default_env, {
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
   BASIC_AUTH_USER: ENV["BASIC_AUTH_USER"],
   BASIC_AUTH_PASSWORD: ENV["BASIC_AUTH_PASSWORD"]
-  PAYJP_PRIVATE_KYE: ENV["PAYJP_PRIVATE_KYE"],
-  PAYJP_KEY: ENV["PAYJP_KEY"]
+  # PAYJP_PRIVATE_KYE: ENV["PAYJP_PRIVATE_KYE"],
+  # PAYJP_KEY: ENV["PAYJP_KEY"]
 }
 
 # set :linked_files, %w{ config/credentials.yml.enc }
