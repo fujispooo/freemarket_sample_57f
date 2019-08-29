@@ -39,12 +39,12 @@
       }
       label.attention {
         margin-bottom:10px;
-        background-color: $merukari-red;
-        border: solid 1px $merukari-red;
         border-radius: 3px;
         color: white;
         font-size: 12px;
         font-weight: 300;
+        background-color: $merukari-red;
+        border: solid 1px $merukari-red;
       }
 
 // formの入れ子（inputやselectの中身のことではない)
@@ -69,20 +69,19 @@
         &__inner{
           font-weight: 400;
           input{
-            margin-top: 10px;
-            padding: 15px 0 15px 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: 97%;
-            font-weight: 300;
+            @include normal-form();
           }
           input.big{
-            margin-top: 10px;
-            padding: 15px 0 15px 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: 97%;
-            font-weight: 300;
+            @include normal-form();
+          }
+          // 小さいフォーム（1行あたり2フォームのもの）
+          input.small{
+            &-left{
+              @include small_form-left();
+            }
+            &-right{
+              @include small_form-right();
+            }
           }
           select{
             margin-top: 5px;
@@ -100,15 +99,15 @@
           padding: 10px 0;
         }
         input.phone-authentication-btn{
-          text-align: center;
-          border: solid 1px $merukari-red;
           height: 50px;
           width: 100%;
-          line-height: 40px;
-          background-color: $merukari-red;
-          color: white;
           margin: 30px 0;
+          line-height: 40px;
+          text-align: center;
           font-weight: 300;
+          background-color: $merukari-red;
+          border: solid 1px $merukari-red;
+          color: white;
         }
         .form__link {
           padding: 10px 0 20px 160px;
@@ -272,14 +271,7 @@ img.card {
   width: 32px;
 }
 
-// 通常のフォーム（1行あたり1フォームのもの）
-input.big {
-  margin-top: 5px;
-  padding: 15px 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 100%;
-}
+
 select.big {
   margin-top: 5px;
   padding: 15px 8px;
@@ -288,23 +280,6 @@ select.big {
   width: 100%;
 }
 
-// 小さいフォーム（1行あたり2フォームのもの）
-input.small{
-  &-left{
-    margin: 5px 10px 0 0;
-    padding: 10px 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 60%;
-  }
-  &-right{
-    margin: 5px 0 0 10px;
-    padding: 10px 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 60%;
-  }
-}
 
 input.mini {
   margin-top: 5px;
