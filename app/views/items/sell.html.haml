@@ -1,0 +1,298 @@
+.sell-main
+  .sell-inner
+    %h2.sell-inner__head 商品の情報を入力
+    %form.sell-inner__form
+      .sell-inner__form__upload-box
+        %label 出品画像
+        %span 必須
+        %p.sell-inner__form__upload-box-text 最大10枚までアップロードできます
+        .sell-inner__form__upload-box__dropbox
+          .sell-inner__form__upload-box__dropbox__container
+            %input{multiple: "", name: "image1", style: "display: none;", type: "file"}/
+            %pre
+              :preserve
+                ドラッグアンドドロップ
+                またはクリックしてファイルをアップロード
+      .sell-inner__form__item
+        .sell-inner__form__item__name
+          %label 商品名
+          %span 必須
+          %div 
+            %input{placeholder: "商品名（必須 40文字まで)", value: ""}/
+
+        .sell-inner__form__item__description
+          %label 商品の説明
+          %span 必須
+          %textarea{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+
+      .sell-inner__form__content
+        .sell-inner__form__content__left
+          %h3 商品の詳細
+        .sell-inner__form__content__right
+          #sell-inner__form__content__right__genre
+            %label カテゴリー
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              %select
+                %option{value: ""} ---
+                %option{value: "1"} レディース
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              %select
+                %option{value: ""} ---
+                %option{value: "1"} トップス
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              %select
+                %option{value: ""} ---
+                %option{value: "1"} Tシャツ
+          .sell-inner__form__content__right__genre
+            %label サイズ
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              %select
+                %option{value: ""} ---
+          .sell-inner__form__content__right__genre
+            %label ブランド
+            %span.brand 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              %select
+                %option{value: ""} ---            
+          .sell-inner__form__content__right__genre
+            %label 商品の状態
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              %select
+                %option{value: ""} ---
+
+      .sell-inner__form__content
+        .sell-inner__form__content__left
+          %h3 配送について
+          = link_to do
+            = fa_icon 'question-circle', class: 'question-circle'
+        .sell-inner__form__content__right
+          #sell-inner__form__content__right__genre
+            %label 配送料の負担
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              %select
+                %option{value: ""} ---
+                %option{value: "1"} ちゃく払い
+
+          .sell-inner__form__content__right__genre
+            %label 配送の方法
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              %select
+                %option{value: ""} ---
+                %option{value: "1"} 未定
+
+          .sell-inner__form__content__right__genre
+            %label 配送元の地域
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              %select
+                %option{value: ""} ---
+                %option{value: "1"} 未定
+
+          .sell-inner__form__content__right__genre
+            %label 配送までの日数
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              %select
+                %option{value: ""} ---
+                %option{value: "1"} 配達員の気分
+
+      .sell-inner__form__content
+        .sell-inner__form__content__left
+          %h3 販売価格(300~9,999,999)
+          = link_to do
+            = fa_icon 'question-circle', class: 'question-circle'
+        .sell-inner__form__content__right
+          .sell-inner__form__content__right__price
+            .sell-inner__form__content__right__price__genre
+              %label 価格
+              %span 必須
+            .sell-inner__form__content__right__price__frame
+              .sell-inner__form__content__right__price__frame__mark ¥
+              .sell-inner__form__content__right__price__frame__box
+                %input.price{placeholder: "例）300", value: ""}/
+          .sell-inner__form__content__right__fee
+            .sell-inner__form__content__right__fee__text
+              販売手数料
+            .sell-inner__form__content__right__fee__integer
+              0
+          .sell-inner__form__content__right__profit
+            .sell-inner__form__content__right__profit__text
+              %label 販売利益
+            .sell-inner__form__content__right__profit__integer
+              0
+
+      .sell-inner__form__foot
+        .sell-inner__form__foot__text
+          %p
+            %a{:href => "/jp/help_center/getting_started/prohibited_items/", :target => "_blank"} 禁止されている出品
+            、
+            %a{:href => "/jp/help_center/getting_started/prohibited_conduct/", :target => "_blank"} 行為
+            を必ずご確認ください。
+          %p
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            %a{:href => "/jp/help_center/getting_started/counterfeit_goods/", :target => "_blank"} 偽ブランドの販売
+            は犯罪であり処罰される可能性があります。
+          %p
+            また、出品をもちまして
+            %a{:href => "/jp/seller_terms/"} 加盟店規約
+            に同意したことになります。
+
+        .sell-inner__form__foot__btn
+          %button.sell-inner__form__foot__btn__sell{type: "submit"} 出品する
+          = link_to "もどる", :back, class: "sell-inner__form__foot__btn__back"
+          
+
+
+
+
+-# .contentLeft
+-#   %h3 商品の詳細
+-# .contentRight
+-#   .productForm__field.productForm__field--category
+-#     = f.label :カテゴリー
+-#     %span.formRequired 必須
+-#     %br/
+-#     - if controller.action_name == 'new'
+-#       = f.collection_select(:category_id, @categories, :id , :name, {prompt: "---"}, {class: "inputField inputField__select category_form", id: "category", required: true})
+-#     - else
+-#       = f.collection_select(:category_id, @categories, :id , :name, {selected: @parent_category.id, include_blank: "---"}, {class: "inputField inputField__select category_form", id: "category", required: true})
+-#       = f.collection_select(:category_id, @parent_category.children, :id , :name, {selected: @child_category.id, include_blank: "---"}, {class: "inputField inputField__select category_form", id: "category_children", name: "category_children", required: true})
+-#       = f.collection_select(:category_id, @child_category.children, :id , :name, {selected: @subchild_category.id, include_blank: "---"}, {class: "inputField inputField__select category_form", id: "category_children_children", name: "category_children_children", required: true})
+-#       - if @category_option[:size] != 0
+-#         #size_form
+-#           = f.label :サイズ
+-#           %span.formRequired 必須
+-#           = f.select(:size, @category_option[:size], {selected: @product.product_option_size.size, include_blank: "---"}, {class: "inputField inputField__select", name: "size", required: true})
+-#       - if @category_option[:brand] != 0
+-#         #brand_form
+-#           = f.label :ブランド
+-#           %span.formNotRequired 任意
+-#           = f.text_field(:brand, {name: "brand", value: @product.product_option_brand.brand})
+-#   .productForm__field
+-#   .resultLists
+-#   .productForm__field
+-#     = f.label :商品の状態
+-#     %span.formRequired 必須
+-#     %br/
+-#     = f.collection_select(:condition,  ConditionList.all, :id, :name, {prompt: "---"}, {class: "inputField inputField__select", required: true})
+
+
+
+
+
+
+
+
+-#   -# = form_for @product do |f|
+-#     .formSection
+-#       = f.hidden_field :user_id, value: current_user.id
+-#       .productForm__field.productForm__field--top
+-#         = f.label :出品画像
+-#         %span.formRequired 必須
+-#         %br/
+-#         %p 最大10枚までアップロードできます
+        -# %ul.formUploader
+-#           .uploadInfo
+            -# %p ドラッグアンドドロップ
+            -# %span またはクリックしてアップロード
+-#           - if controller.action_name == 'edit'
+-#             = render partial: 'image', locals: { length: 0, image_id: @product.product_image.id, original_index: 0 }, collection: @product.product_image.images, as: :image
+-#       = f.fields_for :product_image, @product_image do |g|
+-#         = g.file_field :images, id:"product_image_file", multiple:true
+-#         = g.hidden_field :images, id:"cropped_image", multiple:true
+-#     .formSection
+-#       .productForm__field
+-#         = f.label :商品名
+-#         %span.formRequired 必須
+-#         %br/
+-#         = f.text_field :name, required: true, placeholder: "商品名（40字まで）", class: "inputField"
+-#       .productForm__field
+-#         = f.label :商品の説明
+-#         %span.formRequired 必須
+-#         %br/
+-#         = f.text_area :detail, required: true, placeholder: "商品説明（1,000字まで）例）2018年に購入した、革ジャンです。黒みがかった見た目です。傷等はございません。", class: "inputField inputField__area", rows: "7"
+
+-#     .formSection
+-#       .contentLeft
+-#         %h3
+-#           配送について
+-#           %span
+-#           = link_to "#" do
+-#             = fa_icon "question-circle"
+-#       .contentRight
+-#         .productForm__field
+-#           = f.label :配送料の負担
+-#           %span.formRequired 必須
+-#           %br/
+-#           = f.select(:shipping_tax_payer, [["送料込み（出品者負担）", 0], ["着払い（購入者負担）", 1]], {prompt: "---"}, {class: "inputField inputField__select", required: true})
+-#         .productForm__field
+-#           = f.label :発送元の地域
+-#           %span.formRequired 必須
+-#           %br/
+-#           = f.collection_select(:shipping_agency, Prefecture.all, :id, :name, {prompt: "---"}, {class: "inputField inputField__select", required: true})
+-#         .productForm__field
+-#           = f.label :発送までの日数
+-#           %span.formRequired 必須
+-#           %br/
+-#           = f.select(:shipping_days, [["1-2日で発送", 0], ["2-3日で発送", 1], ["4-7日で発送", 2]], {prompt: "---"}, {class: "inputField inputField__select", required: true})
+-#     .formSection
+-#       .contentLeft
+-#         %h3
+-#           販売価格（300 - 9,999,999円）
+-#           %span
+-#           = link_to "#" do
+-#             = fa_icon "question-circle"
+-#       .contentRight.contentRight--price
+-#         .productForm__field
+-#           %ul
+-#             %li
+-#               = f.label :価格（円）
+-#               %span.formRequired 必須
+-#             %li
+-#               = f.text_field :price, required: true, placeholder: "例）1,000", class: "inputField"
+-#         .profitholder
+-#           %ul
+-#             %li 販売手数料（10%）
+-#             %li -
+-#           %ul.profitholder--output
+-#             %li 販売利益
+-#             %li -
+-#     .formSection
+-#       .confirmation
+-#         %p
+-#           = link_to "禁止されている出品", "#"
+-#           、
+-#           = link_to "行為", "#"
+-#           を必ずご確認ください。
+-#         %p
+-#           またブランド品でシリアルナンバー等がある場合はご記載ください。
+-#           = link_to "偽ブランドの販売", "#"
+-#           は犯罪であり処罰される可能性があります。
+-#         %p
+-#           また、出品をもちまして
+-#           = link_to "加盟店規約", "#"
+-#           に同意したことになります。
+-#       .productForm__actions
+-#         - if controller.action_name == "new"
+-#           = f.submit "出品する", class: "productBtn"
+-#         - else
+-#           = f.submit "変更する", class: "productBtn"
+-#           =link_to product_path(@product), method: :delete do
+-#             .returnBtn
+-#               商品を削除する
+-#       = link_to "もどる", :back, class: "returnBtn"
