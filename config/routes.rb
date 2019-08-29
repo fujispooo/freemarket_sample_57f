@@ -24,3 +24,4 @@ Rails.application.routes.draw do
       get 'mypage/logout'         => 'items#logout'
     end
   end
+end
