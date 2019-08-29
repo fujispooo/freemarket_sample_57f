@@ -199,17 +199,21 @@ input {
           &__body{
             background: #FFF;
             padding: 16px;
-            &__name{
-              font-size: 16px;
-              height: 3em;
-              line-height: 1.5;
-              word-break: break-word;
-              white-space: normal;
-            }
-            &__num__price{
-              margin: 8px 0 0;
-              font-size: 17px;
-            }
+            font-size: 16px;
+            &__num{
+              display: flex;
+              justify-content: space-between;
+              &__name{
+                font-size: 16px;
+                height: 3em;
+                line-height: 1.5;
+                word-break: break-word;
+                white-space: normal;
+              }
+              &__num__price{
+                margin: 8px 0 0;
+                font-size: 17px;
+              }
           &__figure{
             width: 213px;
             height: 220px;
@@ -218,6 +222,7 @@ input {
               height: 220px;
             }
             }
+          }
           }
         }
       }
