@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_064003) do
     t.text "introduction"
     t.string "avatar"
     t.integer "phone_number", null: false
-    t.integer "birth_yaer"
+    t.integer "birth_year"
     t.integer "birth_month"
     t.integer "birth_day"
     t.index ["email"], name: "index_users_on_email", unique: true
