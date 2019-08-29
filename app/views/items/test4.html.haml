@@ -1,7 +1,7 @@
 
-.sign_up2__header
+.sign-up__header
   =link_to root_path do
-    =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863353983", alt: "mercari", class: "image_sign_up_small"
+    =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863353983", alt: "mercari", class: "sign-up__header--image"
   .step_bar
     %ul.cp_stepflow01
       %li.completed
@@ -19,49 +19,58 @@
       %li
         完了
         %span.bubble>
-.sign_up2__main
-  = form_for User.new, url: new_user_path, method: :get do |f|
-    .sign_up2__main__header 
-      %h2.main2 発送・お届け先住所入力
-    .sign_up2__main__form
-      #form1
-        = f.label :name, "お名前"
-        = f.label :name, "必須", class: "attention"
-        %input.name{type: "text"}
-        %input.name{type: "text"}
-      #form1
-        = f.label :name, "お名前カナ"
-        = f.label :name, "必須", class: "attention"
-        %input.name{type: "text"}
-        %input.name{type: "text"}
-      #form1
-        = f.label :name, "郵便番号"
-        = f.label :name, "必須", class: "attention"
-        = f.text_field :postnumber, class: "big", required: "true"
-      #form1
-        = f.label :name, "都道府県"
-        = f.label :name, "必須", class: "attention"
-        = f.text_field :prefectures, class: "big", required: "true"
-      #form1
-        = f.label :name, "市区町村"
-        = f.label :name, "必須", class: "attention"
-        = f.text_field :city, class: "big", required: "true"
-      #form1
-        = f.label :name, "番地"
-        = f.label :name, "必須", class: "attention"
-        = f.text_field :streetNumber, class: "big", required: "true"
-      #form1
-        = f.label :name, "建物名"
-        = f.label :name, "任意", class: "select"
-        = f.text_field :building, class: "big"
-      #form1
-        = f.label :name, "電話番号"
-        = f.label :name, "任意", class: "select"
-        = f.telephone_field :cordNumber, class: "big"
-      #form1
-        = f.submit "次へ進む", class: "buttom1"
+.sign-up__main
+  = form_for Address.new, url: new_user_path, method: :get do |f|
+    .sign-up__main__header 
+      %h2.sign-up__main__header__main-title 発送・お届け先住所入力
+    .sign-up__main__body
+      .sign-up__main__body__forms-container
+        .sign-up__main__body__forms-container__form-box
+          = f.label :name, "お名前"
+          = f.label :name, "必須", class: "attention"
+          .sign-up__main__body__forms-container__form-box__inner
+            %input.name{type: "text",placeholder: "例) 永野"}
+            %input.name{type: "text",placeholder: "例) 芽郁"}
+        .sign-up__main__body__forms-container__form-box
+          = f.label :name, "お名前カナ"
+          = f.label :name, "必須", class: "attention"
+          .sign-up__main__body__forms-container__form-box__inner
+            %input.name{type: "text",placeholder: "例) ナガノ"}
+            %input.name{type: "text",placeholder: "例) メイ"}
+        .sign-up__main__body__forms-container__form-box
+          = f.label :name, "郵便番号"
+          = f.label :name, "必須", class: "attention"
+          .sign-up__main__body__forms-container__form-box__inner
+            = f.text_field :post_number, class: "big", required: "true",placeholder: "例) 123-4567"
+        .sign-up__main__body__forms-container__form-box
+          = f.label :name, "都道府県"
+          = f.label :name, "必須", class: "attention"
+          .sign-up__main__body__forms-container__form-box__inner
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: "big"
+        .sign-up__main__body__forms-container__form-box
+          = f.label :name, "市区町村"
+          = f.label :name, "必須", class: "attention"
+          .sign-up__main__body__forms-container__form-box__inner
+            = f.text_field :city, class: "big", required: "true",placeholder: "例) 世田谷区若林"
+        .sign-up__main__body__forms-container__form-box
+          = f.label :name, "番地"
+          = f.label :name, "必須", class: "attention"
+          .sign-up__main__body__forms-container__form-box__inner
+            = f.text_field :address, class: "big", required: "true",placeholder: "例) ３-５-９８"
+        .sign-up__main__body__forms-container__form-box
+          = f.label :name, "建物名"
+          = f.label :name, "任意", class: "select"
+          .sign-up__main__body__forms-container__form-box__inner
+            = f.text_field :building_name, class: "big",placeholder: "例) 青山ハウス"
+        .sign-up__main__body__forms-container__form-box
+          = f.label :name, "電話番号"
+          = f.label :name, "任意", class: "select"
+          .sign-up__main__body__forms-container__form-box__inner
+            = f.telephone_field :building_tel, class: "big",placeholder: "例) 090-1234-5678"
+        .sign-up__main__body__forms-container__form-box
+          = f.submit "次へ進む", class: "buttom1"
 
-.sign_up__footer
+.sign-up__footer
   %nav
     %ul
       %li
@@ -72,5 +81,5 @@
         特定商取引に関する表記
   =link_to "https://www.mercari.com/jp/", class: "single-footer-logo" do
     =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3791839826", alt: "mercari", class: "single-footer-logo",size:'80px*65px'
-  %p
-    %small © 2019 Mercari
+  .footer-campany-name
+    © 2019 Mercari
