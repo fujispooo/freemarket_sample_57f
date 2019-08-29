@@ -1,3 +1,13 @@
+%nav.bread-crumbs
+  .bread-crumbs-box
+    = link_to 'https://www.mercari.com/jp/', class: "contents" do
+      メルカリ
+      = fa_icon 'angle-double-right'
+    = link_to 'https://www.mercari.com/jp/mypage/', class: "contents" do
+      マイページ
+      = fa_icon 'angle-double-right'
+    %span{itemprop: "title"} ログアウト
+
 .logout_main-content
   .logout_left-content
     = render 'modules/mypage-sidebar'
