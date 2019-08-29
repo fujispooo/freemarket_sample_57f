@@ -1,20 +1,14 @@
 @import 'font-awesome';
 @import 'mixins/mixin';
-@import 'mixins/flex';
-@import 'mixins/variable';
+@import 'mixins/colors';
 @import 'reset';
 @import 'items';
-
 @import 'details';
 @import 'profile';
-
-@import 'modules/mypage_sidebar';
 @import 'card';
-
-
+@import 'modules/mypage_sidebar';
 @import 'modules/mypage_top';
 @import 'modules/mypage_sidebar';
-
 @import 'modules/mypage_identification';
 @import 'modules/mypage_top';
 @import 'modules/mypage_sidebar';

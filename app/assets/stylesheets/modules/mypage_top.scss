@@ -111,6 +111,15 @@
   }
 }
 
+
+// タブがクリックされた時に付与するクラス、JSはmapage.jsを参照
+// タブの上部に赤色のボーダーを加える
+.active{
+  background-color: white;
+  border-top:2px solid;
+  border-top-color: red;
+}
+
 .show{
   display: none;
 }
