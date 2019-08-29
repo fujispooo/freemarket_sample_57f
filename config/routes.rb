@@ -4,18 +4,13 @@ Rails.application.routes.draw do
 end
 
   root to: 'profile#index'
-  # # devise_for :users
-  # root to: 'items#index'
-  
-
+  root to: 'items#index'
   devise_for :users
   root to: 'items#index'
   root to: 'details#index'
 
-
-  # resources :users do
-  # end
-
+  resources :users do
+  end
 
   resources :items do
     collection do
@@ -33,6 +28,7 @@ end
       get 'mypage/logout'         => 'items#logout'
     end
   end
+
 
   # resources :items do
   #   collection do
@@ -57,3 +53,5 @@ end
 
   end
 
+
+end

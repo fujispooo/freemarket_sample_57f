@@ -1,0 +1,377 @@
+
+// header部分
+.sign-up__header{
+  display: flex;
+  justify-content: center;
+  padding: 40px 80px 30px 80px;
+  &--image{
+    width: 190px;
+    height: 50px;
+  }
+}
+
+// メインコンテナの部分
+.sign-up__main{
+  width:700px;
+  margin:0 auto;
+  background-color: $merukari-gray;
+  &__header{
+    border-bottom: solid 2px $merukari-gray;
+    background-color: white;
+    text-align: center;
+    &__main-title{
+      padding: 32px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+  }
+  &__body {
+    margin:0 auto;
+    background-color: white;
+    padding: 40px 40px 64px;
+    &__forms-container{
+      max-width: 320px;
+      margin: 0 auto;
+      input.phone {
+        height: 45px;
+        border-radius: 5px;
+        border: 1px solid $merukari-gray;
+      }
+      label.attention {
+        margin-bottom:10px;
+        background-color: $merukari-red;
+        border: solid 1px $merukari-red;
+        border-radius: 3px;
+        color: white;
+        font-size: 12px;
+        font-weight: 300;
+      }
+
+// formの入れ子（inputやselectの中身のことではない)
+      &__form-box{
+        width: 100%;
+        padding: 20px 0;
+        display: block;
+        font-weight: 600;
+        select{
+          height: 50px;
+          width: 70px;
+          background-color: white;
+        }
+        .phone{
+          margin-top: 5px;
+          padding: 15px 8px;
+          border-radius: 5px;
+          border: 1px solid #ccc;
+          width: 100%;
+          
+        }
+        &__inner{
+          font-weight: 400;
+          input{
+            margin-top: 10px;
+            padding: 15px 0 15px 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 97%;
+            font-weight: 300;
+          }
+          input.big{
+            margin-top: 10px;
+            padding: 15px 0 15px 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 97%;
+            font-weight: 300;
+          }
+          select{
+            margin-top: 5px;
+            padding: 15px 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+          }
+        }
+        h4{
+          padding: 10px 0;
+          font-weight: 200;
+        }
+        h4.birth {
+          padding: 10px 0;
+        }
+        input.phone-authentication-btn{
+          text-align: center;
+          border: solid 1px $merukari-red;
+          height: 50px;
+          width: 100%;
+          line-height: 40px;
+          background-color: $merukari-red;
+          color: white;
+          margin: 30px 0;
+          font-weight: 300;
+        }
+        .form__link {
+          padding: 10px 0 20px 160px;
+          a.link1 {
+            color: $merukari-blue;
+          }
+        }
+        .card__logo {
+          display: flex;
+          list-style: none;
+          padding-top: 10px;
+          li {
+            margin-right: 3px;
+            list-style: none;
+          }
+        }
+        input.buttom1 {
+          height: 50px;
+          width: 100%;
+          text-align: center;
+          line-height: 40px;
+          color: white;
+          border: solid 1px $merukari-red;
+          background-color: $merukari-red;
+        }
+        // メールアドレスで登録ボタン
+        a.sign-up__by--mail {
+          @include sign-up_botton($merukari-red,$merukari-red,white);
+          border-radius: 5px;
+        }
+        .sign-up__by--mail--left{
+          width:19%;
+          margin-left:20px ;
+        }
+        .sign-up__by--mail--right{
+          width:81%;
+        }
+        // facebookのボタン
+        a.facebook {
+          @include sign-up_botton($facebook-navy,$facebook-navy,white);
+          border-radius: 5px;
+        }
+        .facebook--left{
+          width:20%;
+          margin-left:20px ;
+        }
+        .facebook--right{
+          width:80%;
+          margin-left:15px;
+        }
+        // googleのボタン
+        a.google {
+          @include sign-up_botton(#fff,#ccc,black);
+          border-radius: 5px;
+        }
+        .google--left{
+          width:20%;
+          margin-left:20px ;
+        }
+        .google--right{
+          width:80%;
+          margin-left:30px;
+        }
+        &__card-select-box{
+          margin-top: 10px;
+          select{
+            width: 100px;
+          }
+        }
+      }
+    }
+  }
+
+// step3
+  .sing-up__form-boxphone {
+    padding: 10px 0;
+    display: block;
+    border-bottom: solid 1px #b0bec5;
+    &__birth__field {
+      padding-top: 10px;
+    }
+  }
+// step4
+  .sing-up__form-box{
+    input.form {
+      margin-top: 3px;
+    }
+  }
+  label.select {
+    color: white;
+    font-size: 12px;
+    background-color: rgb(226, 222, 222);
+    border: solid 5px rgb(226, 222, 222);
+    border-radius: 3px;
+  }
+  // step5
+  .sing-up__form-box{
+    .card__logo {
+      display: flex;
+      padding-top: 10px;
+      list-style: none;
+      li {
+        margin-right: 3px;
+        list-style: none;
+      }
+    }
+  }
+}
+
+// 共通部分のfooter
+.sign-up__footer{
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  padding:40px;
+  text-align: center;
+  nav{
+    margin: 0 auto;
+    ul{
+      display: block;
+      text-align: center;
+      li{
+        display:inline-block;
+        margin:0 10px;
+        color:black;
+        font-size:12px;
+        list-style: none;
+        text-align: center;
+      }
+    }
+  }
+  a{
+    .single-footer-logo{
+      width: 65px;
+      height: 80px;
+    }
+  }
+  .footer-campany-name{
+    font-size:9px;
+  }
+}
+
+
+// formの入力部分のcss
+#form.done {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+  a.buttom1 {
+    height: 40px;
+    padding: 10px 50px;
+    line-height: 40px;
+    text-align: center;
+    border: solid 1px $merukari-red;
+    background-color: $merukari-red;
+    color: white;
+  }
+}
+img.card {
+  height: 20px;
+  width: 32px;
+}
+
+// 通常のフォーム（1行あたり1フォームのもの）
+input.big {
+  margin-top: 5px;
+  padding: 15px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+select.big {
+  margin-top: 5px;
+  padding: 15px 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+// 小さいフォーム（1行あたり2フォームのもの）
+input.small{
+  &-left{
+    margin: 5px 10px 0 0;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 60%;
+  }
+  &-right{
+    margin: 5px 0 0 10px;
+    padding: 10px 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 60%;
+  }
+}
+
+input.mini {
+  margin-top: 5px;
+  padding: 10px 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 60px;
+}
+input.phone {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 300px;
+}
+li.form {
+  display: flex;
+}
+
+
+// 完了ページのフッター
+.complete-footer{
+  justify-content: space-between;
+  height: 270px;
+  width: 100%;
+  background-image: url("https://www.mercari.com/jp/assets/img/common/jp/top/download_bg_pc.jpg?76384908");
+  display: flex;
+  &__inner-left-box{
+    color: white;
+    width:60%;
+    &__index{
+      text-align: center;
+      h2{
+        font-size: 15px;
+        padding-top:30px;
+      }
+      p{
+        font-size: 30px;
+        margin-bottom: 40px; 
+      }
+    }
+    &__icon{
+      height: 270px;
+      display: flex;
+      &--left{
+        width: 15%;
+        padding-left:20px;
+      }
+      &--right{
+        width: 85%;
+        text-align: center;
+        img{
+          padding:0 10px;
+          line-height: 70px;
+          &:hover{opacity:0.6;}
+        }
+
+      }
+    }
+  }
+  &__inner-right-box{
+    width:40%;
+    height: 270px;
+    background-image: url("//www-mercari-jp.akamaized.net/assets/img/common/jp/download_content_pc.png?863303983");
+    background-repeat:  no-repeat;
+    background-position:center center;
+    background-size:contain;
+  }
+  img.banner-image{
+    height: 270px;
+  }
+}
