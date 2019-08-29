@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get 'mypage/profile/' => 'users#show'
-      get 'mypage/logout'         => 'users#logout'
+      get 'mypage/card/'    =>  'users#new'
+      get 'mypage/card/create/' => 'users#create'
+      get 'mypage/card/destroy/' => 'users#destroy'
       get 'mypage/identification' => 'users#identification'
     end
   end
@@ -27,7 +29,9 @@ Rails.application.routes.draw do
       get :test8
       get :test9
       get 'sell'         => 'items#sell'
+      get 'mypage/logout' => 'items#logout'
+      get :purchase
+      get 'items/show/' => 'items#show'
     end
   end
 end
-
