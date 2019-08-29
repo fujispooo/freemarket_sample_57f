@@ -1,11 +1,9 @@
 @import 'font-awesome';
+@import 'reset';
 @import 'mixins/mixin';
 @import 'mixins/colors';
-@import 'reset';
-@import 'items';
-@import 'details';
-@import 'profile';
-@import 'card';
+@import 'modules/item_details';
+@import 'modules/add_card';
 @import 'modules/mypage_top';
 @import 'modules/mypage_sidebar';
 @import 'modules/mypage_identification';
@@ -14,4 +12,5 @@
 @import 'modules/user_login';
 @import 'modules/mypage_logout';
 @import 'modules/item_sell';
-
+@import 'modules/user_profile';
+@import 'modules/toppage';
