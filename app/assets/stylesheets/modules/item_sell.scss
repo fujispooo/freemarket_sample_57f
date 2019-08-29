@@ -1,3 +1,12 @@
+.sell__header{
+  display: flex;
+  justify-content: center;
+  padding: 40px 80px 30px 80px;
+  &--image{
+    width: 190px;
+    height: 50px;
+  }
+}
 .sell-main {
   width: 2160px;
   // padding: 40px;
@@ -226,6 +235,12 @@
       &__foot{
         padding: 40px;
         border-top: 1px solid #eee;
+        &__text{
+          & a{
+          color: #0099e8;
+          text-decoration: none;
+          }
+        }
         &__btn{
           margin: 40px 0 0;
           &__sell {
@@ -240,18 +255,21 @@
             cursor: pointer;
             text-align: center;
           }
-          &__back {
-            width: 279px;
+          &__back{
+            width: 45%;
             margin: 24px auto 0;
             background: #aaa;
             border: 1px solid #aaa;
-            color: #fff;
-            line-height: 48px;
-            font-size: 14px;
-            transition: all ease-out .3s;
-            cursor: pointer;
             text-align: center;
-          }
+            &__btn {
+              color: #fff;
+              line-height: 48px;
+              font-size: 14px;
+              transition: all ease-out .3s;
+              cursor: pointer;
+              text-decoration: none;
+            }
+          }          
         }
       }
 
@@ -270,5 +288,37 @@
         vertical-align: top;
       }
     }
+  }
+}
+
+.sell__footer{
+  width: 456px;
+  height: 220px;
+  margin: 0 auto;
+  padding:40px;
+  text-align: center;
+  nav{
+    margin: 0 auto;
+    ul{
+      display: block;
+      text-align: center;
+      li{
+        display:inline-block;
+        margin:0 10px;
+        color:black;
+        font-size:12px;
+        list-style: none;
+        text-align: center;
+      }
+    }
+  }
+  a{
+    .single-footer-logo{
+      width: 65px;
+      height: 80px;
+    }
+  }
+  .footer-campany-name{
+    font-size:9px;
   }
 }
