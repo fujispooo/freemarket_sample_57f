@@ -70,18 +70,30 @@
 }
 
 
-// aタグの下線を向こうにする記述
+// aタグの下線を無効にする記述
 .decoration-none{
   text-decoration: none;
 }
 
+// 「必須」「任意」とかのやつ
+@mixin badge-status($color){
+  margin-bottom:10px;
+  border-radius: 3px;
+  color: white;
+  font-size: 13px;
+  font-weight: 400;
+  background-color: $color;
+  border: solid 1px $color;
+}
+
 // サインアップ画面で用いるボタン
-@mixin sign-up_botton($background-color,$border-color,$font-color){
+@mixin link_botton($block-type,$background-color,$border-color,$font-color){
   height: 50px;
   width: 100%;
-  display: inline-flex;
+  display: $block-type;
   margin-bottom: 20px;
   line-height: 50px;
+  text-decoration: none;
   color: $font-color;
   background-color: $background-color;
   border: solid 1px $border-color;
@@ -98,6 +110,7 @@
   border: solid 1px $border-color;
 }
 
+// 普通のフォーム
 @mixin normal-form(){
   margin-top: 10px;
   padding: 15px 0 15px 8px;
@@ -107,20 +120,21 @@
   font-weight: 300;
 }
 
-
 // 小さいフォーム（first-name,last-name）のような場面で使う
-@mixin small_form-left(){
-  margin: 10px 10px 0 0;
-  padding: 15px 0 15px 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 60%;
+@mixin small_form(){
+  &-left{
+    margin: 10px 10px 0 0;
+    padding: 15px 0 15px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 60%;
+  }
+  &-right{
+    margin: 10px 0 0 10px;
+    padding: 15px 0 15px 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 60%;
+  }
 }
 
-@mixin small_form-right(){
-  margin: 10px 0 0 10px;
-  padding: 15px 0 15px 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 60%;
-}

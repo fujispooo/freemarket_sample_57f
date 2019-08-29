@@ -37,16 +37,14 @@
         border-radius: 5px;
         border: 1px solid $merukari-gray;
       }
-      label.attention {
-        margin-bottom:10px;
-        border-radius: 3px;
-        color: white;
-        font-size: 12px;
-        font-weight: 300;
-        background-color: $merukari-red;
-        border: solid 1px $merukari-red;
+      // 「必須」バッチ
+      label.write-must {
+        @include badge-status($merukari-red);
       }
-      
+      // 「任意」バッチ
+      label.write-optional {
+        @include badge-status(#ccc);
+      }
       // formの入れ子（inputやselectの中身のことではない)
       &__form-box{
         width: 100%;
@@ -59,29 +57,17 @@
           background-color: white;
         }
         .form__sent-btn{
-          height: 50px;
-          width: 100%;
-          display: block;
+          @include link_botton(inline-block,$merukari-red,$merukari-red,white);
           text-align: center;
-          margin: 20px 0;
-          line-height: 50px;
-          color: white;
-          border: solid 1px $merukari-red;
-          background-color: $merukari-red;
         }
+        
         &__inner{
           font-weight: 400;
           input.normal-form{
             @include normal-form();
           }
-          // 小さいフォーム（1行あたり2フォームのもの）
           input.small-form{
-            &-left{
-              @include small_form-left();
-            }
-            &-right{
-              @include small_form-right();
-            }
+            @include small_form();
           }
           select{
             margin-top: 5px;
@@ -115,7 +101,7 @@
         }
         // メールアドレスで登録ボタン
         .sign-up__by--mail {
-          @include sign-up_botton($merukari-red,$merukari-red,white);
+          @include link_botton(inline-flex,$merukari-red,$merukari-red,white);
           border-radius: 5px;
           &--left{
             width:19%;
@@ -127,7 +113,7 @@
         }
         // facebookのボタン
         .facebook {
-          @include sign-up_botton($facebook-navy,$facebook-navy,white);
+          @include link_botton(inline-flex,$facebook-navy,$facebook-navy,white);
           border-radius: 5px;
           &--left{
             width:20%;
@@ -140,7 +126,7 @@
         }
         // googleのボタン
         .google {
-          @include sign-up_botton(#fff,#ccc,black);
+          @include link_botton(inline-flex,#fff,#ccc,black);
           border-radius: 5px;
           &--left{
             width:20%;
@@ -168,13 +154,7 @@
       margin-top: 3px;
     }
   }
-  label.select {
-    color: white;
-    font-size: 12px;
-    background-color: rgb(226, 222, 222);
-    border: solid 5px rgb(226, 222, 222);
-    border-radius: 3px;
-  }
+  
   // step5
   .sing-up__form-box{
     .card__logo {
@@ -292,7 +272,6 @@ li.form {
           line-height: 70px;
           &:hover{opacity:0.6;}
         }
-
       }
     }
   }
