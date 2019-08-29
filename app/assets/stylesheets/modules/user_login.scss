@@ -28,13 +28,7 @@
         width: 100%;
         display: block;
         a.signup_btn {
-          display: inline-block;
-          border: solid 1px #0099e8;
-          height: 42px;
-          width: 100%;
-          line-height: 42px;
-          background-color: #0099e8;
-          color:#fff;
+          @include login_botton(inline-block,white,$merukari-blue,$merukari-blue);
           text-align: center;
           margin-top:8px;
         }
@@ -54,13 +48,7 @@
         display: block;
         // facebookのボタン
         a.facebook {
-          display: inline-flex;
-          border: solid 1px #385185;
-          height: 42px;
-          width: 100%;
-          line-height: 42px;
-          background-color: #385185;
-          color: white;
+          @include login_botton(inline-flex,white,$facebook-navy,$facebook-navy);
           margin-bottom: 20px;
         }
         .facebook--left{
@@ -73,13 +61,7 @@
         }
         // googleのボタン
         a.google {
-          display: inline-flex;
-          border: solid 1px #ccc;
-          height: 42px;
-          width: 100%;
-          line-height: 42px;
-          background-color: #fff;
-          color: black;
+          @include login_botton(inline-flex,black,#fff,#ccc);
           margin-bottom: 60px;
         }
         .google--left{
@@ -99,13 +81,7 @@
         }
         .field{
           .login_btn{
-            display: inline-block;
-            border: solid 1px  #ea352d;
-            height: 42px;
-            width: 100%;
-            line-height: 42px;
-            background-color:  #ea352d;
-            color: #fff;
+            @include login_botton(inline-block,white,$merukari-red,$merukari-red);
             margin-bottom: 20px;
             text-align: center;
           }
