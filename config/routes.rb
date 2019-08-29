@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
-
-  root to: 'profile#index'
   root to: 'items#index'
-
-
-
-  devise_for :users
-  root to: 'items#index'
-  root to: 'profile#index'
   root to: 'details#index'
-
+  
   resources :users do
+    collection do
+      get 'mypage/profile/' => 'users#show'
+    end
   end
+
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    sessions: 'users/sessions'
+  } 
 
   resources :items do
     collection do
@@ -29,8 +29,5 @@ Rails.application.routes.draw do
       get 'mypage/logout'         => 'items#logout'
     end
   end
-
-end
-
 end
 
