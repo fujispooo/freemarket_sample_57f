@@ -1,0 +1,101 @@
+.sign_up2__header
+  =link_to root_path do
+    =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863353983", alt: "mercari", class: "image_sign_up_small"
+  .step_bar
+    %ul.cp_stepflow01
+      %li.active_step
+        会員情報
+        %span.bubble
+      %li
+        電話番号認証
+        %span.bubble
+      %li
+        お届け先住所入力
+        %span.bubble
+      %li
+        支払い方法
+        %span.bubble
+      %li
+        完了
+        %span.bubble>
+.sign_up2__main
+  .sign_up2__main__header
+    %h2.main2 会員情報入力
+  .sign_up2__main__form
+    .hhhh
+      = form_for User.new, url: new_user_path, method: :get do |f|
+        #form1
+          = f.label :name, 'ニックネーム'
+          = f.label :name, '必須', class: "attention"
+          %br/
+          .form__inner
+            = f.text_field :nickname, placeholder: "例)メルカリ太郎", required: "true"
+        #form1
+          = f.label :name, 'メールアドレス'
+          = f.label :name, '必須', class: "attention"
+          %br/
+          .form__inner
+            = f.email_field :email, class: "big", placeholder: "PC・携帯どちらでも可", required: "true"
+        #form1
+          = f.label :name, 'パスワード'
+          = f.label :name, '必須', class: "attention"
+          %br/
+          .form__inner
+            = f.password_field :password, class: "big", placeholder: "7文字以上", required: "true"
+        #form1
+          = f.label :name, "パスワード (確認)"
+          = f.label :name, '必須', class: "attention"
+          %br/
+          .form__inner
+            = f.password_field :password_confirmation, class: "big", placeholder: "7文字以上", required: "true"
+        #form1
+          %h3 本人確認
+          %h4 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        #form1
+          = f.label :name, 'お名前(全角)', class: "name"
+          = f.label :name, '必須', class: "attention"
+          %br/
+          .form__inner
+            %li.form
+              = f.text_field :first_name, class: "small-left", placeholder: "例)山田", required: "true"
+              = f.text_field :last_name, class: "small-right", placeholder: "例)太郎", required: "true"
+        #form1
+          = f.label :name, 'お名前カナ(全角)'
+          = f.label :name, '必須', class: "attention"
+          %br/
+          .form__inner
+            %li.form
+              = f.text_field :first_name_kana, class: "small-left", placeholder: "例)ヤマダ", required: "true"
+              = f.text_field :last_name_kana, class: "small-right", placeholder: "例)タロウ", required: "true"
+        #form1
+          = f.label :name, '生年月日'
+          = f.label :name, '必須', class: "attention"
+          %br/
+          = f.text_field :birth_year, class: "mini", required: "true"
+          年
+          = f.text_field :birth_month, class: "mini", required: "true"
+          月
+          = f.text_field :birth_day, class: "mini", required: "true"
+          日
+          %br/
+          %h4.birth ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+        #form1
+          -# = recaptcha_tags
+          %h4 次へ進むのボタンを押すことにより、利用規約に同意したものとみなします
+        #form1
+          = f.submit "次へ進む", class: "buttom1"
+        .form__link
+          = link_to "本人登録について＞", "https://www.mercari.com/jp/help_center/article/423/", class: "link1"
+.sign_up__footer
+  %nav
+    %ul
+      %li
+        プライバシーポリシー
+      %li
+        メルカリ利用規約
+      %li
+        特定商取引に関する表記
+  =link_to "https://www.mercari.com/jp/", class: "single-footer-logo" do
+    =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3791839826", alt: "mercari", class: "single-footer-logo",size:'80px*65px'
+  %p
+    %small © 2019 Mercari
