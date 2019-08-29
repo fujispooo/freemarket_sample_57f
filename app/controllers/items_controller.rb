@@ -8,14 +8,4 @@ class ItemsController < ApplicationController
 
   def new
   end
-
-  def test1
-  end
-  
-  def test2
-  end
-  
-
-
-  
 end
