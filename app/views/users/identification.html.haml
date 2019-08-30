@@ -1,5 +1,5 @@
-%nav.bread-crumbs
-  .bread-crumbs-box
+%nav.iden_bread-crumbs
+  .iden_bread-crumbs-box
     = link_to 'https://www.mercari.com/jp/', class: "contents" do
       メルカリ
       = fa_icon 'angle-double-right'
@@ -112,3 +112,5 @@
             本人情報の登録について>
           %i.icon-arrow-right
       %input{:name => "__csrf_value", :type => "hidden", :value => "e3822d7c75b0a6c40777ec6f3cff18bfafa93f62ff99d758079f5f68814c987eca7be2240fd94dacd22ca552b7fc0c6030b6847a03a2bca4bcbc03097374f86e5"}/
+
+= render 'shared/footer'
