@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'items#index'
+  root to: 'items#top'
   root to: 'details#index'
   
   resources :users do
@@ -32,6 +32,7 @@ Rails.application.routes.draw do
       get 'mypage/logout' => 'items#logout'
       get :purchase
       get 'items/show/' => 'items#show'
+      get 'itemes/top/' => 'items#top'
     end
   end
 end
