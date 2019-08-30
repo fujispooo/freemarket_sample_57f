@@ -1,0 +1,21 @@
+.footer-sell-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 1000;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #ea352d;
+  color: #fff;
+  text-align: center;
+  font-size: 32px;
+  line-height: 2.8;
+}
+
+.contents__btn--icon {
+  font-size: 70px;
+  position: relative;
+  bottom: 20px;
+  right: 10px;
+}

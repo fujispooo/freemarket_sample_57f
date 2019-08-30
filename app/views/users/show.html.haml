@@ -28,9 +28,5 @@
           %input{:name => "after_save_callback", :type => "hidden", :value => "https://www.mercari.com/jp/mypage/profile/"}/
           %button.btn-default.btn-red{:type => "submit"} 変更する
 
-%a.footer-sell-btn
-  %div 出品
-  %i.icon-camera
-  = fa_icon 'camera', class: "contents__btn--icon"
-
+= render "modules/sell-btn"
 = render "modules/footer"

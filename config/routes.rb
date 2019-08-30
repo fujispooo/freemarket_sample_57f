@@ -27,7 +27,7 @@ Rails.application.routes.draw do
       get :test6
       get :test7
       get :test8
-      get :test9
+      get :new
       get 'sell'         => 'items#sell'
       get :purchase
       get 'items/show/' => 'items#show'
