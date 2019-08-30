@@ -1,0 +1,176 @@
+.single-header{
+text-align: center;
+height: 128px;
+}
+
+.single-header img {
+width: 185px;
+height: 49px;
+margin-top: 39.5px;
+}
+
+.single-main {
+text-align: center;
+}
+
+.l-single-container.buy-item-container {
+  width: 700px;
+  background: #fff;
+  font-size: 30px;
+  margin: 0 auto;
+}
+
+.l-single-head {
+  font-size: 18px;
+  padding: 16px;
+  line-height: 1.5;
+  text-align: center;
+  font-weight: bold;
+}
+
+.buy-pro {
+  display: flex;
+}
+
+h3.buy-item-image{
+  font-size: 22px;
+  background-color: #333;
+  width: 64px;
+  height: 64px;
+  margin-right: 0;
+}
+
+.buy-item-name.bold{
+  width: calc(100% - 80px);
+  margin: 0 0 0 16px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.buy-price-ja.bold {
+  font-size: 22px;
+}
+
+.item-shipping-fee.f14.bold {
+  margin: 0 0 0 8px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.buy-accordion {
+margin: 16px 0 0;
+}
+
+.buy-accordion .accordion-toggle {
+padding: 16px;
+border: 1px solid #ccc;
+font-size: 14px;
+}
+
+.buy-form p {
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+.buy-content {
+  margin: 40px 0 0;
+  padding: 24px 12.5% 0;
+  border-top: 1px solid #f5f5f5;
+}
+
+.buy-user-info h3 {
+  margin: 40px 0 0;
+  font-size: 14px;
+  text-align: left;
+}
+
+.buy-content-inner {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.buy-user-info-text {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.buy-user-info-fix {
+  display: block;
+  text-align: right;
+  padding-bottom: 30px;
+}
+
+.buy-user-info-text {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+h3 {
+  font-weight: bold;
+  color: black;
+}
+
+
+.single-footer {
+  width: 456px;
+  margin: 0 auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding: 40px 0;
+  text-align: center;
+  list-style: none;
+  &-box {
+    display: flex
+  }
+  &-logo{
+  width: 80px;
+  height: 65px;
+  margin: 40px auto 0;
+  padding-bottom:20px;
+  }
+  & a {
+    color: black;
+    font-size: 12px;
+    margin-right: 30px;
+  }
+  & ul {
+  }
+  }
+
+.buy-user-info-fix {
+  display: block;
+  text-align: right;
+  color: #0099e8;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.buy-price-row.buy-you-pay.bold {
+  border: 0;
+  padding: 16px 0;
+  margin-top: 5px;
+  font-size: 18px;
+  display: table-row;
+  display: flex;
+}
+
+.buy-price-cell {
+  display: table-cell;
+  padding: 16px 0;
+  text-align: right;
+  font-size: 18px;
+  font-weight: 600;
+    & span {
+    font-size: 28px;
+    text-align: right;
+    margin-left: 250%;
+    font-weight: 700;
+  }
+}
+
