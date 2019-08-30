@@ -1,0 +1,73 @@
+.app-banner-pc {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  height: 260px;
+  margin: 0 auto;
+  color: #fff;
+  & img  {
+    width: 100%;
+    margin-bottom: 0;
+  }
+}
+
+.global-footer {
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-weight: 500;
+  color: rgb(255, 255, 255);
+  padding: 0px 20px 10px;
+  background: rgb(33, 33, 33);
+}
+
+.clearfix{
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  padding-left: 100px;
+}
+
+.global-footer a {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.5em;
+  display: inline-block;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+
+.footer-cell {
+  padding: 15px 70px 0 0;
+  width: 20%;
+  display: block;
+  float: left;
+  margin-top: 18px;
+}
+
+.footer-head {
+  padding-bottom: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: underline;
+  color: white;
+}
+
+.footer-social-link {
+  display: inline-block;
+  position: relative;
+  top: 50px;
+}
+
+.footer-bottom {
+  display: flex;
+}
+
+
+.footer-logo {
+  margin-left: 17%;
+}
+
+.footer-copyright {
+  line-height: 2.5;
+  margin-left: 32%;
+}
