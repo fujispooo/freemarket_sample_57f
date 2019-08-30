@@ -69,25 +69,8 @@
   margin: 0 auto;
 }
 
-// サインアップ画面で用いるボタン
-@mixin sign-up_botton($background-color,$border-color,$font-color){
-  height: 50px;
-  width: 100%;
-  display: inline-flex;
-  margin-bottom: 20px;
-  line-height: 50px;
-  color: $font-color;
-  background-color: $background-color;
-  border: solid 1px $border-color;
-}
 
-// ログイン画面で用いるボタン
-@mixin login_botton($block-type,$font-color,$background-color,$border-color){
-  height: 42px;
-  width: 100%;
-  display: $block-type;
-  line-height: 42px;
-  color:$font-color;
-  background-color: $background-color;
-  border: solid 1px $border-color;
+// aタグの下線を無効にする記述
+.decoration-none{
+  text-decoration: none;
 }

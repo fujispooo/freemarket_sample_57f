@@ -26,9 +26,9 @@
       .sign-up__main__body__forms-container
         .sign-up__main__body__forms-container__form-box
           = f.label :name, "カード番号"
-          = f.label :name, "必須", class: "attention"
+          = f.label :name, "必須", class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
-            = f.text_field :card_number, type: "text", class: "big", placeholder: "半角数字のみ", maxlength: "16", required: "true"
+            = f.text_field :card_number, type: "text", class: "normal-form", placeholder: "半角数字のみ", maxlength: "16", required: "true"
           .card__logo
             %li
               = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?917505326", class: "card"
@@ -47,7 +47,7 @@
         .sign-up__main__body__forms-container__form-box
           .sign-up__main__body__forms-container__form-box__card-label
             = f.label :name, "有効期限"
-            = f.label :name, "必須", class: "attention"
+            = f.label :name, "必須", class: "write-must"
           .sign-up__main__body__forms-container__form-box__card-select-box
             = f.select :explation_month, [[1,1],[2,2],[3,3],[4,4],[5,5],[6,6],[7,7],[8,8],[9,9],[10,10],[11,11],[12,12]],{} , class: "form", required: "true"
             %span.expire-text 月
@@ -56,11 +56,11 @@
             %span.expire-text 年
         .sign-up__main__body__forms-container__form-box
           = f.label :name, "セキュリティコード"
-          = f.label :name, "必須", class: "attention"
+          = f.label :name, "必須", class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
-            = f.text_field :security_code, type: "text", class: "big", placeholder: "カード背面４桁もしくは３桁の番号", maxlength: "4", required: "true"
+            = f.text_field :security_code, type: "text", class: "normal-form", placeholder: "カード背面４桁もしくは３桁の番号", maxlength: "4", required: "true"
         .sign-up__main__body__forms-container__form-box
-          =f.submit "次へ進む", class: "phone-authentication-btn"
+          =f.submit "次へ進む", class: "form__sent-btn"
 .sign-up__footer
   %nav
     %ul
