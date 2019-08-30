@@ -27,36 +27,36 @@
       .sign-up__main__body__forms-container
         .sign-up__main__body__forms-container__form-box
           = f.label :name, "郵便番号"
-          = f.label :name, "必須", class: "attention"
+          = f.label :name, "必須", class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
-            = f.text_field :post_number, class: "big", required: "true",placeholder: "例) 123-4567"
+            = f.text_field :post_number, class: "normal-form", required: "true",placeholder: "例) 123-4567"
         .sign-up__main__body__forms-container__form-box
           = f.label :name, "都道府県"
-          = f.label :name, "必須", class: "attention"
+          = f.label :name, "必須", class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
-            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: "big"
+            = f.collection_select :prefecture_id, Prefecture.all, :id, :name, class: "normal-form"
         .sign-up__main__body__forms-container__form-box
           = f.label :name, "市区町村"
-          = f.label :name, "必須", class: "attention"
+          = f.label :name, "必須", class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
-            = f.text_field :city, class: "big", required: "true",placeholder: "例) 世田谷区若林"
+            = f.text_field :city, class: "normal-form", required: "true",placeholder: "例) 世田谷区若林"
         .sign-up__main__body__forms-container__form-box
           = f.label :name, "番地"
-          = f.label :name, "必須", class: "attention"
+          = f.label :name, "必須", class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
-            = f.text_field :address, class: "big", required: "true",placeholder: "例) ３-５-９８"
+            = f.text_field :address, class: "normal-form", required: "true",placeholder: "例) ３-５-９８"
         .sign-up__main__body__forms-container__form-box
           = f.label :name, "建物名"
-          = f.label :name, "任意", class: "select"
+          = f.label :name, "任意", class: "write-optional"
           .sign-up__main__body__forms-container__form-box__inner
-            = f.text_field :building_name, class: "big",placeholder: "例) 青山ハウス"
+            = f.text_field :building_name, class: "normal-form",placeholder: "例) 青山ハウス"
         .sign-up__main__body__forms-container__form-box
           = f.label :name, "電話番号"
-          = f.label :name, "任意", class: "select"
+          = f.label :name, "任意", class: "write-optional"
           .sign-up__main__body__forms-container__form-box__inner
-            = f.telephone_field :building_tel, class: "big",placeholder: "例) 090-1234-5678"
+            = f.telephone_field :building_tel, class: "normal-form",placeholder: "例) 090-1234-5678"
         .sign-up__main__body__forms-container__form-box
-          = f.submit "次へ進む", class: "buttom1"
+          = f.submit "次へ進む", class: "form__sent-btn"
 
 .sign-up__footer
   %nav

@@ -242,4 +242,122 @@ body {
 }
 
 
+  .buy-error a {
+    display: block;
+    margin: 16px 0 0;
+    color: #0099e8;
+    text-decoration: none;
+    font-size: 14px;
+    padding-right: 40%;
+    }
+  
+    .has-error-text {
+      color: #ea352d;
+      line-height: 1.5;
+      font-size: 14px;
+  }
+
+  .buy-form p {
+    margin: 8px 0 0;
+    line-height: 1.5;
+}
+
+.buy-item .btn-red {
+  margin: 8px 0 0;
+}
+
+.btn-default.btn-red.bold {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  -webkit-transition: all ease-out .3s;
+  transition: all ease-out .3s;
+  cursor: pointer;
+  text-align: center;
+  .btn-default:disabled {
+    border: 1px solid #888;
+    background: #888;
+    color: #fff;
+  }
+}
+.buy-content {
+  margin: 40px 0 0;
+  padding: 24px 12.5% 0;
+  border-top: 1px solid #f5f5f5;
+}
+
+.buy-user-info h3 {
+  margin: 40px 0 0;
+  font-size: 14px;
+  text-align: left;
+
+}
+
+.buy-content-inner {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.buy-user-info-text {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: left;
+}
+
+.buy-user-info-fix {
+  display: block;
+  text-align: right;
+  padding-bottom: 30px;
+}
+
+.buy-user-info-text {
+  margin: 8px 0 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+* {
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  font-weight: bold;
+}
+
+
+  .single-footer {
+    width: 456px;
+    height: 150px;
+    margin: 0 auto;
+    // min-width: 768px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.clearfix {
+  display: flex;
+  & a {
+    // font-size: 14px;
+    // color: #333;
+  }
+  & li {
+    display: inline-block;
+    // margin: 0 0 0 16px;
+  }
+  & nav {
+    margin-top: 60px;
+  }
+}
+
+
 

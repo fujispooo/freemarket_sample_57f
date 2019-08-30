@@ -22,11 +22,12 @@
   .sign-up__main__header
     %h2.sign-up__main__header__main-title 会員登録完了
   .sign-up__main__body
-    #form.done
-      %h2 ありがとうございます。
-      %h2 会員登録が完了しました。
-    #form.done
-      = link_to "メルカリをはじめる", "/", class: "buttom1"
+    .sign-up__main__body__forms-container
+      .sign-up__main__body__forms-container__form-box
+        %h2 ありがとうございます。
+        %h2 会員登録が完了しました。
+      .sign-up__main__body__forms-container__form-box
+        = link_to "メルカリをはじめる", root_path, class: "form__sent-btn"
 
   .complete-footer
     .complete-footer__inner-left-box

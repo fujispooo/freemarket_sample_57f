@@ -1,7 +1,9 @@
 @import 'font-awesome';
 @import 'reset';
+@import 'functions/colors';
 @import 'mixins/mixin';
-@import 'mixins/colors';
+@import 'mixins/form_mixins';
+@import 'modules/mypage_footer';
 @import 'modules/item_details';
 @import 'modules/add_card';
 @import 'modules/mypage_top';

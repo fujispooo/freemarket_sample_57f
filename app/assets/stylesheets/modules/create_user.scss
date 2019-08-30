@@ -37,17 +37,15 @@
         border-radius: 5px;
         border: 1px solid $merukari-gray;
       }
-      label.attention {
-        margin-bottom:10px;
-        background-color: $merukari-red;
-        border: solid 1px $merukari-red;
-        border-radius: 3px;
-        color: white;
-        font-size: 12px;
-        font-weight: 300;
+      // 「必須」バッチ
+      label.write-must {
+        @include badge-status($merukari-red);
       }
-
-// formの入れ子（inputやselectの中身のことではない)
+      // 「任意」バッチ
+      label.write-optional {
+        @include badge-status(#ccc);
+      }
+      // formの入れ子（inputやselectの中身のことではない)
       &__form-box{
         width: 100%;
         padding: 20px 0;
@@ -58,31 +56,18 @@
           width: 70px;
           background-color: white;
         }
-        .phone{
-          margin-top: 5px;
-          padding: 15px 8px;
-          border-radius: 5px;
-          border: 1px solid #ccc;
-          width: 100%;
-          
+        .form__sent-btn{
+          @include link_botton(inline-block,$merukari-red,$merukari-red,white);
+          text-align: center;
         }
+        
         &__inner{
           font-weight: 400;
-          input{
-            margin-top: 10px;
-            padding: 15px 0 15px 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: 97%;
-            font-weight: 300;
+          input.normal-form{
+            @include normal-form();
           }
-          input.big{
-            margin-top: 10px;
-            padding: 15px 0 15px 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: 97%;
-            font-weight: 300;
+          input.small-form{
+            @include small_form();
           }
           select{
             margin-top: 5px;
@@ -99,17 +84,6 @@
         h4.birth {
           padding: 10px 0;
         }
-        input.phone-authentication-btn{
-          text-align: center;
-          border: solid 1px $merukari-red;
-          height: 50px;
-          width: 100%;
-          line-height: 40px;
-          background-color: $merukari-red;
-          color: white;
-          margin: 30px 0;
-          font-weight: 300;
-        }
         .form__link {
           padding: 10px 0 20px 160px;
           a.link1 {
@@ -125,52 +99,43 @@
             list-style: none;
           }
         }
-        input.buttom1 {
-          height: 50px;
-          width: 100%;
-          text-align: center;
-          line-height: 40px;
-          color: white;
-          border: solid 1px $merukari-red;
-          background-color: $merukari-red;
-        }
         // メールアドレスで登録ボタン
-        a.sign-up__by--mail {
-          @include sign-up_botton($merukari-red,$merukari-red,white);
+        .sign-up__by--mail {
+          @include link_botton(inline-flex,$merukari-red,$merukari-red,white);
           border-radius: 5px;
-        }
-        .sign-up__by--mail--left{
-          width:19%;
-          margin-left:20px ;
-        }
-        .sign-up__by--mail--right{
-          width:81%;
+          &--left{
+            width:19%;
+            margin-left:20px ;
+          }
+          &--right{
+            width:81%;
+          }
         }
         // facebookのボタン
-        a.facebook {
-          @include sign-up_botton($facebook-navy,$facebook-navy,white);
+        .facebook {
+          @include link_botton(inline-flex,$facebook-navy,$facebook-navy,white);
           border-radius: 5px;
-        }
-        .facebook--left{
-          width:20%;
-          margin-left:20px ;
-        }
-        .facebook--right{
-          width:80%;
-          margin-left:15px;
+          &--left{
+            width:20%;
+            margin-left:20px ;
+          }
+          &--right{
+            width:80%;
+            margin-left:15px;
+          }
         }
         // googleのボタン
-        a.google {
-          @include sign-up_botton(#fff,#ccc,black);
+        .google {
+          @include link_botton(inline-flex,#fff,#ccc,black);
           border-radius: 5px;
-        }
-        .google--left{
-          width:20%;
-          margin-left:20px ;
-        }
-        .google--right{
-          width:80%;
-          margin-left:30px;
+          &--left{
+            width:20%;
+            margin-left:20px ;
+          }
+          &--right{
+            width:80%;
+            margin-left:30px;
+          }
         }
         &__card-select-box{
           margin-top: 10px;
@@ -182,28 +147,14 @@
     }
   }
 
-// step3
-  .sing-up__form-boxphone {
-    padding: 10px 0;
-    display: block;
-    border-bottom: solid 1px #b0bec5;
-    &__birth__field {
-      padding-top: 10px;
-    }
-  }
+
 // step4
   .sing-up__form-box{
     input.form {
       margin-top: 3px;
     }
   }
-  label.select {
-    color: white;
-    font-size: 12px;
-    background-color: rgb(226, 222, 222);
-    border: solid 5px rgb(226, 222, 222);
-    border-radius: 3px;
-  }
+  
   // step5
   .sing-up__form-box{
     .card__logo {
@@ -252,34 +203,13 @@
 }
 
 
-// formの入力部分のcss
-#form.done {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-align: center;
-  a.buttom1 {
-    height: 40px;
-    padding: 10px 50px;
-    line-height: 40px;
-    text-align: center;
-    border: solid 1px $merukari-red;
-    background-color: $merukari-red;
-    color: white;
-  }
-}
+// クレジットカード会社の画像
 img.card {
   height: 20px;
   width: 32px;
 }
 
-// 通常のフォーム（1行あたり1フォームのもの）
-input.big {
-  margin-top: 5px;
-  padding: 15px 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  width: 100%;
-}
+
 select.big {
   margin-top: 5px;
   padding: 15px 8px;
@@ -288,23 +218,6 @@ select.big {
   width: 100%;
 }
 
-// 小さいフォーム（1行あたり2フォームのもの）
-input.small{
-  &-left{
-    margin: 5px 10px 0 0;
-    padding: 10px 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 60%;
-  }
-  &-right{
-    margin: 5px 0 0 10px;
-    padding: 10px 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    width: 60%;
-  }
-}
 
 input.mini {
   margin-top: 5px;
@@ -359,7 +272,6 @@ li.form {
           line-height: 70px;
           &:hover{opacity:0.6;}
         }
-
       }
     }
   }

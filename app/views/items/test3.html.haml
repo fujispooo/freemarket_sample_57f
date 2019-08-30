@@ -26,15 +26,15 @@
       .sign-up__main__body__forms-container
         .sign-up__main__body__forms-container__form-box.phone
           = f.label :name, "認証番号"
-          %br/
+
           .sign-up__main__body__forms-container__form-box__inner
-            %input.phone{type: "text",placeholder: "認証番号を入力"}
+            %input.normal-form{type: "text",placeholder: "認証番号を入力"}
           %h4 SMSで届いた認証番号を入力してください。
-          = f.submit "認証して完了", class: "phone-authentication-btn"
+          = f.submit "認証して完了", class: "form__sent-btn"
         .sign-up__main__body__forms-container__form-box.phone
           %h4 30秒たっても認証番号が届かない方へ
           %h4 電話で認証番号を聞くこともできます。
-          = f.submit "電話で認証番号を聞く(通話無料)", class: "phone-authentication-btn"
+          = f.submit "電話で認証番号を聞く(通話無料)", class: "form__sent-btn"
         .sign-up__main__body__forms-container__form-box
           %h4 認証番号を再送することができます。
           %h4 もう一度電話番号を入力してください。
