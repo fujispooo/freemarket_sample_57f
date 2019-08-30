@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+
+  root to: 'items#top'
+  root to: 'details#index'
+
   root to: 'items#index'
+
   
   resources :users do
     collection do
@@ -31,6 +36,7 @@ Rails.application.routes.draw do
       get 'sell'         => 'items#sell'
       get :purchase
       get 'items/show/' => 'items#show'
+      get 'itemes/top/' => 'items#top'
     end
   end
 end

@@ -7,6 +7,8 @@
   z-index: 1001;
   background: rgb(255, 255, 255);
   text-align: center;
+  display: block;
+  color: #333;
   &-inner {
     display: inline-block;
     width: 700px;
@@ -22,10 +24,7 @@
   justify-content: space-between;
 }
 
-.main-header a {
-  display: block;
-  color: #333;
-}
+
 
 .main-header-form {
   position: relative;
@@ -92,7 +91,7 @@ input {
   font-weight: 700;
   float: left;
 }
-.main-header-nav a {
+.main-header-nav {
   display: block;
   color: #333;
 }
@@ -128,7 +127,7 @@ input {
 
 .l-right {
   float: right;
-  line-height: 1.4;
+  line-height: 2.5;
   color: #333;
 }
 
@@ -240,121 +239,8 @@ body {
   color: #333;
   line-height: 1;
   height: 100%;
-  
 }
 
-.single-container{
-    text-align: center;
-   
-  }
-
-.single-header{
-  text-align: center;
-  height: 128px;
-}
-
-.single-header img {
-  width: 185px;
-  height: 49px;
-  margin-top: 39.5px;
-  }
-
-  .single-main {
-  text-align: center;
-  height: 100%;
-  padding: 0 0 220px;
-  }
-
-  .l-single-container.buy-item-container {
-    width: 700px;
-    background: #fff;
-    font-size: 30px;
-    margin: 0 auto;
-  }
-
-  .l-single-head {
-    font-size: 18px;
-    padding: 16px;
-    line-height: 1.5;
-    text-align: center;
-    font-weight: bold;
-  }
-
-  .buy-content.buy-item {
-    margin: 0;
-    padding: 24px 12.5% 0;
-  }
-
-  .buy-content-inner {
-    max-width: 320px;
-    margin: 0 auto;
-  }
-
-  .buy-pro {
-    display: flex;
-  }
-
-  h3.buy-item-image{
-    font-size: 22px;
-    background-color: #333;
-    width: 64px;
-    height: 64px;
-    margin-right: 0;
-  }
-
-  .buy-item-name.bold{
-    width: calc(100% - 80px);
-    margin: 0 0 0 16px;
-    text-align: left;
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
-  .buy-form {
-    width: 100%;
-  }
-
-  .buy-price-ja.bold {
-    font-size: 22px;
-}
-
-  .item-shipping-fee.f14.bold {
-    margin: 0 0 0 8px;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.buy-accordion {
-  margin: 16px 0 0;
-}
-
-.buy-accordion .accordion-toggle {
-  padding: 16px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-}
-
-.buy-price-row.buy-you-pay.bold {
-  border: 0;
-  padding: 16px 0;
-  font-size: 18px;
-  display: table-row;
-}
-
-.buy-price-cell {
-  display: table-cell;
-  padding: 16px 0;
-  text-align: right;
-  font-size: 18px;
-  font-weight: 600;
-  & span {
-  font-size: 28px;
-  text-align: right;
-  margin-left: 280%;
-  font-weight: 700;
-
-  }
-}
 
   .buy-error a {
     display: block;
@@ -472,5 +358,6 @@ h3 {
     margin-top: 60px;
   }
 }
+
 
 
