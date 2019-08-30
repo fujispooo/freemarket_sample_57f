@@ -7,6 +7,8 @@
   z-index: 1001;
   background: rgb(255, 255, 255);
   text-align: center;
+  display: block;
+  color: #333;
   &-inner {
     display: inline-block;
     width: 700px;
@@ -22,10 +24,7 @@
   justify-content: space-between;
 }
 
-.main-header a {
-  display: block;
-  color: #333;
-}
+
 
 .main-header-form {
   position: relative;
@@ -92,7 +91,7 @@ input {
   font-weight: 700;
   float: left;
 }
-.main-header-nav a {
+.main-header-nav {
   display: block;
   color: #333;
 }
@@ -128,7 +127,7 @@ input {
 
 .l-right {
   float: right;
-  line-height: 1.4;
+  line-height: 2.5;
   color: #333;
 }
 
@@ -364,6 +363,27 @@ input {
 //     font-size: 14px;
 //     padding-right: 40%;
 //     }
+
+body {
+  position: relative;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+  height: 100%;
+}
+
+
+  .buy-error a {
+    display: block;
+    margin: 16px 0 0;
+    color: #0099e8;
+    text-decoration: none;
+    font-size: 14px;
+    padding-right: 40%;
+    }
+
   
 //     .has-error-text {
 //       color: #ea352d;
@@ -472,5 +492,6 @@ input {
 //     margin-top: 60px;
 //   }
 // }
+
 
 
