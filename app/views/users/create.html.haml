@@ -1,10 +1,6 @@
 = render "modules/header"
-
-.l-container.clearfix
-
+.main-content
   = render "modules/mypage-sidebar"
-
-  .l-content
   %section.l-chapter-container
     %h2.l-chapter-head クレジットカード情報入力
     %form#add-card-form.l-single-inner.registration-form{action: "https://www.mercari.com/jp/mypage/card/add/", "data-adyen-id": "card-form", method: "POST", novalidate: "novalidate"}
