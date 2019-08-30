@@ -1,5 +1,8 @@
-%nav.bread-crumbs
-  .bread-crumbs-box
+-# ヘッダーもっtくる
+-# = render 'shared/top'
+
+%nav.logout-bread-crumbs
+  .logout-bread-crumbs-box
     = link_to 'https://www.mercari.com/jp/', class: "contents" do
       メルカリ
       = fa_icon 'angle-double-right'
@@ -18,3 +21,5 @@
         .logout_right-form
           %button{type: "submit"} ログアウト
           %input{name: "__csrf_value", type: "hidden", value: ""}/
+
+= render 'shared/footer'

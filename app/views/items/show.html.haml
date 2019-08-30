@@ -1,114 +1,169 @@
-%nav.bread-crumbs
-  .bread-crumbs-box
-    = link_to 'https://www.mercari.com/jp/', class: "contents" do
-      メルカリ
-      = fa_icon 'angle-double-right'
-    = link_to 'https://www.mercari.com/jp/mypage/', class: "contents" do
-      マイページ
-      = fa_icon 'angle-double-right'
-    %span{itemprop: "title"} 本人情報の登録
+.header
 
-.iden_main-content
-  .iden_left-content
-    = render 'modules/mypage-sidebar'
+%section.item-box-container.l-single-container
+  %h1.item-name VANS × カリフォルニア工務店 スニーカー ERA 星条旗 27
+  .item-main-content
+    .item-photo
+      .owl-carousel
+        .owl-item-inner
+        .owl-item-inner-sub-box
+          .owl-item-inner-sub
+            = image_tag 'takei.png'
+          .owl-item-inner-sub
+            = image_tag 'takei.png'
+          .owl-item-inner-sub
+            = image_tag 'takei.png'
+          .owl-item-inner-sub
+            = image_tag 'takei.png'
+          .owl-item-inner-sub
+            = image_tag 'takei.png'
 
-  .iden_right-content
-    %h2.iden_head 本人情報の登録
-    %form.iden_form{action: "url", method: "POST", novalidate: ""} 
-      %div
-        %p
-          お客さまの本人情報をご登録ください。
-          %br>/
-          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
-        %p.iden_info-right
-          %a.iden_info-right_link{href: "url", target: "_blank"}
-            本人確認書類のアップロードについて>
-            %i.icon-arrow-right
-      .iden_form-group
-        %label お名前
-        %p 道面 拓也
-      .iden_form-group
-        %label お名前カナ
-        %p ドウメン タクヤ
-      .iden_form-group
-        %label{for: "birthday"} 生年月日
-        %p 1991/10/31
-      .iden_form-group
-        %label{for: "zip_code"} 郵便番号
-        %span.iden_form-arbitrary 任意
-        %input.iden_form-input{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}
-      .iden_form-group
-        %label{:for => "prefecture"} 都道府県
-        %span.form-arbitrary 任意
-        .select-wrap
-          %i.fa.fa-chevron-down
-          -# prefectureテーブルから持ってくる
-          %select.select-default{name: "prefecture"}
-            %option --
-            %option 北海道
-            %option 青森県
-            %option 岩手県
-            %option 宮城県
-            %option 秋田県
-            %option 山形県
-            %option 福島県
-            %option 東京都
-            %option 神奈川県
-            %option 埼玉県
-            %option 千葉県
-            %option 茨城県
-            %option 栃木県
-            %option 群馬県
-            %option 山梨県
-            %option 新潟県
-            %option 長野県
-            %option 富山県
-            %option 石川県
-            %option 福井県
-            %option 愛知県
-            %option 岐阜県
-            %option 静岡県
-            %option 三重県
-            %option 大阪府
-            %option 兵庫県
-            %option 京都府
-            %option 滋賀県
-            %option 奈良県
-            %option 和歌山県
-            %option 鳥取県
-            %option 島根県
-            %option 岡山県
-            %option 広島県
-            %option 山口県
-            %option 徳島県
-            %option 香川県
-            %option 愛媛県
-            %option 高知県
-            %option 福岡県
-            %option 佐賀県
-            %option 長崎県
-            %option 熊本県
-            %option 大分県
-            %option 宮崎県
-            %option 鹿児島県
-            %option 沖縄県
-      .iden_form-group
-        %label{for: "city"} 市区町村
-        %span.form-arbitrary 任意
-        %input.iden_form-input{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}/
-      .iden_form-group
-        %label{for: "address1_label"} 番地
-        %span.iden_form-arbitrary 任意
-        %input.iden_form-input{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: ""}/
-      .iden_form-group
-        %label{:for => "address2_label"} 建物名
-        %span.form-arbitrary 任意
-        %input.iden_form-input{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}/
-      %button.iden_btn{type: "submit"} 登録する
+    .item-price-box.text-center.visible-sp
+      %span.item-price.bold ¥13,100
+      %span.item-tax (税込)
+      %span.item-shipping-fee 送料込み
 
-      .iden_form-group_info-right
-        %p
-          %a{:href => "url", :target => "_blank"}
-            本人情報の登録について>
-          %i.icon-arrow-right
-      %input{:name => "__csrf_value", :type => "hidden", :value => "e3822d7c75b0a6c40777ec6f3cff18bfafa93f62ff99d758079f5f68814c987eca7be2240fd94dacd22ca552b7fc0c6030b6847a03a2bca4bcbc03097374f86e5"}/
+    .visible-sp
+    .item-btn-float-area
+      %a.item-btn-client
+    .item-detail-table
+      .tr
+        .th 出品者
+        .td
+          = link_to '☆☆ALEXIA☆☆','https://www.mercari.com/jp/u/179175835/'
+          %div
+            .item-user
+              .item-user-ratings1
+                = image_tag 'good.svg'
+                %span 149
+              .item-user-ratings2
+                = image_tag 'normal.svg'
+                %span 0
+              .item-user-ratings3
+                = image_tag 'bad.svg'
+                %span 0
+      .tr
+        .th カテゴリー
+        .td-sub
+          = link_to 'メンズ',class:'item-detail-table-category'
+          = link_to  '靴',class:'item-detail-table-sub-category'
+          = link_to 'スニーカー',class:'item-detail-table-sub-sub-category'
+      .tr
+        .th ブランド
+        .td
+          = link_to 'バンズ'
+      .tr
+        .th 商品のサイズ
+        .td 27cm
+      .tr
+        .th 商品の状態
+        .td 新品、未使用
+      .tr
+        .th 配送料の負担
+        .td 送料込み(出品者負担)
+      .tr
+        .th 配送の方法
+        .td クロネコヤマト
+      .tr
+        .th 配送元地域
+        .td
+          = link_to '山梨県'
+      .tr
+        .th 発送日の目安
+        .td 2~3日で発送
+  .item-price-box.text-center
+    %span.item-price.bold ¥13,100
+    %span.item-tax (税込)
+    %span.item-shipping-fee 送料込み
+  .text-center
+    .sales-point-message
+      P200 をお持ちです
+    .item-buy-btn
+      = link_to '購入画面に進む'
+  .item-description.f14
+    %p.item-description-inner
+      VANSとカリフォルニア工務店の限定コラボデニムEraです。
+      
+      カリフォルニア工務店より第2弾として販売されたvans collection！
+      デニムをメインにヒールに星条旗が入る爽やかな一足になります。
+      販売と同時に即完。
+      各方面で高値で取引されています。
+      ゴールデサイズです。
+      
+      サイズ →US9(27センチ)
+      新品未使用 ！
+      
+      カリフォルニア工務店 VANS バンズ コラボ コラボスニーカー 星条旗 RonHerman RHC ロンハーマン WTW ダブルティ SURT サート サーフ サーフ系
+  .item-button-container
+    .item-button-left
+      %button.item-button.item-button-like{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m11168273272", "data-toggle" => "like", :name => "like!", :type => "button"}
+        %i.icon-like-border
+        %span いいね!
+        %span.fade-in-down{"data-num" => "like"} 21
+      %a.item-button.item-button-report
+        %i.icon-flag
+        %span 不適切な商品の報告
+      %input{:name => "like_add_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/add/m11168273272/?_s=U2FsdGVkX1_cdkm5jqi1IF0GNlqYcWpX58J75jS9s1YW9x1h1_gGRyl-ME-aqWFC6FHgSaR87aw7uL9zNqh1h6j3B84_goa3I5BbQKtRJcYWT5XBu_mFg8RsiRQWWj4C"}/
+      %input{:name => "like_del_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/delete/m11168273272/?_s=U2FsdGVkX1_cdkm5jqi1IF0GNlqYcWpX58J75jS9s1YW9x1h1_gGRyl-ME-aqWFC6FHgSaR87aw7uL9zNqh1h6j3B84_goa3I5BbQKtRJcYWT5XBu_mFg8RsiRQWWj4C"}/
+      %input{:name => "__csrf_value", :type => "hidden", :value => "3c4f11465244650df31f45c7ae9fd640b5106547cef796d0b550904a6a9caef0e0ff6bfb18a9df809256bf3b41457777a9610f294078b4f08ac73e31ab382d587"}/
+    .item-button-right
+      %a{:href => "https://www.mercari.com/jp/safe/description/", :target => "_blank"}
+        %i.icon-lock
+        %span あんしん・あんぜんへの取り組み
+  .message-content
+    .message-form
+      相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+    .textarea-default
+    %button.message-submit.btn-default.btn-gray{:type => "submit"}
+      %span コメントする
+
+    %ul.nav-item-link-prev-next.clearfix
+      %li.nav-item-link-prev
+        ショートパンツ ベージュ
+      %li.nav-item-link-next
+        【新品未使用】ポケモン ピカチュウ ぬいぐるみ
+        %i.icon-arrow-right
+  .item-social-media-box
+  .text-center
+    .fb-save{"data-uri" => "product://113299479059860/m46057519022"}
+  %ul.social-media-box
+    = fa_icon 'facebook', class: "contents__btn--icon"
+    = fa_icon 'facebook', class: "contents__btn--icon"
+    = fa_icon 'facebook', class: "contents__btn--icon"
+    = fa_icon 'facebook', class: "contents__btn--icon"
+  %h2.items-box-head
+    (´ω` )さんのその他の出品
+  .items-box-content1
+    .items-box
+      .img-photo
+    .items-box
+      .img-photo
+    .items-box
+      .img-photo
+  .items-box-content2
+    .items-box
+      .img-photo
+    .items-box
+      .img-photo
+    .items-box
+      .img-photo
+  %h2.items-box-head_sub
+    その他のアイテム
+  .items-box-content1
+    .items-box
+      .img-photo
+    .items-box
+      .img-photo
+    .items-box
+      .img-photo
+  .items-box-content2
+    .items-box
+      .img-photo
+    .items-box
+      .img-photo
+    .items-box
+      .img-photo
+
+= render "shared/footer"
+
+
