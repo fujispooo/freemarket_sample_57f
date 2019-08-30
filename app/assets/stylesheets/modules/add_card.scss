@@ -1,9 +1,3 @@
-.header {
-  height: 150px;
-  width: 100%;
-  background-color: aquamarine;
-}
-
 .mypage-nav-list {
   height: 685px;
   width: 280px;
@@ -38,6 +32,7 @@
     border: 2px solid red;
     color: #fff;
     line-height: 50px;
+    text-decoration-line: none;
   }
   .btn-default:hover {
     background-color: #fff;
@@ -177,6 +172,7 @@
 
 .select-wrap.half-main{
   display: flex;
+  width: 400px;
 }
 
 .select-wrap.half-1 {
@@ -188,7 +184,7 @@
 .select-wrap.half-2 {
   margin: 8px 0 0;
   display: inline-block;
-  width: calc(50% - 2px);
+  width: calc(50% - 20px);
 }
 
 
