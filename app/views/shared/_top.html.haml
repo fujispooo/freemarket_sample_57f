@@ -1,10 +1,48 @@
-.pickup__item__box
-  .pickup__item__box__content
-    .pickup__item__box__content__link
-      .pickup__item__box__content__link__figure
-        = image_tag 'index_keyvisual.png', size: "200x220"
-      .pickup__item__box__content__link__body
-        %h3.pickup__item__box__content__link__body__name キャンプ用品
-        .pickup__item__box__content__link__body__num
-          %p.pickup__item__box__content__link__body__num__price ¥500
-          %p.pickup__item__box__content__link__body__tax ♡100
+%header.main-header
+  .main-header-inner
+    .main-header-top
+      = link_to "https://www.mercari.com/jp/", class:"content" do
+        .header__box__top__logo__link
+          = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3270184656", size: "134x36", alt: "メルカリロゴ", class: "header__box__top__link__image"
+      %form.main-header-form{action: "https://www.mercari.com/jp/search/"}
+        %input.input-default{name: "keyword", placeholder: "何かお探しですか？", type: "search", value: ""}/
+      %i.fa.fa-search
+    .main-header-nav-box.clearfix
+      %nav.l-left
+        %ul.main-header-nav
+          %li
+            %h2
+              %a.main-header-nav-root.list-parent
+                %i.icon-list.pc-header-cat-brand-icon
+                %span カテゴリーから探す
+            %ul.main-header-nav-parent-wrap
+            %i.icon-search
+            %li
+              %h2
+                %a.main-header-nav-root.list-parent
+                  %i.icon-tag.main-header-cat-brand-icon
+                  %span ブランドから探す
+      %nav.l-right
+        %ul.main-header-user-nav
+          %li
+            %a.main-header-menu-link
+              %i.fa.fa-bell
+              %span お知らせ
+              %li
+                %a.main-header-menu-link
+                  %i.fa.fa-check
+                  %span やることリスト
+                %li
+                  %a.main-header-user-icon.pc-header-menu-link
+                    %div
+                      %img
+                      %span マイページ-# .pickup__item__box
+-#   .pickup__item__box__content
+-#     .pickup__item__box__content__link
+-#       .pickup__item__box__content__link__figure
+-#         = image_tag 'index_keyvisual.png', size: "200x220"
+-#       .pickup__item__box__content__link__body
+-#         %h3.pickup__item__box__content__link__body__name キャンプ用品
+-#         .pickup__item__box__content__link__body__num
+-#           %p.pickup__item__box__content__link__body__num__price ¥500
+-#           %p.pickup__item__box__content__link__body__tax ♡100
