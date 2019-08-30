@@ -13,8 +13,9 @@ Rails.application.routes.draw do
       get '/'              => 'users#mypage'
       namespace :card do
         get '/'            => 'cards#show'
-        get 'create/'      => 'cards#new'
-        get 'destroy/'     => 'cards#destroy'
+        get 'create'       => 'cards#new'
+        delete 'destroy'   => 'cards#destroy'
+        get 'edit'         => 'cards#edit'
       end
     end
     namespace :signup do
