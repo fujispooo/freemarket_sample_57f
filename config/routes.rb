@@ -6,15 +6,17 @@ Rails.application.routes.draw do
   root to: 'items#index'
 
   
+  namespace :mypage do
+    get 'profile/'       => 'users#show'
+    get 'card/'          => 'users#card'
+    get 'card/create/'   => 'users#create'
+    get 'card/destroy/'  => 'users#destroy'
+    get 'identification' => 'users#identification'
+    get 'logout'         => 'users#logout'
+    get '/'              => 'users#mypage'
+  end
+
   resources :users do
-    collection do
-      get 'mypage/profile/' => 'users#show'
-      get 'mypage/card/'    =>  'users#new'
-      get 'mypage/card/create/' => 'users#create'
-      get 'mypage/card/destroy/' => 'users#destroy'
-      get 'mypage/identification' => 'users#identification'
-      get 'mypage/logout' => 'users#logout'
-    end
   end
 
   devise_for :users, controllers:{

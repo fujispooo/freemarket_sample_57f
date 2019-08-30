@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   def show
   end
 
+  def mapage
+  end
+
   def new
   end
 
