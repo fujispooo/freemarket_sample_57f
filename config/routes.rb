@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get 'mypage/card/create/' => 'users#create'
       get 'mypage/card/destroy/' => 'users#destroy'
       get 'mypage/identification' => 'users#identification'
+      get 'mypage/logout' => 'users#logout'
     end
   end
 
@@ -29,7 +30,6 @@ Rails.application.routes.draw do
       get :test8
       get :test9
       get 'sell'         => 'items#sell'
-      get 'mypage/logout' => 'items#logout'
       get :purchase
       get 'items/show/' => 'items#show'
     end
