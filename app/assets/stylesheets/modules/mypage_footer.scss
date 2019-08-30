@@ -5,10 +5,9 @@
   height: 260px;
   margin: 0 auto;
   color: #fff;
-  & img  {
-    width: 100%;
-    margin-bottom: 0;
-  }
+  background: url('image-footer.png');
+  background-position: center;
+  background-size: cover;
 }
 
 .global-footer {
