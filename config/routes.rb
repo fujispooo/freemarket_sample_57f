@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: 'items#index'
-  root to: 'details#index'
   
   resources :users do
     collection do
