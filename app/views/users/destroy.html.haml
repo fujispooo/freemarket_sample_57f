@@ -1,33 +1,28 @@
-.header
-
-.l-container.clearfix
-
+= render "modules/header"
+.main-content
   = render "modules/mypage-sidebar"
-
-  %main.l-container.clearfix
   .l-content
-    %section.l-chapter-container
-      %h2.l-chapter-head 支払い方法
-      .l-single-inner
-        %section
-          .l-single-content
-            %h3.l-chapter-sub-head クレジットカード一覧
-          %ul.settings-payment-list
-            %li
-              %form.l-single-content{:action => "https://www.mercari.com/jp/mypage/card/delete/", :method => "POST"}
-                %figure
-                  = image_tag ('https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3951034907')
-                %input{:name => "__csrf_value", :type => "hidden", :value => "3c4f11465244650df31f45c7ae9fd640b5106547cef796d0b550904a6a9caef0e0ff6bfb18a9df809256bf3b41457777a9610f294078b4f08ac73e31ab382d587"}/
-                %input{:name => "card_sequence_no", :type => "hidden", :value => "9ZSxWWFSBW7LepX983n4UNcc"}/
-                .settings-payment-num ************2267
-                .settings-payment-num ** / **
-                %input{:name => "method", :type => "hidden", :value => "card"}/
-                %button.settings-payment-remove{:type => "submit"}
-                  削除する
-        .settings-not-regist
-          %a{:href => "/jp/help_center/category/6/", :target => "_blank"}
-            %span 支払い方法について
-            %i.icon-arrow-right
+    .l-container
+      .l-content
+        %section.l-chapter-container
+          %h2.l-chapter-head 支払い方法
+          .l-single-inner
+            %section
+              .l-single-content
+                .l-chapter-sub-head クレジットカード一覧
+              %ul.settings-payment-list
+                %li
+                  .l-single-content
+                    %figure
+                      = image_tag ('https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3951034907')
+                      .settings-payment-num ************2267
+                      .settings-payment-num ** / **
+                      .settings-payment-remove{type: "submit"}
+                        削除する
+            .settings-not-regist
+              %a{:href => "/jp/help_center/category/6/", :target => "_blank"}
+                %span 支払い方法について
+                %i.icon-arrow-right
 
 
 
