@@ -170,4 +170,8 @@
 .iden_form-group_info-right{
   margin: 40px 0 0;
   text-align: right;
+  & a{
+    color: #0099e8;
+    text-decoration: none;
+  }
 }
