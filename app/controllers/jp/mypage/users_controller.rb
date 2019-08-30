@@ -1,9 +1,9 @@
-class UsersController < ApplicationController
+class Jp::Mypage::UsersController < ApplicationController
   
   def show
   end
 
-  def mapage
+  def mypage
   end
 
   def new
