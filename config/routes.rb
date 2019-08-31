@@ -18,33 +18,33 @@ Rails.application.routes.draw do
         get 'edit'         => 'users#edit'
       end
     end
-    namespace :signup do
-      get '/'              => 'users#new'
-    end
     namespace :transaction do
       namespace :buy do
-        get 'm[:id]/sell'       => 'items#show'
+        get 'm[:id]/sell'  => 'items#show'
       end
     end
     get 'm[:id]/detail'    => 'items#show'
     get 'sell'             => 'items#sell'
     get '/'                => 'items#index'
+    get 'purchase'         => 'items#purchase'
+  end
+
+  devise_scope :user do
+    scope :jp do
+      scope :signup do
+        get '/'                    => 'users/registrations#index'
+        get 'registration'         => 'users/registrations#step1'
+        get 'ms_confirmation'      => 'users/registrations#step2'
+        get 'sms_confirmation/sms' => 'users/registrations#step3'
+        get 'address'              => 'users/registrations#step4'
+        get 'credit'               => 'users/registrations#step5'
+        get 'registration/create'  => 'users/registrations#create'
+      end
+      get 'users/sign_out'         => 'users#destroy'
+    end
   end
 
   resources :users ,only: :new do
   end
 
-  resources :items do
-    collection do
-      get :test1
-      get :test2
-      get :test3
-      get :test4
-      get :test5
-      get :test6
-      get :test8
-      get :new
-      get :purchase
-    end
-  end
 end
