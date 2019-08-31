@@ -163,12 +163,26 @@
 
   |Column|Type|Options|
   |------|----|-------|
-  |size|string|null: false|
-  |type|string|-------|
+  |size|string|-------|
+  |ancestry|string|-------|
 
   ### Association
   - has_many :items
+  - has_many :category_sizes
+  - has_many :categories, through: :category_sizes
+  - has_ancestry
 
+  ## category_sizesテーブル
+
+  |Column|Type|Options|
+  |------|----|-------|
+  |category_id|references|foreign_key: true|
+  |size_id|references|foreign_key: true|
+
+  ### Association
+  - belongs_to :category
+  - belongs_to :size
+  
 
   ## brandsテーブル
 
