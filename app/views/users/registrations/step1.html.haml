@@ -23,7 +23,7 @@
     %h2.sign-up__main__header__main-title 会員情報入力
   .sign-up__main__body
     .sign-up__main__body__forms-container
-      = form_for User.new, url: new_user_path, method: :get do |f|
+      = form_for @user,url: ms_confirmation_path, method: :get do |f|
         .sign-up__main__body__forms-container__form-box
           = f.label :name, 'ニックネーム'
           = f.label :name, '必須', class: "write-must"
@@ -80,7 +80,6 @@
           %h4.birth ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
         .sign-up__main__body__forms-container__form-box
-          -# = recaptcha_tags
           %h4 次へ進むのボタンを押すことにより、利用規約に同意したものとみなします
 
         .sign-up__main__body__forms-container__form-box

@@ -19,21 +19,30 @@
         完了
         %span.bubble>
 .sign-up__main
-  = form_for User.new, url: new_user_path, method: :get do |f|
+  = form_for User.new,url:address_path, method: :get do |f|
     .sign-up__main__header 
-      %h2.sign-up__main__header__main-title 電話番号の確認
+      %h2.sign-up__main__header__main-title 電話番号認証
     .sign-up__main__body
       .sign-up__main__body__forms-container
-        .sign-up__main__body__forms-container__form-box
-          = f.label :name, "携帯電話の番号"
+        .sign-up__main__body__forms-container__form-box.phone
+          = f.label :name, "認証番号"
+
           .sign-up__main__body__forms-container__form-box__inner
-            = f.telephone_field :phone_number, class: "normal-form", required: "true",placeholder: "携帯電話の番号を入力"
-        %h4 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+            %input.normal-form{type: "text",placeholder: "認証番号を入力"}
+          %h4 SMSで届いた認証番号を入力してください。
+          = f.submit "認証して完了", class: "form__sent-btn"
+        .sign-up__main__body__forms-container__form-box.phone
+          %h4 30秒たっても認証番号が届かない方へ
+          %h4 電話で認証番号を聞くこともできます。
+          = f.submit "電話で認証番号を聞く(通話無料)", class: "form__sent-btn"
         .sign-up__main__body__forms-container__form-box
-          = f.submit "SMSを送信する", class: "form__sent-btn"
-          %h4 ※電話番号は本人確認や不正防止のために利用します。他のユーザーに公開されることはありません。
-        .form__link
-          = link_to "電話番号が必要な理由", "#", class: "link1"
+          %h4 認証番号を再送することができます。
+          %h4 もう一度電話番号を入力してください。
+          .form__link
+            = link_to "電話番号を再入力する", "#", class: "link1"
+          %h4 SMSが届かない場合は
+          =link_to "SMS受信設定", "#", class: "link1"
+          %h4 を確認して、もう一度電話番号を入力してください。
 .sign-up__footer
   %nav
     %ul
