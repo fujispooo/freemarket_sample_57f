@@ -80,7 +80,7 @@
 
   |Column|Type|Options|
   |------|----|-------|
-  |name|string|null: false|
+  |name|string|null: false, index: true|
   |description|text|null: false|
   |category_id|references|null: false, foreign_key: true|
   |size_id|references|null: false, foreign_key: true|
