@@ -150,14 +150,14 @@
   |Column|Type|Options|
   |------|----|-------|
   |name|string|null: false|
-  |name|string|null: false|
   |ancestry|string|-------|
 
   ### Association
-  <!-- - belongs_to :category_grandparent -->
-  <!-- - belongs_to :category_parent -->
   - has_many :items
-
+  - has_many :category_sizes
+  - has_many :sizes, through: :category_sizes
+  - has_ancestry
+  
 
   ## sizesテーブル
 
