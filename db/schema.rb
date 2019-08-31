@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_064003) do
+ActiveRecord::Schema.define(version: 2019_08_30_235905) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -34,6 +34,29 @@ ActiveRecord::Schema.define(version: 2019_08_28_064003) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.bigint "category_id_id", null: false
+    t.bigint "size_id_id", null: false
+    t.bigint "brand_id_id"
+    t.bigint "item_state_id_id", null: false
+    t.bigint "delivery_fee_id_id", null: false
+    t.bigint "delivery_method_id_id", null: false
+    t.bigint "delivery_day_id_id", null: false
+    t.integer "price", null: false
+    t.bigint "user_id_id", null: false
+    t.index ["brand_id_id"], name: "index_items_on_brand_id_id"
+    t.index ["category_id_id"], name: "index_items_on_category_id_id"
+    t.index ["delivery_day_id_id"], name: "index_items_on_delivery_day_id_id"
+    t.index ["delivery_fee_id_id"], name: "index_items_on_delivery_fee_id_id"
+    t.index ["delivery_method_id_id"], name: "index_items_on_delivery_method_id_id"
+    t.index ["item_state_id_id"], name: "index_items_on_item_state_id_id"
+    t.index ["name"], name: "index_items_on_name"
+    t.index ["size_id_id"], name: "index_items_on_size_id_id"
+    t.index ["user_id_id"], name: "index_items_on_user_id_id"
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
