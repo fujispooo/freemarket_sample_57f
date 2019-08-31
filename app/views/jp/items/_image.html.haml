@@ -1,0 +1,11 @@
+-# %li.listGroupItem
+-#   = image_tag image,width:"120px",height:"80px",class:"product-image",data:{"image_id": "#{image_id}"}
+-#   - if image.filename
+-#     - filename = image.filename
+-#   - else
+-#     - filename = "#{image.model[:images][image_counter]}"
+-#   %div#deleteBtn--pre{data:{"image_index": "#{image_counter+length}", "image_original_index": "#{image_counter+original_index}", "image_filename": "#{filename}"}}
+-#     %span.edit-image
+-#       編集
+-#     %span.delete-image
+-#       削除

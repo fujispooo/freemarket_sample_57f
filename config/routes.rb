@@ -27,7 +27,7 @@ Rails.application.routes.draw do
       end
     end
     get 'm[:id]/detail'    => 'items#show'
-    get 'sell'             => 'items#sell'
+    get 'sell'             => 'items#new'
     get '/'                => 'items#index'
   end
 

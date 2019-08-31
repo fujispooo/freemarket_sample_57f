@@ -4,29 +4,36 @@
 .sell-main
   .sell-inner
     %h2.sell-inner__head 商品の情報を入力
-    %form.sell-inner__form
+    .sell-inner__form
+    = form_for @item do |f|
       .sell-inner__form__upload-box
+        -# = f.hidden_field :user_id, value: current_user.id
         %label 出品画像
         %span 必須
         %p.sell-inner__form__upload-box-text 最大10枚までアップロードできます
         .sell-inner__form__upload-box__dropbox
           .sell-inner__form__upload-box__dropbox__container
-            %input{multiple: "", name: "image1", style: "display: none;", type: "file"}/
             %pre
               :preserve
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
+          -#   - if controller.action_name == 'edit'
+          -#     = render partial: 'image', locals: { length: 0, image_id: @item.item_image.id, original_index: 0 }, collection: @item.product_image.images, as: :image
+          -# = f.fields_for :item_image, @item_image do |g|
+          -#   = g.file_field :images, id:"item_image_file", multiple:true
+          -#   = g.hidden_field :images, id:"cropped_image", multiple:true
+
       .sell-inner__form__item
         .sell-inner__form__item__name
-          %label 商品名
+          = f.label :商品名, class: "label"
           %span 必須
           %div 
-            %input{placeholder: "商品名（必須 40文字まで)", value: ""}/
+            = f.text_field :name, required: true, placeholder: "商品名（40字まで）", class: "inputField"
 
         .sell-inner__form__item__description
-          %label 商品の説明
+          = f.label :商品の説明
           %span 必須
-          %textarea{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", rows: "5"}
+          = f.text_area :description, required: true, placeholder: "商品説明（1,000字まで）例）2018年に購入した、革ジャンです。黒みがかった見た目です。傷等はございません。", class: "inputField inputField__area", rows: "7"
 
       .sell-inner__form__content
         .sell-inner__form__content__left
