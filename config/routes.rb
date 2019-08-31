@@ -12,18 +12,23 @@ Rails.application.routes.draw do
       get 'logout'         => 'users#logout'
       get '/'              => 'users#mypage'
       namespace :card do
-        get '/'            => 'cards#show'
-        get 'create'       => 'cards#new'
-        delete 'destroy'   => 'cards#destroy'
-        get 'edit'         => 'cards#edit'
+        get '/'            => 'users#show'
+        get 'create'       => 'users#new'
+        delete 'destroy'   => 'users#destroy'
+        get 'edit'         => 'users#edit'
       end
     end
     namespace :signup do
       get '/'              => 'users#new'
     end
-    get '/'                => 'items#show'
+    namespace :transaction do
+      namespace :buy do
+        get 'm[:id]/sell'       => 'items#show'
+      end
+    end
+    get 'm[:id]/detail'    => 'items#show'
     get 'sell'             => 'items#sell'
-    get 'top'              => 'items#top'
+    get '/'                => 'items#index'
   end
 
   resources :users ,only: :new do

@@ -1,91 +1,48 @@
-%body
-  .single-container
-    .single-header
-      %img{:alt => "mercari", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?273499512"}/
+= render "modules/header"
+%main
+  .main-visual
+    = image_tag 'index_keyvisual.png', size: "700x380"
+  .pickup
+    %h2.pickup__heading ピックアップカテゴリー
+    .pickup__item
+      %h3.pickup__item__category
+        .pickup__item__category__title  レディース新着アイテム
+        = render partial:"shared/pickup"
+        = render partial:"shared/pickup"
+        = render partial:"shared/pickup"
+        = render partial:"shared/pickup"
+      .pickup__item__all
+        %p.pickup__item__all__link 全ての商品を見る
+    .pickup__item
+      %h3.pickup__item__category
+        .pickup__item__category__title  メンズ新着アイテム
+        = render partial:"shared/pickup"
+        = render partial:"shared/pickup"
+        = render partial:"shared/pickup"
+        = render partial:"shared/pickup"
+      .pickup__item__all
+        %p.pickup__item__all__link 全ての商品を見る
+    .pickup__item
+      %h3.pickup__item__category
+        .pickup__item__category__title  ベビー・キッズ新着アイテム
+        = render partial:"shared/pickup"
+        = render partial:"shared/pickup"
+        = render partial:"shared/pickup"
+        = render partial:"shared/pickup"
+      .pickup__item__all
+        %p.pickup__item__all__link 全ての商品を見る
+    .pickup__item
+      %h3.pickup__item__category
+        .pickup__item__category__title  コスメ・香水・美容 新着アイテム
+        = render partial:"shared/pickup"
+        = render partial:"shared/pickup"
+        = render partial:"shared/pickup"
+        = render partial:"shared/pickup"
+        
+      .pickup__item__all
+        %p.pickup__item__all__link 全ての商品を見る
 
-%main.single-main
-  %section.l-single-container.buy-item-container
-    %h2.l-single-head 購入内容の確認
-    %section.buy-content.buy-item
-      .buy-content-inner
-        .buy-pro
-          %h3.buy-item-image
-          %p.buy-item-name.bold tech::expert
-        %form.buy-form{:action => "https://www.mercari.com/jp/transaction/buy/done/m74615682028/", :method => "POST", :novalidate => "novalidate"}
-          %p.buy-price-ja.bold
-            ¥300
-            %span.item-shipping-fee.f14.bold 送料込み
-          %ul.buy-accordion
-            %li.accordion-parent
-              .accordion-toggle
-                ポイントを使う
-                %i.icon-arrow-bottom.accordion-icon
-          -#     %ul.accordion-child
-          -#       %li.bold 所持ポイント: P200
-          -#       %li.form-group{"data-buy" => "parent"}
-          -#         .radio-default
-          -#           %label
-          -#             %input{"data-buy" => "none", :name => "consume_point_radio", :type => "radio", :value => "none"}>/
-          -#             ポイントを使わない
-          -#         .radio-default
-          -#           %label
-          -#             %input{"data-buy" => "all", :name => "consume_point_radio", :type => "radio", :value => "all"}/
-          -#             %input{:type => "hidden", :value => "200"}/
-          -#             すべてのポイントを使う
-          -#             %br/
-          -#             P200
-          -#         .radio-default
-          -#           %label
-          -#             %input{"data-buy" => "part", :name => "consume_point_radio", :type => "radio", :value => "partial"}/
-          -#             一部のポイントを使う
-          -#         %input.input-default{"data-buy" => "part_num", "data-input" => "money", :placeholder => "使うポイントを入力", :type => "number", :value => ""}/
-          -#         %input{"data-buy" => "result", :name => "consume_point", :type => "hidden", :value => "0"}/
-          %ul.buy-price-table
-            %li.buy-price-row.buy-you-pay.bold
-              .buy-price-cell 支払い金額
-              .buy-price-cell
-                %span{"data-buy-pay" => "300"} ¥300
-          %p.has-error-text 配送先と支払い方法の入力を完了してください。
-          %button.btn-default.btn-red.bold{:disabled => "disabled", :type => "submit"} 購入する
-          %input#user_info_is_not_complete{:type => "hidden"}/
-    %section.buy-content.buy-user-info
-      .buy-content-inner
-        %h3 配送先
-        %address.buy-user-info-text
-          〒177-0042
-          %br/
-          東京都 練馬区
-          下石神井1-2-27
-          イケダマンション301
-          %br/
-          西岡 りょう
-        %p.buy-user-info-text
-        %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/address/m74615682028/"}
-          %span 変更する
-          %i.icon-arrow-right
-    %section.buy-content.buy-user-info{"data-buy" => "pay-method"}
-      .buy-content-inner
-        %h3 支払い方法
-        %p.buy-user-info-text
-          %br/
-          \/
-          %figure
-            %img{:alt => "", :height => "", :src => "", :width => ""}/
-        %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/card/m74615682028/"}
-          %span 変更する
-          %i.icon-arrow-right
 
-.single-footer
 
-  %nav
-    %ul.clearfix
-      %li
-        %a プライバシーポリシー
-      %li
-        %a メルカリ利用規約
-      %li
-        %a 特定商取引に関する表記
-  %a.single-footer-logo
-    %img{:alt => "mercari", :height => "65", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?273499512", :width => "80"}/
-  %p
-    %small © 2019 Mercari
+= render "modules/footer"
+
