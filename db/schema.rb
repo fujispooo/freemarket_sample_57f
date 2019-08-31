@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_31_015620) do
+ActiveRecord::Schema.define(version: 2019_08_31_032155) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(version: 2019_08_31_015620) do
     t.index ["size_id"], name: "index_category_sizes_on_size_id"
   end
 
+  create_table "item_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "comment"
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_comments_on_item_id"
+    t.index ["user_id"], name: "index_item_comments_on_user_id"
+  end
+
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
     t.bigint "item_id", null: false
@@ -61,6 +71,12 @@ ActiveRecord::Schema.define(version: 2019_08_31_015620) do
     t.datetime "updated_at", null: false
     t.index ["image"], name: "index_item_images_on_image"
     t.index ["item_id"], name: "index_item_images_on_item_id"
+  end
+
+  create_table "item_states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "item_state", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
