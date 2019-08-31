@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController
+class Jp::ItemsController < ApplicationController
   def index
   end
 

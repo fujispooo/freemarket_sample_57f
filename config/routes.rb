@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   namespace :jp do
     namespace :mypage do
-      get 'profile/'       => 'users#show'
+      get 'profile'        => 'users#show'
       get 'identification' => 'users#identification'
       get 'logout'         => 'users#logout'
       get '/'              => 'users#mypage'
@@ -21,6 +21,9 @@ Rails.application.routes.draw do
     namespace :signup do
       get '/'              => 'users#new'
     end
+    get '/'                => 'items#show'
+    get 'sell'             => 'items#sell'
+    get 'top'              => 'items#top'
   end
 
   resources :users ,only: :new do
@@ -34,13 +37,9 @@ Rails.application.routes.draw do
       get :test4
       get :test5
       get :test6
-      get :test7
       get :test8
       get :new
-      get 'sell'        => 'items#sell'
       get :purchase
-      get 'items/show/' => 'items#show'
-      get 'itemes/top/' => 'items#top'
     end
   end
 end
