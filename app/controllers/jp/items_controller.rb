@@ -1,10 +1,6 @@
-class ItemsController < ApplicationController
+class Jp::ItemsController < ApplicationController
   def index
   end
-
-  def top
-  end
-
 
   def show
   end
