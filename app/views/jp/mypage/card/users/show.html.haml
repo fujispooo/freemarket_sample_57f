@@ -1,4 +1,13 @@
 = render "modules/header"
+%nav.bread-crumbs
+  .bread-crumbs-box
+    = link_to '/jp', class: "contents" do
+      メルカリ
+      = fa_icon 'angle-double-right'
+    = link_to '/jp/mypage', class: "contents" do
+      マイページ
+      = fa_icon 'angle-double-right'
+    %span{itemprop: "title"} 支払い方法
 .main-content
   = render "modules/mypage-sidebar"
   .l-content
