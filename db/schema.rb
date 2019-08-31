@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_30_235905) do
+ActiveRecord::Schema.define(version: 2019_08_31_033831) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -36,30 +36,98 @@ ActiveRecord::Schema.define(version: 2019_08_30_235905) do
     t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
+    t.index ["name"], name: "index_categories_on_name"
+  end
+
+  create_table "category_sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "size_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_sizes_on_category_id"
+    t.index ["size_id"], name: "index_category_sizes_on_size_id"
+  end
+
+  create_table "delivery_days", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "delivery_day", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "delivery_fees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "delivery_fee", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "delivery_methods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "delivery_method", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "item_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "comment"
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_item_comments_on_item_id"
+    t.index ["user_id"], name: "index_item_comments_on_user_id"
+  end
+
+  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.bigint "item_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["image"], name: "index_item_images_on_image"
+    t.index ["item_id"], name: "index_item_images_on_item_id"
+  end
+
+  create_table "item_states", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "item_state", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.bigint "category_id_id", null: false
-    t.bigint "size_id_id", null: false
-    t.bigint "brand_id_id"
-    t.bigint "item_state_id_id", null: false
-    t.bigint "delivery_fee_id_id", null: false
-    t.bigint "delivery_method_id_id", null: false
-    t.bigint "delivery_day_id_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "size_id", null: false
+    t.bigint "brand_id"
+    t.bigint "item_state_id", null: false
+    t.bigint "delivery_fee_id", null: false
+    t.bigint "delivery_method_id", null: false
+    t.bigint "delivery_day_id", null: false
     t.integer "price", null: false
-    t.bigint "user_id_id", null: false
-    t.index ["brand_id_id"], name: "index_items_on_brand_id_id"
-    t.index ["category_id_id"], name: "index_items_on_category_id_id"
-    t.index ["delivery_day_id_id"], name: "index_items_on_delivery_day_id_id"
-    t.index ["delivery_fee_id_id"], name: "index_items_on_delivery_fee_id_id"
-    t.index ["delivery_method_id_id"], name: "index_items_on_delivery_method_id_id"
-    t.index ["item_state_id_id"], name: "index_items_on_item_state_id_id"
+    t.bigint "user_id", null: false
+    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["delivery_day_id"], name: "index_items_on_delivery_day_id"
+    t.index ["delivery_fee_id"], name: "index_items_on_delivery_fee_id"
+    t.index ["delivery_method_id"], name: "index_items_on_delivery_method_id"
+    t.index ["item_state_id"], name: "index_items_on_item_state_id"
     t.index ["name"], name: "index_items_on_name"
-    t.index ["size_id_id"], name: "index_items_on_size_id_id"
-    t.index ["user_id_id"], name: "index_items_on_user_id_id"
+    t.index ["size_id"], name: "index_items_on_size_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
