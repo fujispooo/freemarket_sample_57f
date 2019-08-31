@@ -6,8 +6,13 @@ class Jp::ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    @item_image = ItemImage.new
+    @categories = Category.where(parent_id:nil)
   end
 
   def purchase
   end
+
+
 end
