@@ -43,7 +43,6 @@ Rails.application.routes.draw do
       get :test5
       get :test6
       get :test8
-      get :new
       get :purchase
     end
   end
