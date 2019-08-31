@@ -1,4 +1,16 @@
 = render "modules/header"
+%nav.bread-crumbs
+  .bread-crumbs-box
+    = link_to '/jp', class: "contents" do
+      メルカリ
+      = fa_icon 'angle-double-right'
+    = link_to '/jp/mypage', class: "contents" do
+      マイページ
+      = fa_icon 'angle-double-right'
+    = link_to '/jp/mypage/card/', class: "contents" do
+      支払い方法
+      = fa_icon 'angle-double-right'
+    %span クレジットカード情報入力
 .main-content
   = render "modules/mypage-sidebar"
   %section.l-chapter-container
