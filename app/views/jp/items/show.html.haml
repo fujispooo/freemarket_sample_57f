@@ -75,15 +75,20 @@
     %span.item-price.bold ¥13,100
     %span.item-tax (税込)
     %span.item-shipping-fee 送料込み
-  .text-center
-    .sales-point-message
-      P200 をお持ちです
-    .item-buy-btn
-      = link_to '購入画面に進む'
+    -# 条件分岐
+  - if user_signed_in?
+    .text-center
+      .item-buy-btn
+        = link_to '商品を削除する'
+  - else
+    .text-center
+      .sales-point-message
+        P200 をお持ちです
+      .item-buy-btn
+        = link_to '購入画面に進む'
   .item-description.f14
     %p.item-description-inner
       VANSとカリフォルニア工務店の限定コラボデニムEraです。
-      
       カリフォルニア工務店より第2弾として販売されたvans collection！
       デニムをメインにヒールに星条旗が入る爽やかな一足になります。
       販売と同時に即完。
@@ -116,7 +121,6 @@
     .textarea-default
     %button.message-submit.btn-default.btn-gray{:type => "submit"}
       %span コメントする
-
     %ul.nav-item-link-prev-next.clearfix
       %li.nav-item-link-prev
         ショートパンツ ベージュ
