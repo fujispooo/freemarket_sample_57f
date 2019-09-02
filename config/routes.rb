@@ -38,7 +38,7 @@ Rails.application.routes.draw do
         get 'sms_confirmation/sms' => 'users/registrations#step3'
         get 'address'              => 'users/registrations#step4'
         get 'credit'               => 'users/registrations#step5'
-        post 'registration/create'  => 'users/registrations#create'
+        post 'registration/create' => 'users/registrations#create'
       end
       get 'users/sign_out'         => 'users#destroy'
     end
