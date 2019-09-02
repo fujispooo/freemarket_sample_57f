@@ -1,4 +1,4 @@
-class Jp::ItemsController < ApplicationController
+class ItemsController < ApplicationController
   def index
   end
 
@@ -14,5 +14,7 @@ class Jp::ItemsController < ApplicationController
   def purchase
   end
 
+  def transaction
+  end
 
 end

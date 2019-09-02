@@ -1,4 +1,4 @@
-class Jp::Mypage::Card::UsersController < ApplicationController
+class CardsController < ApplicationController
   def show
   end
 

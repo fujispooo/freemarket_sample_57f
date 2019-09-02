@@ -1,5 +1,4 @@
-class Jp::Signup::UsersController < ApplicationController
-  
+class UsersController < ApplicationController
   def show
   end
 
@@ -14,5 +13,4 @@ class Jp::Signup::UsersController < ApplicationController
 
   def destroy
   end
-
 end
