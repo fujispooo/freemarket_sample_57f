@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_31_085504) do
+ActiveRecord::Schema.define(version: 2019_09_02_075918) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -25,15 +25,12 @@ ActiveRecord::Schema.define(version: 2019_08_31_085504) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "card_number", null: false
-    t.integer "explation_month", null: false
-    t.integer "explation_year", null: false
-    t.integer "security_code", null: false
-    t.bigint "user_id", null: false
+  create_table "cards", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -160,7 +157,5 @@ ActiveRecord::Schema.define(version: 2019_08_31_085504) do
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "cards", "users"
   add_foreign_key "users", "addresses"
-  add_foreign_key "users", "cards"
 end
