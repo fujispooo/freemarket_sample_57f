@@ -20,7 +20,7 @@
     margin: 0 auto;
     background: #fff;
     height: 100%;
-
+    
     &__head {
       padding: 32px 16px;
       font-size: 22px;
@@ -28,7 +28,20 @@
       text-align: center;
       font-weight: bold;
     }
-
+    & span{
+      background: #ea352d;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+      vertical-align: top;
+    }
+    & label{
+      font-size: 16px;
+      font-weight: bold;
+    }
+    
     &__form {
       border-top: 1px solid #eee;
       &__upload-box {
@@ -81,7 +94,7 @@
         border-top: 1px solid #eee;
         &__name {
           margin: 0;
-          & input {
+          .inputField {
             width: 603px;
             margin: 8px 0 0;
             height: 32px;
@@ -271,21 +284,6 @@
             }
           }          
         }
-      }
-
-
-      & label {
-        font-size: 16px;
-        font-weight: bold;
-      }
-      & span {
-        background: #ea352d;
-        margin: 0 0 0 8px;
-        padding: 2px 4px;
-        border-radius: 2px;
-        color: #fff;
-        font-size: 12px;
-        vertical-align: top;
       }
     }
   }

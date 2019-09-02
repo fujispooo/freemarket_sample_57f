@@ -75,3 +75,5 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'active_hash'
 gem 'ancestry'
+gem 'payjp'
+gem "jquery-rails"

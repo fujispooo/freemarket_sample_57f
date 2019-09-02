@@ -1,0 +1,25 @@
+= render "modules/header"
+
+%nav.logout-bread-crumbs
+  .logout-bread-crumbs-box
+    = link_to '/jp', class: "contents" do
+      メルカリ
+      = fa_icon 'angle-double-right'
+    = link_to '/jp/mypage', class: "contents" do
+      マイページ
+      = fa_icon 'angle-double-right'
+    %span{itemprop: "title"} ログアウト
+
+.logout_main-content
+  .logout_left-content
+    = render 'modules/mypage-sidebar'
+
+  .logout_right-content
+    .logout_right-container
+      %form{action: "https://www.mercari.com/jp/logout/", method: "POST", novalidate: "novalidate"}
+        .logout_right-form
+          %button{type: "submit"} ログアウト
+          %input{name: "__csrf_value", type: "hidden", value: ""}/
+
+= render "modules/sell-btn"
+= render 'modules/footer'

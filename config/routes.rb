@@ -5,44 +5,48 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
-  namespace :jp do
-    namespace :mypage do
+  scope :jp do
+    scope :mypage do
       get 'profile'        => 'users#show'
       get 'identification' => 'users#identification'
       get 'logout'         => 'users#logout'
       get '/'              => 'users#mypage'
-      namespace :card do
-        get '/'            => 'users#show'
-        get 'create'       => 'users#new'
-        delete 'destroy'   => 'users#destroy'
-        get 'edit'         => 'users#edit'
+      scope :card do
+        get '/'            => 'cards#edit'
+        get 'create'       => 'cards#new'
+        delete 'destroy'   => 'cards#destroy'
+        get 'edit'         => 'cards#show'
       end
     end
-    namespace :signup do
-      get '/'              => 'users#new'
-    end
-    namespace :transaction do
-      namespace :buy do
-        get 'm[:id]/sell'       => 'items#show'
+    scope :transaction do
+      scope :buy do
+        get 'm[:id]/sell'  => 'items#transaction'
       end
     end
     get 'm[:id]/detail'    => 'items#show'
-    get 'sell'             => 'items#sell'
+    get 'sell'             => 'items#new'
     get '/'                => 'items#index'
+    get 'purchase'         => 'items#purchase'
   end
 
-  resources :users ,only: :new do
-  end
-  resources :items do
-    collection do
-      get :test1
-      get :test2
-      get :test3
-      get :test4
-      get :test5
-      get :test6
-      get :test8
-      get :purchase
+  devise_scope :user do
+    scope :jp do
+      scope :signup do
+        get '/'                    => 'users/registrations#index'
+        get 'registration'         => 'users/registrations#step1'
+        get 'ms_confirmation'      => 'users/registrations#step2'
+        get 'sms_confirmation/sms' => 'users/registrations#step3'
+        get 'address'              => 'users/registrations#step4'
+        get 'credit'               => 'users/registrations#step5'
+        post 'registration/create' => 'users/registrations#create'
+      end
+      get 'users/sign_out'         => 'users#destroy'
     end
   end
+
+
+  resources :users ,only: [:new,:create] do
+
+  end
+
 end

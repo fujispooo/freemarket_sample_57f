@@ -6,6 +6,9 @@ class ItemsController < ApplicationController
   end
 
   def new
+    @item = Item.new
+    @item_image = ItemImage.new
+    @categories = Category.where(parent_id:nil)
   end
 
   def purchase
@@ -17,5 +20,8 @@ class ItemsController < ApplicationController
     item.destroy
     end
     redirect_to root_path
+  end
+
+  def transaction
   end
 end

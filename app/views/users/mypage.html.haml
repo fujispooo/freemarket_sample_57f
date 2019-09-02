@@ -1,0 +1,160 @@
+= render 'modules/header'
+%nav.bread-crumbs
+  .bread-crumbs-box
+    = link_to ' /jp', class: "contents" do
+      メルカリ
+      = fa_icon 'angle-double-right'
+    %span{itemprop: "title"} プロフィール
+
+-# - breadcrumb :mypage
+.main-content
+  = render 'modules/mypage-sidebar'
+
+  .ryofujii-right-content
+    .ryofujii-right-content__block#back-img.middle-center
+      = image_tag "marunuki036.png", alt: "avatar",class: "right-content__block--avatar",size:'60x60'
+      .ryofujii-right-content__block__user-name 藤井涼
+      .ryofujii-right-content__block__user-about
+        %p.ryofujii-right-content__block__review 評価
+        %span 156
+        %p.ryofujii-right-content__block__exhibit 出品数
+        %span 77
+
+    .ryofujii-right-content__block
+      %ul.ryofujii-right-content__block__tabs.back-gray
+        %li.active.menu_item
+          %h4.middle-center
+            お知らせ
+
+        %li.menu_item
+          %h4.middle-center
+            やることリスト
+
+      %ul.ryofujii-right-content__block__object.show
+        %li
+          = link_to root_path, class: "decoration-none" do
+            .ryofujii-right-content__block__object__link-box
+              =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              .ryofujii-right-content__block__object__link-box__body
+                .ryofujii-right-content__block__object__link-box__body--text 7日後、クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+                .ryofujii-right-content__block__object__link-box__body--time
+                  %i.fa.fa-history
+                  .ryofujii-right-content__block__object__link-box__body--time--date 1日前
+              %i.fa.fa-angle-right.fa-2x
+        %li
+          = link_to root_path, class: "decoration-none" do
+            .ryofujii-right-content__block__object__link-box
+              =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              .ryofujii-right-content__block__object__link-box__body
+                .ryofujii-right-content__block__object__link-box__body--text 7日後、クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+                .ryofujii-right-content__block__object__link-box__body--time
+                  %i.fa.fa-history
+                  .ryofujii-right-content__block__object__link-box__body--time--date 1日前
+              %i.fa.fa-angle-right.fa-2x
+        %li
+          = link_to root_path, class: "decoration-none" do
+            .ryofujii-right-content__block__object__link-box
+              =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              .ryofujii-right-content__block__object__link-box__body
+                .ryofujii-right-content__block__object__link-box__body--text 7日後、クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+                .ryofujii-right-content__block__object__link-box__body--time
+                  %i.fa.fa-history
+                  .ryofujii-right-content__block__object__link-box__body--time--date 1日前
+              %i.fa.fa-angle-right.fa-2x
+        %li
+          = link_to root_path, class: "decoration-none" do
+            .ryofujii-right-content__block__object__link-box
+              =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              .ryofujii-right-content__block__object__link-box__body
+                .ryofujii-right-content__block__object__link-box__body--text 7日後、クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+                .ryofujii-right-content__block__object__link-box__body--time
+                  %i.fa.fa-history
+                  .ryofujii-right-content__block__object__link-box__body--time--date 1日前
+              %i.fa.fa-angle-right.fa-2x
+        %li
+          = link_to root_path , class: "decoration-none"do
+            .ryofujii-right-content__block__object__link-box
+              =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              .ryofujii-right-content__block__object__link-box__body
+                .ryofujii-right-content__block__object__link-box__body--text 7日後、クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+                .ryofujii-right-content__block__object__link-box__body--time
+                  %i.fa.fa-history
+                  .ryofujii-right-content__block__object__link-box__body--time--date 1日前
+              %i.fa.fa-angle-right.fa-2x
+        = link_to root_path, class: "decoration-none" do
+          %li
+            .ryofujii-right-content__block__object__link-box
+              .ryofujii-right-content__block__object__link-box--string.back-gray.middle-center 一覧を見る
+      %ul.ryofujii-right-content__block__object
+        %li
+        = link_to root_path, class: "decoration-none" do
+          .ryofujii-right-content__block__object__link-box
+            =image_tag "//static-mercari-jp-imgtr2.akamaized.net/images/mercari_profile.png", alt: "block-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+            .ryofujii-right-content__block__object__link-box__body
+              .ryofujii-right-content__block__object__link-box__body--text 7日後、クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+              .ryofujii-right-content__block__object__link-box__body--time
+                %i.fa.fa-history
+                .ryofujii-right-content__block__object__link-box__body--time--date 1日前
+
+    .ryofujii-right-content__block
+      %h4.ryofujii-right-content__block__title.middle.back-silver 購入した商品
+      %ul.ryofujii-right-content__block__tabs
+        %li.active.menu_item2
+          %h4.bold
+            取引中
+        %li.menu_item2
+          %h4.bold
+            過去の取引
+
+
+
+      %ul.ryofujii-right-content__block__object
+        = link_to root_path, class: "decoration-none" do
+          %li
+            .ryofujii-right-content__block__object__link-box
+              =image_tag "marunuki036.png", alt: "item-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              .ryofujii-right-content__block__object__link-box__body
+                .ryofujii-right-content__block__object__link-box__body--text 【新品・送料込み】鯉のぼり
+                .ryofujii-right-content__block__object__link-box__body__detail.middle
+                  .ryofujii-right-content__block__object__link-box__body__detail--count-box
+                    %i.fa.fa-heart-o
+                    .like-count 50
+                  .ryofujii-right-content__block__object__link-box__body__detail--count-box
+                    %i.fa.fa-comment-o
+                    .comment-count 1000
+              %i.fa.fa-angle-right.fa-2x
+
+        = link_to root_path, class: "decoration-none" do
+          %li
+            .ryofujii-right-content__block__object__link-box
+              =image_tag "marunuki036.png", alt: "item-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              .ryofujii-right-content__block__object__link-box__body
+                .ryofujii-right-content__block__object__link-box__body--text 「鯉のぼり」を購入しました。取引が完了しました。
+                .ryofujii-right-content__block__object__link-box__body__detail.middle
+                  .ryofujii-right-content__block__object__link-box__body__detail--count-box
+                    %i.fa.fa-heart-o
+                    .like-count 50
+                  .ryofujii-right-content__block__object__link-box__body__detail--count-box
+                    %i.fa.fa-comment-o
+                    .comment-count 1000
+              %i.fa.fa-angle-right.fa-2x
+
+
+
+        = link_to root_path, class: "decoration-none" do
+          %li
+            .ryofujii-right-content__block__object__link-box
+              =image_tag "marunuki036.png", alt: "item-img",class: "right-content__block__object__link-box__img",width:"47.99px",height:"47.99px"
+              .ryofujii-right-content__block__object__link-box__body
+                .ryofujii-right-content__block__object__link-box__body--text 【新品・送料込み】鯉のぼり
+                .ryofujii-right-content__block__object__link-box__body__detail.middle
+                  .ryofujii-right-content__block__object__link-box__body__detail--count-box
+                    %i.fa.fa-heart-o
+                    .like-count 50
+                  .ryofujii-right-content__block__object__link-box__body__detail--count-box
+                    %i.fa.fa-comment-o
+                    .comment-count 100
+              %i.fa.fa-angle-right.fa-2x
+= render "modules/sell-btn"
+= render "modules/footer"
+
