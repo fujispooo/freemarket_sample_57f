@@ -5,21 +5,21 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   } 
 
-  namespace :jp do
-    namespace :mypage do
+  scope :jp do
+    scope :mypage do
       get 'profile'        => 'users#show'
       get 'identification' => 'users#identification'
       get 'logout'         => 'users#logout'
       get '/'              => 'users#mypage'
-      namespace :card do
-        get '/'            => 'users#show'
-        get 'create'       => 'users#new'
-        delete 'destroy'   => 'users#destroy'
-        get 'edit'         => 'users#edit'
+      scope :card do
+        get '/'            => 'cards#show'
+        get 'create'       => 'cards#new'
+        delete 'destroy'   => 'cards#destroy'
+        get 'edit'         => 'cards#edit'
       end
     end
-    namespace :transaction do
-      namespace :buy do
+    scope :transaction do
+      scope :buy do
         get 'm[:id]/sell'  => 'items#show'
       end
     end
