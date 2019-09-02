@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers:{
     registrations: 'users/registrations',
     sessions: 'users/sessions'
-  } 
+  }
 
   namespace :jp do
     namespace :mypage do
@@ -33,7 +33,6 @@ Rails.application.routes.draw do
 
   resources :users ,only: :new do
   end
-  
   resources :items do
     collection do
       get :test1
