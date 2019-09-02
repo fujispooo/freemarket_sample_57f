@@ -14,5 +14,7 @@ class ItemsController < ApplicationController
   def purchase
   end
 
+  def transaction
+  end
 
 end

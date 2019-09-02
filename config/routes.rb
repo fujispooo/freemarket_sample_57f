@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     end
     scope :transaction do
       scope :buy do
-        get 'm[:id]/sell'  => 'items#show'
+        get 'm[:id]/sell'  => 'items#transaction'
       end
     end
     get 'm[:id]/detail'    => 'items#show'
