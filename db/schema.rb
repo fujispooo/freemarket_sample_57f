@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_31_033831) do
+ActiveRecord::Schema.define(version: 2019_08_31_085504) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -151,10 +151,16 @@ ActiveRecord::Schema.define(version: 2019_08_31_033831) do
     t.integer "birth_year"
     t.integer "birth_month"
     t.integer "birth_day"
+    t.bigint "address_id"
+    t.bigint "card_id"
+    t.index ["address_id"], name: "index_users_on_address_id"
+    t.index ["card_id"], name: "index_users_on_card_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addresses", "users"
   add_foreign_key "cards", "users"
+  add_foreign_key "users", "addresses"
+  add_foreign_key "users", "cards"
 end
