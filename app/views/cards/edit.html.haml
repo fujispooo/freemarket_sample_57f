@@ -18,25 +18,19 @@
           .l-single-inner
             %section
               .l-single-content
-                .l-chapter-sub-head クレジットカード一覧
+                %h3.l-chapter-sub-head クレジットカード一覧
               %ul.settings-payment-list
-                %li
-                  .l-single-content
-                    %figure
-                      = image_tag ('https://www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3951034907')
-                      .settings-payment-num ************2267
-                      .settings-payment-num ** / **
-                      .settings-payment-remove{type: "submit"}
-                        削除する
+            %section.settings-add-card
+              .l-single-content
+                %a.btn-default.btn-red.submit_button{:href => "https://www.mercari.com/jp/mypage/card/create/"}
+                  %i.icon-card>
+                  クレジットカードを追加する
             .settings-not-regist
               %a{:href => "/jp/help_center/category/6/", :target => "_blank"}
                 %span 支払い方法について
                 %i.icon-arrow-right
 
 
-
-
 = render "modules/sell-btn"
-
 
 = render "modules/footer"

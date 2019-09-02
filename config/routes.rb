@@ -12,10 +12,10 @@ Rails.application.routes.draw do
       get 'logout'         => 'users#logout'
       get '/'              => 'users#mypage'
       scope :card do
-        get '/'            => 'cards#show'
+        get '/'            => 'cards#edit'
         get 'create'       => 'cards#new'
         delete 'destroy'   => 'cards#destroy'
-        get 'edit'         => 'cards#edit'
+        get 'edit'         => 'cards#show'
       end
     end
     scope :transaction do
