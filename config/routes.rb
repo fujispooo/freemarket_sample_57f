@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers:{
     registrations: 'users/registrations',
     sessions: 'users/sessions'
-  } 
+  }
 
   scope :jp do
     scope :mypage do
@@ -44,7 +44,9 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :users ,only: [:new,:create] do
+
   end
 
 end

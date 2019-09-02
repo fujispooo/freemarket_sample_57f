@@ -75,6 +75,22 @@
     %span.item-price.bold ¥13,100
     %span.item-tax (税込)
     %span.item-shipping-fee 送料込み
+
+    -# 条件分岐
+  - if user_signed_in?
+    .text-center
+      .item-buy-btn
+        = link_to '商品を削除する'
+  - else
+    .text-center
+      .sales-point-message
+        P200 をお持ちです
+      .item-buy-btn
+        = link_to '購入画面に進む'
+  .item-description.f14
+    %p.item-description-inner
+      VANSとカリフォルニア工務店の限定コラボデニムEraです。
+
   .text-center
     .sales-point-message
       P200 をお持ちです
