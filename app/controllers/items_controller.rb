@@ -11,6 +11,9 @@ class ItemsController < ApplicationController
     @categories = Category.where(parent_id:nil)
   end
 
+  def create
+  end
+
   def purchase
   end
 
