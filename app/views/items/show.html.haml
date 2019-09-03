@@ -30,7 +30,7 @@
       .tr
         .th 出品者
         .td
-          = link_to '☆☆ALEXIA☆☆','https://www.mercari.com/jp/u/179175835/'
+          = link_to 'ユーザーネーム' , profile_path
           %div
             .item-user
               .item-user-ratings1
@@ -86,18 +86,10 @@
       .sales-point-message
         P200 をお持ちです
       .item-buy-btn
-        = link_to '購入画面に進む'
+        = link_to '購入画面に進む' , purchase_path
   .item-description.f14
     %p.item-description-inner
-      VANSとカリフォルニア工務店の限定コラボデニムEraです。
 
-  .text-center
-    .sales-point-message
-      P200 をお持ちです
-    .item-buy-btn
-      = link_to '購入画面に進む'
-  .item-description.f14
-    %p.item-description-inner
       VANSとカリフォルニア工務店の限定コラボデニムEraです。
       
       カリフォルニア工務店より第2弾として販売されたvans collection！
@@ -181,5 +173,3 @@
       .img-photo
 
 = render "modules/footer"
-
-

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'items#top'
+  root to: 'items#index'
   devise_for :users, controllers:{
     registrations: 'users/registrations',
     sessions: 'users/sessions'
