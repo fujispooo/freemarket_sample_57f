@@ -23,10 +23,14 @@ Rails.application.routes.draw do
         get 'm[:id]/sell'  => 'items#transaction'
       end
     end
-    get 'm[:id]/detail'    => 'items#show'
+
+    resources :items ,only: [:new,:create,:show] do
+    end
+    # get 'm[:id]/detail'    => 'items#show'
     get 'sell'             => 'items#new'
-    get '/'                => 'items#index'
-    get 'purchase'         => 'items#purchase'
+    # post 'sell'            => 'items#create'
+    # get '/'                => 'items#index'
+    # get 'purchase'         => 'items#purchase'
   end
 
   devise_scope :user do

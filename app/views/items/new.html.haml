@@ -5,7 +5,7 @@
   .sell-inner
     %h2.sell-inner__head 商品の情報を入力
     .sell-inner__form
-    = form_for @item do |f|
+    = form_for @item  do |f|
       .sell-inner__form__upload-box
         -# = f.hidden_field :user_id, value: current_user.id
         %label 出品画像
@@ -90,36 +90,28 @@
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} ちゃく払い
+              = f.collection_select :delivery_fee_id,DeliveryFee.all, :id, :delivery_fee,{include_blank: "---"},{required:true}
 
           .sell-inner__form__content__right__genre
             %label 配送の方法
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} 未定
+              = f.collection_select :delivery_method_id,DeliveryMethod.all, :id, :delivery_method,{include_blank: "---"},{required:true}
 
           .sell-inner__form__content__right__genre
             %label 配送元の地域
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} 未定
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{include_blank: "---"},{required:true}
 
           .sell-inner__form__content__right__genre
             %label 配送までの日数
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} 配達員の気分
+              = f.collection_select :delivery_day_id,DeliveryDay.all, :id, :delivery_day,{include_blank: "---"},{required:true}
 
       .sell-inner__form__content
         .sell-inner__form__content__left
@@ -163,7 +155,8 @@
             に同意したことになります。
 
         .sell-inner__form__foot__btn
-          %button.sell-inner__form__foot__btn__sell{type: "submit"} 出品する
+          %button.sell-inner__form__foot__btn__sell{type: "submit"}
+            = f.submit "出品する"
           .sell-inner__form__foot__btn__back
             = link_to "もどる", :back, class: "sell-inner__form__foot__btn__back__btn"
 
