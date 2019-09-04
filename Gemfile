@@ -75,7 +75,12 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'active_hash'
 gem 'ancestry'
+gem 'payjp'
+gem "jquery-rails"
+gem 'dotenv-rails'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
-gem "jquery-rails"
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'mini_magick'

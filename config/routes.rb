@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root to: 'items#top'
+  get 'purchase/index'
+  get 'purchase/done'
+  root to: 'items#index'
   devise_for :users, controllers:{
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -11,11 +13,15 @@ Rails.application.routes.draw do
       get 'identification' => 'users#identification'
       get 'logout'         => 'users#logout'
       get '/'              => 'users#mypage'
-      scope :card do
-        get '/'            => 'cards#edit'
-        get 'create'       => 'cards#new'
-        delete 'destroy'   => 'cards#destroy'
-        get 'edit'         => 'cards#show'
+      resources :cards, only: [:new, :show] do
+        collection do
+          post 'show'      => 'cards#show'
+          post 'pay'       => 'cards#pay'
+          post 'delete'    => 'cards#delete'
+          get  'add'       => 'cards#add'
+          get 'index'      => 'cards#index'
+          post 'paypay'    => 'cards#paypay'
+        end
       end
     end
     scope :transaction do
@@ -28,9 +34,7 @@ Rails.application.routes.draw do
     end
     # get 'm[:id]/detail'    => 'items#show'
     get 'sell'             => 'items#new'
-    # post 'sell'            => 'items#create'
-    # get '/'                => 'items#index'
-    # get 'purchase'         => 'items#purchase'
+    get '/'                => 'items#index'
   end
 
   devise_scope :user do
