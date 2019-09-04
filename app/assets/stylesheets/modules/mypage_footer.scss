@@ -16,6 +16,7 @@
   color: rgb(255, 255, 255);
   padding: 0px 20px 10px;
   background: rgb(33, 33, 33);
+  text-align: center;
 }
 
 .clearfix{
@@ -38,7 +39,15 @@
   padding: 15px 70px 0 0;
   width: 20%;
   display: block;
-  float: left;
+  float: right;
+  margin-top: 18px;
+}
+
+.full-width {
+  padding: 15px 70px 0 0;
+  width: 30%;
+  display: block;
+  float: right;
   margin-top: 18px;
 }
 
@@ -70,3 +79,7 @@
   margin-left: 32%;
 }
 
+.contents__btn--facebook {
+  font-size: 40px;
+  margin-right: 20px;
+}
