@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers:{
     registrations: 'users/registrations',
     sessions: 'users/sessions'
-  } 
+  }
 
   scope :jp do
     scope :mypage do
@@ -12,10 +12,10 @@ Rails.application.routes.draw do
       get 'logout'         => 'users#logout'
       get '/'              => 'users#mypage'
       scope :card do
-        get '/'            => 'cards#show'
+        get '/'            => 'cards#edit'
         get 'create'       => 'cards#new'
         delete 'destroy'   => 'cards#destroy'
-        get 'edit'         => 'cards#edit'
+        get 'edit'         => 'cards#show'
       end
     end
     scope :transaction do
@@ -23,10 +23,14 @@ Rails.application.routes.draw do
         get 'm[:id]/sell'  => 'items#transaction'
       end
     end
-    get 'm[:id]/detail'    => 'items#show'
+
+    resources :items ,only: [:new,:create,:show] do
+    end
+    # get 'm[:id]/detail'    => 'items#show'
     get 'sell'             => 'items#new'
-    get '/'                => 'items#index'
-    get 'purchase'         => 'items#purchase'
+    # post 'sell'            => 'items#create'
+    # get '/'                => 'items#index'
+    # get 'purchase'         => 'items#purchase'
   end
 
   devise_scope :user do
@@ -44,7 +48,9 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :users ,only: [:new,:create] do
+
   end
 
 end

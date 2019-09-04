@@ -20,7 +20,7 @@
         完了
         %span.bubble>
 .sign-up__main
-  = form_for @user, url: credit_path, method: :get do |f|
+  = form_for @user, url: registration_create_path, method: :post do |f|
     = f.fields_for :address do |a|
       .sign-up__main__header 
         %h2.sign-up__main__header__main-title 発送・お届け先住所入力

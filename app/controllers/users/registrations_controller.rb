@@ -34,14 +34,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def step5
     @user = User.new()
-    @user.build_card(session[:cars_attributes])
-    session[:address_attributes] = user_params_step3[:address_attributes]
   end
   
   def create
-    session[:card_attributes]    = user_params_step4[:card_attributes]
-    @user = User.new(nickname: session[:nickname],email:session[:email], password:session[:password],first_name:session[:first_name],last_name:session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana:session[:last_name_kana],birth_year:session[:birth_year],birth_month: session[:birth_month],birth_day: session[:birth_day], phone_number: session[:phone_number],address_attributes: session[:address_attributes],card_attributes:session[:card_attributes])
-    binding.pry
+    session[:address_attributes] = user_params_step3[:address_attributes]
+    @user = User.new(nickname: session[:nickname],email:session[:email], password:session[:password],first_name:session[:first_name],last_name:session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana:session[:last_name_kana],birth_year:session[:birth_year],birth_month: session[:birth_month],birth_day: session[:birth_day], phone_number: session[:phone_number],address_attributes: session[:address_attributes])
     @user.save
   end
 
@@ -58,8 +55,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(address_attributes:[:post_number,:prefecture_id, :city,:address,:building_name,:building_tel,:created_at,:updated_at,:user_id])
   end
 
-  def user_params_step4
-    params.require(:user).permit(card_attributes:[:card_number, :explation_month, :explation_year,:security_code,:created_at,:updated_at,:user_id])
-  end
+  # def user_params_step4
+  #   params.require(:user).permit(card_attributes:[:card_number, :explation_month, :explation_year,:security_code,:created_at,:updated_at,:user_id])
+  # end
 
 end
