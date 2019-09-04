@@ -1,4 +1,4 @@
-lock '3.11.0'
+lock '3.11.1'
 
 # Capistranoのログの表示に利用する
 set :application, 'freemarket_sample_57f'

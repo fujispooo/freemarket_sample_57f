@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers:{
     registrations: 'users/registrations',
     sessions: 'users/sessions'
-  } 
+  }
 
   scope :jp do
     scope :mypage do
@@ -29,7 +29,10 @@ Rails.application.routes.draw do
         get 'm[:id]/sell'  => 'items#transaction'
       end
     end
-    get 'm[:id]/detail'    => 'items#show'
+
+    resources :items ,only: [:new,:create,:show] do
+    end
+    # get 'm[:id]/detail'    => 'items#show'
     get 'sell'             => 'items#new'
     get '/'                => 'items#index'
   end
@@ -49,7 +52,9 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :users ,only: [:new,:create] do
+
   end
 
 end
