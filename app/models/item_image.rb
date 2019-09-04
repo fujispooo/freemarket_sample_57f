@@ -1,5 +1,6 @@
 class ItemImage < ApplicationRecord
   belongs_to :item
+  mount_uploader :image, ImageUploader
 
   # def add_images(item_image_params) ##レコードに画像を追加する
   #   return false if item_image_params[:images].nil?

@@ -5,3 +5,14 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# 開発環境の時に実行
+if Rails.env == 'development'
+  ItemImage.create!(
+    [
+      {
+        image: File.open('./app/assets/images/miyagit.jpeg'),
+        item_id: '1',
+      }
+    ]
+  )
+end

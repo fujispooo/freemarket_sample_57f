@@ -76,4 +76,7 @@ gem 'devise'
 gem 'active_hash'
 gem 'ancestry'
 gem 'payjp'
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'mini_magick'
 gem "jquery-rails"
