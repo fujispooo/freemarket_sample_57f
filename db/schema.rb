@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_03_060919) do
+ActiveRecord::Schema.define(version: 2019_09_05_062138) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -25,15 +25,12 @@ ActiveRecord::Schema.define(version: 2019_09_03_060919) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "card_number", null: false
-    t.integer "explation_month", null: false
-    t.integer "explation_year", null: false
-    t.integer "security_code", null: false
-    t.bigint "user_id", null: false
+  create_table "cards", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_cards_on_user_id"
   end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -100,25 +97,25 @@ ActiveRecord::Schema.define(version: 2019_09_03_060919) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.bigint "category_id_id", null: false
-    t.bigint "size_id_id", null: false
-    t.bigint "brand_id_id"
-    t.bigint "item_state_id_id", null: false
-    t.bigint "delivery_fee_id_id", null: false
-    t.bigint "delivery_method_id_id", null: false
-    t.bigint "delivery_day_id_id", null: false
+    t.bigint "category_id", null: false
+    t.bigint "size_id", null: false
+    t.bigint "brand_id"
+    t.bigint "item_state_id", null: false
+    t.bigint "delivery_fee_id", null: false
+    t.bigint "delivery_method_id", null: false
+    t.bigint "delivery_day_id", null: false
     t.integer "price", null: false
-    t.bigint "user_id_id", null: false
+    t.bigint "user_id", null: false
     t.integer "prefecture_id"
-    t.index ["brand_id_id"], name: "index_items_on_brand_id_id"
-    t.index ["category_id_id"], name: "index_items_on_category_id_id"
-    t.index ["delivery_day_id_id"], name: "index_items_on_delivery_day_id_id"
-    t.index ["delivery_fee_id_id"], name: "index_items_on_delivery_fee_id_id"
-    t.index ["delivery_method_id_id"], name: "index_items_on_delivery_method_id_id"
-    t.index ["item_state_id_id"], name: "index_items_on_item_state_id_id"
+    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["delivery_day_id"], name: "index_items_on_delivery_day_id"
+    t.index ["delivery_fee_id"], name: "index_items_on_delivery_fee_id"
+    t.index ["delivery_method_id"], name: "index_items_on_delivery_method_id"
+    t.index ["item_state_id"], name: "index_items_on_item_state_id"
     t.index ["name"], name: "index_items_on_name"
-    t.index ["size_id_id"], name: "index_items_on_size_id_id"
-    t.index ["user_id_id"], name: "index_items_on_user_id_id"
+    t.index ["size_id"], name: "index_items_on_size_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "prefectures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -152,16 +149,9 @@ ActiveRecord::Schema.define(version: 2019_09_03_060919) do
     t.integer "birth_year"
     t.integer "birth_month"
     t.integer "birth_day"
-    t.bigint "address_id"
-    t.bigint "card_id"
-    t.index ["address_id"], name: "index_users_on_address_id"
-    t.index ["card_id"], name: "index_users_on_card_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addresses", "users"
-  add_foreign_key "cards", "users"
-  add_foreign_key "users", "addresses"
-  add_foreign_key "users", "cards"
 end
