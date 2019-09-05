@@ -39,24 +39,23 @@
         .sell-inner__form__content__left
           %h3 商品の詳細
         .sell-inner__form__content__right
-          #sell-inner__form__content__right__genre
-            %label カテゴリー
+          #sell-inner__form__content__right__genre_hogehoge
+            = f.label 'カテゴリー'
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} レディース
-            .sell-inner__form__content__right__genre__select
-              %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} トップス
-            .sell-inner__form__content__right__genre__select
-              %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} Tシャツ
+              = f.select :category, @category_parent_array, {}, id: 'parent_category'
+            
+            -# .sell-inner__form__content__right__genre__select
+            -#   %i.fa.fa-chevron-down
+            -#   %select
+            -#     %option{value: ""} ---
+            -#     %option{value: "1"} トップス
+            -# .sell-inner__form__content__right__genre__select
+            -#   %i.fa.fa-chevron-down
+            -#   %select
+            -#     %option{value: ""} ---
+            -#     %option{value: "1"} Tシャツ
           .sell-inner__form__content__right__genre
             %label サイズ
             %span 必須
