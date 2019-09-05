@@ -22,9 +22,10 @@
               %ul.settings-payment-list
             %section.settings-add-card
               .l-single-content
-                %a.btn-default.btn-red.submit_button{:href => "https://www.mercari.com/jp/mypage/card/create/"}
+                .btn-default.btn-red.submit_button
                   %i.icon-card>
-                  クレジットカードを追加する
+                  = link_to '/jp/mypage/cards/new', class: "contents" do
+                    クレジットカードを追加する
             .settings-not-regist
               %a{:href => "/jp/help_center/category/6/", :target => "_blank"}
                 %span 支払い方法について
