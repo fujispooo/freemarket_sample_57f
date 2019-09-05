@@ -1,7 +1,8 @@
 .pickup__item__box__content
   .pickup__item__box__content__link
     .pickup__item__box__content__link__figure
-      = image_tag 'miyagit.jpeg', size: "200x220"
+      = link_to root_path, class:"content" do
+        = image_tag 'miyagit.jpeg', size: "200x220" 
     .pickup__item__box__content__link__body
       %h3.pickup__item__box__content__link__body__name miyagit
       .pickup__item__box__content__link__body__num

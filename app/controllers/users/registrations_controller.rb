@@ -1,7 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
-  def index
-
+  def new
   end
 
   def step1
@@ -55,8 +54,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     params.require(:user).permit(address_attributes:[:post_number,:prefecture_id, :city,:address,:building_name,:building_tel,:created_at,:updated_at,:user_id])
   end
 
+  # カード情報登録用（今は使わない）
   # def user_params_step4
   #   params.require(:user).permit(card_attributes:[:card_number, :explation_month, :explation_year,:security_code,:created_at,:updated_at,:user_id])
   # end
-
 end

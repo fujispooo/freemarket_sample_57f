@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     scope :jp do
       scope :signup do
-        get '/'                    => 'users/registrations#index'
+        get '/'                    => 'users/registrations#new'
         get 'registration'         => 'users/registrations#step1'
         get 'ms_confirmation'      => 'users/registrations#step2'
         get 'sms_confirmation/sms' => 'users/registrations#step3'
