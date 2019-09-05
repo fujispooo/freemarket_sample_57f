@@ -66,6 +66,12 @@
             border: 1px dashed #ccc;
             // font-size: 0;
             text-align: center;
+            #image_select{
+              width: 100%;
+              height: 162px;
+              opacity: 0;
+              cursor: pointer;
+            }
             & input {
               border: 0;
               outline: 0;

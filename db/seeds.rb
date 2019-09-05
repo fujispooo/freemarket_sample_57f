@@ -1,5 +1,5 @@
 # ↓実行済み
-# #レディースブロック
+#レディースブロック
   # #レディースの子カテゴリー配列
   # lady_child_array = ['トップス','ジャケット/アウター','パンツ','スカート','ワンピース','靴','ルームウェア/パジャマ','レッグウェア','帽子','バッグ','アクセサリー','ヘアアクセサリー','小物','時計','ウィッグ/エクステ','浴衣/水着','スーツ/フォーマル/ドレス','マタニティ','その他']
   # #レディースの孫カテゴリー配列
@@ -52,13 +52,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # 開発環境の時に実行
-if Rails.env == 'development'
-  ItemImage.create!(
-    [
-      {
-        image: File.open('./app/assets/images/miyagit.jpeg'),
-        item_id: '1',
-      }
-    ]
-  )
-end
+# if Rails.env == 'development'
+#   ItemImage.create!(
+#     [
+#       {
+#         image: File.open('./app/assets/images/miyagit.jpeg'),
+#         item_id: '1',
+#       }
+#     ]
+#   )
+# end

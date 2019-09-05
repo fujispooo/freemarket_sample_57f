@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :user_login,only:[:new, :show]
+  # before_action :user_login,only:[:new, :show]
 
   WOMAN = 1
   MAN = 2

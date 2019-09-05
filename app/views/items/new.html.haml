@@ -17,11 +17,26 @@
               :preserve
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
-          -#   - if controller.action_name == 'edit'
-          -#     = render partial: 'image', locals: { length: 0, image_id: @item.item_image.id, original_index: 0 }, collection: @item.product_image.images, as: :image
-          -# = f.fields_for :item_image, @item_image do |g|
-          -#   = g.file_field :images, id:"item_image_file", multiple:true
-          -#   = g.hidden_field :images, id:"cropped_image", multiple:true
+            .preview        
+            = f.file_field :image,type:"file",multiple: true, id: 'image_select'
+            -# - if controller.action_name == 'edit'
+            -#   = render partial: 'image', locals: { length: 0, image_id: @item.item_image.id, original_index: 0 }, collection: @item.item_image.images, as: :image
+            -# = f.fields_for :item_image, @item_image do |g|
+            -#   = g.file_field :image, id:"item_image_file", multiple:true
+            -#   = g.hidden_field :image, id:"cropped_image", multiple:true
+
+            -# 削除ボタン
+            -# = form_for @user, html: { multipart: true } do |f|
+            -# %p
+            -#   %label My Avatar
+            -#   = image_tag(@user.avatar_url) if @user.avatar?
+            -#   = f.file_field :avatar
+            -# %p
+            -#   %label
+            -#     = f.check_box :remove_avatar
+            -#     Remove avatar
+
+
 
       .sell-inner__form__item
         .sell-inner__form__item__name
