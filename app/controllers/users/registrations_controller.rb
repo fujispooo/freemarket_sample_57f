@@ -1,6 +1,6 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
-  def index
+  def new
 
   end
 
