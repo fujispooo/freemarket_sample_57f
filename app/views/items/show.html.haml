@@ -6,6 +6,7 @@
     .item-photo
       .owl-carousel
         .owl-item-inner
+          - @items.each do |item|
         .owl-item-inner-sub-box
           .owl-item-inner-sub
             = image_tag 'takei.png'
