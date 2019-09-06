@@ -1,0 +1,16 @@
+.pickup__item__box__content
+  = link_to item_path(item) do
+    .pickup__item__box__content__link
+      - if item.item_state_id == 3
+        .sold-item-big
+          .sold-item--text-big SOLD
+      = image_tag item.item_images.first.image_url,class: "top_image",alt: "商品画像", size: "200x220"
+    .pickup__item__box__content__link__body
+      %h3.pickup__item__box__content__link__body__name
+        = item.name
+      .pickup__item__box__content__link__body__num
+        %p.pickup__item__box__content__link__body__num__price
+          = item.price
+        %p.pickup__item__box__content__link__body__tax
+          %span ♡200
+      %p.pickup__area__items-box__items__tax (税込)
