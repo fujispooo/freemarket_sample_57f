@@ -29,7 +29,22 @@ namespace :deploy do
   task :restart do
     invoke 'unicorn:restart'
   end
+
+  desc 'upload master.key'
+  task :upload do
+    on roles(:app) do |host|
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
+      end
+      upload!('config/master.key', "#{shared_path}/config/master.key")
+    end
+  end
+  before :starting, 'deploy:upload'
+  after :finishing, 'deploy:cleanup'
 end
+
+set :linked_files, %w{config/master.key}
+
 
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",

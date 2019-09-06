@@ -8,10 +8,8 @@
     .pickup__item
       %h3.pickup__item__category
         .pickup__item__category__title  レディース新着アイテム
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
+        - @items.each do |item|
+          = render partial: "modules/category-index", locals: { item: item }
       .pickup__item__all
         %p.pickup__item__all__link 全ての商品を見る
     .pickup__item
