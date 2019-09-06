@@ -1,6 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
 
   def new
+
   end
 
   def step1

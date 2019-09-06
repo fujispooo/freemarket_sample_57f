@@ -13,7 +13,8 @@
   .ryofujii-right-content
     .ryofujii-right-content__block#back-img.middle-center
       = image_tag "marunuki036.png", alt: "avatar",class: "right-content__block--avatar",size:'60x60'
-      .ryofujii-right-content__block__user-name 藤井涼
+      .ryofujii-right-content__block__user-name 
+        = current_user.nickname
       .ryofujii-right-content__block__user-about
         %p.ryofujii-right-content__block__review 評価
         %span 156

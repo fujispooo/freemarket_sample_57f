@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'purchase/index'
   get 'purchase/done'
-  root to: 'items#index'
   devise_for :users, controllers:{
     sessions: 'users/sessions'
   }
@@ -23,6 +22,7 @@ Rails.application.routes.draw do
         end
       end
     end
+
     scope :transaction do
       scope :buy do
         get 'm[:id]/sell'  => 'items#transaction'
@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     end
     # get 'm[:id]/detail'    => 'items#show'
     get 'sell'             => 'items#new'
-    get '/'                => 'items#index'
+    get '/'                => 'items#index' ,as: "root"
   end
 
   devise_scope :user do
@@ -58,9 +58,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   resources :users ,only: [:new,:create] do
-
   end
-
 end
