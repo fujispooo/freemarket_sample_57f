@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'purchase/done'
   root to: 'items#index'
   devise_for :users, controllers:{
-    registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
 

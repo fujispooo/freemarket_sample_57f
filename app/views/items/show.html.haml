@@ -1,7 +1,7 @@
 = render 'modules/header'
 
 %section.item-box-container.l-single-container
-  %h1.item-name VANS × カリフォルニア工務店 スニーカー ERA 星条旗 27
+  %h1.item-name 
   .item-main-content
     .item-photo
       .owl-carousel
@@ -9,16 +9,6 @@
           - @items.each do |item|
         .owl-item-inner-sub-box
           .owl-item-inner-sub
-            = image_tag 'takei.png'
-          .owl-item-inner-sub
-            = image_tag 'takei.png'
-          .owl-item-inner-sub
-            = image_tag 'takei.png'
-          .owl-item-inner-sub
-            = image_tag 'takei.png'
-          .owl-item-inner-sub
-            = image_tag 'takei.png'
-
     .item-price-box.text-center.visible-sp
       %span.item-price.bold ¥13,100
       %span.item-tax (税込)
@@ -131,6 +121,7 @@
         %i.fa.fa-arrow-left
         ショートパンツ ベージュ
       %li.nav-item-link-next
+        %i.fa.fa-arrow-right
         ポケモン ぬいぐるみ
         %i.fa.fa-arrow-right
   .item-social-media-box
