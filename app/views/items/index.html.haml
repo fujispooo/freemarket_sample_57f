@@ -1,7 +1,13 @@
 = render "modules/header"
 %main
-  .main-visual
-    = image_tag 'index_keyvisual.png', size: "700x380"
+
+  .slider-wrapper
+    .slide-item
+      = image_tag 'merukari3.png', size: "1440x380"
+    .slide-item
+      = image_tag 'merukari.png', size: "1440x380"
+    .slide-item
+      = image_tag 'merukari2.png', size: "1440x380"
   .pickup
     %h2.pickup__heading ピックアップカテゴリー
     = current_user.nickname
