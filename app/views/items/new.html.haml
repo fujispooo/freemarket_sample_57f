@@ -17,11 +17,8 @@
               :preserve
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
-          -#   - if controller.action_name == 'edit'
-          -#     = render partial: 'image', locals: { length: 0, image_id: @item.item_image.id, original_index: 0 }, collection: @item.product_image.images, as: :image
-          -# = f.fields_for :item_image, @item_image do |g|
-          -#   = g.file_field :images, id:"item_image_file", multiple:true
-          -#   = g.hidden_field :images, id:"cropped_image", multiple:true
+            .preview        
+            = f.file_field :image,type:"file",multiple: true, id: 'image_select'
 
       .sell-inner__form__item
         .sell-inner__form__item__name
@@ -45,24 +42,14 @@
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
               = f.select :category, @category_parent_array, {}, id: 'parent_category'
-            
-            -# .sell-inner__form__content__right__genre__select
-            -#   %i.fa.fa-chevron-down
-            -#   %select
-            -#     %option{value: ""} ---
-            -#     %option{value: "1"} トップス
-            -# .sell-inner__form__content__right__genre__select
-            -#   %i.fa.fa-chevron-down
-            -#   %select
-            -#     %option{value: ""} ---
-            -#     %option{value: "1"} Tシャツ
-          .sell-inner__form__content__right__genre
-            %label サイズ
-            %span 必須
-            .sell-inner__form__content__right__genre__select
-              %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
+
+          -# .sell-inner__form__content__right__genre_size
+          -#   %label サイズ
+          -#   %span 必須
+          -#   .sell-inner__form__content__right__genre__select
+          -#     %i.fa.fa-chevron-down
+          -#     %select
+          -#       %option{value: ""} ---
           .sell-inner__form__content__right__genre
             %label ブランド
             %span.brand 必須
@@ -75,8 +62,7 @@
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
+              = f.collection_select :item_state_id,ItemState.all, :id, :item_state,{include_blank: "---"},{required:true}
 
       .sell-inner__form__content
         .sell-inner__form__content__left

@@ -131,6 +131,21 @@
 .main-header-user-nav>li i {
   color: #ccc;
 }
+.login-link{
+  color: #0099e8;
+  border: 1px solid #0099e8;
+  padding:8px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.registration-link{
+  color: white;
+  background-color: #ea352d;
+  border: 1px solid;
+  padding:8px 10px;
+  border-radius: 5px;
+  text-decoration: none;
+}
 
 //メイン
 .main-visual{
@@ -236,6 +251,53 @@ body {
     padding-right: 40%;
     }
 
+    .pickup__item__price {
+      width: 100px;
+      align-items: center;
+      background: rgba(0,0,0,.4);
+      border-radius: 0 14px 14px 0;
+      bottom: 8px;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      color: #fff;
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      font-size: 17px;
+      height: 32px;
+      height: 28px;
+      letter-spacing: .02em;
+      margin: 0;
+      padding: 0 12px;
+      position: absolute;
+      z-index: 2;
+      margin-left:-106px;
+    }
+
+    
+
+    .pickup__item__box__content {
+      box-shadow: 2px 2px 8px gray;
+      &__link__body{
+        padding-top: 30px;
+        font-weight: 500;
+      }
+    }
+    .pickup__item__box__content__link__body{
+      padding: 0 12px;
+      height: 64px;
+      line-height: 1.4em;
+      text-align: left;
+      &__name  {
+      display: -webkit-inline-box;
+      box-sizing: border-box;
+      color: #222;
+      font-size: 14px;
+      white-space: normal;
+      word-break: break-word;
+      padding-top: 10px;
+      }
+    }
 
 
 // body {

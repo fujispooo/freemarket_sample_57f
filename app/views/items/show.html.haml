@@ -1,23 +1,14 @@
 = render 'modules/header'
 
 %section.item-box-container.l-single-container
-  %h1.item-name VANS × カリフォルニア工務店 スニーカー ERA 星条旗 27
+  %h1.item-name 
   .item-main-content
     .item-photo
       .owl-carousel
         .owl-item-inner
+          - @items.each do |item|
         .owl-item-inner-sub-box
           .owl-item-inner-sub
-            = image_tag 'takei.png'
-          .owl-item-inner-sub
-            = image_tag 'takei.png'
-          .owl-item-inner-sub
-            = image_tag 'takei.png'
-          .owl-item-inner-sub
-            = image_tag 'takei.png'
-          .owl-item-inner-sub
-            = image_tag 'takei.png'
-
     .item-price-box.text-center.visible-sp
       %span.item-price.bold ¥13,100
       %span.item-tax (税込)
@@ -30,7 +21,7 @@
       .tr
         .th 出品者
         .td
-          = link_to '☆☆ALEXIA☆☆','https://www.mercari.com/jp/u/179175835/'
+          = link_to 'ユーザーネーム' , profile_path
           %div
             .item-user
               .item-user-ratings1
@@ -86,18 +77,10 @@
       .sales-point-message
         P200 をお持ちです
       .item-buy-btn
-        = link_to '購入画面に進む'
+        = link_to '購入画面に進む' , purchase_path
   .item-description.f14
     %p.item-description-inner
-      VANSとカリフォルニア工務店の限定コラボデニムEraです。
 
-  .text-center
-    .sales-point-message
-      P200 をお持ちです
-    .item-buy-btn
-      = link_to '購入画面に進む'
-  .item-description.f14
-    %p.item-description-inner
       VANSとカリフォルニア工務店の限定コラボデニムEraです。
       
       カリフォルニア工務店より第2弾として販売されたvans collection！
@@ -135,34 +118,27 @@
 
     %ul.nav-item-link-prev-next.clearfix
       %li.nav-item-link-prev
+        %i.fa.fa-arrow-left
         ショートパンツ ベージュ
       %li.nav-item-link-next
-        【新品未使用】ポケモン ピカチュウ ぬいぐるみ
-        %i.icon-arrow-right
+        %i.fa.fa-arrow-right
+        ポケモン ぬいぐるみ
+        %i.fa.fa-arrow-right
   .item-social-media-box
   .text-center
     .fb-save{"data-uri" => "product://113299479059860/m46057519022"}
   %ul.social-media-box
-    = fa_icon 'facebook', class: "contents__btn--icon"
-    = fa_icon 'facebook', class: "contents__btn--icon"
-    = fa_icon 'facebook', class: "contents__btn--icon"
-    = fa_icon 'facebook', class: "contents__btn--icon"
+    = fa_icon 'facebook-square', class: "contents-icon"
+    = fa_icon 'twitter-square', class: "contents-icon"
+    = fa_icon 'pinterest', class: "contents-icon"
   %h2.items-box-head
     (´ω` )さんのその他の出品
   .items-box-content1
-    .items-box
-      .img-photo
-    .items-box
-      .img-photo
-    .items-box
-      .img-photo
+    = render partial:"shared/pickup"
+    = render partial:"shared/pickup"
+    = render partial:"shared/pickup"
   .items-box-content2
-    .items-box
-      .img-photo
-    .items-box
-      .img-photo
-    .items-box
-      .img-photo
+    = render partial:"shared/pickup"
   %h2.items-box-head_sub
     その他のアイテム
   .items-box-content1
@@ -181,5 +157,3 @@
       .img-photo
 
 = render "modules/footer"
-
-

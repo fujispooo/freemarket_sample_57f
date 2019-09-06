@@ -7,39 +7,30 @@
     = current_user.nickname
     .pickup__item
       %h3.pickup__item__category
-        .pickup__item__category__title  レディース新着アイテム
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
+        .pickup__item__category__title  レディース 新着アイテム
+        - @items_for_woman.first(4).each do |item|
+          = render partial: "modules/category-index", locals: { item: item }
       .pickup__item__all
         %p.pickup__item__all__link 全ての商品を見る
     .pickup__item
       %h3.pickup__item__category
-        .pickup__item__category__title  メンズ新着アイテム
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
+        .pickup__item__category__title  メンズ 新着アイテム
+        - @items_for_man.first(4).each do |item|
+          = render partial: "modules/category-index", locals: { item: item }
       .pickup__item__all
         %p.pickup__item__all__link 全ての商品を見る
     .pickup__item
       %h3.pickup__item__category
-        .pickup__item__category__title  ベビー・キッズ新着アイテム
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
+        .pickup__item__category__title  インテリア 新着アイテム
+        - @items_for_sports.first(4).each do |item|
+          = render partial: "modules/category-index", locals: { item: item }
       .pickup__item__all
         %p.pickup__item__all__link 全ての商品を見る
     .pickup__item
       %h3.pickup__item__category
-        .pickup__item__category__title  コスメ・香水・美容 新着アイテム
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
-        = render partial:"shared/pickup"
-        
+        .pickup__item__category__title  SPORTS 新着アイテム
+        - @items_for_interior.first(4).each do |item|
+          = render partial: "modules/category-index", locals: { item: item }
       .pickup__item__all
         %p.pickup__item__all__link 全ての商品を見る
 
