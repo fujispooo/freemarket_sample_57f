@@ -2,7 +2,7 @@
   .main-header-inner
     .main-header-inner-top
       .main-header-inner-top__left
-        = link_to "https://www.mercari.com/jp/", class:"content" do
+        = link_to root_path, class:"content" do
           = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?3270184656", size: "134x36", alt: "メルカリロゴ", class: "header__box__top__link__image"
       .main-header-inner-top-right
         .main-header-inner-top-right-form
@@ -27,15 +27,21 @@
                   %span ブランドから探す
       %nav.l-right
         %ul.main-header-user-nav
-          %li
-            .main-header-menu-link
-              %i.fa.fa-bell
-              %span お知らせ
-              %li
-                .main-header-menu-link
-                  %i.fa.fa-check
-                  %span やることリスト
+          - if user_signed_in?
+            %li
+              .main-header-menu-link
+                %i.fa.fa-bell
+                %span お知らせ
                 %li
-                  .main-header-user-icon.pc-header-menu-link
-                    = link_to '/jp/mypage', class: "contents" do
-                      マイページ
+                  .main-header-menu-link
+                    %i.fa.fa-check
+                    %span やることリスト
+                  %li
+                    .main-header-user-icon.pc-header-menu-link
+                      = link_to '/jp/mypage', class: "contents" do
+                        マイページ
+          - else
+            %li
+              = link_to "ログイン", new_user_session_path, class: "login-link"
+            %li
+              = link_to "新規会員登録", new_user_registration_path, class: "registration-link"

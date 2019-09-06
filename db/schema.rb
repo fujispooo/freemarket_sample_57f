@@ -10,7 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
+ActiveRecord::Schema.define(version: 2019_08_31_033831) do
+ActiveRecord::Schema.define(version: 2019_09_05_062138) do
+
 ActiveRecord::Schema.define(version: 2019_09_05_084710) do
+
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
