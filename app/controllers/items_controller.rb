@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
     @items_for_man = Category.get_items_for(MAN)
     @items_for_sports = Category.get_items_for(SPORTS)
     @items_for_interior = Category.get_items_for(INTERIOR)
-    
   end
 
   def show
