@@ -20,26 +20,6 @@
               .accordion-toggle
                 ポイントを使う
                 %i.icon-arrow-bottom.accordion-icon
-          -#     %ul.accordion-child
-          -#       %li.bold 所持ポイント: P200
-          -#       %li.form-group{"data-buy" => "parent"}
-          -#         .radio-default
-          -#           %label
-          -#             %input{"data-buy" => "none", :name => "consume_point_radio", :type => "radio", :value => "none"}>/
-          -#             ポイントを使わない
-          -#         .radio-default
-          -#           %label
-          -#             %input{"data-buy" => "all", :name => "consume_point_radio", :type => "radio", :value => "all"}/
-          -#             %input{:type => "hidden", :value => "200"}/
-          -#             すべてのポイントを使う
-          -#             %br/
-          -#             P200
-          -#         .radio-default
-          -#           %label
-          -#             %input{"data-buy" => "part", :name => "consume_point_radio", :type => "radio", :value => "partial"}/
-          -#             一部のポイントを使う
-          -#         %input.input-default{"data-buy" => "part_num", "data-input" => "money", :placeholder => "使うポイントを入力", :type => "number", :value => ""}/
-          -#         %input{"data-buy" => "result", :name => "consume_point", :type => "hidden", :value => "0"}/
           %ul.buy-price-table
             %li.buy-price-row.buy-you-pay.bold
               .buy-price-cell 支払い金額

@@ -5,7 +5,6 @@ body {
   font-size: 14px;
   color: #333;
   line-height: 1;
-  height: 100%;
  }
  .single-container{
     text-align: center;
@@ -21,8 +20,8 @@ body {
   }
   .single-main {
   text-align: center;
-  height: 100%;
-  padding: 0 0 220px;
+  // height: 100%;
+  // padding: 0 0 220px;
   }
   .l-single-container.buy-item-container {
     width: 700px;
@@ -96,7 +95,7 @@ body {
   & span {
   font-size: 28px;
   text-align: right;
-  margin-left: 280%;
+  margin-left: 100px;
   font-weight: 700;
   }
  }

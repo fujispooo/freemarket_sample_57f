@@ -5,7 +5,7 @@
   .sell-inner
     %h2.sell-inner__head 商品の情報を入力
     .sell-inner__form
-    = form_for @item do |f|
+    = form_for @item  do |f|
       .sell-inner__form__upload-box
         -# = f.hidden_field :user_id, value: current_user.id
         %label 出品画像
@@ -17,11 +17,8 @@
               :preserve
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
-          -#   - if controller.action_name == 'edit'
-          -#     = render partial: 'image', locals: { length: 0, image_id: @item.item_image.id, original_index: 0 }, collection: @item.product_image.images, as: :image
-          -# = f.fields_for :item_image, @item_image do |g|
-          -#   = g.file_field :images, id:"item_image_file", multiple:true
-          -#   = g.hidden_field :images, id:"cropped_image", multiple:true
+            .preview        
+            = f.file_field :image,type:"file",multiple: true, id: 'image_select'
 
       .sell-inner__form__item
         .sell-inner__form__item__name
@@ -39,31 +36,20 @@
         .sell-inner__form__content__left
           %h3 商品の詳細
         .sell-inner__form__content__right
-          #sell-inner__form__content__right__genre
-            %label カテゴリー
+          #sell-inner__form__content__right__genre_hogehoge
+            = f.label 'カテゴリー'
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} レディース
-            .sell-inner__form__content__right__genre__select
-              %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} トップス
-            .sell-inner__form__content__right__genre__select
-              %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} Tシャツ
-          .sell-inner__form__content__right__genre
-            %label サイズ
-            %span 必須
-            .sell-inner__form__content__right__genre__select
-              %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
+              = f.select :category, @category_parent_array, {}, id: 'parent_category'
+
+          -# .sell-inner__form__content__right__genre_size
+          -#   %label サイズ
+          -#   %span 必須
+          -#   .sell-inner__form__content__right__genre__select
+          -#     %i.fa.fa-chevron-down
+          -#     %select
+          -#       %option{value: ""} ---
           .sell-inner__form__content__right__genre
             %label ブランド
             %span.brand 必須
@@ -76,8 +62,7 @@
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
+              = f.collection_select :item_state_id,ItemState.all, :id, :item_state,{include_blank: "---"},{required:true}
 
       .sell-inner__form__content
         .sell-inner__form__content__left
@@ -90,36 +75,28 @@
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} ちゃく払い
+              = f.collection_select :delivery_fee_id,DeliveryFee.all, :id, :delivery_fee,{include_blank: "---"},{required:true}
 
           .sell-inner__form__content__right__genre
             %label 配送の方法
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} 未定
+              = f.collection_select :delivery_method_id,DeliveryMethod.all, :id, :delivery_method,{include_blank: "---"},{required:true}
 
           .sell-inner__form__content__right__genre
             %label 配送元の地域
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} 未定
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{include_blank: "---"},{required:true}
 
           .sell-inner__form__content__right__genre
             %label 配送までの日数
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---
-                %option{value: "1"} 配達員の気分
+              = f.collection_select :delivery_day_id,DeliveryDay.all, :id, :delivery_day,{include_blank: "---"},{required:true}
 
       .sell-inner__form__content
         .sell-inner__form__content__left
@@ -163,7 +140,8 @@
             に同意したことになります。
 
         .sell-inner__form__foot__btn
-          %button.sell-inner__form__foot__btn__sell{type: "submit"} 出品する
+          %button.sell-inner__form__foot__btn__sell{type: "submit"}
+            = f.submit "出品する"
           .sell-inner__form__foot__btn__back
             = link_to "もどる", :back, class: "sell-inner__form__foot__btn__back__btn"
 

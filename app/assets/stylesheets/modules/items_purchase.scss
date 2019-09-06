@@ -75,7 +75,7 @@ font-size: 14px;
 
 .buy-content {
   margin: 40px 0 0;
-  padding: 24px 12.5% 0;
+  padding: 24px 12.5% 40px;
   border-top: 1px solid #f5f5f5;
 }
 
@@ -83,6 +83,9 @@ font-size: 14px;
   margin: 40px 0 0;
   font-size: 14px;
   text-align: left;
+  & span {
+
+  }
 }
 
 .buy-content-inner {
@@ -115,31 +118,24 @@ h3 {
 }
 
 
-.single-footer {
+.single-footer-purchase {
   width: 456px;
+  height: 190px;
   margin: 0 auto;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
   padding: 40px 0;
   text-align: center;
-  list-style: none;
-  &-box {
-    display: flex
-  }
-  &-logo{
-  width: 80px;
-  height: 65px;
-  margin: 40px auto 0;
-  padding-bottom:20px;
-  }
   & a {
     color: black;
     font-size: 12px;
-    margin-right: 30px;
+    margin-left: 30px;
+    padding-top: 20px;
   }
-  & ul {
+  & img {
+    margin-top: 60px;
+  }
+  & p {
+    margin-top: 30px;
+    margin-left: 25px;
   }
   }
 
@@ -169,8 +165,27 @@ h3 {
     & span {
     font-size: 28px;
     text-align: right;
-    margin-left: 250%;
+    margin-left: 100px;
     font-weight: 700;
   }
 }
+
+.buy-content-purchase {
+  margin-top: 20px;
+  & button {
+    top: 30px;
+    right: 30px;
+    padding: 10px 120px;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #ea352d;
+    color: #ea352d;
+    font-size: 16px;
+    }
+  & button:hover {
+    background-color: #ea352d;
+    color: #fff;
+    }
+}
+
 
