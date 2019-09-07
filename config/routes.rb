@@ -29,9 +29,9 @@ Rails.application.routes.draw do
         get 'm[:id]/sell'  => 'items#transaction'
       end
     end
-    resources :item_images, only: [:create,:destroy,:update], defaults: { format: 'json' }
+    # resources :item_images, only: [:create,:destroy,:update], defaults: { format: 'json' }
       #画像用のルート
-    resources :items, only: [:index, :show, :new, :edit, :destroy] do
+    resources :items, only: [:index, :show, :new,:create,:edit, :destroy] do
       #Ajaxで動くアクションのルートを作成
       collection do
         get 'get_category_children', defaults: { format: 'json' }
