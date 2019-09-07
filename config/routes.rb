@@ -36,9 +36,9 @@ Rails.application.routes.draw do
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
         get 'get_size', defaults: { format: 'json' }
-      end    
+      end
     end
-    # get 'm[:id]/detail'    => 'items#show'
+    get 'items/:id'        => 'items#show'
     get 'sell'             => 'items#new'
     get '/'                => 'items#index'
   end
