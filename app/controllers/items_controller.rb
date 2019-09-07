@@ -5,8 +5,8 @@ class ItemsController < ApplicationController
 
   WOMAN = 1
   MAN = 200
-  SPORTS = 300
-  INTERIOR = 400
+  SPORTS = 399
+  INTERIOR = 598
 
   def index
     @items = Item.order("created_at DESC").limit(4).where.not(item_state_id: 1)
@@ -106,7 +106,7 @@ class ItemsController < ApplicationController
       # :grandchild_category_id,
       :size_id,
       item_images_attributes: [:image]
-    ).merge(user_id: 1)
+    ).merge(user_id: current_user.id)
   end
 
 
