@@ -64,11 +64,10 @@ class ItemsController < ApplicationController
 
 
   def create
-    # binding.pry
     @item = Item.new(item_params)
-    binding.pry
     # @item.save!
-
+    
+    binding.pry
     if @item.save
       redirect_to :root
     else
@@ -95,7 +94,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :name,
       :description,
-      :brand_id,
+      :brand,
       :item_state_id,
       :delivery_fee_id,
       :delivery_method_id,
