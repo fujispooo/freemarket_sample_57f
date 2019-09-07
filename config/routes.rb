@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get 'profile'        => 'users#show'
       get 'identification' => 'users#identification'
       get 'logout'         => 'users#logout'
-      get '/'              => 'users#mypage'
+      get '/'              => 'users#mypage' ,as: "mypage"
       resources :cards, only: [:new, :show] do
         collection do
           post 'show'      => 'cards#show'

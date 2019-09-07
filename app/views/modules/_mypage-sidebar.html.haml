@@ -2,7 +2,7 @@
   .left-content__bar
     %ul
       %li.notborder
-        %a{href: "/mypage"} マイページ
+        =link_to "マイページ", mypage_path
         %i.fa.fa-chevron-right
       %li
         %a お知らせ
@@ -14,28 +14,28 @@
         %a いいね！一覧
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/items/new"} 出品する
+        =link_to "出品する",new_item_path
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/mypage/listing"} 出品した商品-出品中
+        %a 出品した商品-出品中
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/mypage/in_progress"} 出品した商品-取引中
+        %a 出品した商品-取引中
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/mypage/completed"} 出品した商品-売却済み
+        %a 出品した商品-売却済み
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/mypage/purchase"} 購入した商品-取引中
+        %a  購入した商品-取引中
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/mypage/purchased"} 購入した商品-過去の取引
+        %a 購入した商品-過去の取引
         %i.fa.fa-chevron-right
       %li
         %a ニュース一覧
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/mypage/review"} 評価一覧
+        %a 評価一覧
         %i.fa.fa-chevron-right
       %li
         %a ガイド
@@ -56,23 +56,23 @@
     %h4 設定
     %ul.marginT-8px
       %li
-        %a プロフィール
+        =link_to "プロフィール",profile_path
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/mypage/deliver_address"} 住所変更
+        %a 住所変更
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/mypage/card"} 支払い方法
+        =link_to "支払い方法" ,cards_path
         %i.fa.fa-chevron-right
       %li
         %a メール/パスワード
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/mypage/new"} 本人情報
+        =link_to "本人情報" ,identification_path 
         %i.fa.fa-chevron-right
       %li
         %a 電話番号の確認
         %i.fa.fa-chevron-right
       %li
-        %a{href: "/jp/mypage/logout"} ログアウト
+        =link_to "ログアウト",logout_path
         %i.fa.fa-chevron-right

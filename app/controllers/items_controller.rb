@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index]
   # before_action :user_login,only:[:new, :show]
 
 

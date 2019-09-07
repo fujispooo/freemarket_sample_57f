@@ -1,4 +1,4 @@
-window.addEventListener("load", function() {
+window.addEventListener("turbolinks:load", function() {
   let tabs = document.getElementsByClassName("menu_item");
   tabsAry = Array.prototype.slice.call(tabs);
 
@@ -9,8 +9,8 @@ window.addEventListener("load", function() {
     const index = tabsAry.indexOf(this);
     document.getElementsByClassName("ryofujii-right-content__block__object")[index].classList.add("show");
   }
-
   tabsAry.forEach(function(value) {
     value.addEventListener("click", tabSwitch);
   });
 });
+
