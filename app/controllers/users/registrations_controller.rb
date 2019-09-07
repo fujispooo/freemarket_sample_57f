@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-
+  skip_before_action :authenticate_user!
   def new
 
   end
@@ -38,8 +38,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def create
     session[:address_attributes] = user_params_step3[:address_attributes]
-    @user = User.new(nickname: session[:nickname],email:session[:email], password:session[:password],first_name:session[:first_name],last_name:session[:last_name], first_name_kana: session[:first_name_kana], last_name_kana:session[:last_name_kana],birth_year:session[:birth_year],birth_month: session[:birth_month],birth_day: session[:birth_day], phone_number: session[:phone_number],address_attributes: session[:address_attributes])
+    @user = User.new(
+      nickname:           session[:nickname],
+      email:              session[:email],
+      password:           session[:password],
+      first_name:         session[:first_name],
+      last_name:          session[:last_name],
+      first_name_kana:    session[:first_name_kana],
+      last_name_kana:     session[:last_name_kana],
+      birth_year:         session[:birth_year],
+      birth_month:        session[:birth_month],
+      birth_day:          session[:birth_day],
+      phone_number:       session[:phone_number],
+      address_attributes: session[:address_attributes])
     @user.save
+    binding.pry
     sign_in @user
   end
 

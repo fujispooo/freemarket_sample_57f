@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   get 'purchase/index'
   get 'purchase/done'
   devise_for :users, controllers:{
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'user/registrations'
   }
 
   scope :jp do
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
       get 'profile'        => 'users#show'
       get 'identification' => 'users#identification'
       get 'logout'         => 'users#logout'
-      get '/'              => 'users#mypage'
+      get '/'              => 'users#mypage' ,as: "mypage"
       resources :cards, only: [:new, :show] do
         collection do
           post 'show'      => 'cards#show'
