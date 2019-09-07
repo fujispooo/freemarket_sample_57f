@@ -1,7 +1,7 @@
 $(function(){
   // カテゴリーセレクトボックスのオプションを作成
   function appendOption(category){
-    var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+    var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
     return html;
   }
   // 子カテゴリーの表示作成
@@ -36,7 +36,7 @@ $(function(){
       $.ajax({
         url: 'get_category_children',
         type: 'GET',
-        data: { parent_name: parentCategory },
+        data: { parent_id: parentCategory },
         dataType: 'json'
       })
       .done(function(children){
@@ -97,7 +97,7 @@ $(function(){
 $(function(){
   // サイズセレクトボックスのオプションを作成
   function appendSizeOption(size){
-    var html = `<option value="${size.name}">${size.name}</option>`;
+    var html = `<option value="${size.id}">${size.name}</option>`;
     return html;
   }
   // サイズ・ブランド入力欄の表示作成
@@ -108,7 +108,7 @@ $(function(){
                         <span>必須</span>
                         <div class="sell-inner__form__content__right__genre_select" id= "size_wrapper">
                           <i class="fa fa-chevron-down"></i>
-                          <select id="size" name="size_id">
+                          <select id="size" name="item[size_id]">
                           <option value="---">---</option>
                             ${insertHTML}
                           </select>

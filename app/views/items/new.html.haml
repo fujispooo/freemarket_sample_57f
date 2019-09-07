@@ -5,7 +5,7 @@
   .sell-inner
     %h2.sell-inner__head 商品の情報を入力
     .sell-inner__form
-    = form_for @item  do |f|
+    = form_for @item, method: :post do |f|
       .sell-inner__form__upload-box
         -# = f.hidden_field :user_id, value: current_user.id
         %label 出品画像
@@ -18,7 +18,8 @@
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
             .preview        
-            = f.file_field :image,type:"file",multiple: true, id: 'image_select'
+            =f.fields_for :item_images do |i|
+              = i.file_field :image,type:"file" ,id: 'image_select'
 
       .sell-inner__form__item
         .sell-inner__form__item__name
@@ -41,7 +42,7 @@
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              = f.select :category, @category_parent_array, {}, id: 'parent_category'
+              = f.collection_select :category_id, @category_parent_array, :id, :name,{include_blank: "---"}, id: 'parent_category'
 
           -# .sell-inner__form__content__right__genre_size
           -#   %label サイズ
@@ -111,7 +112,8 @@
             .sell-inner__form__content__right__price__frame
               .sell-inner__form__content__right__price__frame__mark ¥
               .sell-inner__form__content__right__price__frame__box
-                %input.price{placeholder: "例）300", value: ""}/
+                = f.text_field :price, required: true, placeholder: "例）300", class: "inputField"            
+                -# %input.price{placeholder: "例）300", value: ""}/
           .sell-inner__form__content__right__fee
             .sell-inner__form__content__right__fee__text
               販売手数料
