@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_05_084710) do
+ActiveRecord::Schema.define(version: 2019_09_07_102155) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -43,10 +43,10 @@ ActiveRecord::Schema.define(version: 2019_09_05_084710) do
   end
 
   create_table "category_sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "category_id"
-    t.bigint "size_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.bigint "size_id"
     t.index ["category_id"], name: "index_category_sizes_on_category_id"
     t.index ["size_id"], name: "index_category_sizes_on_size_id"
   end
@@ -71,19 +71,19 @@ ActiveRecord::Schema.define(version: 2019_09_05_084710) do
 
   create_table "item_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "comment"
-    t.bigint "user_id"
-    t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "item_id"
     t.index ["item_id"], name: "index_item_comments_on_item_id"
     t.index ["user_id"], name: "index_item_comments_on_user_id"
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image", null: false
-    t.bigint "item_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "item_id"
     t.index ["image"], name: "index_item_images_on_image"
     t.index ["item_id"], name: "index_item_images_on_item_id"
   end
@@ -97,19 +97,18 @@ ActiveRecord::Schema.define(version: 2019_09_05_084710) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.bigint "category_id", null: false
-    t.bigint "size_id", null: false
-    t.bigint "brand_id"
-    t.bigint "item_state_id", null: false
-    t.bigint "delivery_fee_id", null: false
-    t.bigint "delivery_method_id", null: false
-    t.bigint "delivery_day_id", null: false
     t.integer "price", null: false
-    t.bigint "user_id", null: false
-    t.integer "prefecture_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["brand_id"], name: "index_items_on_brand_id"
+    t.string "brand"
+    t.bigint "category_id"
+    t.bigint "size_id"
+    t.bigint "item_state_id"
+    t.bigint "delivery_fee_id"
+    t.bigint "delivery_method_id"
+    t.bigint "delivery_day_id"
+    t.bigint "user_id"
+    t.integer "prefecture_id"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["delivery_day_id"], name: "index_items_on_delivery_day_id"
     t.index ["delivery_fee_id"], name: "index_items_on_delivery_fee_id"
@@ -156,4 +155,16 @@ ActiveRecord::Schema.define(version: 2019_09_05_084710) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "category_sizes", "categories"
+  add_foreign_key "category_sizes", "sizes"
+  add_foreign_key "item_comments", "items"
+  add_foreign_key "item_comments", "users"
+  add_foreign_key "item_images", "items"
+  add_foreign_key "items", "categories"
+  add_foreign_key "items", "delivery_days"
+  add_foreign_key "items", "delivery_fees"
+  add_foreign_key "items", "delivery_methods"
+  add_foreign_key "items", "item_states"
+  add_foreign_key "items", "sizes"
+  add_foreign_key "items", "users"
 end
