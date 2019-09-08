@@ -18,8 +18,6 @@
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
 
-            .preview
-            = f.file_field :image,type:"file",multiple: true, id: 'image_select'
 
             .preview        
             =f.fields_for :item_images do |i|

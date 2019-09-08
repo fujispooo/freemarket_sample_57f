@@ -59,8 +59,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     # @item.save!
-
-
     if @item.save
       redirect_to :root
     else
