@@ -67,7 +67,6 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     # @item.save!
     
-    binding.pry
     if @item.save
       redirect_to :root
     else
