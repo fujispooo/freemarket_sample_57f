@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
+    @item = Item.find(item_params.id)
   end
 
   def new
@@ -59,8 +59,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     # @item.save!
-    
-    binding.pry
+
     if @item.save
       redirect_to :root
     else
@@ -72,7 +71,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
+    item = Item.find(params[:id])
     if item.user_id == current_user.id
     item.destroy
     end
@@ -87,7 +86,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :name,
       :description,
-      :brand,
+      :brand_id,
       :item_state_id,
       :delivery_fee_id,
       :delivery_method_id,
