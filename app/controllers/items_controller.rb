@@ -2,12 +2,6 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   # before_action :user_login,only:[:new, :show]
 
-
-  WOMAN = 1
-  MAN = 200
-  SPORTS = 399
-  INTERIOR = 598
-
   def index
     @items = Item.order("created_at DESC").limit(4).where.not(item_state_id: 1)
     @items_for_woman = Category.get_items_for(1).first(4)
@@ -62,8 +56,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    
-    binding.pry
     if @item.save
       redirect_to :root
     else
@@ -90,7 +82,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :name,
       :description,
-      :brand,
+      :brand_id,
       :item_state_id,
       :delivery_fee_id,
       :delivery_method_id,

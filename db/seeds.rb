@@ -1,7 +1,7 @@
 
 
-# #レディースブロック
-#   #レディースの子カテゴリー配列
+#レディースブロック
+  #レディースの子カテゴリー配列
 #   lady_child_array = ['トップス','ジャケット/アウター','パンツ','スカート','ワンピース','靴','ルームウェア/パジャマ','レッグウェア','帽子','バッグ','アクセサリー','ヘアアクセサリー','小物','時計','ウィッグ/エクステ','浴衣/水着','スーツ/フォーマル/ドレス','マタニティ','その他']
 #   #レディースの孫カテゴリー配列
 #   lady_grandchild_array = [['Tシャツ/カットソー(半袖/袖なし)','Tシャツ/カットソー(七分/長袖)','シャツ/ブラウス(半袖/袖なし)','シャツ/ブラウス(七分/長袖)','ポロシャツ','キャミソール','タンクトップ','ホルターネック','ニット/セーター','チュニック','カーディガン/ボレロ','アンサンブル','ベスト/ジレ','パーカー','トレーナー/スウェット','ベアトップ/チューブトップ','ジャージ','その他'],
@@ -10,7 +10,7 @@
 #                            ['ミニスカート','ひざ丈スカート','ロングスカート','キュロット','その他'], 
 #                            ['ミニワンピース','ひざ丈ワンピース','ロングワンピース','その他'], 
 #                            ['ハイヒール/パンプス','ブーツ','サンダル','スニーカー','ミュール','モカシン','ローファー/革靴','フラットシューズ/バレエシューズ','長靴/レインシューズ','その他'], 
-#                            ['パジャマ','ルームウェア'], 
+#                            ['パジャマ','ルームウェア'],
 #                            ['ソックス','スパッツ/レギンス','ストッキング/タイツ','レッグウォーマー','その他'], 
 #                            ['ニットキャップ/ビーニー','ハット','ハンチング/ベレー帽','キャップ','キャスケット','麦わら帽子','その他'], 
 #                            ['ハンドバッグ','トートバッグ','エコバッグ','リュック/バックパック','ボストンバッグ','スポーツバッグ','ショルダーバッグ','クラッチバッグ','ポーチ/バニティ','ボディバッグ/ウェストバッグ','マザーズバッグ','メッセンジャーバッグ','ビジネスバッグ','旅行用バッグ/キャリーバッグ','ショップ袋','和装用バッグ','かごバッグ','その他'], 
@@ -32,6 +32,7 @@
 #         child.children.create(name: grandchild)
 #       end
 #     end
+
 #   end
 
 # item_states = ['新品未使用','未使用に近い','目立った傷や汚れなし','やや傷や汚れあり','傷や汚れあり','全体的に状態が悪い']
@@ -53,20 +54,20 @@
 # DeliveryMethod.create!([{delivery_method: '未定'},{delivery_method: 'らくらくメルカリ便'},{delivery_method: 'ゆうメール'}])
 
 
-# # サイズ
-#   # 洋服のサイズの子カテゴリー配列
-#   huku_child_array = ['XXS以下','XS(SS)','S','M','L','XL(LL)','2XL(3L)','3XL(4L)','4XL(5L)以上','FREE SIZE']  
-#   parent = Size.create(name: '洋服のサイズ')
-#   huku_child_array.each_with_index do |child, i|
-#     child = parent.children.create(name: child)
-#   end
-  
-#   # 靴のサイズの子カテゴリー配列
-#   kutu_child_array = ['20cm以下','20cm','21cm','22cm','23cm','24cm','25cm','26cm','27以上']  
-#   parent = Size.create(name: '靴のサイズ')
-#   kutu_child_array.each_with_index do |child, i|
-#     child = parent.children.create(name: child)
-#   end
+
+# サイズ
+  # 洋服のサイズの子カテゴリー配列
+  huku_child_array = ['XXS以下','XS(SS)','S','M','L','XL(LL)','2XL(3L)','3XL(4L)','4XL(5L)以上','FREE SIZE']  
+  parent = Size.create(name: '洋服のサイズ')
+  huku_child_array.each_with_index do |child, i|
+    child = parent.children.create(name: child)
+  end
+  # 靴のサイズの子カテゴリー配列
+  kutu_child_array = ['20cm以下','20cm','21cm','22cm','23cm','24cm','25cm','26cm','27以上']  
+  parent = Size.create(name: '靴のサイズ')
+  kutu_child_array.each_with_index do |child, i|
+    child = parent.children.create(name: child)
+  end
 
 
 # This file should contain all the record creation needed to seed the database with its default values.
@@ -91,6 +92,7 @@
 #   )
 # end
 
+
 # shoes_numbers = [67,266,465]
 # shoes_numbers.each do |shoes_number|
 #   CategorySize.create!(
@@ -99,7 +101,6 @@
 #   )
 # end
 
-# end
 
 # #その他ブロック
 

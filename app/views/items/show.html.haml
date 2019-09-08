@@ -2,15 +2,16 @@
 
 %section.item-box-container.l-single-container
   %h1.item-name 
+    = @item.name
   .item-main-content
     .item-photo
       .owl-carousel
         .owl-item-inner
-          - @items.each do |item|
         .owl-item-inner-sub-box
           .owl-item-inner-sub
     .item-price-box.text-center.visible-sp
-      %span.item-price.bold ¥13,100
+      %span.item-price.bold
+        = @item.price
       %span.item-tax (税込)
       %span.item-shipping-fee 送料込み
 
@@ -21,7 +22,7 @@
       .tr
         .th 出品者
         .td
-          = link_to 'ユーザーネーム' , profile_path
+          = @item.user.nickname
           %div
             .item-user
               .item-user-ratings1
@@ -63,8 +64,9 @@
         .th 発送日の目安
         .td 2~3日で発送
   .item-price-box.text-center
-    %span.item-price.bold ¥13,100
-    %span.item-tax (税込)
+    %span.item-price.bold
+      = @item.price
+    %span.item-tax 円(税込)
     %span.item-shipping-fee 送料込み
 
     -# 条件分岐
