@@ -13,7 +13,7 @@
     .pickup__item
       %h3.pickup__item__category
         .pickup__item__category__title  レディース 新着アイテム
-        - @items_for_woman.first(4).each do |item|
+        - @items_for_woman.each do |item|
           = render partial: "modules/category-index", locals: { item: item }
       .pickup__item__all
         %p.pickup__item__all__link 全ての商品を見る
