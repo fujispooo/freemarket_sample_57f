@@ -51,6 +51,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       phone_number:       session[:phone_number],
       address_attributes: session[:address_attributes])
     @user.save
+
     sign_in @user
   end
 
