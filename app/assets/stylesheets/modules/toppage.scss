@@ -99,7 +99,7 @@
   span{
   vertical-align: middle;
   display: inline-block;
- }
+  }
 }
 
 .main-header-nav>li {
@@ -250,7 +250,6 @@
               display: flex;
               justify-content: space-between;
               padding-top: 20px;
-
               &__name{
                 font-size: 16px;
                 height: 3em;
@@ -262,15 +261,15 @@
                 margin: 8px 0 0;
                 font-size: 17px;
               }
-          &__figure{
-            width: 213px;
-            height: 220px;
-            &__image{
-              width: 213px;
-              height: 220px;
+              &__figure{
+                width: 213px;
+                height: 220px;
+                &__image{
+                  width: 213px;
+                  height: 220px;
+                }
+              }
             }
-            }
-          }
           }
         }
       }

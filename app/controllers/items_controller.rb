@@ -2,22 +2,15 @@ class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   # before_action :user_login,only:[:new, :show]
 
-
-  WOMAN = 1
-  MAN = 200
-  SPORTS = 399
-  INTERIOR = 598
-
   def index
-    @items = Item.order("created_at DESC").limit(4).where.not(item_state_id: 1)
-    @items_for_woman = Category.get_items_for(WOMAN)
-    @items_for_man = Category.get_items_for(MAN)
-    @items_for_sports = Category.get_items_for(SPORTS)
-    @items_for_interior = Category.get_items_for(INTERIOR)
+    @items_for_woman    = Category.get_items_for(1).first(4)
+    @items_for_man      = Category.get_items_for(200).first(4)
+    @items_for_sports   = Category.get_items_for(399).first(4)
+    @items_for_interior = Category.get_items_for(598).first(4)
   end
 
   def show
-    @item = Item.find(params[:id])
+    @item = Item.find(item_params.id)
   end
 
   def new
@@ -66,7 +59,8 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     # @item.save!
-    
+
+
     if @item.save
       redirect_to :root
     else
@@ -78,7 +72,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    @item = Item.find(params[:id])
+    item = Item.find(params[:id])
     if item.user_id == current_user.id
     item.destroy
     end
@@ -93,7 +87,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :name,
       :description,
-      :brand,
+      :brand_id,
       :item_state_id,
       :delivery_fee_id,
       :delivery_method_id,
