@@ -188,13 +188,8 @@ body {
  }
  .clearfix {
   display: flex;
-  & a {
-    // font-size: 14px;
-    // color: #333;
-  }
   & li {
     display: inline-block;
-    // margin: 0 0 0 16px;
   }
   & nav {
     margin-top: 60px;

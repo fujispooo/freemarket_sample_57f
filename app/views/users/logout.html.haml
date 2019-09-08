@@ -16,7 +16,6 @@
 
   .logout_right-content
     .logout_right-container
-      = link_to "ログアウト" , destroy_user_session_path, method: :delete
-
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
 = render "modules/sell-btn"
 = render 'modules/footer'

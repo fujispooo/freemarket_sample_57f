@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   get 'purchase/index'
   get 'purchase/done'
-  root to: 'items#index'
   devise_for :users, controllers:{
-    sessions: 'users/sessions'
+    sessions: 'users/sessions',
+    registrations: 'user/registrations'
   }
 
   scope :jp do
@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get 'profile'        => 'users#show'
       get 'identification' => 'users#identification'
       get 'logout'         => 'users#logout'
-      get '/'              => 'users#mypage'
+      get '/'              => 'users#mypage' ,as: "mypage"
       resources :cards, only: [:new, :show] do
         collection do
           post 'show'      => 'cards#show'
@@ -23,14 +23,15 @@ Rails.application.routes.draw do
         end
       end
     end
+
     scope :transaction do
       scope :buy do
         get 'm[:id]/sell'  => 'items#transaction'
       end
     end
-    resources :item_images, only: [:create,:destroy,:update], defaults: { format: 'json' }
+    # resources :item_images, only: [:create,:destroy,:update], defaults: { format: 'json' }
       #画像用のルート
-    resources :items, only: [:index, :show, :new, :edit, :destroy] do
+    resources :items, only: [:index, :show, :new,:create,:edit, :destroy] do
       #Ajaxで動くアクションのルートを作成
       collection do
         get 'get_category_children', defaults: { format: 'json' }
@@ -40,7 +41,7 @@ Rails.application.routes.draw do
     end
     get 'items/:id'        => 'items#show'
     get 'sell'             => 'items#new'
-    get '/'                => 'items#index'
+    get '/'                => 'items#index' ,as: "root"
   end
 
   devise_scope :user do
@@ -58,9 +59,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   resources :users ,only: [:new,:create] do
-
   end
-
 end

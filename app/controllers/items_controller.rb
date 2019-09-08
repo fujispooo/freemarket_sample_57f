@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index]
   # before_action :user_login,only:[:new, :show]
 
 
   WOMAN = 1
   MAN = 200
-  SPORTS = 300
-  INTERIOR = 400
+  SPORTS = 399
+  INTERIOR = 598
 
   def index
     @items = Item.order("created_at DESC").limit(4).where.not(item_state_id: 1)
@@ -22,22 +22,24 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item_image = ItemImage.new
+    @item.item_images.build
     # @categories = Category.where(parent_id:nil)
 
       #セレクトボックスの初期値設定
     @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
+    # Category.where(ancestry: nil).each do |parent|
+      # @category_parent_array << parent.name
+    @category_parent_array = Category.where(ancestry: nil)
+    
   end
+
 
   # 以下全て、formatはjsonのみ
     # 親カテゴリーが選択された後に動くアクション
   def get_category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
-    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+    @category_children = Category.find("#{params[:parent_id]}").children
   end
 
   # 子カテゴリーが選択された後に動くアクション
@@ -62,6 +64,15 @@ class ItemsController < ApplicationController
 
 
   def create
+    @item = Item.new(item_params)
+    # @item.save!
+    
+    binding.pry
+    if @item.save
+      redirect_to :root
+    else
+      redirect_to :new_item
+    end
   end
 
   def purchase
@@ -77,4 +88,28 @@ class ItemsController < ApplicationController
 
   def transaction
   end
+
+  private
+  def item_params
+    params.require(:item).permit(
+      :name,
+      :description,
+      :brand,
+      :item_state_id,
+      :delivery_fee_id,
+      :delivery_method_id,
+      :delivery_day_id,
+      :price,
+      :category_id,
+      :prefecture_id,
+      # :child_category_id, 
+      # :grandchild_category_id,
+      :size_id,
+      item_images_attributes: [:image]
+    ).merge(user_id: current_user.id)
+  end
+
+
 end
+
+
