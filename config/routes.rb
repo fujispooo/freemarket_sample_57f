@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get 'purchase/done'
   devise_for :users, controllers:{
     sessions: 'users/sessions',
-    registrations: 'user/registrations'
+    registrations: 'user/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
   }
 
   scope :jp do
