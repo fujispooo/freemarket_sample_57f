@@ -42,7 +42,7 @@
 #   )
 # end
 
-# delivery_fees = ['送料込み（出品者負担）','着払い（購入者負担']
+# delivery_fees = ['送料込み（出品者負担）','着払い（購入者負担）']
 # delivery_fees.each do |delivery_fee|
 #   DeliveryFee.create!(
 #     delivery_fee: delivery_fee,
