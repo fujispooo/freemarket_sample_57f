@@ -3,10 +3,12 @@ class ItemsController < ApplicationController
   # before_action :user_login,only:[:new, :show]
 
   def index
-    @items_for_woman    = Category.get_items_for(1).first(4)
-    @items_for_man      = Category.get_items_for(200).first(4)
-    @items_for_sports   = Category.get_items_for(399).first(4)
-    @items_for_interior = Category.get_items_for(598).first(4)
+    @items = Item.order("created_at DESC").limit(4).where.not(item_state_id: 1)
+    @items_for_woman = Category.get_items_for(1).first(4)
+    # binding.pry
+    @items_for_man = Category.get_items_for(MAN)
+    @items_for_sports = Category.get_items_for(SPORTS)
+    @items_for_interior = Category.get_items_for(INTERIOR)
   end
 
   def show
@@ -16,13 +18,10 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.item_images.build
-    # @categories = Category.where(parent_id:nil)
 
       #セレクトボックスの初期値設定
     @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
-    # Category.where(ancestry: nil).each do |parent|
-      # @category_parent_array << parent.name
     @category_parent_array = Category.where(ancestry: nil)
     
   end
@@ -38,7 +37,6 @@ class ItemsController < ApplicationController
   # 子カテゴリーが選択された後に動くアクション
   def get_category_grandchildren
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-    #@category_grandchildren = Category.find("#{params[:child_id]}").children
     @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
@@ -58,7 +56,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # @item.save!
     if @item.save
       redirect_to :root
     else
@@ -93,8 +90,6 @@ class ItemsController < ApplicationController
       :price,
       :category_id,
       :prefecture_id,
-      # :child_category_id, 
-      # :grandchild_category_id,
       :size_id,
       item_images_attributes: [:image]
     ).merge(user_id: current_user.id)
