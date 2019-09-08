@@ -17,14 +17,14 @@
               :preserve
                 ドラッグアンドドロップ
                 またはクリックしてファイルをアップロード
-            .preview        
+            .preview
             = f.file_field :image,type:"file",multiple: true, id: 'image_select'
 
       .sell-inner__form__item
         .sell-inner__form__item__name
           = f.label :商品名, class: "label"
           %span 必須
-          %div 
+          %div
             = f.text_field :name, required: true, placeholder: "商品名（40字まで）", class: "inputField"
 
         .sell-inner__form__item__description
