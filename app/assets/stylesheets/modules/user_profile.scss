@@ -3,37 +3,38 @@
   height: 49px;
   width: 100%;
   position: relative;
-  border-top: 2px solid #eee;
+  border-top: 1px solid #eee;
   background: #f5f5f5;
   -webkit-box-shadow: 0 4px 4px 0 rgba(0,0,0,0.16);
   box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
   background: #fff;
   display: inline-block;
-  a {
-    font-size: 14px;
-    margin-right: 5px;
-    line-height: 3.2;
-    color: darkgray;
-    display: inline-block;
-    transition: .3s;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    font-weight: bold;
-    &:hover {
-      -webkit-transform: scale(1.1);
-      transform: scale(1.1);
-      color: #ea352d;
+  line-height: 49px;
+  &-box {
+    width: 100%;
+    height: 35px;
+    margin-left:12%; 
+    a {
+      font-size: 14px;
+      margin-right: 10px;
+      line-height: 3.2;
+      color: #333;
+      display: inline-block;
+      transition: .3s;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      text-decoration-line:none;
+      &:hover {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+        color: #ea352d;
+      }
+    }
+    span {
+      font-size: 14px;
+      font-weight: bold;
     }
   }
-  span {
-    font-size: 16px;
-    font-weight: 500;
-  }
-}
-.bread-crumbs-box {
-  width: 100%;
-  height: 35px;
-  margin-left:15%; 
 }
 //////////////////////////////////////
 

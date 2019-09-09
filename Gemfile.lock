@@ -209,7 +209,6 @@ GEM
     nio4r (2.5.1)
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
-    oauth (0.5.4)
     oauth2 (1.4.1)
       faraday (>= 0.8, < 0.16.0)
       jwt (>= 1.0, < 3.0)
@@ -221,13 +220,10 @@ GEM
       rack (>= 1.6.2, < 3)
     omniauth-facebook (5.0.0)
       omniauth-oauth2 (~> 1.2)
-    omniauth-google (1.0.2)
-      multi_json
-      omniauth (~> 1.0)
-      omniauth-oauth
-    omniauth-oauth (1.1.0)
-      oauth
-      omniauth (~> 1.0)
+    omniauth-google-oauth2 (0.8.0)
+      jwt (>= 2.0)
+      omniauth (>= 1.1.1)
+      omniauth-oauth2 (>= 1.6)
     omniauth-oauth2 (1.6.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
@@ -376,7 +372,7 @@ DEPENDENCIES
   mysql2 (>= 0.4.4, < 0.6.0)
   omniauth
   omniauth-facebook
-  omniauth-google
+  omniauth-google-oauth2
   payjp
   pry-rails
   puma (~> 3.11)

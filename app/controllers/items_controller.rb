@@ -7,10 +7,11 @@ class ItemsController < ApplicationController
     @items_for_man = Category.get_items_for(200).first(4)
     @items_for_sports = Category.get_items_for(399).first(4)
     @items_for_interior = Category.get_items_for(598).first(4)
+    binding.pry
   end
 
   def show
-    @item = Item.find(item_params.id)
+    @item = Item.find(params[:id])
   end
 
   def new
@@ -61,13 +62,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  def purchase
-  end
-
   def destroy
     item = Item.find(params[:id])
     if item.user_id == current_user.id
-    item.destroy
+      item.destroy
     end
     redirect_to root_path
   end
@@ -92,8 +90,6 @@ class ItemsController < ApplicationController
       item_images_attributes: [:image]
     ).merge(user_id: current_user.id)
   end
-
-
 end
 
 

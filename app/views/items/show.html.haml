@@ -70,16 +70,16 @@
     %span.item-shipping-fee 送料込み
 
     -# 条件分岐
-  - if user_signed_in?
+  - if @item.user_id == current_user.id
     .text-center
       .item-buy-btn
-        = link_to '商品を削除する'
+        = link_to '商品を削除する', item_path(@item),method: :delete
   - else
     .text-center
       .sales-point-message
         P200 をお持ちです
       .item-buy-btn
-        = link_to '購入画面に進む' , purchase_path
+        = link_to '購入画面に進む', purchase_cards_path
   .item-description.f14
     %p.item-description-inner
 
