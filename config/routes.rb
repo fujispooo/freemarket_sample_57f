@@ -1,98 +1,50 @@
-# Rails.application.routes.draw do
-#   devise_for :users, controllers:{
-#     sessions: 'users/sessions',
-#     registrations: 'user/registrations',
-#     omniauth_callbacks: 'users/omniauth_callbacks'
-#   }
-#   devise_scope :user do
-#     scope :jp do
-#       scope :signup do
-#         get  '/'                    => 'users/registrations#new'
-#         get  'registration'         => 'users/registrations#step1'
-#         get  'ms_confirmation'      => 'users/registrations#step2'
-#         get  'sms_confirmation/sms' => 'users/registrations#step3'
-#         get  'address'              => 'users/registrations#step4'
-#         get  'credit'               => 'users/registrations#step5'
-#         post 'registration/create'  => 'users/registrations#create'
-#       end
-#     end
-#   end
-
-#   scope :jp do
-#     get '/'                => 'items#index' ,as: "root"
-#     get 'items/:id'        => 'items#show'
-#     get 'sell'             => 'items#new'
-#     scope :mypage do
-#       get 'profile'        => 'users#show'
-#       get 'identification' => 'users#identification'
-#       get 'logout'         => 'users#logout'
-#       get '/'              => 'users#mypage' ,as: "mypage"
-#       resources :cards, only: [:new, :show] do
-#         collection do
-#           post 'show'      => 'cards#show'
-#           post 'pay'       => 'cards#pay'
-#           post 'delete'    => 'cards#delete'
-#           get  'add'       => 'cards#add'
-#           get  'index'     => 'cards#index'
-#           post 'paypay'    => 'cards#paypay'
-#         end
-#       end
-#     end
-
-#     scope :transaction do
-#       scope :buy do
-#         get 'm[:id]/sell'  => 'items#transaction'
-#       end
-#     end
-#     # resources :item_images, only: [:create,:destroy,:update], defaults: { format: 'json' }
-#       #画像用のルート
-#     resources :items, only: [:index,:show,:new,:create,:edit, :destroy] do
-#       #Ajaxで動くアクションのルートを作成
-#       collection do
-#         get 'get_category_children', defaults: { format: 'json' }
-#         get 'get_category_grandchildren', defaults: { format: 'json' }
-#         get 'get_size', defaults: { format: 'json' }
-#       end
-#     end
-#   end
-# end
 Rails.application.routes.draw do
+
+# 本家のメルカリのパスに合わせるためscorpを用いてルーティングを作成した
+
+  # deviseGem配下で動くもの
   devise_for :users, controllers:{
     sessions: 'users/sessions',
     registrations: 'user/registrations',
+    # google,facebook連携ログイン用
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   
-  get 'items/:id'        => 'items#show'
-  get 'sell'             => 'items#new'
-  get '/'                => 'items#index' ,as: "root"
   scope :jp do
+    # 商品一覧表示（トップページ）
+    get '/'                => 'items#index' ,as: "root"
+    # 商品詳細ページ
+    # get 'items/:id'        => 'items#show' (なんかこれがあると商品出品ページに飛べないので後で要確認)
     scope :mypage do
+      get '/'              => 'users#mypage' ,as: "mypage"
       get 'profile'        => 'users#show'
       get 'identification' => 'users#identification'
       get 'logout'         => 'users#logout'
-      get '/'              => 'users#mypage' ,as: "mypage"
       resources :cards, only: [:new, :show] do
         collection do
           post 'show'      => 'cards#show'
           post 'pay'       => 'cards#pay'
+          # 登録カード情報の削除
           post 'delete'    => 'cards#delete'
+          # カード情報の登録のアクション
           get  'add'       => 'cards#add'
-          get 'index'      => 'cards#index'
+          # 購入内容の確認ページ
+          get  'index'     => 'cards#index'
+          # カード決済のアクション
           post 'paypay'    => 'cards#paypay'
         end
       end
     end
-
+    
     scope :transaction do
       scope :buy do
         get 'm[:id]/sell'  => 'items#transaction'
       end
     end
     # resources :item_images, only: [:create,:destroy,:update], defaults: { format: 'json' }
-      #画像用のルート
-    resources :items, only: [:index, :show, :new,:create,:edit, :destroy] do
-      #Ajaxで動くアクションのルートを作成
+    #画像用のルート
+    resources :items, only: [:show, :new,:create,:edit, :destroy] do
+      #商品出品ページに関する、Ajaxで動くアクションのルートを作成
       collection do
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -101,21 +53,18 @@ Rails.application.routes.draw do
     end
   end
 
+  # ユーザ新規会員登録ページ
   devise_scope :user do
     scope :jp do
       scope :signup do
-        get '/'                    => 'users/registrations#new'
-        get 'registration'         => 'users/registrations#step1'
-        get 'ms_confirmation'      => 'users/registrations#step2'
-        get 'sms_confirmation/sms' => 'users/registrations#step3'
-        get 'address'              => 'users/registrations#step4'
-        get 'credit'               => 'users/registrations#step5'
-        post 'registration/create' => 'users/registrations#create'
+        get  '/'                    => 'users/registrations#new'
+        get  'registration'         => 'users/registrations#step1'
+        get  'ms_confirmation'      => 'users/registrations#step2'
+        get  'sms_confirmation/sms' => 'users/registrations#step3'
+        get  'address'              => 'users/registrations#step4'
+        get  'credit'               => 'users/registrations#step5'
+        post 'registration/create'  => 'users/registrations#create'
       end
-      get 'users/sign_out'         => 'users#destroy'
     end
-  end
-
-  resources :users ,only: [:new,:create] do
   end
 end
