@@ -7,7 +7,6 @@ class ItemsController < ApplicationController
     @items_for_man = Category.get_items_for(200).first(4)
     @items_for_sports = Category.get_items_for(399).first(4)
     @items_for_interior = Category.get_items_for(598).first(4)
-    binding.pry
   end
 
   def show
