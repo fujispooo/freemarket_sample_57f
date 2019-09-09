@@ -12,24 +12,24 @@ Rails.application.routes.draw do
   
   scope :jp do
     # 商品一覧表示（トップページ）
-    get '/'                => 'items#index' ,as: "root"
+    get '/'                => 'items#index'  ,as: "root"
     # 商品詳細ページ
-    # get 'items/:id'        => 'items#show' (なんかこれがあると商品出品ページに飛べないので後で要確認)
+    # get 'items/:id'      => 'items#show' (なんかこれがあると商品出品ページに飛べないので後で要確認)
     scope :mypage do
       get '/'              => 'users#mypage' ,as: "mypage"
       get 'profile'        => 'users#show'
       get 'identification' => 'users#identification'
       get 'logout'         => 'users#logout'
-      resources :cards, only: [:new, :show] do
+      resources :cards, only: [:new] do
         collection do
-          post 'show'      => 'cards#show'
+          get  'show'      => 'cards#show'
           post 'pay'       => 'cards#pay'
           # 登録カード情報の削除
           post 'delete'    => 'cards#delete'
           # カード情報の登録のアクション
           get  'add'       => 'cards#add'
           # 購入内容の確認ページ
-          get  'index'     => 'cards#index'
+          get  'index'     => 'cards#index',as:"purchase"
           # カード決済のアクション
           post 'paypay'    => 'cards#paypay'
         end
@@ -46,6 +46,7 @@ Rails.application.routes.draw do
     resources :items, only: [:show, :new,:create,:edit, :destroy] do
       #商品出品ページに関する、Ajaxで動くアクションのルートを作成
       collection do
+        get 'purchase'     => 'items#purchase'
         get 'get_category_children', defaults: { format: 'json' }
         get 'get_category_grandchildren', defaults: { format: 'json' }
         get 'get_size', defaults: { format: 'json' }
