@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   has_many :item_images
   has_many :transactions, dependent: :destroy
   belongs_to :user
-  belongs_to :brand, optional: true
+  # belongs_to :brand, optional: true
   # カラムいるかも
   # belongs_to :profit
   belongs_to :item_state

@@ -72,12 +72,12 @@
               opacity: 0;
               cursor: pointer;
             }
-            & input {
-              border: 0;
-              outline: 0;
-              font-family: inherit;
-              -webkit-appearance: none;
-            }
+            // & input {
+            //   border: 0;
+            //   outline: 0;
+            //   font-family: inherit;
+            //   -webkit-appearance: none;
+            // }
             & pre {
               // position: absolute;
               // top: 50%;
@@ -165,7 +165,7 @@
                 display: inline-block;
                 width: 80%;
                 margin: 0;
-                .price{
+                .inputprice{
                   margin: 0;
                   text-align: right;
                   height: 48px;
@@ -212,7 +212,7 @@
           }
           &__genre{
             margin: 40px 0 0;
-            .brand{
+            .brand-attribute{
               background: #ccc;
             }
             &_size{
@@ -283,6 +283,22 @@
                 display: inline-block;
                 font-weight: 900;
                 line-height: 1;
+              }
+              .inputbrand{
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                height: 52px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                -webkit-appearance: none;
+                outline: 0;
+                cursor: pointer;
+                touch-action: manipulation;
               } 
             }                
           }
@@ -301,15 +317,18 @@
           margin: 40px 0 0;
           &__sell {
             background: #ea352d;
-            border: 1px solid #ea352d;
-            color: #fff;
-            display: block;
+            border: 1px solid #ea352d;;
             width: 100%;
-            line-height: 48px;
-            font-size: 14px;
             transition: all ease-out .3s;
             cursor: pointer;
-            text-align: center;
+            .submit-btn{
+              color: #fff;
+              background: #ea352d;
+              border: 1px solid #ea352d;
+              line-height: 48px;
+              font-size: 14px;
+            }
+
           }
           &__back{
             width: 45%;
