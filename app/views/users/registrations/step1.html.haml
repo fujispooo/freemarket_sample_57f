@@ -23,17 +23,18 @@
   .sign-up__main__body
     .sign-up__main__body__forms-container
       = form_for @user,url: ms_confirmation_path, method: :get do |f|
-        .sign-up__main__body__forms-container__form-box
-          = f.label :name, 'ニックネーム'
-          = f.label :name, '必須', class: "write-must"
-          .sign-up__main__body__forms-container__form-box__inner
-            = f.text_field :nickname, class: "normal-form", placeholder: "例)永野芽郁", required: "true"
+        = if session[:nickname].blank?
+          .sign-up__main__body__forms-container__form-box
+            = f.label :name, 'ニックネーム'
+            = f.label :name, '必須', class: "write-must"
+            .sign-up__main__body__forms-container__form-box__inner
+              = f.text_field :nickname, class: "normal-form", placeholder: "例)永野芽郁", required: "true"
 
-        .sign-up__main__body__forms-container__form-box
-          = f.label :name, 'メールアドレス'
-          = f.label :name, '必須', class: "write-must"
-          .sign-up__main__body__forms-container__form-box__inner
-            = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可", required: "true"
+          .sign-up__main__body__forms-container__form-box
+            = f.label :name, 'メールアドレス'
+            = f.label :name, '必須', class: "write-must"
+            .sign-up__main__body__forms-container__form-box__inner
+              = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可", required: "true"
 
         .sign-up__main__body__forms-container__form-box
           = f.label :name, 'パスワード'
