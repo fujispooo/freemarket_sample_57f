@@ -11,12 +11,12 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @user = @item.user
+    @images = @item.item_images
   end
 
   def new
     @item = Item.new
-    @item.item_images.build
+    10.times{@item.item_images.build}
 
       #セレクトボックスの初期値設定
     @category_parent_array = ["---"]

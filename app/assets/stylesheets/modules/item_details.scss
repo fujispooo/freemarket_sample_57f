@@ -28,13 +28,15 @@
 
 }
 
-.owl-item-inner-sub-box {
-  width: 400px;
-  height: 60px;
-  display: flex;
-}
+// .owl-item-inner-sub-box {
+//   width: 400px;
+//   height: 60px;
+//   display: flex;
+// }
 
 .owl-item-inner-sub {
+  display: flex;
+  float: left;
   height: 60px;
   width:  60px;
   & img {

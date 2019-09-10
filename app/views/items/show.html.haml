@@ -8,10 +8,10 @@
       .owl-carousel
         .owl-item-inner
           = image_tag @item.item_images.first.image_url,class: "main_image",alt: "商品画像", size: "225x300"
-        .owl-item-inner-sub-box
-          .owl-item-inner-sub
-
-
+          .owl-item-inner-sub-box
+          - @images.each do |image|
+            .owl-item-inner-sub
+              = image_tag image.image_url
     .item-price-box.text-center.visible-sp
       %span.item-price.bold
         = @item.price
@@ -138,7 +138,6 @@
     -# - @user.items.each do |item|
     .items-box
       .img-photo
-        = image_tag @item.item_images.first.image_url,class: "main_image",alt: "商品画像", size: "225x300"
     .items-box
       .img-photo
     .items-box
