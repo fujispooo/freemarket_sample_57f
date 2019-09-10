@@ -10,10 +10,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def step2
     @user = User.new()
     # sns認証サインイン時はnickname,emailをスキップ
-    if session[:provider_data].blank? 
+    if session.blank? 
       session[:nickname]      = user_params[:nickname]
-      session[:email]         = user_params[:email]
       session[:password]      = user_params[:password]
+    elsif session.blank? || session[:provider_data]["provider"] = "facebook"
+      session[:email]         = user_params[:email]
     end
     session[:first_name]      = user_params[:first_name]
     session[:last_name]       = user_params[:last_name]
