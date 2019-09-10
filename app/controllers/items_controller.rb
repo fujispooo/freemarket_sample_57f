@@ -10,7 +10,8 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(item_params.id)
+    @item = Item.find(params[:id])
+    
   end
 
   def new
@@ -24,9 +25,7 @@ class ItemsController < ApplicationController
     # Category.where(ancestry: nil).each do |parent|
       # @category_parent_array << parent.name
     @category_parent_array = Category.where(ancestry: nil)
-    
   end
-
 
   # 以下全て、formatはjsonのみ
     # 親カテゴリーが選択された後に動くアクション
@@ -70,10 +69,8 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    item = Item.find(params[:id])
-    if item.user_id == current_user.id
-    item.destroy
-    end
+    @item = Item.find(params[:id])
+    @item.destroy
     redirect_to root_path
   end
 
