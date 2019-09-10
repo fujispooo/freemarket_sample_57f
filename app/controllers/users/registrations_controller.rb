@@ -13,8 +13,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if session[:provider_data].blank? 
       session[:nickname]      = user_params[:nickname]
       session[:email]         = user_params[:email]
+      session[:password]      = user_params[:password]
     end
-    session[:password]        = user_params[:password]
     session[:first_name]      = user_params[:first_name]
     session[:last_name]       = user_params[:last_name]
     session[:first_name_kana] = user_params[:first_name_kana]

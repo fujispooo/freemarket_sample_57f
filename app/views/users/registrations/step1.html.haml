@@ -23,6 +23,7 @@
   .sign-up__main__body
     .sign-up__main__body__forms-container
       = form_for @user,url: ms_confirmation_path, method: :get do |f|
+        -# sus認証時はnicknameとemailをhidden化する
         = if session[:nickname].blank?
           .sign-up__main__body__forms-container__form-box
             = f.label :name, 'ニックネーム'
@@ -36,17 +37,17 @@
             .sign-up__main__body__forms-container__form-box__inner
               = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可", required: "true"
 
-        .sign-up__main__body__forms-container__form-box
-          = f.label :name, 'パスワード'
-          = f.label :name, '必須', class: "write-must"
-          .sign-up__main__body__forms-container__form-box__inner
-            = f.password_field :password, class: "normal-form", placeholder: "7文字以上", required: "true"
+          .sign-up__main__body__forms-container__form-box
+            = f.label :name, 'パスワード'
+            = f.label :name, '必須', class: "write-must"
+            .sign-up__main__body__forms-container__form-box__inner
+              = f.password_field :password, class: "normal-form", placeholder: "7文字以上", required: "true"
 
-        .sign-up__main__body__forms-container__form-box
-          = f.label :name, "パスワード (確認)"
-          = f.label :name, '必須', class: "write-must"
-          .sign-up__main__body__forms-container__form-box__inner
-            = f.password_field :password_confirmation, class: "normal-form", placeholder: "7文字以上", required: "true"
+          .sign-up__main__body__forms-container__form-box
+            = f.label :name, "パスワード (確認)"
+            = f.label :name, '必須', class: "write-must"
+            .sign-up__main__body__forms-container__form-box__inner
+              = f.password_field :password_confirmation, class: "normal-form", placeholder: "7文字以上", required: "true"
 
         .sign-up__main__body__forms-container__form-box
           %h3 本人確認
