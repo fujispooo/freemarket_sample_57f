@@ -9,14 +9,15 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def callback_for(provider)
     @user = User.find_oauth(request.env["omniauth.auth"])
+    binding.pry
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else
-      session[:provider_data] = request.env["omniauth.auth"].except("extra")
-      session[:nickname] = request.env["omniauth.auth"].info.name
-      session[:email] = request.env["omniauth.auth"].info.email
-      session[:provider_data]["uid"] = request.env["omniauth.auth"].uid
+      session[:provider_data]             = request.env["omniauth.auth"].except("extra")
+      session[:nickname]                  = request.env["omniauth.auth"].info.name
+      session[:email]                     = request.env["omniauth.auth"].info.email
+      session[:provider_data]["uid"]      = request.env["omniauth.auth"].uid
       session[:provider_data]["provider"] = provider.to_s
       redirect_to registration_path
     end

@@ -9,8 +9,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def step2
     @user = User.new()
-    session[:nickname]        = user_params[:nickname]
-    session[:email]           = user_params[:email]
+    # sns認証サインイン時はnickname,emailをスキップ
+    if session[:provider_data].blank? 
+      session[:nickname]      = user_params[:nickname]
+      session[:email]         = user_params[:email]
+    end
     session[:password]        = user_params[:password]
     session[:first_name]      = user_params[:first_name]
     session[:last_name]       = user_params[:last_name]
@@ -50,6 +53,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       birth_day:          session[:birth_day],
       phone_number:       session[:phone_number],
       address_attributes: session[:address_attributes])
+      binding.pry
     @user.save
 
     sign_in @user
