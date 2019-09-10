@@ -13,7 +13,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if session.blank? 
       session[:nickname]      = user_params[:nickname]
       session[:password]      = user_params[:password]
-    elsif session.blank? || session[:provider_data]["provider"] = "facebook"
+      session[:email]         = user_params[:email]
+    elsif session[:email].blank?
       session[:email]         = user_params[:email]
     end
     session[:first_name]      = user_params[:first_name]
@@ -23,6 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:birth_year]      = user_params[:birth_year]
     session[:birth_month]     = user_params[:birth_month]
     session[:birth_day]       = user_params[:birth_day]
+    binding.pry
   end
 
   def step3
@@ -40,7 +42,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
   
   def create
-    session[:address_attributes] = user_params[:address_attributes]
+    binding.pry
     @user = User.new(
       nickname:           session[:nickname],
       email:              session[:email],
@@ -53,8 +55,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
       birth_month:        session[:birth_month],
       birth_day:          session[:birth_day],
       phone_number:       session[:phone_number],
-      address_attributes: session[:address_attributes])
-      binding.pry
+      address_attributes: user_params[:address_attributes],
+      SnsCredential_attributes: {
+        uid:session[:provider_data]["uid"],
+        provider:session[:provider_data]["provider"],
+        sns_name:"",
+        user_id:"",
+        created_at:"",
+        updated_at:""
+      }
+    )
     @user.save
 
     sign_in @user
