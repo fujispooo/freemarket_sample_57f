@@ -11,6 +11,9 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+
+    
+
   end
 
   def new
@@ -21,9 +24,7 @@ class ItemsController < ApplicationController
     @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
     @category_parent_array = Category.where(ancestry: nil)
-    
   end
-
 
   # 以下全て、formatはjsonのみ
     # 親カテゴリーが選択された後に動くアクション
@@ -62,6 +63,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+
     item = Item.find(params[:id])
     if item.user_id == current_user.id
       item.destroy

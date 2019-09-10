@@ -1,7 +1,7 @@
 
 
 #レディースブロック
-  #レディースの子カテゴリー配列
+  # レディースの子カテゴリー配列
 #   lady_child_array = ['トップス','ジャケット/アウター','パンツ','スカート','ワンピース','靴','ルームウェア/パジャマ','レッグウェア','帽子','バッグ','アクセサリー','ヘアアクセサリー','小物','時計','ウィッグ/エクステ','浴衣/水着','スーツ/フォーマル/ドレス','マタニティ','その他']
 #   #レディースの孫カテゴリー配列
 #   lady_grandchild_array = [['Tシャツ/カットソー(半袖/袖なし)','Tシャツ/カットソー(七分/長袖)','シャツ/ブラウス(半袖/袖なし)','シャツ/ブラウス(七分/長袖)','ポロシャツ','キャミソール','タンクトップ','ホルターネック','ニット/セーター','チュニック','カーディガン/ボレロ','アンサンブル','ベスト/ジレ','パーカー','トレーナー/スウェット','ベアトップ/チューブトップ','ジャージ','その他'],
@@ -53,21 +53,35 @@
 
 # DeliveryMethod.create!([{delivery_method: '未定'},{delivery_method: 'らくらくメルカリ便'},{delivery_method: 'ゆうメール'}])
 
+# <div class="listing-product-detail__size" id= 'size_wrapper'>
+# <label class="listing-default__label" for="サイズ">サイズ</label>
+# <span class='listing-default--require'>必須</span>
+# <div class='listing-select-wrapper__added--size'>
+#   <div class='listing-select-wrapper__box'>
+#     <select class="listing-select-wrapper__box--select" id="size" name="size_id>
+#       <option value="---">---</option>
+#       ${insertHTML}
+#     <select>
+#     <i class='fas fa-chevron-down listing-select-wrapper__box--arrow-down'></i>
+#   </div>
+# </div>
+# </div>
+
 
 
 # サイズ
-  # 洋服のサイズの子カテゴリー配列
-  huku_child_array = ['XXS以下','XS(SS)','S','M','L','XL(LL)','2XL(3L)','3XL(4L)','4XL(5L)以上','FREE SIZE']  
-  parent = Size.create(name: '洋服のサイズ')
-  huku_child_array.each_with_index do |child, i|
-    child = parent.children.create(name: child)
-  end
-  # 靴のサイズの子カテゴリー配列
-  kutu_child_array = ['20cm以下','20cm','21cm','22cm','23cm','24cm','25cm','26cm','27以上']  
-  parent = Size.create(name: '靴のサイズ')
-  kutu_child_array.each_with_index do |child, i|
-    child = parent.children.create(name: child)
-  end
+#   洋服のサイズの子カテゴリー配列
+  # huku_child_array = ['XXS以下','XS(SS)','S','M','L','XL(LL)','2XL(3L)','3XL(4L)','4XL(5L)以上','FREE SIZE']  
+  # parent = Size.create(name: '洋服のサイズ')
+  # huku_child_array.each_with_index do |child, i|
+  #   child = parent.children.create(name: child)
+  # end
+  # # 靴のサイズの子カテゴリー配列
+  # kutu_child_array = ['20cm以下','20cm','21cm','22cm','23cm','24cm','25cm','26cm','27以上']  
+  # parent = Size.create(name: '靴のサイズ')
+  # kutu_child_array.each_with_index do |child, i|
+  #   child = parent.children.create(name: child)
+  # end
 
 
 # This file should contain all the record creation needed to seed the database with its default values.
@@ -104,7 +118,7 @@
 
 # #その他ブロック
 
-# #その他の子カテゴリー配列
+#その他の子カテゴリー配列
 # other_child_array = ['まとめ売り','ペット用品','食品','飲料/酒','日用品/生活雑貨/旅行','アンティーク/コレクション','文房具/事務用品','事務/店舗用品','その他']
 # #その他の孫カテゴリー配列
 # other_grandchild_array = [['すべて'], ['すべて','ペットフード','犬用品','猫用品','魚用品/水草','小動物用品','爬虫類/両生類用品','かご/おり','鳥用品','虫類用品','その他'], ['すべて','菓子','米','野菜','果物','調味料','魚介類(加工食品)','肉類(加工食品)','その他 加工食品','その他'], ['すべて','コーヒー','ソフトドリンク','ミネラルウォーター','茶','ウイスキー','ワイン','ブランデー','焼酎','日本酒','ビール、発泡酒','その他'], ['すべて','タオル/バス用品','日用品/生活雑貨','洗剤/柔軟剤','旅行用品','防災関連グッズ','その他'], ['すべて','雑貨','工芸品','家具','印刷物','その他'], ['すべて','筆記具','ノート/メモ帳','テープ/マスキングテープ','カレンダー/スケジュール','アルバム/スクラップ','ファイル/バインダー','はさみ/カッター','カードホルダー/名刺管理','のり/ホッチキス','その他'], ['すべて','オフィス用品一般','オフィス家具','店舗用品','OA機器','ラッピング/包装','その他'], ['すべて']]
@@ -117,3 +131,13 @@
 #  end
 # end
 
+if Rails.env == 'development'
+  ItemImage.create!(
+    [
+      {
+        image: File.open('./app/assets/images/sportsxxx.jpg'),
+        item_id: '1',
+      }
+    ]
+  )
+end
