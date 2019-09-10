@@ -42,7 +42,7 @@
 #   )
 # end
 
-# delivery_fees = ['送料込み（出品者負担）','着払い（購入者負担']
+# delivery_fees = ['送料込み（出品者負担）','着払い（購入者負担）']
 # delivery_fees.each do |delivery_fee|
 #   DeliveryFee.create!(
 #     delivery_fee: delivery_fee,
@@ -52,6 +52,7 @@
 # DeliveryDay.create!([{delivery_day: '1~2日で発送'},{ delivery_day: '2~4日で発送' }, {delivery_day: '4~7日で発送'}])
 
 # DeliveryMethod.create!([{delivery_method: '未定'},{delivery_method: 'らくらくメルカリ便'},{delivery_method: 'ゆうメール'}])
+
 # <div class="listing-product-detail__size" id= 'size_wrapper'>
 # <label class="listing-default__label" for="サイズ">サイズ</label>
 # <span class='listing-default--require'>必須</span>
@@ -65,6 +66,7 @@
 #   </div>
 # </div>
 # </div>
+
 
 
 # サイズ
@@ -92,7 +94,10 @@
 
 
 
-# sizeとcategoryの中間テーブル
+
+# 開発環境の時に実行
+# if Rails.env == "development"
+# # sizeとcategoryの中間テーブル
 # numbers = [2,21,43,56,62,78,220,242,255,261,400,419,441,454]
 # numbers.each do |number|
 #   CategorySize.create!(

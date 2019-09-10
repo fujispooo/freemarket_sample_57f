@@ -10,12 +10,12 @@
       = fa_icon 'angle-double-right'
     %span{itemprop: "title"} ログアウト
 
-.logout_main-content
-  .logout_left-content
+.logout-main
+  .logout-main__left
     = render 'modules/mypage-sidebar'
 
-  .logout_right-content
-    .logout_right-container
-      = link_to "ログアウト", destroy_user_session_path, method: :delete
+  .logout-main__right
+    .logout-main__right__content
+      = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "logout-btn"
 = render "modules/sell-btn"
 = render 'modules/footer'

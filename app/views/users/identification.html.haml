@@ -10,11 +10,11 @@
       = fa_icon 'angle-double-right'
     %span{itemprop: "title"} 本人情報の登録
 
-.iden_main-content
-  .iden_left-content
+.iden_main
+  .iden_main__left
     = render 'modules/mypage-sidebar'
 
-  .iden_right-content
+  .iden_main__right
     %h2.iden_head 本人情報の登録
     %form.iden_form{action: "url", method: "POST", novalidate: ""} 
       %div

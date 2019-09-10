@@ -13,7 +13,7 @@ class CardsController < ApplicationController
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
       #登録された情報がない場合にカード登録画面に移動
-      redirect_to controller: "card", action: "new"
+      redirect_to action: "new"
     else
       Payjp.api_key
       #保管した顧客IDでpayjpから情報取得
@@ -31,12 +31,12 @@ class CardsController < ApplicationController
     :customer => card.customer_id, #顧客ID
     :currency => 'jpy', #日本円
   )
-  redirect_to '/' #完了画面に移動
+  redirect_to root_path #完了画面に移動
   end
 
   def new
     card = Card.where(user_id: current_user.id)
-    redirect_to action: "show" if card.exists?
+    redirect_to cards_path if card.exists?
   end
 
   def pay #payjpとCardのデータベース作成を実施します。
@@ -49,7 +49,8 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        card = Card.where(user_id: current_user.id)
+        redirect_to cards_path
       else
         redirect_to action: "pay"
       end
