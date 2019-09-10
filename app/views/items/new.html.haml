@@ -21,7 +21,7 @@
 
             .preview        
             =f.fields_for :item_images do |i|
-              = i.file_field :image,type:"file" ,id: 'image_select'
+              = i.file_field :image,type:"file" ,multipule: true, id: 'image_select'
 
 
       .sell-inner__form__item
@@ -47,20 +47,11 @@
               %i.fa.fa-chevron-down
               = f.collection_select :category_id, @category_parent_array, :id, :name,{include_blank: "---"}, id: 'parent_category'
 
-          -# .sell-inner__form__content__right__genre_size
-          -#   %label サイズ
-          -#   %span 必須
-          -#   .sell-inner__form__content__right__genre__select
-          -#     %i.fa.fa-chevron-down
-          -#     %select
-          -#       %option{value: ""} ---
           .sell-inner__form__content__right__genre
-            %label ブランド
-            %span.brand 必須
+            = f.label :ブランド, class: "brand"
+            %span.brand-attribute 任意
             .sell-inner__form__content__right__genre__select
-              %i.fa.fa-chevron-down
-              %select
-                %option{value: ""} ---            
+              = f.text_field :brand, required: true, placeholder: "例)フェラガモ", class: "inputbrand"
           .sell-inner__form__content__right__genre
             %label 商品の状態
             %span 必須
