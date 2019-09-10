@@ -1,0 +1,161 @@
+.sell__header
+  =link_to root_path do
+    =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863303983", alt: "mercari", class: "sign-up__header--image"
+.sell-main
+  .sell-inner
+    %h2.sell-inner__head 商品の情報を入力
+    .sell-inner__form
+    = form_for @item, method: :patch do |f|
+      .sell-inner__form__upload-box
+        -# = f.hidden_field :user_id, value: current_user.id
+        %label 出品画像
+        %span 必須
+        %p.sell-inner__form__upload-box-text 最大10枚までアップロードできます
+        .sell-inner__form__upload-box__dropbox
+          .sell-inner__form__upload-box__dropbox__container
+            %pre
+              :preserve
+                ドラッグアンドドロップ
+                またはクリックしてファイルをアップロード
+
+
+            .preview
+            - @images.each do |image|
+              = image_tag image.image.url
+            =f.fields_for :item_images do |i|
+              = i.file_field :image,type:"file" ,multipule: true, id: 'image_select'
+
+
+      .sell-inner__form__item
+        .sell-inner__form__item__name
+          = f.label :商品名, class: "label"
+          %span 必須
+          %div
+            = f.text_field :name, required: true, placeholder: "商品名（40字まで）", class: "inputField"
+
+        .sell-inner__form__item__description
+          = f.label :商品の説明
+          %span 必須
+          = f.text_area :description, required: true, placeholder: "商品説明（1,000字まで）例）2018年に購入した、革ジャンです。黒みがかった見た目です。傷等はございません。", class: "inputField inputField__area", rows: "7"
+
+      .sell-inner__form__content
+        .sell-inner__form__content__left
+          %h3 商品の詳細
+        .sell-inner__form__content__right
+          #sell-inner__form__content__right__genre_hogehoge
+            = f.label 'カテゴリー'
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              = f.collection_select :category_id, @category_parent_array, :id, :name,{include_blank: "---"}, id: 'parent_category'
+
+          .sell-inner__form__content__right__genre
+            = f.label :ブランド, class: "brand"
+            %span.brand-attribute 任意
+            .sell-inner__form__content__right__genre__select
+              = f.text_field :brand, required: true, placeholder: "例)フェラガモ", class: "inputbrand"
+          .sell-inner__form__content__right__genre
+            %label 商品の状態
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              = f.collection_select :item_state_id,ItemState.all, :id, :item_state,{include_blank: "---"},{required:true}
+
+      .sell-inner__form__content
+        .sell-inner__form__content__left
+          %h3 配送について
+          = link_to do
+            = fa_icon 'question-circle', class: 'question-circle'
+        .sell-inner__form__content__right
+          #sell-inner__form__content__right__genre
+            %label 配送料の負担
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              = f.collection_select :delivery_fee_id,DeliveryFee.all, :id, :delivery_fee,{include_blank: "---"},{required:true}
+
+          .sell-inner__form__content__right__genre
+            %label 配送の方法
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              = f.collection_select :delivery_method_id,DeliveryMethod.all, :id, :delivery_method,{include_blank: "---"},{required:true}
+
+          .sell-inner__form__content__right__genre
+            %label 配送元の地域
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{include_blank: "---"},{required:true}
+
+          .sell-inner__form__content__right__genre
+            %label 配送までの日数
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              = f.collection_select :delivery_day_id,DeliveryDay.all, :id, :delivery_day,{include_blank: "---"},{required:true}
+
+      .sell-inner__form__content
+        .sell-inner__form__content__left
+          %h3 販売価格(300~9,999,999)
+          = link_to do
+            = fa_icon 'question-circle', class: 'question-circle'
+        .sell-inner__form__content__right
+          .sell-inner__form__content__right__price
+            .sell-inner__form__content__right__price__genre
+              %label 価格
+              %span 必須
+            .sell-inner__form__content__right__price__frame
+              .sell-inner__form__content__right__price__frame__mark ¥
+              .sell-inner__form__content__right__price__frame__box
+                = f.text_field :price, required: true, placeholder: "例）300", class: "inputprice"            
+          .sell-inner__form__content__right__fee
+            .sell-inner__form__content__right__fee__text
+              販売手数料
+            .sell-inner__form__content__right__fee__integer
+              0
+          .sell-inner__form__content__right__profit
+            .sell-inner__form__content__right__profit__text
+              %label 販売利益
+            .sell-inner__form__content__right__profit__integer
+              0
+
+      .sell-inner__form__foot
+        .sell-inner__form__foot__text
+          %p
+            %a{:href => "/jp/help_center/getting_started/prohibited_items/", :target => "_blank"} 禁止されている出品
+            、
+            %a{:href => "/jp/help_center/getting_started/prohibited_conduct/", :target => "_blank"} 行為
+            を必ずご確認ください。
+          %p
+            またブランド品でシリアルナンバー等がある場合はご記載ください。
+            %a{:href => "/jp/help_center/getting_started/counterfeit_goods/", :target => "_blank"} 偽ブランドの販売
+            は犯罪であり処罰される可能性があります。
+          %p
+            また、出品をもちまして
+            %a{:href => "/jp/seller_terms/"} 加盟店規約
+            に同意したことになります。
+
+        .sell-inner__form__foot__btn
+          %button.sell-inner__form__foot__btn__sell{type: "submit"}
+            = f.submit "更新する", class:"submit-btn"
+          .sell-inner__form__foot__btn__back
+            = link_to "もどる", :back, class: "sell-inner__form__foot__btn__back__btn"
+
+.sell__footer
+  %nav
+    %ul
+      %li
+        プライバシーポリシー
+      %li
+        メルカリ利用規約
+      %li
+        特定商取引に関する表記
+  =link_to "https://www.mercari.com/jp/", class: "single-footer-logo" do
+    =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?3791839826", alt: "mercari", class: "single-footer-logo",size:'80px*65px'
+  .footer-campany-name
+    © 2019 Mercari
+
+
+
+

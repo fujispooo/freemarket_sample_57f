@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @item.item_images.build
+    10.times{@item.item_images.build}
 
       #セレクトボックスの初期値設定
     @category_parent_array = ["---"]
@@ -61,7 +61,23 @@ class ItemsController < ApplicationController
       redirect_to :new_item
     end
   end
+# ----------------------------------------------------
+  def edit
+    @item = Item.find(params[:id])
+    @images = @item.item_images
+    @category_parent_array = Category.where(ancestry: nil)
+  end
 
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to root_path, notice: '商品を編集しました'
+    else
+      render :edit
+    end
+  end
+
+# ------------------------------------------------------
   def destroy
 
     item = Item.find(params[:id])
