@@ -106,7 +106,7 @@
             .sell-inner__form__content__right__price__frame
               .sell-inner__form__content__right__price__frame__mark ¥
               .sell-inner__form__content__right__price__frame__box
-                = f.text_field :price, required: true, placeholder: "例）300", class: "inputField"            
+                = f.text_field :price, required: true, placeholder: "例）300", class: "inputprice"            
                 -# %input.price{placeholder: "例）300", value: ""}/
           .sell-inner__form__content__right__fee
             .sell-inner__form__content__right__fee__text
@@ -137,7 +137,7 @@
 
         .sell-inner__form__foot__btn
           %button.sell-inner__form__foot__btn__sell{type: "submit"}
-            = f.submit "出品する"
+            = f.submit "出品する", class:"submit-btn"
           .sell-inner__form__foot__btn__back
             = link_to "もどる", :back, class: "sell-inner__form__foot__btn__back__btn"
 
