@@ -17,7 +17,7 @@
           .pickup__item__box__content
             = link_to item_path(item) do
               .pickup__item__box__content__link
-                = image_tag item.item_images.first.image_url,class: "top_image",alt: "商品画像", size: "213x220"
+                = image_tag item.item_images.first.image_url,class: "top_image",alt: "商品画像"
                 .pickup__item__price
                   ￥
                   = item.price

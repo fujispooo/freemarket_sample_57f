@@ -1,22 +1,17 @@
 = render 'modules/header'
 
 %section.item-box-container.l-single-container
-  %h1.item-name 
+  %h1.item-name
     = @item.name
   .item-main-content
     .item-photo
       .owl-carousel
         .owl-item-inner
-          = image_tag @item.item_images.first.image_url,class: "main_image",alt: "商品画像", size: "225x300"
+          = image_tag @item.item_images.first.image_url,alt: "商品画像"
           .owl-item-inner-sub-box
           - @images.each do |image|
             .owl-item-inner-sub
               = image_tag image.image_url
-    .item-price-box.text-center.visible-sp
-      %span.item-price.bold
-        = @item.price
-      %span.item-tax (税込)
-      %span.item-shipping-fee 送料込み
 
     .visible-sp
     .item-btn-float-area
@@ -32,12 +27,16 @@
         .th カテゴリー
         .td-sub
           = @item.category.name
-          -# = link_to  '靴',class:'item-detail-table-sub-category'
-          -# = link_to 'スニーカー',class:'item-detail-table-sub-sub-category'
+          .td-sub-children
+            = fa_icon 'angle-double-right'
+            = link_to  '靴',class:'item-detail-table-sub-category'
+            .td-sub-children
+              = fa_icon 'angle-double-right'
+              = link_to 'スニーカー',class:'item-detail-table-sub-sub-category'
       .tr
         .th ブランド
         .td
-          = link_to 'バンズ'
+          -# = link_to 'バンズ'
       .tr
         .th 商品のサイズ
         .td 27cm
@@ -61,6 +60,7 @@
           = @item.delivery_day.delivery_day
   .item-price-box.text-center
     %span.item-price.bold
+      ￥
       = @item.price
     %span.item-tax 円(税込)
     %span.item-shipping-fee 送料込み
@@ -104,15 +104,6 @@
     %button.message-submit.btn-default.btn-gray{:type => "submit"}
       %span コメントする
 
-    %ul.nav-item-link-prev-next.clearfix
-      %li.nav-item-link-prev
-        %i.fa.fa-arrow-left
-        ショートパンツ ベージュ
-      %li.nav-item-link-next
-        %i.fa.fa-arrow-right
-        ポケモン ぬいぐるみ
-        %i.fa.fa-arrow-right
-  .item-social-media-box
   .text-center
     .fb-save{"data-uri" => "product://113299479059860/m46057519022"}
   %ul.social-media-box
