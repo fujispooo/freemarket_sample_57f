@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_one :card, dependent: :destroy
   accepts_nested_attributes_for :card
   accepts_nested_attributes_for :SnsCredential
+  has_many :items
 
   #  googleとfacebookのsns認証
   def self.find_oauth(auth)

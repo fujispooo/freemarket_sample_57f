@@ -10,7 +10,7 @@ window.addEventListener("turbolinks:load", function() {
       var childSelectHtml = '';
       childSelectHtml = `<div class="sell-inner__form__content__right__genre__select" id= "children_wrapper">
                           <i class="fa fa-chevron-down"></i>
-                          <select id="child_category" name="category_id">
+                          <select id="child_category" name="">
                           <option value="---" data-category="---">---</option>
                             ${insertHTML}
                           </select>
@@ -22,7 +22,7 @@ window.addEventListener("turbolinks:load", function() {
       var grandchildSelectHtml = '';
       grandchildSelectHtml = `<div class="sell-inner__form__content__right__genre__select" id= "grandchildren_wrapper">
                                 <i class="fa fa-chevron-down"></i>
-                                <select id="grandchild_category" name="category_id">
+                                <select id="grandchild_category" name="item[category_id]">
                                   <option value="---">---</option>
                                   ${insertHTML}
                                 </select>
