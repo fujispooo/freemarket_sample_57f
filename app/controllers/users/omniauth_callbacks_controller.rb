@@ -8,16 +8,21 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def callback_for(provider)
-    @user = User.find_oauth(request.env["omniauth.auth"])
+    # リクエストデータからsnsプロバイダからの情報を取り出す
+    requestData = request.env["omniauth.auth"]
+    @user = User.find_oauth(requestData)
     if @user.persisted?
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else
-      session[:provider_data] = request.env["omniauth.auth"].except("extra")
-      session[:nickname] = request.env["omniauth.auth"].info.name
-      session[:email] = request.env["omniauth.auth"].info.email
-      session[:provider_data]["uid"] = request.env["omniauth.auth"].uid
+      # sessionにプロバイダ情報を保存
+      session[:provider_data]             = requestData.except("extra")
+      session[:nickname]                  = requestData.info.name
+      session[:email]                     = requestData.info.email
+      session[:password]                  = Devise.friendly_token[0, 20] # ランダムなパスワードを作成
+      session[:provider_data]["uid"]      = requestData.uid
       session[:provider_data]["provider"] = provider.to_s
+      # 会員登録ページに遷移
       redirect_to registration_path
     end
   end

@@ -9,9 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def step2
     @user = User.new()
-    session[:nickname]        = user_params[:nickname]
-    session[:email]           = user_params[:email]
-    session[:password]        = user_params[:password]
+    session[:nickname]        = user_params[:nickname]  if session[:nickname].blank? 
+    session[:password]        = user_params[:password]  if session[:password].blank? 
+    session[:email]           = user_params[:email]     if session[:email].blank?
     session[:first_name]      = user_params[:first_name]
     session[:last_name]       = user_params[:last_name]
     session[:first_name_kana] = user_params[:first_name_kana]
@@ -36,7 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
   
   def create
-    session[:address_attributes] = user_params[:address_attributes]
+    if session[:provider_data].present?
     @user = User.new(
       nickname:           session[:nickname],
       email:              session[:email],
@@ -49,9 +49,33 @@ class Users::RegistrationsController < Devise::RegistrationsController
       birth_month:        session[:birth_month],
       birth_day:          session[:birth_day],
       phone_number:       session[:phone_number],
-      address_attributes: session[:address_attributes])
+      address_attributes: user_params[:address_attributes],
+      SnsCredential_attributes: {
+        uid:session[:provider_data]["uid"],
+        provider:session[:provider_data]["provider"],
+        sns_name:"",
+        user_id:"",
+        created_at:"",
+        updated_at:""
+      }
+    )
+    else
+      @user = User.new(
+        nickname:           session[:nickname],
+        email:              session[:email],
+        password:           session[:password],
+        first_name:         session[:first_name],
+        last_name:          session[:last_name],
+        first_name_kana:    session[:first_name_kana],
+        last_name_kana:     session[:last_name_kana],
+        birth_year:         session[:birth_year],
+        birth_month:        session[:birth_month],
+        birth_day:          session[:birth_day],
+        phone_number:       session[:phone_number],
+        address_attributes: user_params[:address_attributes],
+      )
+    end
     @user.save
-
     sign_in @user
   end
 
