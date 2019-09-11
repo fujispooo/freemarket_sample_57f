@@ -28,24 +28,34 @@
             %i.icon-arrow-right
       .iden_form-group
         %label お名前
-        %p 道面 拓也
+        %br/
+        = current_user.first_name
+        = current_user.last_name
       .iden_form-group
         %label お名前カナ
-        %p ドウメン タクヤ
+        %br/
+        = current_user.first_name_kana
+        = current_user.last_name_kana
       .iden_form-group
         %label{for: "birthday"} 生年月日
-        %p 1991/10/31
+        %br/
+        = current_user.birth_year
+        年
+        = current_user.birth_month
+        月
+        = current_user.birth_day
+        日
       .iden_form-group
         %label{for: "zip_code"} 郵便番号
         %span.iden_form-arbitrary 任意
-        %input.iden_form-input{name: "zip_code", placeholder: "例）1234567", type: "text", value: ""}
+        %input.iden_form-input{name: "zip_code", placeholder: "〒", type: "text", value: @address.post_number}
       .iden_form-group
         %label{:for => "prefecture"} 都道府県
         %span.form-arbitrary 任意
         .select-wrap
           %i.fa.fa-chevron-down
           -# prefectureテーブルから持ってくる
-          %select.select-default{name: "prefecture"}
+          %select.select-default{name: "prefecture",placeholder: "",type: "text", value: ""}
             %option --
             %option 北海道
             %option 青森県
@@ -97,15 +107,15 @@
       .iden_form-group
         %label{for: "city"} 市区町村
         %span.form-arbitrary 任意
-        %input.iden_form-input{name: "city", placeholder: "例) 横浜市緑区", type: "text", value: ""}/
+        %input.iden_form-input{name: "city", placeholder: "", type: "text", value: @address.city}/
       .iden_form-group
         %label{for: "address1_label"} 番地
         %span.iden_form-arbitrary 任意
-        %input.iden_form-input{name: "address1", placeholder: "例) 青山1−1−1", type: "text", value: ""}/
+        %input.iden_form-input{name: "address1", placeholder: "", type: "text", value: @address.address}/
       .iden_form-group
         %label{:for => "address2_label"} 建物名
         %span.form-arbitrary 任意
-        %input.iden_form-input{name: "address2", placeholder: "例) 柳ビル103", type: "text", value: ""}/
+        %input.iden_form-input{name: "address2", placeholder: "", type: "text", value: @address.building_name}/
       %button.iden_btn{type: "submit"} 登録する
 
       .iden_form-group_info-right
