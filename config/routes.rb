@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-# 本家のメルカリのパスに合わせるためscorpを用いてルーティングを作成した
+# 本家のメルカリのパスに合わせるためscopeを用いてルーティングを作成した
 
   # deviseGem配下で動くもの
   devise_for :users, controllers:{
@@ -42,8 +42,8 @@ Rails.application.routes.draw do
       end
     end
     # resources :item_images, only: [:create,:destroy,:update], defaults: { format: 'json' }
-    #画像用のルート
-    resources :items, only: [:show, :new,:create,:edit, :destroy] do
+    #商品周りのルート
+    resources :items, only: [:show, :new,:create, :edit, :update, :destroy] do
       #商品出品ページに関する、Ajaxで動くアクションのルートを作成
       collection do
         get 'purchase'     => 'items#purchase'

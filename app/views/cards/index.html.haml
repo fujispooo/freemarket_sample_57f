@@ -1,6 +1,9 @@
 
 .single-container
   .single-header
+    =link_to root_path do
+      =image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?863353983", alt: "mercari", class: "sign-up__header--image"
+
 
 .single-main
   %section.l-single-container.buy-item-container
@@ -8,40 +11,47 @@
     %section.buy-content.buy-item
       .buy-content-inner
         .buy-pro
-          %h3.buy-item-image
-          %p.buy-item-name.bold tech::expert
+          .buy-item-image
+            = image_tag @item.item_images.first.image_url,class: "buy-item-image",alt: "商品画像", size: "120x130"
+          %p.buy-item-name
+            = @item.name
         %form.buy-form
           %p.buy-price-ja.bold
-            ¥300
+            ¥
+            = @item.price
             %span.item-shipping-fee.f14.bold 送料込み
           %ul.buy-accordion
             %li.accordion-parent
-              .accordion-toggle
-                ポイントを使う
-                %i.icon-arrow-bottom.accordion-icon
           %ul.buy-price-table
             %li.buy-price-row.buy-you-pay.bold
-              .buy-price-cell 支払い金額
+              .buy-price 支払い金額
               .buy-price-cell
-                %span ¥135,000
-          %p.has-error-text 配送先と支払い方法の入力を完了してください。
+                ￥
+                = @item.price
+          %p.has-error-text 配送先と支払い方法の確認を完了してください。
 
     %section.buy-content.buy-user-info
       .buy-content-inner
         %h3 配送先
         .buy-user-info-text
-          〒177-0042
+          〒
+          = @address.post_number
           %br/
-          東京都 練馬区
-          下石神井1-2-27
-          イケダマンション301
+          = @address.prefecture.name
           %br/
-          西岡 りょう
+          = @address.city
+          %br/
+          = @address.address
+          %br/
+          = @address.building_name
+          %br/
+          =  current_user.first_name
+          =  current_user.last_name
         %p.buy-user-info-text
         .buy-user-info-fix
           %span 変更する
           %i.icon-arrow-right
-    %section.buy-content.buy-user-info{"data-buy" => "pay-method"}
+    %section.buy-content.buy-user-info
       .buy-content-inner
         %h3 支払い方法
         - if @default_card_information.blank?
@@ -58,9 +68,10 @@
           %i.icon-arrow-right
 
           .buy-content-purchase
-            = form_tag(action: :paypay, method: :post) do
-              %button 購入する
-
+          = form_for @item,url: paypay_cards_path,method: :post do |f|
+            = f.hidden_field :item_price, value: @item.price.to_i
+            = f.hidden_field :id, value: @item.id
+            = f.submit "購入する", class:"buy-content-purchase-btn"
   .single-footer-purchase
     %nav
       %ul.clearfix

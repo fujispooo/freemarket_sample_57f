@@ -1,30 +1,30 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   # before_action :user_login,only:[:new, :show]
-
+  
   def index
+    @item = Item.order("created_at DESC").limit(4).where.not(item_state_id: 2)
     @items_for_woman = Category.get_items_for(1).first(4)
     @items_for_man = Category.get_items_for(200).first(4)
     @items_for_sports = Category.get_items_for(399).first(4)
     @items_for_interior = Category.get_items_for(598).first(4)
   end
-
+  
   def show
     @item = Item.find(params[:id])
+
   end
 
   def new
     @item = Item.new
-    @item.item_images.build
+    10.times{@item.item_images.build}
 
       #セレクトボックスの初期値設定
     @category_parent_array = ["---"]
     #データベースから、親カテゴリーのみ抽出し、配列化
     @category_parent_array = Category.where(ancestry: nil)
-    
   end
-
-
+  
   # 以下全て、formatはjsonのみ
     # 親カテゴリーが選択された後に動くアクション
   def get_category_children
@@ -60,7 +60,23 @@ class ItemsController < ApplicationController
       redirect_to :new_item
     end
   end
+# ----------------------------------------------------
+  def edit
+    @item = Item.find(params[:id])
+    @images = @item.item_images
+    @category_parent_array = Category.where(ancestry: nil)
+  end
 
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to root_path, notice: '商品を編集しました'
+    else
+      render :edit
+    end
+  end
+
+# ------------------------------------------------------
   def destroy
     item = Item.find(params[:id])
     if item.user_id == current_user.id
@@ -77,7 +93,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :name,
       :description,
-      :brand_id,
+      :brand,
       :item_state_id,
       :delivery_fee_id,
       :delivery_method_id,

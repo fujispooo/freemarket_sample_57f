@@ -6,7 +6,6 @@
       = fa_icon 'chevron-right'
     %span{itemprop: "title"} プロフィール
 
--# - breadcrumb :mypage
 .main-content
   = render 'modules/mypage-sidebar'
 
@@ -19,7 +18,8 @@
         %p.ryofujii-right-content__block__review 評価
         %span 156
         %p.ryofujii-right-content__block__exhibit 出品数
-        %span 77
+        %span 
+          =Item.where(user_id: current_user.id).length
 
     .ryofujii-right-content__block
       %ul.ryofujii-right-content__block__tabs.back-gray

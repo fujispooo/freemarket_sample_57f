@@ -9,6 +9,8 @@ class CardsController < ApplicationController
   end
 
   def index
+    @item = Item.find(params[:item_id])
+    @address = Address.find(current_user.id)
     card = Card.where(user_id: current_user.id).first
     #Cardテーブルは前回記事で作成、テーブルからpayjpの顧客IDを検索
     if card.blank?
@@ -24,13 +26,15 @@ class CardsController < ApplicationController
   end
 
   def paypay
-    card = Card.where(user_id: current_user.id).first
+    card = current_user.card
     Payjp.api_key
     Payjp::Charge.create(
-    :amount => 13500, #支払金額を入力（itemテーブル等に紐づけても良い）
-    :customer => card.customer_id, #顧客ID
-    :currency => 'jpy', #日本円
+    amount: params[:item][:item_price], #支払金額を入力（itemテーブル等に紐づけても良い）
+    customer: card.customer_id, #顧客ID
+    currency:'jpy', #日本円
   )
+  item = Item.find(card_params[:id])
+  item.destroy
   redirect_to root_path #完了画面に移動
   end
 
@@ -82,6 +86,11 @@ class CardsController < ApplicationController
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
+  end
+
+  private
+  def card_params
+    params.require(:item).permit(:id)
   end
 end
 
