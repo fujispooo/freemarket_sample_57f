@@ -24,7 +24,7 @@
     .sign-up__main__body__forms-container
       = form_for @user,url: ms_confirmation_path, method: :get do |f|
         -# sus認証時はnicknameとemailをhidden化する
-        - if session.blank?
+        - if session[:nickname].blank?
           .sign-up__main__body__forms-container__form-box
             = f.label :name, 'ニックネーム'
             = f.label :name, '必須', class: "write-must"
@@ -36,7 +36,7 @@
             = f.label :name, '必須', class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
               = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可", required: "true"
-        - if session.blank?
+        - if session[:password].blank?
           .sign-up__main__body__forms-container__form-box
             = f.label :name, 'パスワード'
             = f.label :name, '必須', class: "write-must"
