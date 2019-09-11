@@ -250,19 +250,47 @@
         margin: 0 0 0 15px;
         width: 213px;
         display:inline-block;
-        height: 213px;
+        height: 277px;
         &__link{
           z-index: 0;
-          position: relative;
-          img{
-          height: 100%;
           width: 100%;
-          object-fit: cover;
+          height: 213px;
+          position: relative;
+          .pickup__item__price {
+            width: 40%;
+            align-items: center;
+            background: rgba(0,0,0,.4);
+            border-radius: 0 14px 14px 0;
+            // -webkit-box-sizing: border-box;
+            // box-sizing: border-box;
+            color: #fff;
+            // display: -webkit-inline-box;
+            // display: -ms-inline-flexbox;
+            // display: inline-flex;
+            font-size: 17px;
+            line-height: 32px;
+            height: 32px;
+            // height: 28px;
+            letter-spacing: .02em;
+            // margin: 0;
+            // padding-left: 5px;
+            position: absolute;
+            bottom: 8px;
+            left:0;
+            z-index: 2;
+            // margin-left:-213px;
+          }
+          img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            position: relative;
           }
           &__body{
             background: #FFF;
             padding: 16px;
             font-size: 16px;
+            height: 67px;
             &__num{
               display: flex;
               justify-content: space-between;
@@ -313,30 +341,6 @@ body {
     padding-right: 40%;
     }
 
-    .pickup__item__price {
-      width: 100px;
-      align-items: center;
-      background: rgba(0,0,0,.4);
-      border-radius: 0 14px 14px 0;
-      bottom: 8px;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      color: #fff;
-      display: -webkit-inline-box;
-      display: -ms-inline-flexbox;
-      display: inline-flex;
-      font-size: 17px;
-      height: 32px;
-      height: 28px;
-      letter-spacing: .02em;
-      margin: 0;
-      padding: 0 12px;
-      position: absolute;
-      z-index: 2;
-      margin-left:-213px;
-    }
-
-    
 
     .pickup__item__box__content {
       box-shadow: 2px 2px 8px gray;
