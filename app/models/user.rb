@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_one :card
   has_one :SnsCredential
   accepts_nested_attributes_for :address
+  has_one :card, dependent: :destroy
   accepts_nested_attributes_for :card
   accepts_nested_attributes_for :SnsCredential
 

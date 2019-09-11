@@ -1,18 +1,17 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   # before_action :user_login,only:[:new, :show]
-
+  
   def index
+    @item = Item.order("created_at DESC").limit(4).where.not(item_state_id: 2)
     @items_for_woman = Category.get_items_for(1).first(4)
     @items_for_man = Category.get_items_for(200).first(4)
     @items_for_sports = Category.get_items_for(399).first(4)
     @items_for_interior = Category.get_items_for(598).first(4)
   end
-
+  
   def show
     @item = Item.find(params[:id])
-
-    
 
   end
 
@@ -25,7 +24,7 @@ class ItemsController < ApplicationController
     #データベースから、親カテゴリーのみ抽出し、配列化
     @category_parent_array = Category.where(ancestry: nil)
   end
-
+  
   # 以下全て、formatはjsonのみ
     # 親カテゴリーが選択された後に動くアクション
   def get_category_children
@@ -79,7 +78,6 @@ class ItemsController < ApplicationController
 
 # ------------------------------------------------------
   def destroy
-
     item = Item.find(params[:id])
     if item.user_id == current_user.id
       item.destroy
