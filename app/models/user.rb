@@ -17,7 +17,6 @@ class User < ApplicationRecord
       user = User.where(id: snscredential.user_id).first
     else
       user = User.where(email: auth.info.email).first
-      binding.pry
       if user.present?
         SnsCredential.create(
           uid: uid,

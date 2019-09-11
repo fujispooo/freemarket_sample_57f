@@ -23,7 +23,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       session[:provider_data]["uid"]      = requestData.uid
       session[:provider_data]["provider"] = provider.to_s
       # 会員登録ページに遷移
-      binding.pry
       redirect_to registration_path
     end
   end

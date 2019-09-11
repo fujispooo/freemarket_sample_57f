@@ -9,11 +9,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def step2
     @user = User.new()
-    # sns認証サインイン時はnickname,emailをスキップ
+    # google認証サインイン時はnickname,email,passwordをスキップ
     if session.blank? 
       session[:nickname]      = user_params[:nickname]
       session[:password]      = user_params[:password]
       session[:email]         = user_params[:email]
+    # facebook認証サインイン時はnickname,passwordをスキップ
     elsif session[:email].blank?
       session[:email]         = user_params[:email]
     end
@@ -24,7 +25,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:birth_year]      = user_params[:birth_year]
     session[:birth_month]     = user_params[:birth_month]
     session[:birth_day]       = user_params[:birth_day]
-    binding.pry
   end
 
   def step3
@@ -42,7 +42,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
   
   def create
-    binding.pry
     @user = User.new(
       nickname:           session[:nickname],
       email:              session[:email],
