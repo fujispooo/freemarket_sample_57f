@@ -28,15 +28,6 @@
           = @item.user.nickname
           %div
             .item-user
-              .item-user-ratings1
-                = image_tag 'good.svg'
-                %span 149
-              .item-user-ratings2
-                = image_tag 'normal.svg'
-                %span 0
-              .item-user-ratings3
-                = image_tag 'bad.svg'
-                %span 0
       .tr
         .th カテゴリー
         .td-sub
@@ -131,6 +122,19 @@
   %h2.items-box-head
     = @item.user.nickname
     さんの出品
+  .items-box-content1
+  .pickup__item__category__title
+  - @item_user.each do |user|
+    .pickup__item__box__content
+      = link_to item_path(user) do
+        .pickup__item__box__content__link
+          = image_tag user.item_images.first.image_url,class: "top_image",alt: "商品画像", size: "213x220"
+          .pickup__item__box__content__link__body
+            .pickup__item__box__content__link__body__name
+              = user.name
+          .pickup__item__detail__price
+            ￥
+            = user.price
   .items-box-content1
   %h2.items-box-head_sub
     その他のアイテム

@@ -12,7 +12,10 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @images = @item.item_images
+    # 全ての商品からランダムに表示
     @products = Item.order("RAND()").limit(3)
+    # ユーザーその他出品
+    @item_user = Item.order("RAND(user_id)").limit(3)
   end
 
   def new
