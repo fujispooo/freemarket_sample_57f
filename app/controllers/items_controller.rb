@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @images = @item.item_images
+    @products = Item.order("RAND()").limit(3)
   end
 
   def new
