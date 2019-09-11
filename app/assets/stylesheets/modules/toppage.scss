@@ -250,9 +250,15 @@
         margin: 0 0 0 15px;
         width: 213px;
         display:inline-block;
+        height: 213px;
         &__link{
           z-index: 0;
           position: relative;
+          img{
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+          }
           &__body{
             background: #FFF;
             padding: 16px;
@@ -327,7 +333,7 @@ body {
       padding: 0 12px;
       position: absolute;
       z-index: 2;
-      margin-left:-106px;
+      margin-left:-213px;
     }
 
     
