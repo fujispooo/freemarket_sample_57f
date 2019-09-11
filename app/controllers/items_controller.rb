@@ -94,6 +94,11 @@ class ItemsController < ApplicationController
   def transaction
   end
 
+  # def myitems
+  #   @item = Item.find(current_user.id)
+  # end
+
+
   private
   def item_params
     params.require(:item).permit(
