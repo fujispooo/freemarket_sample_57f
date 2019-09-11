@@ -9,15 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def step2
     @user = User.new()
-    # google認証サインイン時はnickname,email,passwordをスキップ
-    if session.blank? 
-      session[:nickname]      = user_params[:nickname]
-      session[:password]      = user_params[:password]
-      session[:email]         = user_params[:email]
-    # facebook認証サインイン時はnickname,passwordをスキップ
-    elsif session[:email].blank?
-      session[:email]         = user_params[:email]
-    end
+    session[:nickname]        = user_params[:nickname]  if session[:nickname].blank? 
+    session[:password]        = user_params[:password]  if session[:password].blank? 
+    session[:email]           = user_params[:email]     if session[:email].blank?
     session[:first_name]      = user_params[:first_name]
     session[:last_name]       = user_params[:last_name]
     session[:first_name_kana] = user_params[:first_name_kana]
@@ -42,6 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
   
   def create
+    if session[:provider_data].present?
     @user = User.new(
       nickname:           session[:nickname],
       email:              session[:email],
@@ -64,8 +59,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
         updated_at:""
       }
     )
+    else
+      @user = User.new(
+        nickname:           session[:nickname],
+        email:              session[:email],
+        password:           session[:password],
+        first_name:         session[:first_name],
+        last_name:          session[:last_name],
+        first_name_kana:    session[:first_name_kana],
+        last_name_kana:     session[:last_name_kana],
+        birth_year:         session[:birth_year],
+        birth_month:        session[:birth_month],
+        birth_day:          session[:birth_day],
+        phone_number:       session[:phone_number],
+        address_attributes: user_params[:address_attributes],
+      )
+    end
     @user.save
-
     sign_in @user
   end
 
