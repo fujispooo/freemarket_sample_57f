@@ -2,9 +2,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   has_one :address
+  has_one :card
+  has_one :SnsCredential
   accepts_nested_attributes_for :address
   has_one :card, dependent: :destroy
   accepts_nested_attributes_for :card
+  accepts_nested_attributes_for :SnsCredential
 
   #  googleとfacebookのsns認証
   def self.find_oauth(auth)

@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_many :item_images, dependent: :destroy
   belongs_to :user
-  belongs_to :brand, optional: true
+  # belongs_to :brand, optional: true
   # カラムいるかも
   # belongs_to :profit
   belongs_to :item_state
