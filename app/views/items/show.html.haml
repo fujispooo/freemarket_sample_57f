@@ -8,11 +8,10 @@
       .owl-carousel
         .owl-item-inner
           = image_tag @item.item_images.first.image_url,class: "main_image",alt: "商品画像", size: "225x300"
-        .owl-item-inner-sub-box
-          .owl-item-inner-sub
-
-
-
+          .owl-item-inner-sub-box
+          - @images.each do |image|
+            .owl-item-inner-sub
+              = image_tag image.image_url
     .item-price-box.text-center.visible-sp
       %span.item-price.bold
         = @item.price
@@ -29,15 +28,6 @@
           = @item.user.nickname
           %div
             .item-user
-              .item-user-ratings1
-                = image_tag 'good.svg'
-                %span 149
-              .item-user-ratings2
-                = image_tag 'normal.svg'
-                %span 0
-              .item-user-ratings3
-                = image_tag 'bad.svg'
-                %span 0
       .tr
         .th カテゴリー
         .td-sub
@@ -133,27 +123,32 @@
     = @item.user.nickname
     さんの出品
   .items-box-content1
-    = render partial:"shared/pickup"
-    = render partial:"shared/pickup"
-    = render partial:"shared/pickup"
-  .items-box-content2
-    = render partial:"shared/pickup"
+  .pickup__item__category__title
+  - @item_user.each do |user|
+    .pickup__item__box__content
+      = link_to item_path(user) do
+        .pickup__item__box__content__link
+          = image_tag user.item_images.first.image_url,class: "top_image",alt: "商品画像", size: "213x220"
+          .pickup__item__box__content__link__body
+            .pickup__item__box__content__link__body__name
+              = user.name
+          .pickup__item__detail__price
+            ￥
+            = user.price
+  .items-box-content1
   %h2.items-box-head_sub
     その他のアイテム
-  .items-box-content1
-    .items-box
-      .img-photo
-        -# = image_tag @item.item_images[:all].image_url,class: "main_image",alt: "商品画像", size: "225x300"
-    .items-box
-      .img-photo
-    .items-box
-      .img-photo
-  .items-box-content2
-    .items-box
-      .img-photo
-    .items-box
-      .img-photo
-    .items-box
-      .img-photo
 
+  .pickup__item__category__title
+  - @products.each do |product|
+    .pickup__item__box__content
+      = link_to item_path(product) do
+        .pickup__item__box__content__link
+          = image_tag product.item_images.first.image_url,class: "top_image",alt: "商品画像", size: "213x220"
+          .pickup__item__box__content__link__body
+            .pickup__item__box__content__link__body__name
+              = product.name
+          .pickup__item__detail__price
+            ￥
+            = product.price
 = render "modules/footer"
