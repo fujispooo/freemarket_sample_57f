@@ -104,16 +104,20 @@
     %button.message-submit.btn-default.btn-gray{:type => "submit"}
       %span コメントする
 
-    %ul.nav-item-link-prev-next.clearfix
-      %li.nav-item-link-prev
-        %i.fa.fa-arrow-left
-        ショートパンツ ベージュ
-      %li.nav-item-link-next
-        %i.fa.fa-arrow-right
-        ポケモン ぬいぐるみ
-        %i.fa.fa-arrow-right
+  .item-link-prev-next
+    .item-link-prev
+      -if @prev_item.present?
+        = link_to item_path(@prev_item), class: 'prev-next-left' do
+          =fa_icon 'chevron-left'
+          %span
+            = @prev_item.name
+    .item-link-next
+      -if @next_item.present?
+        = link_to item_path(@next_item), class: 'prev-next--right' do
+          %span
+            = @next_item.name
+            = fa_icon 'chevron-right'
   .item-social-media-box
-  .text-center
     .fb-save{"data-uri" => "product://113299479059860/m46057519022"}
   %ul.social-media-box
     = fa_icon 'facebook-square', class: "contents-icon"
