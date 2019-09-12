@@ -26,7 +26,12 @@
       .tr
         .th カテゴリー
         .td-sub
+          = @item.category.root.name
+          = @item.category.parent.name
           = @item.category.name
+      
+         
+
           .td-sub-children
             = fa_icon 'angle-double-right'
             -# = link_to  '靴',class:'item-detail-table-sub-category'
@@ -36,7 +41,8 @@
       .tr
         .th ブランド
         .td
-          -# = link_to 'バンズ'
+           = @item.brand
+
       .tr
         .th 商品のサイズ
         .td 
@@ -97,7 +103,23 @@
     %button.message-submit.btn-default.btn-gray{:type => "submit"}
       %span コメントする
 
-  .text-center
+
+  .item-link-prev-next
+    .item-link-prev
+      -if @prev_item.present?
+        = link_to item_path(@prev_item), class: 'prev-next-left' do
+          =fa_icon 'chevron-left'
+          %span
+            = @prev_item.name
+    .item-link-next
+      -if @next_item.present?
+        = link_to item_path(@next_item), class: 'prev-next--right' do
+          %span
+            = @next_item.name
+            = fa_icon 'chevron-right'
+  .item-social-media-box
+    .fb-save{"data-uri" => "product://113299479059860/m46057519022"}
+
   %ul.social-media-box
     = fa_icon 'facebook-square', class: "contents-icon"
     = fa_icon 'twitter-square', class: "contents-icon"

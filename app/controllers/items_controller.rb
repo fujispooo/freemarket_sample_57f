@@ -19,6 +19,10 @@ class ItemsController < ApplicationController
     # ユーザーその他出品
     @item_user = Item.order("RAND(user_id)").limit(3)
 
+    @next_item = Item.where("id > ?", @item.id).order("id ASC").first
+    @prev_item = Item.where("id < ?", @item.id).order("id DESC").first
+
+
   end
 
   def new
