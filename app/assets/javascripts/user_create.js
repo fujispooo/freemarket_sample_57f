@@ -3,6 +3,12 @@ window.addEventListener("turbolinks:load", function() {
   jQuery.validator.addMethod("katakana", function(value, element) {
     return this.optional(element) || /^([ァ-ヶー]+)$/.test(value);
     }, "<br/>全角カタカナを入力してください"
+    
+  );
+  //電話番号（例:012-345-6789）
+  jQuery.validator.addMethod("telnum", function(value, element) {
+    return this.optional(element) || /^[0-9-]{10,12}$/.test(value);
+    }, "<br/>電話番号を入力してください（例:012-345-6789）"
   );
   $(function(){
     $("#user_signup-form").validate({
@@ -49,6 +55,10 @@ window.addEventListener("turbolinks:load", function() {
         },
         "user[birth_day]":{
           required: true
+        },
+        "user[phone_number]":{
+          required: true,
+          telnum: true
         }
       },
       messages : {
@@ -86,6 +96,10 @@ window.addEventListener("turbolinks:load", function() {
         },
         "user[birth_day]":{
           required: "\"日\" は必須項目です"
+        },
+        "user[phone_number]":{
+          required: "電話番号 は必須項目です",
+          telnum: "不正な電話番号が入力されました"
         }
       },
       errorPlacement: function(error, element) {
@@ -121,6 +135,9 @@ window.addEventListener("turbolinks:load", function() {
         }
         if (element.attr('name') == 'user[birth_day]') {
           error.appendTo($('#emsg_birth_day'));
+        }
+        if (element.attr('name') == 'user[phone_number]') {
+          error.appendTo($('#emsg_phone_number'));
         }
       }
     });
