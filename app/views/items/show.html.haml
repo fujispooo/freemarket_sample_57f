@@ -27,25 +27,20 @@
         .th カテゴリー
         .td-sub
           = @item.category.root.name
-          = @item.category.parent.name
-          = @item.category.name
-      
-         
-
           .td-sub-children
             = fa_icon 'angle-double-right'
-            -# = link_to  '靴',class:'item-detail-table-sub-category'
+            = @item.category.parent.name
             .td-sub-children
               = fa_icon 'angle-double-right'
-              -# = link_to 'スニーカー',class:'item-detail-table-sub-sub-category'
+              = @item.category.parent.name
       .tr
         .th ブランド
         .td
-           = @item.brand
+          = @item.brand
 
       .tr
         .th 商品のサイズ
-        .td 
+        .td
       .tr
         .th 商品の状態
         .td
