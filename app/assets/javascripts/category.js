@@ -1,4 +1,20 @@
 window.addEventListener("turbolinks:load", function() {
+
+  $('#item_price').on('keyup', function() {
+    let input = $('#item_price').val();
+    console.log(input);
+    let price = Number(input);
+    if (typeof price == 'number' && 9999999 >= price && price >= 300){
+    let comissionFee = Math.floor(price / 10);
+    let profit = price - comissionFee;
+    $('.sell-inner__form__content__right__fee__integer > p').text('¥' + comissionFee.toLocaleString());
+    $('.sell-inner__form__content__right__profit__integer > h3').text('¥' + profit.toLocaleString());
+  } else {
+    $('.sell-inner__form__content__right__fee__integer > p').text('-');
+    $('.sell-inner__form__content__right__profit__integer > h3').text('-');
+  }
+  })
+
   $(function(){
     // カテゴリーセレクトボックスのオプションを作成
     function appendOption(category){
