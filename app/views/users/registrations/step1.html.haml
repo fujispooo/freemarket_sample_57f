@@ -22,32 +22,35 @@
     %h2.sign-up__main__header__main-title 会員情報入力
   .sign-up__main__body
     .sign-up__main__body__forms-container
-      = form_for @user,url: ms_confirmation_path, method: :get do |f|
-        -# sus認証時はnicknameとemailをhidden化する
+      = form_for @user,url: ms_confirmation_path, method: :get,html:{id:"user_signup-form" } do |f|
+        -# sus認証時はnicknameとpasswordをhidden化する
         - if session[:provider_data].blank?
           .sign-up__main__body__forms-container__form-box
             = f.label :name, 'ニックネーム'
             = f.label :name, '必須', class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
-              = f.text_field :nickname, class: "normal-form",id:"username", placeholder: "例)永野芽郁", required: "true"
-            .feedback
+              = f.text_field :nickname, class: "normal-form",id:"username", placeholder: "例)永野芽郁"
+            #emsg_nickname
         .sign-up__main__body__forms-container__form-box
           = f.label :name, 'メールアドレス'
           = f.label :name, '必須', class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
             = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可", required: "true",type: "email",value:session[:email]
+          #emsg_email
         - if session[:provider_data].blank?
           .sign-up__main__body__forms-container__form-box
             = f.label :name, 'パスワード'
             = f.label :name, '必須', class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
               = f.password_field :password, class: "normal-form", placeholder: "7文字以上", required: "true",type:"password"
+            #emsg_password
 
           .sign-up__main__body__forms-container__form-box
             = f.label :name, "パスワード (確認)"
             = f.label :name, '必須', class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
               = f.password_field :password_confirmation, class: "normal-form", placeholder: "7文字以上", required: "true"
+            #emsg_password_confirmation
 
           .sign-up__main__body__forms-container__form-box
             %h3 本人確認
@@ -59,6 +62,8 @@
             %li.form
               = f.text_field :first_name, class: "small-form-left", placeholder: "例)永野", required: "true"
               = f.text_field :last_name, class: "small-form-right", placeholder: "例)芽郁", required: "true"
+          #emsg_first_name
+          #emsg_last_name
 
         .sign-up__main__body__forms-container__form-box
           = f.label :name, 'お名前カナ(全角)'
@@ -67,6 +72,8 @@
             %li.form
               = f.text_field :first_name_kana, class: "small-form-left", placeholder: "例)ナガノ", required: "true",pattern:"[\u30A1-\u30FF]*"
               = f.text_field :last_name_kana, class: "small-form-right", placeholder: "例)メイ", required: "true",pattern:"[\u30A1-\u30FF]*"
+          #emsg_first_name_kana
+          #emsg_last_name_kana
 
         .sign-up__main__body__forms-container__form-box
           = f.label :name, '生年月日'
@@ -78,6 +85,9 @@
             月
             = f.text_field :birth_day, class: "mini", required: "true",type:"number", min:"1",max:"31"
             日
+          #emsg_birth_year
+          #emsg_birth_month
+          #emsg_birth_day
           %h4.birth ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
         .sign-up__main__body__forms-container__form-box
