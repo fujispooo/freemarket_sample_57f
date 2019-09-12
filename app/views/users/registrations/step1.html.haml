@@ -24,20 +24,19 @@
     .sign-up__main__body__forms-container
       = form_for @user,url: ms_confirmation_path, method: :get do |f|
         -# sus認証時はnicknameとemailをhidden化する
-        - if session[:nickname].blank?
+        - if session[:provider_data].blank?
           .sign-up__main__body__forms-container__form-box
             = f.label :name, 'ニックネーム'
             = f.label :name, '必須', class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
               = f.text_field :nickname, class: "normal-form",id:"username", placeholder: "例)永野芽郁", required: "true"
             .feedback
-        - if session[:email].blank?
-          .sign-up__main__body__forms-container__form-box
-            = f.label :name, 'メールアドレス'
-            = f.label :name, '必須', class: "write-must"
-            .sign-up__main__body__forms-container__form-box__inner
-              = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可", required: "true",type: "email"
-        - if session[:password].blank?
+        .sign-up__main__body__forms-container__form-box
+          = f.label :name, 'メールアドレス'
+          = f.label :name, '必須', class: "write-must"
+          .sign-up__main__body__forms-container__form-box__inner
+            = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可", required: "true",type: "email",value:session[:email]
+        - if session[:provider_data].blank?
           .sign-up__main__body__forms-container__form-box
             = f.label :name, 'パスワード'
             = f.label :name, '必須', class: "write-must"

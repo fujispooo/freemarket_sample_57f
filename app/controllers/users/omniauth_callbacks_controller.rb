@@ -17,7 +17,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       # sessionにプロバイダ情報を保存
       session[:provider_data]             = requestData.except("extra")
-      session[:nickname]                  = requestData.info.name
       session[:email]                     = requestData.info.email
       session[:password]                  = Devise.friendly_token[0, 20] # ランダムなパスワードを作成
       session[:provider_data]["uid"]      = requestData.uid
