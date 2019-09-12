@@ -24,13 +24,13 @@
           %div
             .item-user
       .tr
-        .th カテゴリー
+        .th-sub-children カテゴリー
         .td-sub-children
           = @item.category.root.name
-          .td-sub-children
+          .td-sub
             = fa_icon 'angle-double-right'
             = @item.category.parent.name
-            .td-sub-children
+            .td-sub
               = fa_icon 'angle-double-right'
               = @item.category.name
       .tr
