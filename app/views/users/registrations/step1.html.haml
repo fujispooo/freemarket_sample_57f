@@ -35,21 +35,21 @@
           = f.label :name, 'メールアドレス'
           = f.label :name, '必須', class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
-            = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可", required: "true",type: "email",value:session[:email]
+            = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可"
           #emsg_email
         - if session[:provider_data].blank?
           .sign-up__main__body__forms-container__form-box
             = f.label :name, 'パスワード'
             = f.label :name, '必須', class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
-              = f.password_field :password, class: "normal-form", placeholder: "7文字以上", required: "true",type:"password"
+              = f.password_field :password, class: "normal-form",id: "user_password", placeholder: "7文字以上"
             #emsg_password
 
           .sign-up__main__body__forms-container__form-box
             = f.label :name, "パスワード (確認)"
             = f.label :name, '必須', class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
-              = f.password_field :password_confirmation, class: "normal-form", placeholder: "7文字以上", required: "true"
+              = f.password_field :password_confirmation, class: "normal-form", placeholder: "7文字以上"
             #emsg_password_confirmation
 
           .sign-up__main__body__forms-container__form-box
@@ -60,8 +60,8 @@
           = f.label :name, '必須', class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
             %li.form
-              = f.text_field :first_name, class: "small-form-left", placeholder: "例)永野", required: "true"
-              = f.text_field :last_name, class: "small-form-right", placeholder: "例)芽郁", required: "true"
+              = f.text_field :first_name, class: "small-form-left", placeholder: "例)永野"
+              = f.text_field :last_name, class: "small-form-right", placeholder: "例)芽郁"
           #emsg_first_name
           #emsg_last_name
 
@@ -70,8 +70,8 @@
           = f.label :name, '必須', class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
             %li.form
-              = f.text_field :first_name_kana, class: "small-form-left", placeholder: "例)ナガノ", required: "true",pattern:"[\u30A1-\u30FF]*"
-              = f.text_field :last_name_kana, class: "small-form-right", placeholder: "例)メイ", required: "true",pattern:"[\u30A1-\u30FF]*"
+              = f.text_field :first_name_kana, class: "small-form-left", placeholder: "例)ナガノ"
+              = f.text_field :last_name_kana, class: "small-form-right", placeholder: "例)メイ"
           #emsg_first_name_kana
           #emsg_last_name_kana
 

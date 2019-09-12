@@ -60,7 +60,6 @@
           @include link_botton(inline-block,$merukari-red,$merukari-red,white);
           text-align: center;
         }
-        
         &__inner{
           font-weight: 400;
           input.normal-form{
@@ -76,10 +75,21 @@
             border: 1px solid #ccc;
             width: 100%;
           }
-          #emsg_name{
-            font-weight: 200;
-            color:$merukari-red;
-          }
+        }
+        #emsg_nickname,
+        #emsg_email,
+        #emsg_password,
+        #emsg_password_confirmation,
+        #emsg_first_name,
+        #emsg_first_name_kana,
+        #emsg_last_name,
+        #emsg_last_name_kana,
+        #emsg_birth_year,
+        #emsg_birth_month,
+        #emsg_birth_day{
+          font-weight: 300;
+          color:$merukari-red;
+          padding-top:4px;
         }
         h4{
           padding: 10px 0;
