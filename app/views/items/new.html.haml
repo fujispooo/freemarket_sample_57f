@@ -48,8 +48,8 @@
               = f.collection_select :category_id, @category_parent_array, :id, :name,{include_blank: "---"}, id: 'parent_category'
 
           .sell-inner__form__content__right__genre
-            = f.label :ブランド, class: "brand"
-            %span.brand-attribute 任意
+            %label ブランド
+            %span 必須
             .sell-inner__form__content__right__genre__select
               = f.text_field :brand, required: true, placeholder: "例)フェラガモ", class: "inputbrand"
           .sell-inner__form__content__right__genre
@@ -110,14 +110,16 @@
                 -# %input.price{placeholder: "例）300", value: ""}/
           .sell-inner__form__content__right__fee
             .sell-inner__form__content__right__fee__text
-              販売手数料
+              %p 販売手数料(10%)
             .sell-inner__form__content__right__fee__integer
-              0
+              %p
+                -# = item.price / 10
           .sell-inner__form__content__right__profit
             .sell-inner__form__content__right__profit__text
-              %label 販売利益
+              %h3 販売利益
             .sell-inner__form__content__right__profit__integer
-              0
+              %h3
+                -# = item.price - item.price / 10
 
       .sell-inner__form__foot
         .sell-inner__form__foot__text

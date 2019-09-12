@@ -1,0 +1,58 @@
+= render 'modules/header'
+%nav.bread-crumbs
+  .bread-crumbs-box
+    = link_to ' /jp', class: "contents" do
+      メルカリ
+      = fa_icon 'chevron-right'
+    %span{itemprop: "title"} プロフィール
+
+.main-content
+  = render 'modules/mypage-sidebar'
+
+  .ryofujii-right-content
+    .ryofujii-right-content__block#back-img.middle-center
+      = image_tag "marunuki036.png", alt: "avatar",class: "right-content__block--avatar",size:'60x60'
+      .ryofujii-right-content__block__user-name 
+        = current_user.nickname
+      .ryofujii-right-content__block__user-about
+        %p.ryofujii-right-content__block__review 評価
+        %span 156
+        %p.ryofujii-right-content__block__exhibit 出品数
+        %span 
+          =Item.where(user_id: current_user.id).length
+
+    .ryofujii-right-content__block
+      %ul.ryofujii-right-content__block__tabs.back-gray
+        %li.active.menu_item
+          %h4.middle-center
+            出品中
+
+        %li.menu_item
+          %h4.middle-center
+            取引中
+
+        %li.menu_item
+          %h4.middle-center
+            売却済み
+
+      %ul.ryofujii-right-content__block__object
+        -@items.each do |item|
+          %li
+            .ryofujii-right-content__block__object__link-box
+              =image_tag item.item_images.first.image_url,class: "myitem-image",alt: "商品画像", size: "48x60"
+              .ryofujii-right-content__block__object__link-box__body
+                .ryofujii-right-content__block__object__link-box__body--text
+                  = item.name
+                  =link_to "編集",edit_item_path(item), class:"edit-btn"
+          
+        
+        -# = link_to root_path, class: "decoration-none" do
+          -# .ryofujii-right-content__block__object__link-box
+        -#     -@items.each do |image|
+        -#           = @item.name
+        -#         .ryofujii-right-content__block__object__link-box__body--time
+        -#           %i.fa.fa-history
+                  
+= render "modules/sell-btn"
+= render "modules/footer"
+

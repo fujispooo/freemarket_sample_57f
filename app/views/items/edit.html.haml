@@ -47,11 +47,25 @@
             %span 必須
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
-              = f.collection_select :category_id, @category_parent_array, :id, :name,{include_blank: "---"}, id: 'parent_category'
+              = f.collection_select :category_id, @category_parent_array, :id, :name, id: 'parent_category', selected: @item.category.root.name
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              = f.collection_select :category_id, @category_child_array, :id, :name, id: 'grandchild_category', selected: @item.category.parent.name
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              = f.collection_select :category_id, @category_grandchild_array, :id, :name, id: 'grandchild_category', selected: @item.category.name
 
           .sell-inner__form__content__right__genre
-            = f.label :ブランド, class: "brand"
-            %span.brand-attribute 任意
+            %label サイズ
+            %span 必須
+            .sell-inner__form__content__right__genre__select
+              %i.fa.fa-chevron-down
+              = f.collection_select :size_id, @size_array, :id, :name, id: 'size', selected: @item.size.name
+
+
+          .sell-inner__form__content__right__genre
+            %label ブランド
+            %span 必須
             .sell-inner__form__content__right__genre__select
               = f.text_field :brand, required: true, placeholder: "例)フェラガモ", class: "inputbrand"
           .sell-inner__form__content__right__genre

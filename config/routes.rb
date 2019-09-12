@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       get 'profile'        => 'users#show'
       get 'identification' => 'users#identification'
       get 'logout'         => 'users#logout'
+      get 'myitems'        => 'users#myitems'
       resources :cards, only: [:new] do
         collection do
           get  'show'      => 'cards#show'
