@@ -29,17 +29,17 @@
           = @item.category.name
           .td-sub-children
             = fa_icon 'angle-double-right'
-            = link_to  '靴',class:'item-detail-table-sub-category'
+            -# = link_to  '靴',class:'item-detail-table-sub-category'
             .td-sub-children
               = fa_icon 'angle-double-right'
-              = link_to 'スニーカー',class:'item-detail-table-sub-sub-category'
+              -# = link_to 'スニーカー',class:'item-detail-table-sub-sub-category'
       .tr
         .th ブランド
         .td
           -# = link_to 'バンズ'
       .tr
         .th 商品のサイズ
-        .td 27cm
+        .td 
       .tr
         .th 商品の状態
         .td
@@ -74,8 +74,6 @@
 
   - else
     .text-center
-      .sales-point-message
-        P200 をお持ちです
       .item-buy-btn
         = link_to '購入画面に進む', purchase_cards_path( item_id: @item )
   .item-description.f14
@@ -83,20 +81,15 @@
       = @item.description
   .item-button-container
     .item-button-left
-      %button.item-button.item-button-like{"data-ga" => "element", "data-ga-category" => "LIKE", "data-ga-label" => "like!", "data-id" => "m11168273272", "data-toggle" => "like", :name => "like!", :type => "button"}
+      %button.item-button.item-button-like{"data-ga": "element", "data-ga-category": "LIKE", "data-ga-label": "like!", "data-id": "m11168273272", "data-toggle": "like", name: "like!", type:ふぃんふぃん "button"}
         %i.icon-like-border
         %span いいね!
-        %span.fade-in-down{"data-num" => "like"} 21
+        %span.fade-in-down{"data-num": "like"} 21
       %a.item-button.item-button-report
         %i.icon-flag
         %span 不適切な商品の報告
-      %input{:name => "like_add_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/add/m11168273272/?_s=U2FsdGVkX1_cdkm5jqi1IF0GNlqYcWpX58J75jS9s1YW9x1h1_gGRyl-ME-aqWFC6FHgSaR87aw7uL9zNqh1h6j3B84_goa3I5BbQKtRJcYWT5XBu_mFg8RsiRQWWj4C"}/
-      %input{:name => "like_del_url", :type => "hidden", :value => "https://www.mercari.com/jp/like/delete/m11168273272/?_s=U2FsdGVkX1_cdkm5jqi1IF0GNlqYcWpX58J75jS9s1YW9x1h1_gGRyl-ME-aqWFC6FHgSaR87aw7uL9zNqh1h6j3B84_goa3I5BbQKtRJcYWT5XBu_mFg8RsiRQWWj4C"}/
-      %input{:name => "__csrf_value", :type => "hidden", :value => "3c4f11465244650df31f45c7ae9fd640b5106547cef796d0b550904a6a9caef0e0ff6bfb18a9df809256bf3b41457777a9610f294078b4f08ac73e31ab382d587"}/
     .item-button-right
-      %a{:href => "https://www.mercari.com/jp/safe/description/", :target => "_blank"}
-        %i.icon-lock
-        %span あんしん・あんぜんへの取り組み
+      %span あんしん・あんぜんへの取り組み
   .message-content
     .message-form
       相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
@@ -105,7 +98,6 @@
       %span コメントする
 
   .text-center
-    .fb-save{"data-uri" => "product://113299479059860/m46057519022"}
   %ul.social-media-box
     = fa_icon 'facebook-square', class: "contents-icon"
     = fa_icon 'twitter-square', class: "contents-icon"
