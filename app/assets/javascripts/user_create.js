@@ -18,12 +18,13 @@ window.addEventListener("turbolinks:load", function() {
         },
         "user[password]":{
           required: true,
-          password: true
+          password: true,
+          minlength: 7
         },
         "user[password_confirmation]":{
           required: true,
           password: true,
-          alphanum: true,
+          minlength: 7,
           equalTo: "#user_password"
         },
         "user[first_name]":{
