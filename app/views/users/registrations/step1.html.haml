@@ -23,20 +23,19 @@
   .sign-up__main__body
     .sign-up__main__body__forms-container
       = form_for @user,url: ms_confirmation_path, method: :get,html:{id:"user_signup-form" } do |f|
-        -# sus認証時はnicknameとpasswordをhidden化する
-        - if session[:provider_data].blank?
-          .sign-up__main__body__forms-container__form-box
-            = f.label :name, 'ニックネーム'
-            = f.label :name, '必須', class: "write-must"
-            .sign-up__main__body__forms-container__form-box__inner
-              = f.text_field :nickname, class: "normal-form",id:"username", placeholder: "例)永野芽郁"
-            #emsg_nickname
+        .sign-up__main__body__forms-container__form-box
+          = f.label :name, 'ニックネーム'
+          = f.label :name, '必須', class: "write-must"
+          .sign-up__main__body__forms-container__form-box__inner
+            = f.text_field :nickname, class: "normal-form",id:"username", placeholder: "例)永野芽郁"
+          #emsg_nickname
         .sign-up__main__body__forms-container__form-box
           = f.label :name, 'メールアドレス'
           = f.label :name, '必須', class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
             = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可"
           #emsg_email
+        -# sus認証時はpasswordをhidden化する
         - if session[:provider_data].blank?
           .sign-up__main__body__forms-container__form-box
             = f.label :name, 'パスワード'
