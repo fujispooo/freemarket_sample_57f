@@ -29,19 +29,20 @@
             = f.label :name, 'ニックネーム'
             = f.label :name, '必須', class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
-              = f.text_field :nickname, class: "normal-form", placeholder: "例)永野芽郁", required: "true"
+              = f.text_field :nickname, class: "normal-form",id:"username", placeholder: "例)永野芽郁", required: "true"
+            .feedback
         - if session[:email].blank?
           .sign-up__main__body__forms-container__form-box
             = f.label :name, 'メールアドレス'
             = f.label :name, '必須', class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
-              = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可", required: "true"
+              = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可", required: "true",type: "email"
         - if session[:password].blank?
           .sign-up__main__body__forms-container__form-box
             = f.label :name, 'パスワード'
             = f.label :name, '必須', class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
-              = f.password_field :password, class: "normal-form", placeholder: "7文字以上", required: "true"
+              = f.password_field :password, class: "normal-form", placeholder: "7文字以上", required: "true",type:"password"
 
           .sign-up__main__body__forms-container__form-box
             = f.label :name, "パスワード (確認)"
@@ -65,18 +66,18 @@
           = f.label :name, '必須', class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
             %li.form
-              = f.text_field :first_name_kana, class: "small-form-left", placeholder: "例)ナガノ", required: "true"
-              = f.text_field :last_name_kana, class: "small-form-right", placeholder: "例)メイ", required: "true"
+              = f.text_field :first_name_kana, class: "small-form-left", placeholder: "例)ナガノ", required: "true",pattern:"[\u30A1-\u30FF]*"
+              = f.text_field :last_name_kana, class: "small-form-right", placeholder: "例)メイ", required: "true",pattern:"[\u30A1-\u30FF]*"
 
         .sign-up__main__body__forms-container__form-box
           = f.label :name, '生年月日'
           = f.label :name, '必須', class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
-            = f.text_field :birth_year, class: "mini", required: "true"
+            = f.text_field :birth_year, class: "mini", required: "true",type:"number", min:"1900",max:"2001"
             年
-            = f.text_field :birth_month, class: "mini", required: "true"
+            = f.text_field :birth_month, class: "mini", required: "true",type:"number", min:"1",max:"12"
             月
-            = f.text_field :birth_day, class: "mini", required: "true"
+            = f.text_field :birth_day, class: "mini", required: "true",type:"number", min:"1",max:"31"
             日
           %h4.birth ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
