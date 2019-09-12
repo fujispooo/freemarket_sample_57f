@@ -87,10 +87,20 @@
         #emsg_birth_year,
         #emsg_birth_month,
         #emsg_birth_day,
-        #emsg_phone_number{
+        #emsg_phone_number,
+        #emsg_post_number,
+        #emsg_city,
+        #emsg_address,
+        #emsg_building_name,
+        #emsg_building_tel{
           font-weight: 300;
           color:$merukari-red;
-          padding-top:4px;
+          padding-top:10px;
+          font-size:12px;
+          line-height: 16px;
+          span{
+            font-weight: 600;
+          }
         }
         h4{
           padding: 10px 0;

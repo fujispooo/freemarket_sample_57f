@@ -9,9 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def step2
     @user = User.new()
-    session[:nickname]        = user_params[:nickname]  if session[:nickname].blank? 
-    session[:password]        = user_params[:password]  if session[:password].blank? 
-    session[:email]           = user_params[:email]     if session[:email].blank?
+    session[:nickname]        = user_params[:nickname]  if session[:provider_data].blank? 
+    session[:password]        = user_params[:password]  if session[:provider_data].blank?
+    session[:email]           = user_params[:email]
     session[:first_name]      = user_params[:first_name]
     session[:last_name]       = user_params[:last_name]
     session[:first_name_kana] = user_params[:first_name_kana]

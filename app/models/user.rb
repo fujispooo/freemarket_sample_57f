@@ -9,10 +9,9 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :card
   accepts_nested_attributes_for :SnsCredential
 
-  
+
   # 以下バリデーション
   validates :nickname       , presence: true ,length: {maximum: 20}
-  validates :name           , presence: true 
   validates :email          , presence: true ,uniqueness: true
   validates :password       , presence: true ,length: {minimum: 6, maximum: 128}
   validates :first_name     , presence: true

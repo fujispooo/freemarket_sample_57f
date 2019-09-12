@@ -19,7 +19,7 @@
         完了
         %span.bubble>
 .sign-up__main
-  = form_for @user, url: registration_create_path, method: :post do |f|
+  = form_for @user, url: registration_create_path,html:{id:"user_signup-form" }, method: :post do |f|
     = f.fields_for :address do |a|
       .sign-up__main__header 
         %h2.sign-up__main__header__main-title 発送・お届け先住所入力
@@ -30,6 +30,7 @@
             = a.label :name, "必須", class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
               = a.text_field :post_number, class: "normal-form", required: "true",placeholder: "例) 123-4567"
+            #emsg_post_number
           .sign-up__main__body__forms-container__form-box
             = a.label :name, "都道府県"
             = a.label :name, "必須", class: "write-must"
@@ -40,21 +41,25 @@
             = a.label :name, "必須", class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
               = a.text_field :city, class: "normal-form", required: "true",placeholder: "例) 世田谷区若林"
+            #emsg_city
           .sign-up__main__body__forms-container__form-box
             = a.label :name, "番地"
             = a.label :name, "必須", class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
               = a.text_field :address, class: "normal-form", required: "true",placeholder: "例) ３-５-９８"
+            #emsg_address
           .sign-up__main__body__forms-container__form-box
             = a.label :name, "建物名"
             = a.label :name, "任意", class: "write-optional"
             .sign-up__main__body__forms-container__form-box__inner
               = a.text_field :building_name, class: "normal-form",placeholder: "例) 青山ハウス"
+            #emsg_building_name
           .sign-up__main__body__forms-container__form-box
             = a.label :name, "電話番号"
             = a.label :name, "任意", class: "write-optional"
             .sign-up__main__body__forms-container__form-box__inner
               = a.telephone_field :building_tel, class: "normal-form",placeholder: "例) 090-1234-5678"
+            #emsg_building_tel
           .sign-up__main__body__forms-container__form-box
             = a.submit "次へ進む", class: "form__sent-btn"
 
