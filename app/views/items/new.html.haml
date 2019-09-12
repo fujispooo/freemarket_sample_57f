@@ -48,8 +48,8 @@
               = f.collection_select :category_id, @category_parent_array, :id, :name,{include_blank: "---"}, id: 'parent_category'
 
           .sell-inner__form__content__right__genre
-            = f.label :ブランド, class: "brand"
-            %span.brand-attribute 任意
+            %label ブランド
+            %span 必須
             .sell-inner__form__content__right__genre__select
               = f.text_field :brand, required: true, placeholder: "例)フェラガモ", class: "inputbrand"
           .sell-inner__form__content__right__genre
