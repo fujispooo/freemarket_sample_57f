@@ -41,14 +41,14 @@
             = f.label :name, 'パスワード'
             = f.label :name, '必須', class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
-              = f.password_field :password, class: "normal-form",id: "user_password", placeholder: "7文字以上"
+              = f.password_field :password, class: "normal-form",id: "user_password", placeholder: "7文字以上",require: "true",type:"password"
             #emsg_password
 
           .sign-up__main__body__forms-container__form-box
             = f.label :name, "パスワード (確認)"
             = f.label :name, '必須', class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
-              = f.password_field :password_confirmation, class: "normal-form", placeholder: "7文字以上"
+              = f.password_field :password_confirmation, class: "normal-form", placeholder: "7文字以上",require: "true",type:"password"
             #emsg_password_confirmation
 
           .sign-up__main__body__forms-container__form-box
