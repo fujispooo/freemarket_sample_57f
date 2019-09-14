@@ -1,83 +1,42 @@
 window.addEventListener("turbolinks:load", function() {
+  // バリデーションをカスタマイズ
   // 全角カタカナのみ
   jQuery.validator.addMethod("katakana", function(value, element) {
     return this.optional(element) || /^([ァ-ヶー]+)$/.test(value);
     }, "<br/>全角カタカナを入力してください"
   );
-  //電話番号（例:012-345-6789）
+  //電話番号
   jQuery.validator.addMethod("telnum", function(value, element) {
     return this.optional(element) || /^0[0-9-]{9,11}$/.test(value);
     }, "<br/>電話番号を入力してください（例:012-345-6789）"
   );
-  //郵便番号（例:012-3456）
+  //郵便番号
   jQuery.validator.addMethod("postnum", function(value, element) {
     return this.optional(element) || /^\d{3}\-\d{4}$/.test(value);
     }, "<br/>郵便番号を入力してください（例:123-4567）"
   );
+  // フォームの項目ごとのバリデーション
   $("#user_signup-form").validate({
     rules : {
-      "user[nickname]":{
-        required: true,
-        minlength: 2,
-        maxlength: 10
-      },
-      "user[email]":{
-        required: true,
-        email: true
-      },
-      "user[password]":{
-        required: true,
-        minlength: 7
-      },
-      "user[password_confirmation]":{
-        required: true,
-        minlength: 7,
-        equalTo: "#user_password"
-      },
-      "user[first_name]":{
-        required: true
-      },
-      "user[last_name]":{
-        required: true
-      },
-      "user[first_name_kana]":{
-        required: true,
-        katakana: true
-      },
-      "user[last_name_kana]":{
-        required: true,
-        katakana: true
-      },
-      "user[birth_year]":{
-        required: true
-      },
-      "user[birth_month]":{
-        required: true
-      },
-      "user[birth_day]":{
-        required: true
-      },
-      "user[phone_number]":{
-        required: true,
-        telnum: true
-      },
-      "user[address_attributes][post_number]":{
-        required: true,
-        postnum: true
-      },
-      "user[address_attributes][city]":{
-        required: true
-      },
-      "user[address_attributes][address]":{
-        required: true
-      },
-      "user[address_attributes][building_name]":{
-        maxlength: 25
-      },
-      "user[address_attributes][building_tel]":{
-        telnum: true
-      }
+      "user[nickname]"                         :{required: true,minlength: 2,maxlength: 10},
+      "user[email]"                            :{required: true,email:  true},
+      "user[password]"                         :{required: true,minlength: 7},
+      "user[password_confirmation]"            :{required: true,minlength: 7,equalTo: "#user_password"},
+      "user[first_name]"                       :{required: true},
+      "user[last_name]"                        :{required: true},
+      "user[first_name_kana]"                  :{required: true,katakana: true},
+      "user[last_name_kana]"                   :{required: true,katakana: true},
+      "user[birth_year]"                       :{required: true},
+      "user[birth_month]"                      :{required: true},
+      "user[birth_day]"                        :{required: true},
+      "user[phone_number]"                     :{required: true,telnum: true},
+      "user[address_attributes][post_number]"  :{required: true,postnum: true},
+      "user[address_attributes][city]"         :{required: true},
+      "user[address_attributes][address]"      :{required: true},
+      "user[address_attributes][building_name]":{maxlength: 25},
+      "user[address_attributes][building_tel]" :{telnum: true}
     },
+    // エラーメッセージ
     messages : {
       "user[nickname]":{
         required: "※ ニックネーム は必須項目です",
@@ -125,7 +84,7 @@ window.addEventListener("turbolinks:load", function() {
       },
       "user[address_attributes][post_number]":{
         required: "※ 郵便番号 は必須項目です",
-        postnum: "※ 不正な郵便番号が入力されました<br/><span>・連続した数字ではないか？</span><br/><span>・前半を半角数字3文字、後半を半角数字4文字</span><br/>上記を確認し入力してください"
+        postnum: "※ 不正な郵便番号が入力されました<br/><span>・連続した数字ではありませんか？</span><br/><span>・前半を半角数字3文字、後半を半角数字4文字</span><br/>上記を確認し入力してください"
       },
       "user[address_attributes][city]":{
         required: "※ 市区町村 は必須項目です"
@@ -140,6 +99,7 @@ window.addEventListener("turbolinks:load", function() {
         telnum: "※ 不正な電話番号が入力されました<br/><span>・0から始まる半角数字10~12桁</span><br/><span>・\"-\"(ハイフン)を抜いた連続した数字</span><br/>上記を確認し入力してください"
       }
     },
+    // エラーメッセージを追加する場所を指定
     errorPlacement: function(error, element) {
       if (element.attr('name') == 'user[nickname]') {
         error.appendTo($('#emsg_nickname'));

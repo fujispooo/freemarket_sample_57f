@@ -12,12 +12,12 @@
       .user__login__main__body__forms-container
         .user__login__main__body__forms-container__form-box
           = link_to "/users/auth/facebook", class: "facebook" do
-            .facebook--left
-              =fa_icon "facebook-square"
+            .facebook--left.middle-center
+              =fa_icon "facebook"
             .facebook--right
               Facebookでログイン
           = link_to "/users/auth/google_oauth2", class: "google" do
-            .google--left
+            .google--left.middle-center
               =fa_icon "google"
             .google--right
               Googleでログイン
@@ -26,7 +26,7 @@
           .field
             = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード",class:"sign-up-input"
             = f.submit "ログイン", class: "login_btn"
-            = link_to "パスワードをお忘れの方", "/jp/signup", class: "password"
+            = link_to "パスワードをお忘れの方", "/jp/signup", class: "password decoration-none"
 .sign-up__footer
   %nav
     %ul
