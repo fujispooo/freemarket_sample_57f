@@ -99,7 +99,8 @@
 #   )
 # end
 
-forbidden_words = ["ちんこ","麻原彰晃","殺人","強姦"]
+
+forbidden_words = ["チンコ","ファック","サリン","マンコ","藤井涼"]
 forbidden_words.each do |forbidden_word|
   ForbiddenWord.create!(
     forbidden_word: forbidden_word
