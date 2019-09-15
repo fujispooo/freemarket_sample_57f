@@ -87,6 +87,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
       end
     end
   end
+
+  def email_check
+    @user = User.where(email: user_params[:email]).first
+  end
   
   private
   def user_params

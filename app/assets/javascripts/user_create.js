@@ -84,7 +84,7 @@ window.addEventListener("turbolinks:load", function() {
       },
       "user[address_attributes][post_number]":{
         required: "※ 郵便番号 は必須項目です",
-        postnum: "※ 不正な郵便番号が入力されました<br/><span>・連続した数字ではありませんか？</span><br/><span>・前半を半角数字3文字、後半を半角数字4文字</span><br/>上記を確認し入力してください"
+        postnum: "※ 不正な郵便番号が入力されました<br/><span>・連続した数字ではありませんか？</span><br/><span>・(例)154-9999</span><br/>上記を確認し入力してください"
       },
       "user[address_attributes][city]":{
         required: "※ 市区町村 は必須項目です"

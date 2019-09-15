@@ -34,8 +34,9 @@
           = f.label :name, 'メールアドレス'
           = f.label :name, '必須', class: "write-must"
           .sign-up__main__body__forms-container__form-box__inner
-            = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可"
+            = f.email_field :email, class: "normal-form", placeholder: "PC・携帯どちらでも可",id:"user_email"
           #emsg_email
+          #email-check-result
         -# sus認証時はpasswordをhidden化する
         - if session[:provider_data].blank?
           .sign-up__main__body__forms-container__form-box
