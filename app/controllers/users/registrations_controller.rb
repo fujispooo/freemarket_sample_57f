@@ -79,6 +79,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in @user
   end
 
+  def check
+    @user = ForbiddenWord.where(forbidden_word: user_params[:nickname]).first
+    if @user.present?
+      respond_to do |format|
+        format.json
+      end
+    end
+  end
+  
   private
   def user_params
     params.require(:user).permit(
