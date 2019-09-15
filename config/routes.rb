@@ -54,7 +54,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
+  
   # ユーザ新規会員登録ページ
   devise_scope :user do
     scope :jp do
@@ -66,6 +66,7 @@ Rails.application.routes.draw do
         get  'address'              => 'users/registrations#step4'
         get  'credit'               => 'users/registrations#step5'
         post 'registration/create'  => 'users/registrations#create'
+        get  'check'                => 'users/registrations#check'
       end
     end
   end

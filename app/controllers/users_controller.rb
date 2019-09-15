@@ -12,10 +12,7 @@ class UsersController < ApplicationController
     # @item = Item.find.order("RAND(current_user)")
   end
 
-  # def myitems
-  #   @item = current_user.item.find(params[:id])
-  # end
-
-
-
+  def check
+    @user = ForbiddenWord.where(forbidden_word: user_params[:])
+  end
 end
