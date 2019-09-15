@@ -60,7 +60,6 @@
           @include link_botton(inline-block,$merukari-red,$merukari-red,white);
           text-align: center;
         }
-        
         &__inner{
           font-weight: 400;
           input.normal-form{
@@ -75,6 +74,33 @@
             border-radius: 5px;
             border: 1px solid #ccc;
             width: 100%;
+          }
+        }
+        #emsg_nickname,
+        #emsg_email,
+        #emsg_password,
+        #emsg_password_confirmation,
+        #emsg_first_name,
+        #emsg_first_name_kana,
+        #emsg_last_name,
+        #emsg_last_name_kana,
+        #emsg_birth_year,
+        #emsg_birth_month,
+        #emsg_birth_day,
+        #emsg_phone_number,
+        #emsg_post_number,
+        #emsg_city,
+        #emsg_address,
+        #emsg_building_name,
+        #emsg_building_tel,
+        #user-check-result{
+          font-weight: 300;
+          color:$merukari-red;
+          padding-top:10px;
+          font-size:12px;
+          line-height: 16px;
+          span{
+            font-weight: 600;
           }
         }
         h4{
@@ -221,11 +247,11 @@ select.big {
 
 
 input.mini {
-  margin-top: 5px;
-  padding: 10px 5px;
+  margin-top: 10px;
+  padding: 15px 0 15px 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
-  width: 60px;
+  width: 26.7%;
 }
 input.phone {
   border-radius: 5px;
@@ -288,3 +314,4 @@ li.form {
     height: 270px;
   }
 }
+

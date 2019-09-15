@@ -28,9 +28,10 @@
           %div
             .item-user
       .tr
-        .th カテゴリー
-        .td-sub
+        .th-sub-children カテゴリー
+        .td-sub-children
           = @item.category.root.name
+
           .td-sub-children
             = fa_icon 'angle-double-right'
             = @item.category.parent.name
@@ -41,7 +42,6 @@
         .th ブランド
         .td
           = @item.brand
-
       .tr
         .th 商品のサイズ
         .td

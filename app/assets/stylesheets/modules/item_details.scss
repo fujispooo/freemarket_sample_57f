@@ -85,26 +85,33 @@
 
 .th {
   width: 39%;
-  height: 50px;
+  height: 47px;
   text-align: left;
   font-weight: 400;
   background: #fafafa;
   text-align: center;
   line-height: 3;
 }
-.td-sub {
-  height: 50px;
+
+.th-sub-children{
+  width: 39%;
+  height: 70px;
+  text-align: left;
+  font-weight: 400;
+  background: #fafafa;
+  text-align: center;
+  line-height: 5;
+}
+.td-sub-children {
+  height: 63px;
   width: 50%;
   background: #fff;
   border-collapse: collapse;
   border: 1px solid #f5f5f5;
   color: #0099e8;
-  font-size: 12px;
+  font-size: 14px;
   padding-left: 5px;
-  &-children{
-    padding-top: 5px;
-    color: #0099e8;
-  }
+  padding-top: 5px;
 }
 
 .td {

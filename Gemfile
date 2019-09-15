@@ -53,12 +53,16 @@ gem 'ancestry'
 gem 'payjp'
 gem "jquery-rails"
 gem 'dotenv-rails'
+
+# 画像投稿に使う
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
-gem 'carrierwave'
-gem 'fog-aws'
-gem 'mini_magick'
+
+# google,facobook連携
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
+
+# バリデーション用
+gem 'jquery-validation-rails'

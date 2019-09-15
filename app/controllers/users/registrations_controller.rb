@@ -9,9 +9,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   def step2
     @user = User.new()
-    session[:nickname]        = user_params[:nickname]  if session[:nickname].blank? 
-    session[:password]        = user_params[:password]  if session[:password].blank? 
-    session[:email]           = user_params[:email]     if session[:email].blank?
+    session[:nickname]        = user_params[:nickname]
+    session[:password]        = user_params[:password]  if session[:provider_data].blank?
+    session[:email]           = user_params[:email]
     session[:first_name]      = user_params[:first_name]
     session[:last_name]       = user_params[:last_name]
     session[:first_name_kana] = user_params[:first_name_kana]
@@ -79,6 +79,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
     sign_in @user
   end
 
+  def check
+    @user = ForbiddenWord.where(forbidden_word: user_params[:nickname]).first
+    if @user.present?
+      respond_to do |format|
+        format.json
+      end
+    end
+  end
+  
   private
   def user_params
     params.require(:user).permit(

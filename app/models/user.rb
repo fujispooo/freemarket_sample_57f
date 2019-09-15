@@ -4,12 +4,28 @@ class User < ApplicationRecord
   has_one :address
   has_one :card
   has_one :SnsCredential
-  accepts_nested_attributes_for :address
   has_one :card, dependent: :destroy
+  accepts_nested_attributes_for :address
   accepts_nested_attributes_for :card
   accepts_nested_attributes_for :SnsCredential
   has_many :items
   has_many :item_comments
+
+
+
+  # 以下バリデーション
+  validates :nickname       , presence: true ,length: {maximum: 20}
+  validates :email          , presence: true ,uniqueness: true
+  validates :password       , presence: true ,length: {minimum: 6, maximum: 128}
+  validates :first_name     , presence: true
+  validates :last_name      , presence: true
+  validates :first_name_kana, presence: true
+  validates :last_name_kana , presence: true
+  validates :birth_year     , presence: true
+  validates :birth_month    , presence: true
+  validates :birth_day      , presence: true
+  validates :phone_number   , presence: true
+
 
 
   #  googleとfacebookのsns認証

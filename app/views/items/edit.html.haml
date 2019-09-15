@@ -125,14 +125,16 @@
                 = f.text_field :price, required: true, placeholder: "例）300", class: "inputprice"            
           .sell-inner__form__content__right__fee
             .sell-inner__form__content__right__fee__text
-              販売手数料
+              %p 販売手数料(10%)
             .sell-inner__form__content__right__fee__integer
-              0
+              %p
+                -# = item.price / 10
           .sell-inner__form__content__right__profit
             .sell-inner__form__content__right__profit__text
-              %label 販売利益
+              %h3 販売利益
             .sell-inner__form__content__right__profit__integer
-              0
+              %h3
+                -# = item.price - item.price / 10
 
       .sell-inner__form__foot
         .sell-inner__form__foot__text

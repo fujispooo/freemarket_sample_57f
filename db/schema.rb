@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_08_140709) do
+ActiveRecord::Schema.define(version: 2019_09_14_053135) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "post_number", null: false
+    t.string "post_number", null: false
     t.string "city", null: false
     t.string "address", null: false
     t.string "building_name"
-    t.integer "building_tel"
+    t.string "building_tel"
     t.bigint "user_id", null: false
     t.integer "prefecture_id"
     t.index ["user_id"], name: "index_addresses_on_user_id"
@@ -65,6 +65,12 @@ ActiveRecord::Schema.define(version: 2019_09_08_140709) do
 
   create_table "delivery_methods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "delivery_method", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "forbidden_words", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "forbidden_word"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -156,7 +162,7 @@ ActiveRecord::Schema.define(version: 2019_09_08_140709) do
     t.string "last_name_kana", null: false
     t.text "introduction"
     t.string "avatar"
-    t.integer "phone_number", null: false
+    t.string "phone_number", null: false
     t.integer "birth_year"
     t.integer "birth_month"
     t.integer "birth_day"

@@ -7,16 +7,8 @@ class UsersController < ApplicationController
   def show
   end
 
-  def mypage
-  end
-
   def myitems
     @items = current_user.items
     # @item = Item.find.order("RAND(current_user)")
   end
-
-  # def myitems
-  #   @item = current_user.item.find(params[:id])
-  # end
-
 end
