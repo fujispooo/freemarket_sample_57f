@@ -11,6 +11,23 @@
   padding: 24px 16px 55px 16px;
   width: 700px;
 }
+// フラッシュメッセージ
+.flash-content{
+  display: flex;
+}
+.flash {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  width: 55%;
+  margin: 0 auto;
+  &__alert{
+    background-color: red;
+  }
+  &__notice {
+    background-color: #59b1eb;
+  }
+}
 
 .item-name {
   font-size: 24px;
@@ -162,11 +179,6 @@
   font-size: 16px;
 }
 
-// .text-center {
-//   text-align: center;
-// }
-
-
 .item-detail-table {
   float: right;
   max-width: 300px;
@@ -315,14 +327,6 @@
     background: #fff;
 }
 
-.message-form {
-  height: 50px;
-  width: 600px;
-  background: #fff6de;
-  line-height: 2;
-}
-
-
 .item-description-inner {
   padding: 8px;
   font-size: 14px;
@@ -365,6 +369,56 @@
   text-align: center;
 }
 
+// コメント投稿
+form{
+  textarea{
+    margin: 8px 0 0;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 104px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    border-radius: 5px;
+  }
+  input{
+    margin: 8px 0 0;
+    display: block;
+    width: 100%;
+    line-height: 48px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: red;
+    line-height: 50px;
+    color: #fff;
+    border-radius: 5px;
+    &:hover{
+      background-color: #fff;
+      border-color: #59b1eb;
+      color: #59b1eb;
+    }
+  }
+}
+.comments{
+  margin: 30px 0 30px;
+    h4{
+      font-size: 18px;
+      margin-bottom: 10px;
+      margin: 20px 0 20px;
+    }
+    p{
+      font-size: 16px;
+      margin-top: 15px;
+      }
+    a{
+      margin-right: 10px;
+      text-decoration: none;
+      color: black;
+    }
+}
 
 
 .item-link-prev-next{
@@ -372,7 +426,7 @@
   justify-content: space-between;
 }
 
-// 前の商品
+// 前の商品へ
 .item-link-prev {
   float: left;
   padding: 0 0 0 14px;
@@ -389,10 +443,7 @@
     color: #0099e8;
   }
 }
-
-
-
-// 次の商品
+// 次の商品へ
 .item-link-next {
   width: 43%;
   float: right;
@@ -412,19 +463,17 @@
 
 
 
-
+// snsボタン
 .item-social-media-box {
   margin: 24px 0 0;
   background: #fff;
   padding: 16px 0 8px;
 }
-
 .social-media-box {
   margin: 16px 0 40px;
   text-align: center;
   font-size: 16px;
 }
-
 .contents-icon{
   font-size: 45px;
   padding-left: 30px;

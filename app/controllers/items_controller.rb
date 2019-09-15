@@ -22,6 +22,10 @@ class ItemsController < ApplicationController
     @next_item = Item.where("id > ?", @item.id).order("id ASC").first
     @prev_item = Item.where("id < ?", @item.id).order("id DESC").first
 
+    @comments = @item.item_comments.includes(:user).order("id DESC")
+    
+
+
 
   end
 
