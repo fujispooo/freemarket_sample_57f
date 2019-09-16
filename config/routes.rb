@@ -67,6 +67,7 @@ Rails.application.routes.draw do
         get  'credit'               => 'users/registrations#step5'
         post 'registration/create'  => 'users/registrations#create'
         get  'check'                => 'users/registrations#check'
+        get  'emailCheck'           => 'users/registrations#email_check'
       end
     end
   end
