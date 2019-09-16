@@ -26,7 +26,7 @@ window.addEventListener("turbolinks:load", function() {
         data: { user:{nickname: nickname} },
         dataType: 'json'
       })
-      // エラーメッセージの表示及び、summit無効化
+      // エラーメッセージの表示及び、submit無効化
       .done(function(user){
         $('#user-check-result').empty();
         if (user.length !==0){
@@ -51,7 +51,7 @@ window.addEventListener("turbolinks:load", function() {
         data: { user:{email: email} },
         dataType: 'json'
       })
-      // エラーメッセージの表示及び、summit無効化
+      // エラーメッセージの表示及び、submit無効化
       .done(function(user){
         $('#email-check-result').empty();
         if (user != null){
