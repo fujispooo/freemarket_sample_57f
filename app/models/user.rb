@@ -9,6 +9,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :card
   accepts_nested_attributes_for :SnsCredential
   has_many :items
+  has_many :item_comments
+
 
 
   # 以下バリデーション
