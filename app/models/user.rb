@@ -19,28 +19,28 @@ class User < ApplicationRecord
   # 独自バリデーションを定義-------------------------------------------------------------------
     # 全角カタカナ
     class KatakanaValidator < ActiveModel::EachValidator
-      def validate_each(record, attribute, value) # バリデーションメソッド
+      def validate_each(value) # バリデーションメソッド
           value !~  /\A[\p{katakana}ー－]+\z/
       end
     end
 
     # 全角カナ・ひらがな・漢字
     class ZenkakuKanaHiraganaKanjiValidator < ActiveModel::EachValidator
-      def validate_each(record, attribute, value) # バリデーションメソッド
+      def validate_each(value) # バリデーションメソッド
           value !~ /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
       end
     end
 
     # メールアドレス
     class OriginalEmailValidator < ActiveModel::EachValidator
-      def validate_each(record, attribute, value) # バリデーションメソッド
+      def validate_each(value) # バリデーションメソッド
           value !~ /\A[a-zA-Z]+[[^\-{2,}][\w+\-]].?@[a-z\d]+(\.[a-z]+)*\.[a-z]+\z/i
       end
     end
 
     # 電話番号
     class PhoneNumberValidator < ActiveModel::EachValidator
-      def validate_each(record, attribute, value) # バリデーションメソッド
+      def validate_each(value) # バリデーションメソッド
           value !~  /\A0[0-9-]{9,11}\z/
       end
     end
@@ -60,7 +60,7 @@ class User < ApplicationRecord
   validates :birth_year     , presence: true
   validates :birth_month    , presence: true
   validates :birth_day      , presence: true
-  validates :phone_number   , presence: true ,phone_number
+  validates :phone_number   , presence: true ,phone_number: true
   # ---------------------------------------------------------------------------------------
 
 

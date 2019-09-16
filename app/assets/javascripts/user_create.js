@@ -1,4 +1,5 @@
 window.addEventListener("turbolinks:load", function() {
+  
   // バリデーションをカスタマイズ
   // 全角カタカナのみ
   jQuery.validator.addMethod("katakana", function(value, element) {
