@@ -162,7 +162,7 @@
 }
 
 .item-price-box {
-  margin: 24px 0 0;
+  margin: 45px 0 0;
 }
 
 .item-price {
@@ -370,40 +370,41 @@
 }
 
 // コメント投稿
-form{
-  textarea{
-    margin: 8px 0 0;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    min-height: 104px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    background: #fff;
-    font-size: 16px;
-    line-height: 1.5;
-    border-radius: 5px;
-  }
-  input{
-    margin: 8px 0 0;
-    display: block;
-    width: 100%;
-    line-height: 48px;
-    font-size: 14px;
-    cursor: pointer;
-    background-color: red;
-    line-height: 50px;
-    color: #fff;
-    border-radius: 5px;
-    &:hover{
-      background-color: #fff;
-      border-color: #59b1eb;
-      color: #59b1eb;
+.message-content{
+  form{
+    textarea{
+      margin: 8px 0 0;
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-height: 104px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      background: #fff;
+      font-size: 16px;
+      line-height: 1.5;
+      border-radius: 5px;
+    }
+    input{
+      margin: 8px 0 0;
+      display: block;
+      width: 100%;
+      line-height: 48px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: red;
+      line-height: 50px;
+      color: #fff;
+      border-radius: 5px;
+      &:hover{
+        background-color: #fff;
+        border-color: #59b1eb;
+        color: #59b1eb;
+      }
     }
   }
-}
-.comments{
-  margin: 30px 0 30px;
+  .comments{
+    margin: 30px 0 30px;
     h4{
       font-size: 18px;
       margin-bottom: 10px;
@@ -418,8 +419,8 @@ form{
       text-decoration: none;
       color: black;
     }
+  }
 }
-
 
 .item-link-prev-next{
   margin: 24px;
