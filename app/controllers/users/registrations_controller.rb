@@ -51,12 +51,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
       phone_number:       session[:phone_number],
       address_attributes: user_params[:address_attributes],
       SnsCredential_attributes: {
-        uid:session[:provider_data]["uid"],
-        provider:session[:provider_data]["provider"],
-        sns_name:"",
-        user_id:"",
-        created_at:"",
-        updated_at:""
+        uid:              session[:provider_data]["uid"],
+        provider:         session[:provider_data]["provider"],
+        sns_name:         "",
+        user_id:          "",
+        created_at:       "",
+        updated_at:       ""
       }
     )
     else

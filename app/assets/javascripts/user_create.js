@@ -29,12 +29,12 @@ window.addEventListener("turbolinks:load", function() {
       "user[birth_year]"                       :{required: true},
       "user[birth_month]"                      :{required: true},
       "user[birth_day]"                        :{required: true},
-      "user[phone_number]"                     :{required: true,telnum: true},
+      "user[phone_number]"                     :{required: true,telnum: true },
       "user[address_attributes][post_number]"  :{required: true,postnum: true},
       "user[address_attributes][city]"         :{required: true},
       "user[address_attributes][address]"      :{required: true},
-      "user[address_attributes][building_name]":{maxlength: 25},
-      "user[address_attributes][building_tel]" :{telnum: true}
+      "user[address_attributes][building_name]":{maxlength: 25 },
+      "user[address_attributes][building_tel]" :{telnum: true  }
     },
     // エラーメッセージ
     messages : {
