@@ -10,6 +10,7 @@ class Item < ApplicationRecord
   belongs_to :category,optional: true
   belongs_to_active_hash :prefecture
   accepts_nested_attributes_for :item_images
+  has_many :item_comments
 
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
