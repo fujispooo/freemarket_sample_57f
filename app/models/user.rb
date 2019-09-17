@@ -19,29 +19,41 @@ class User < ApplicationRecord
   # 独自バリデーションを定義-------------------------------------------------------------------
     # 全角カタカナ
     class KatakanaValidator < ActiveModel::EachValidator
-      def validate_each(value) # バリデーションメソッド
-          value !~  /\A[\p{katakana}ー－]+\z/
+      KATAKANA_REGEX = /\A[\p{katakana}ー－]+\z/
+      def validate_each(record, attribute,value)
+        if value.match(KATAKANA_REGEX).blank?
+          record.errors.add(attribute, '全角カタカナで入力してください')
+        end
       end
     end
 
     # 全角カナ・ひらがな・漢字
     class ZenkakuKanaHiraganaKanjiValidator < ActiveModel::EachValidator
-      def validate_each(value) # バリデーションメソッド
-          value !~ /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
+      ZENKAKU_REGEX = /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
+      def validate_each(record, attribute,value)
+        if value.match(ZENKAKU_REGEX).blank?
+          record.errors.add(attribute, '全角かな・ひらがな・漢字で入力してください')
+        end
       end
     end
 
     # メールアドレス
     class OriginalEmailValidator < ActiveModel::EachValidator
-      def validate_each(value) # バリデーションメソッド
-          value !~ /\A[a-zA-Z]+[[^\-{2,}][\w+\-]].?@[a-z\d]+(\.[a-z]+)*\.[a-z]+\z/i
+      EMAIL_REGEX = /\A[a-zA-Z]+\w+[[^\-{2,}][\w+\-]].?@[a-z\d]+(\.[a-z]+)*\.[a-z]+\z/i
+      def validate_each(record, attribute,value)
+        if value.match(EMAIL_REGEX).blank?
+          record.errors.add(attribute, '不正なメールアドレスです')
+        end
       end
     end
 
     # 電話番号
     class PhoneNumberValidator < ActiveModel::EachValidator
-      def validate_each(value) # バリデーションメソッド
-          value !~  /\A0[0-9-]{9,11}\z/
+      PHONE_REGEX = /\A0[0-9-]{9,11}\z/
+      def validate_each(record, attribute,value)
+        if value.match(PHONE_REGEX).blank?
+          record.errors.add(attribute, '不正な電話番号です')
+        end
       end
     end
   # ---------------------------------------------------------------------------------------
@@ -52,7 +64,7 @@ class User < ApplicationRecord
   # 以下バリデーション------------------------------------------------------------------------
   validates :nickname       , presence: true ,length: {minimum: 2, maximum: 10 }
   validates :email          , presence: true ,uniqueness: true,original_email: true
-  validates :password       , presence: true ,length: {minimum: 6, maximum: 128}
+  validates :password       , presence: true ,length: {minimum: 7, maximum: 128}
   validates :first_name     , presence: true ,zenkaku_kana_hiragana_kanji: true
   validates :last_name      , presence: true ,zenkaku_kana_hiragana_kanji: true
   validates :first_name_kana, presence: true ,katakana: true
