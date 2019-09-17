@@ -12,21 +12,12 @@ class ItemsController < ApplicationController
   
   def show
     @item = Item.find(params[:id])
-
     @images = @item.item_images
-    # 全ての商品からランダムに表示
     @products = Item.order("RAND()").limit(3)
-    # ユーザーその他出品
-    @item_user = Item.order("user_id DESC").limit(3)
-
+    @item_user = Item.order("@item.current_user.id DESC").limit(3)
     @next_item = Item.where("id > ?", @item.id).order("id ASC").first
     @prev_item = Item.where("id < ?", @item.id).order("id DESC").first
-
     @comments = @item.item_comments.includes(:user).order("id DESC")
-    
-
-
-
   end
 
   def new
@@ -63,7 +54,6 @@ class ItemsController < ApplicationController
       end
     end
   end
-  
   
   def create
     @item = Item.new(item_params)
@@ -132,5 +122,3 @@ class ItemsController < ApplicationController
     ).merge(user_id: current_user.id)
   end
 end
-
-

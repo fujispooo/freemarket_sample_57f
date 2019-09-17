@@ -9,7 +9,6 @@ class ItemCommentsController < ApplicationController
       redirect_to "/jp/items/#{comment.item.id}"
     end
   end
-  
   private
   def comment_params
     params.permit(:comment, :item_id)

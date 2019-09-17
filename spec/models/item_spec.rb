@@ -24,12 +24,35 @@ describe "invalid" do
   end
 end
 
-
 describe "invalid" do
   it "価格が空の時出品できない" do
     item = Item.create(price: "")
     item.valid?
     expect(item.errors[:price]).to include("can't be blank")
+  end
+end
+
+describe "invalid" do
+  it "価格が300円未満の場合できない" do
+    item = Item.create(price: "299")
+    item.valid?
+    expect(item.errors[:price]).to include("must be greater than or equal to 300")
+  end
+end
+
+describe "invalid" do
+  it "配送方法が空の時出品できない" do
+    item = Item.create(delivery_method_id: "")
+    item.valid?
+    expect(item.errors[:delivery_method_id]).to include("can't be blank")
+  end
+end
+
+describe "invalid" do
+  it "配送日数が空の時出品できない" do
+    item = Item.create(delivery_day_id: "")
+    item.valid?
+    expect(item.errors[:delivery_day_id]).to include("can't be blank")
   end
 end
 
@@ -57,3 +80,10 @@ describe "invalid" do
   end
 end
 
+describe "invalid" do
+  it "都道府県が空の時出品できない" do
+    item = Item.create(prefecture_id: "")
+    item.valid?
+    expect(item.errors[:prefecture_id]).to include("can't be blank")
+  end
+end
