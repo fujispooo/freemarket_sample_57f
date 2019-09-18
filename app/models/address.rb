@@ -44,11 +44,11 @@ class Address < ApplicationRecord
 
   # 以下バリデーション------------------------------------------------------------------------
   validates :post_number   , presence: true ,post_number: true
-  validates :city          , presence: true ,zenkaku_kana_hiragana_kanji: true
-  validates :address       , presence: true ,zenkaku_kana_hiragana_kanji: true
-  validates :building_name , presence: true
-  validates :building_tel  , presence: true ,phone_number: true
-  validates :user_id       , presence: true ,length:{maximum: 25}
   validates :prefecture_id , presence: true ,inclusion: 1..47
+  validates :city          , presence: true ,zenkaku_kana_hiragana_kanji: true
+  validates :address       , presence: true
+  validates :user_id       , presence: true 
+  validates :building_name ,length:{maximum: 25}
+  validates :building_tel  ,phone_number: true
   # ---------------------------------------------------------------------------------------
 end

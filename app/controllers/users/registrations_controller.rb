@@ -23,6 +23,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     session[:birth_year]      = user_params[:birth_year]
     session[:birth_month]     = user_params[:birth_month]
     session[:birth_day]       = user_params[:birth_day]
+    binding.pry
   end
 
   def step3
