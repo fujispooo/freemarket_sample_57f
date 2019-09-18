@@ -321,7 +321,6 @@
     }
   }
 }
-
 body {
   position: relative;
   background: #f5f5f5;
@@ -330,37 +329,33 @@ body {
   color: #333;
   line-height: 1;
 }
-
-
-  .buy-error a {
-    display: block;
-    margin: 16px 0 0;
-    color: #0099e8;
-    text-decoration: none;
-    font-size: 14px;
-    padding-right: 40%;
-    }
-
-
-    .pickup__item__box__content {
-      box-shadow: 2px 2px 8px gray;
-      &__link__body{
-        padding-top: 30px;
-        font-weight: 500;
-      }
-    }
-    .pickup__item__box__content__link__body{
-      padding: 0 12px;
-      height: 64px;
-      line-height: 1.4em;
-      text-align: left;
-      &__name  {
-      display: -webkit-inline-box;
-      box-sizing: border-box;
-      color: #222;
-      font-size: 14px;
-      white-space: normal;
-      word-break: break-word;
-      padding-top: 10px;
-      }
-    }
+.buy-error a {
+  display: block;
+  margin: 16px 0 0;
+  color: #0099e8;
+  text-decoration: none;
+  font-size: 14px;
+  padding-right: 40%;
+}
+.pickup__item__box__content {
+  box-shadow: 2px 2px 8px gray;
+  &__link__body{
+    padding-top: 30px;
+    font-weight: 500;
+  }
+}
+.pickup__item__box__content__link__body{
+  padding: 0 12px;
+  height: 64px;
+  line-height: 1.4em;
+  text-align: left;
+  &__name  {
+  display: -webkit-inline-box;
+  box-sizing: border-box;
+  color: #222;
+  font-size: 14px;
+  white-space: normal;
+  word-break: break-word;
+  padding-top: 10px;
+  }
+}

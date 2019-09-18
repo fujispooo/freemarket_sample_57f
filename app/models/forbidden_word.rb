@@ -1,3 +1,3 @@
 class ForbiddenWord < ApplicationRecord
-  
+
 end

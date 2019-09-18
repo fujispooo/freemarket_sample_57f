@@ -12,55 +12,64 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :address
   accepts_nested_attributes_for :SnsCredential
   # ---------------------------------------------------------------------------------------
-
-
-
-
+  
+  
+  
+  
+  
+  
   # 独自バリデーションを定義-------------------------------------------------------------------
     # 全角カタカナ
     class KatakanaValidator < ActiveModel::EachValidator
       KATAKANA_REGEX = /\A[\p{katakana}ー－]+\z/
       def validate_each(record, attribute,value)
-        if value.match(KATAKANA_REGEX).blank?
-          record.errors.add(attribute, '全角カタカナで入力してください')
+        if value.present?
+          if value.match(KATAKANA_REGEX).blank?
+            record.errors.add(attribute, '全角カタカナで入力してください')
+          end
         end
-      end
-    end
-
+      end  
+    end  
+    
     # 全角カナ・ひらがな・漢字
     class ZenkakuKanaHiraganaKanjiValidator < ActiveModel::EachValidator
       ZENKAKU_REGEX = /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/
       def validate_each(record, attribute,value)
-        if value.match(ZENKAKU_REGEX).blank?
-          record.errors.add(attribute, '全角かな・ひらがな・漢字で入力してください')
+        if value.present?
+          if value.match(ZENKAKU_REGEX).blank?
+            record.errors.add(attribute, '全角かな・ひらがな・漢字で入力してください')
+          end
         end
-      end
+      end  
     end
-
+    
     # メールアドレス
     class OriginalEmailValidator < ActiveModel::EachValidator
-      EMAIL_REGEX = /\A[a-zA-Z]+\w+[[^\-{2,}][\w+\-]].?@[a-z\d]+(\.[a-z]+)*\.[a-z]+\z/i
+      EMAIL_REGEX = /\A[a-zA-Z]+((?!\-{2,})[\w+\-])+[a-zA-Z]@[a-z\d]+(\.[a-z]+)*\.[a-z]+\z/i
       def validate_each(record, attribute,value)
-        if value.match(EMAIL_REGEX).blank?
-          record.errors.add(attribute, '不正なメールアドレスです')
+        if value.present?
+          if value.match(EMAIL_REGEX).blank?
+            record.errors.add(attribute, '不正なメールアドレスです')
+          end
         end
-      end
-    end
-
+      end  
+    end  
+    
     # 電話番号
     class PhoneNumberValidator < ActiveModel::EachValidator
-      PHONE_REGEX = /\A0[0-9-]{9,11}\z/
+      PHONE_REGEX = /\A0[0-9]{9,11}\z/
       def validate_each(record, attribute,value)
-        if value.match(PHONE_REGEX).blank?
-          record.errors.add(attribute, '不正な電話番号です')
+        if value.present?
+          if value.match(PHONE_REGEX).blank?
+            record.errors.add(attribute, '不正な電話番号です')
+          end
         end
       end
     end
-  # ---------------------------------------------------------------------------------------
-
-
-
-
+  # ---------------------------------------------------------------------------------------  
+  
+  
+  
   # 以下バリデーション------------------------------------------------------------------------
   validates :nickname       , presence: true ,length: {minimum: 2, maximum: 10 }
   validates :email          , presence: true ,uniqueness: true,original_email: true
@@ -69,12 +78,11 @@ class User < ApplicationRecord
   validates :last_name      , presence: true ,zenkaku_kana_hiragana_kanji: true
   validates :first_name_kana, presence: true ,katakana: true
   validates :last_name_kana , presence: true ,katakana: true
-  validates :birth_year     , presence: true
-  validates :birth_month    , presence: true
-  validates :birth_day      , presence: true
+  validates :birth_year     , presence: true ,inclusion: 1900..2000
+  validates :birth_month    , presence: true ,inclusion: 1..12
+  validates :birth_day      , presence: true ,inclusion: 1..31
   validates :phone_number   , presence: true ,phone_number: true
   # ---------------------------------------------------------------------------------------
-
 
 
 

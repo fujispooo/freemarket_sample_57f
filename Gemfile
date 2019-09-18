@@ -29,6 +29,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'faker'
 end
 
 group :development do
@@ -66,3 +67,4 @@ gem 'omniauth-facebook'
 
 # バリデーション用
 gem 'jquery-validation-rails'
+
