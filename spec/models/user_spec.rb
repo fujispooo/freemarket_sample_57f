@@ -229,7 +229,7 @@ describe User do
     end
 
     # (3)不正なメールアドレスは登録できない
-    it "is invalid with a email is entered in invalid value(type3: wihtout @)" do
+    it "is invalid with a email is entered in invalid value(type3: without @)" do
       user = build(:user, email: "hankakufafafa.co.jp")
       user.valid?
       expect(user.errors[:email]).to include("不正なメールアドレスです")
