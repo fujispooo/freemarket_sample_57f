@@ -8,13 +8,9 @@
   }
 }
 .sell-main {
-  // width: 2160px;
-  // padding: 40px;
-  // width: 1100px;
-  // margin: 40px auto 0;
   display: flex;
   align-items: flex-start;
-  background: #f5f5f5;
+  background: $merukari-gray;
   .sell-inner {
     width: 700px;
     margin: 0 auto;
@@ -29,7 +25,7 @@
       font-weight: bold;
     }
     & span{
-      background: #ea352d;
+      background: $merukari-red;
       margin: 0 0 0 8px;
       padding: 2px 4px;
       border-radius: 2px;
@@ -58,7 +54,7 @@
           &__container {
             width: 100%;
             min-height: 16px;
-            background: #f5f5f5;
+            background: $merukari-gray;
             border: 1px dashed #ccc;
             text-align: center;
             #image_select{
@@ -293,22 +289,22 @@
         border-top: 1px solid #eee;
         &__text{
           & a{
-          color: #0099e8;
+          color: $merukari-blue;
           text-decoration: none;
           }
         }
         &__btn{
           margin: 40px 0 0;
           &__sell {
-            background: #ea352d;
-            border: 1px solid #ea352d;;
+            background: $merukari-red;
+            border: 1px solid $merukari-red;;
             width: 100%;
             transition: all ease-out .3s;
             cursor: pointer;
             .submit-btn{
               color: #fff;
-              background: #ea352d;
-              border: 1px solid #ea352d;
+              background: $merukari-red;
+              border: 1px solid $merukari-red;
               line-height: 48px;
               font-size: 14px;
             }

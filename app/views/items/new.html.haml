@@ -7,7 +7,6 @@
     .sell-inner__form
     = form_for @item, method: :post do |f|
       .sell-inner__form__upload-box
-        -# = f.hidden_field :user_id, value: current_user.id
         %label 出品画像
         %span 必須
         %p.sell-inner__form__upload-box-text 最大10枚までアップロードできます
@@ -107,19 +106,19 @@
               .sell-inner__form__content__right__price__frame__mark ¥
               .sell-inner__form__content__right__price__frame__box
                 = f.text_field :price, required: true, placeholder: "例）300", class: "inputprice"            
-                -# %input.price{placeholder: "例）300", value: ""}/
+                
           .sell-inner__form__content__right__fee
             .sell-inner__form__content__right__fee__text
               %p 販売手数料(10%)
             .sell-inner__form__content__right__fee__integer
               %p
-                -# = item.price / 10
+
           .sell-inner__form__content__right__profit
             .sell-inner__form__content__right__profit__text
               %h3 販売利益
             .sell-inner__form__content__right__profit__integer
               %h3
-                -# = item.price - item.price / 10
+
 
       .sell-inner__form__foot
         .sell-inner__form__foot__text

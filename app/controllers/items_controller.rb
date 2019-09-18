@@ -72,10 +72,6 @@ class ItemsController < ApplicationController
     @category_grandchild_array = @item.category.siblings
     @size_array = @item.size.siblings
 
-    # @category_children = Category.find("#{params[:parent_id]}").children
-    # @category_grandchildren =　Item.category_id
-    # @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
-    # @parent_category = Category.roots.all
   end
 
   def update
@@ -98,10 +94,6 @@ class ItemsController < ApplicationController
 
   def transaction
   end
-
-  # def myitems
-  #   @item = Item.find(current_user.id)
-  # end
 
 
   private
