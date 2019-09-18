@@ -45,7 +45,7 @@ class User < ApplicationRecord
     
     # メールアドレス
     class OriginalEmailValidator < ActiveModel::EachValidator
-      EMAIL_REGEX = /\A[a-zA-Z]+((?!\-{2,})[\w+\-])+[a-zA-Z]@[a-z\d]+(\.[a-z]+)*\.[a-z]+\z/i
+      EMAIL_REGEX = /\A[a-zA-Z\d]+((?!\-{2,})[\w+\-])+[a-zA-Z]@[a-z\d]+(\.[a-z]+)*\.[a-z]+\z/i
       def validate_each(record, attribute,value)
         if value.present?
           if value.match(EMAIL_REGEX).blank?
