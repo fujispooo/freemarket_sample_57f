@@ -1,7 +1,7 @@
 require 'rails_helper'
 describe User do
   describe '#create' do
-    # 全てが入って入れば登録できる
+    # 全てが入っていれば登録できる
     it "is valid with a nickname, email, password, password_confirmation, first_name, last_name, first_name_kana, last_name_kana, birth_year, birth_month, birth_day, phone_numeber" do
       user =  FactoryBot.build(:user)
       expect(user).to be_valid
@@ -215,84 +215,84 @@ describe User do
     end
 
     # (1)不正なメールアドレスは登録できない
-    it "is invalid with a email is entered in invalid value(type1)" do
+    it "is invalid with a email is entered in invalid value(type1: start with \"-\")" do
       user = build(:user, email: "-hankaku@fafafa.co.jp")
       user.valid?
       expect(user.errors[:email]).to include("不正なメールアドレスです")
     end
 
     # (2)不正なメールアドレスは登録できない
-    it "is invalid with a email is entered in invalid value(type2)" do
+    it "is invalid with a email is entered in invalid value(type2: Two or more \"-\" are consecutive)" do
       user = build(:user, email: "han--kaku@fafafa.co.jp")
       user.valid?
       expect(user.errors[:email]).to include("不正なメールアドレスです")
     end
 
     # (3)不正なメールアドレスは登録できない
-    it "is invalid with a email is entered in invalid value(type3)" do
-      user = build(:user, email: "han--kakufafafa.co.jp")
+    it "is invalid with a email is entered in invalid value(type3: wihtout @)" do
+      user = build(:user, email: "hankakufafafa.co.jp")
       user.valid?
       expect(user.errors[:email]).to include("不正なメールアドレスです")
     end
 
     # (1)正常なメールアドレスが登録できる
-    it "is valid with a email is entered in valid value(type1)" do
+    it "is valid with a email is entered in valid value(type1: normal)" do
       user = build(:user, email: "hankaku@fafafa.co.jp")
       expect(user).to be_valid
     end
 
     # (2)正常なメールアドレスが登録できる
-    it "is valid with a email is entered in valid value(type2)" do
+    it "is valid with a email is entered in valid value(type2: include one \"_\")" do
       user = build(:user, email: "hank_aku@fafafa.co.jp")
       expect(user).to be_valid
     end
 
     # (3)正常なメールアドレスが登録できる
-    it "is valid with a email is entered in valid value(type3)" do
+    it "is valid with a email is entered in valid value(type3: include two \"_\")" do
       user = build(:user, email: "hank_ak_u@fafafa.co.jp")
       expect(user).to be_valid
     end
 
     # (4)正常なメールアドレスが登録できる
-    it "is valid with a email is entered in valid value(type4)" do
+    it "is valid with a email is entered in valid value(type4: include one \"-\")" do
       user = build(:user, email: "hank-aku@fafafa.co.jp")
       expect(user).to be_valid
     end
 
     # (5)正常なメールアドレスが登録できる
-    it "is valid with a email is entered in valid value(type5)" do
+    it "is valid with a email is entered in valid value(type5: include two \"-\")" do
       user = build(:user, email: "hank-ak-u@fafafa.co.jp")
       expect(user).to be_valid
     end
 
     # (6)正常なメールアドレスが登録できる
-    it "is valid with a email is entered in valid value(type6)" do
+    it "is valid with a email is entered in valid value(type6: include \"-\" and \"_\")" do
       user = build(:user, email: "ha-nk_ak_u@fafafa.co.jp")
       expect(user).to be_valid
     end
 
     # (1)不正な電話番号は登録できない
-    it "is invalid with a phone_number is entered in invalid value(type1)" do
+    it "is invalid with a phone_number is entered in invalid value(type1: include \"-\")" do
       user = build(:user, phone_number: "090-2222-1111")
       user.valid?
       expect(user.errors[:phone_number]).to include("不正な電話番号です")
     end
 
     # (2)不正な電話番号は登録できない
-    it "is invalid with a phone_number is entered in invalid value(type2)" do
+    it "is invalid with a phone_number is entered in invalid value(type2: Start with non-zero)" do
       user = build(:user, phone_number: "99022221111")
       user.valid?
       expect(user.errors[:phone_number]).to include("不正な電話番号です")
     end
 
     # (1)正常な電話番号が登録できる
-    it "is valid with a phone_number is entered in valid value(type1)" do
+    it "is valid with a phone_number is entered in valid value(type1: mobile-phone)" do
       user = build(:user, phone_number: "09011112222")
       expect(user).to be_valid
     end
 
     # (2)正常な電話番号が登録できる
-    it "is valid with a phone_number is entered in valid value(type2)" do
+    it "is valid with a phone_number is entered in valid value(type2: Area-code)" do
       user = build(:user, phone_number: "0399992222")
       expect(user).to be_valid
     end
