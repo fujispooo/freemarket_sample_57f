@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
   # before_action :user_login,only:[:new, :show]
-  
+
   def index
     @item = Item.order("created_at DESC").limit(4).where.not(item_state_id: 2)
     @items_for_woman = Category.get_items_for(1).first(4)
@@ -12,21 +12,12 @@ class ItemsController < ApplicationController
   
   def show
     @item = Item.find(params[:id])
-
     @images = @item.item_images
-    # 全ての商品からランダムに表示
+    @item_user = Item.where("user_id = ?", @item.user_id).order("created_at asc").limit(3)
     @products = Item.order("RAND()").limit(3)
-    # ユーザーその他出品
-    @item_user = Item.order("RAND(user_id)").limit(3)
-
     @next_item = Item.where("id > ?", @item.id).order("id ASC").first
     @prev_item = Item.where("id < ?", @item.id).order("id DESC").first
-
     @comments = @item.item_comments.includes(:user).order("id DESC")
-    
-
-
-
   end
 
   def new
@@ -63,7 +54,6 @@ class ItemsController < ApplicationController
       end
     end
   end
-  
   
   def create
     @item = Item.new(item_params)
@@ -132,5 +122,3 @@ class ItemsController < ApplicationController
     ).merge(user_id: current_user.id)
   end
 end
-
-
