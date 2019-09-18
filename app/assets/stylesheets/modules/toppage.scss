@@ -342,20 +342,18 @@ body {
   &__link__body{
     padding-top: 30px;
     font-weight: 500;
-  }
-}
-.pickup__item__box__content__link__body{
-  padding: 0 12px;
-  height: 64px;
-  line-height: 1.4em;
-  text-align: left;
-  &__name  {
-  display: -webkit-inline-box;
-  box-sizing: border-box;
-  color: #222;
-  font-size: 14px;
-  white-space: normal;
-  word-break: break-word;
-  padding-top: 10px;
+    padding: 0 12px;
+    height: 64px;
+    line-height: 1.4em;
+    text-align: left;
+    &__name  {
+    display: -webkit-inline-box;
+    box-sizing: border-box;
+    color: #222;
+    font-size: 14px;
+    white-space: normal;
+    word-break: break-word;
+    padding-top: 10px;
+    }
   }
 }
