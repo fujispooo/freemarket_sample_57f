@@ -53,13 +53,13 @@
             .sell-inner__form__content__right__genre__select
               %i.fa.fa-chevron-down
               = f.collection_select :category_id, @category_grandchild_array, :id, :name, id: 'grandchild_category', selected: @item.category.name
-
-          .sell-inner__form__content__right__genre
-            %label サイズ
-            %span 必須
-            .sell-inner__form__content__right__genre__select
-              %i.fa.fa-chevron-down
-              = f.collection_select :size_id, @size_array, :id, :name, id: 'size', selected: @item.size.name
+            -if @item.size.present?
+              .sell-inner__form__content__right__genre
+                %label サイズ
+                %span 必須
+                .sell-inner__form__content__right__genre__select
+                  %i.fa.fa-chevron-down
+                  = f.collection_select :size_id, @item.size.siblings, :id, :name, id: 'size', selected: @item.size.name
 
 
           .sell-inner__form__content__right__genre
