@@ -31,13 +31,12 @@
         .th-sub-children カテゴリー
         .td-sub-children
           = @item.category.root.name
-
-          .td-sub-children
-            = fa_icon 'angle-double-right'
-            = @item.category.parent.name
-            .td-sub-children
-              = fa_icon 'angle-double-right'
-              = @item.category.parent.name
+          %br/
+          = fa_icon 'angle-double-right'
+          = @item.category.parent.name
+          %br/
+          = fa_icon 'angle-double-right'
+          = @item.category.parent.name
       .tr
         .th ブランド
         .td
