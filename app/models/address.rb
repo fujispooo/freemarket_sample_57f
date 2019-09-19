@@ -47,7 +47,6 @@ class Address < ApplicationRecord
   validates :prefecture_id , presence: true ,inclusion: 1..47
   validates :city          , presence: true ,zenkaku_kana_hiragana_kanji: true
   validates :address       , presence: true
-  validates :user_id       , presence: true 
   validates :building_name ,length:{maximum: 25}
   validates :building_tel  ,phone_number: true
   # ---------------------------------------------------------------------------------------

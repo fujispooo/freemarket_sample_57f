@@ -70,7 +70,7 @@ class ItemsController < ApplicationController
     @category_parent_array = Category.where(ancestry: nil)
     @category_child_array = @item.category.parent.siblings
     @category_grandchild_array = @item.category.siblings
-    @size_array = @item.size.siblings
+
 
   end
 
