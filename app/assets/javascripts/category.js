@@ -16,6 +16,7 @@ window.addEventListener("turbolinks:load", function() {
   })
 
   $(function(){
+    var isDefault = true;
     // カテゴリーセレクトボックスのオプションを作成
     function appendOption(category){
       var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
@@ -48,9 +49,8 @@ window.addEventListener("turbolinks:load", function() {
     // 親カテゴリー選択後のイベント
     $('#parent_category').on('change', function(){
       var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
-      
 
-      if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
+      if (parentCategory != ''){ //親カテゴリーが初期値でないことを確認
         $.ajax({
           url: 'get_category_children',
           type: 'GET',
@@ -58,10 +58,9 @@ window.addEventListener("turbolinks:load", function() {
           dataType: 'json'
         })
         .done(function(children){
-          $('children_wrapper').remove(); //親が変更された時、子以下を削除するする
+          $('#children_wrapper').remove(); //親が変更された時、子以下を削除するする
           $('#grandchildren_wrapper').remove();
-          $('#size_wrapper').remove();
-          $('#brand_wrapper').remove();
+          $('#size').remove();
           var insertHTML = '';
           children.forEach(function(child){
             insertHTML += appendOption(child);
@@ -74,8 +73,8 @@ window.addEventListener("turbolinks:load", function() {
       }else{
         $('#children_wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除するする
         $('#grandchildren_wrapper').remove();
-        $('#size_wrapper').remove();
-        $('#brand_wrapper').remove();
+        $('#size').remove();
+        
       }
     });
     // 子カテゴリー選択後のイベント
@@ -92,8 +91,8 @@ window.addEventListener("turbolinks:load", function() {
         .done(function(grandchildren){
           if (grandchildren.length != 0) {
             $('#grandchildren_wrapper').remove(); //子が変更された時、孫以下を削除するする
-            $('#size_wrapper').remove();
-            $('#brand_wrapper').remove();
+            $('#size').remove();
+            
             var insertHTML = '';
             grandchildren.forEach(function(grandchild){
               insertHTML += appendOption(grandchild);
@@ -106,8 +105,7 @@ window.addEventListener("turbolinks:load", function() {
         })
       }else{
         $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
-        $('#size_wrapper').remove();
-        $('#brand_wrapper').remove();
+        $('#size').remove();
       }
     });
   });
@@ -159,7 +157,6 @@ window.addEventListener("turbolinks:load", function() {
         })
       }else{
         $('#size').remove(); //孫カテゴリーが初期値になった時、サイズ欄以下を削除する
-        $('#brand_wrapper').remove();
       }
     });
   });
