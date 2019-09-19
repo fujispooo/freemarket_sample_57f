@@ -19,15 +19,11 @@
   |phone_number|integer|null: false,unipue: true|
 
   ### Association
-  <!-- - has_many :rates -->
-  <!-- - has_many :announcements -->
-  <!-- - has_many :todos -->
   - has_many :sns_credentials
   - has_one  :addresses
   - has_one  :cards
   - has_many :transaction_users,  dependent:  :destroy
   - has_many :transactions, through: :transaction_users, dependent: :destroy
-  <!-- - has_many :likes -->
   - has_many :items
   - has_many :item_comments
 
@@ -42,11 +38,9 @@
   |bulding_name|string|-------|
   |building_tel|integer|-------|
   |user_id|references|null: false, foreign_key: true|
-  <!-- |prefecture_id|references|null: false,foreign_key: true| -->
 
   ### Association
   - belongs_to :user
-  <!-- - belongs_to :prefecture -->
 
 
   ## cardsテーブル
@@ -91,8 +85,6 @@
   |delivery_day_id|references|null: false, foreign_key: true|
   |price|integer|null: false|
   |user_id|references|null: false, foreign_key: true|
-  <!-- |prefecture_id|references|null: false,foreign_key: true| -->
-  <!-- |like_count|integer|| -->
 
   ### Association
   - has_many :item_comments
@@ -100,7 +92,6 @@
   - has_many :transactions, dependent: :destroy
   - belongs_to :user
   - belongs_to :brand
-  <!-- - belongs_to :prefecture -->
   - belongs_to :profit
   - belongs_to :item_state
   - belongs_to :size
@@ -108,7 +99,6 @@
   - belongs_to :delivery_method
   - belongs_to :delivery_day
   - belongs_to :category
-  <!-- - has_many :likes -->
 
 
   ## item_imagesテーブル
@@ -120,29 +110,6 @@
 
   ### Association
   - belongs_to :item
-
-
-  <!-- ## category_grandparentsテーブル
-
-  |Column|Type|Options|
-  |------|----|-------|
-  |name|string|null: false|
-
-  ### Association
-  - has_many :category_parents
-  - has_many :categories
-
-
-  ## category_parentsテーブル
-
-  |Column|Type|Options|
-  |------|----|-------|
-  |name|string|null: false|
-  |category_grandparent_id|references|null: false, foreign_key: true|
-
-  ### Association
-  - belongs_to :category_grandparent
-  - has_many :categories -->
 
 
   ## categoriesテーブル
@@ -218,16 +185,6 @@
   - belongs_to :user
   - belongs_to :item
 
-
-  <!-- ## prefecturesテーブル(マスタ) -->
-  <!-- gemのactive_hashで作成可能 -->
-  <!-- |Column|Type|Options|
-  |------|----|-------|
-  |prefecture|string|-------| -->
-
-  <!-- ### Association
-  - has_many :items
-  - has_many :addresses -->
 
 
   ## item_statesテーブル(マスタ)
@@ -308,53 +265,6 @@
   ### Association
   - has_many :transactions
 
-
-  <!-- ## profitsテーブル
-
-  |Column|Type|Options|
-  |------|----|-------|
-  |user_id|references|null: false, foreign_key: true|
-  |item_id|references|null: false, foreign_key: true|
-
-  ### Association
-  - belongs_to :item
-  - belongs_to :user -->
-
-  <!-- ## ratesテーブル
-
-  |Column|Type|Options|
-  |------|----|-------|
-  |rate_id|references|null: false, foreign_key: true|
-  |comment|string|-------|
-  |user_id|references|null: false, foreign_key: true|
-  |transaction_id|references|null: false, foreign_key: true|
-
-  ### Association
-  - belongs_to :user -->
-
-  <!-- ## announcementsテーブル
-
-  |Column|Type|Options|
-  |------|----|-------|
-  |title|string|null: false|
-  |text|text|null: false|
-  |user_id|references|null: false, foreign_key: true|
-
-  ### Association
-  - belongs_to :user -->
-
-  <!-- ## todosテーブル
-
-  |Column|Type|Options|
-  |------|----|-------|
-  |text|text|null: false|
-  |text|text|null: false|
-  |user_id|references|null: false, foreign_key: true|
-  |transaction_id|references|null: false, foreign_key: true|
-
-  ### Association
-  - belongs_to :user
-  - belongs_to :transaction -->
 
 
 

@@ -1,22 +1,16 @@
 = render 'modules/header'
 
-.flash-content
-  - flash.each do |key, value|
-    = content_tag(:div, value, class: "flash flash__#{key}")
-
-%section.item-box-container.l-single-container
+%section.item-box-container
   %h1.item-name
     = @item.name
   .item-main-content
-    .item-photo
-      .owl-carousel
-        .owl-item-inner
-          = image_tag @item.item_images.first.image_url,alt: "商品画像"
-          .owl-item-inner-sub-box
-          - @images.each do |image|
-            .owl-item-inner-sub
-              = image_tag image.image_url
-
+    .item-main-content-photo
+      .owl-item-inner
+        = image_tag @item.item_images.first.image_url,alt: "商品画像"
+        .owl-item-inner-sub-box
+        - @images.each do |image|
+          .owl-item-inner-sub
+            = image_tag image.image_url
     .visible-sp
     .item-btn-float-area
       %a.item-btn-client
@@ -31,12 +25,14 @@
         .th-sub-children カテゴリー
         .td-sub-children
           = @item.category.root.name
+
           %br/
           = fa_icon 'angle-double-right'
           = @item.category.parent.name
           %br/
           = fa_icon 'angle-double-right'
           = @item.category.parent.name
+
       .tr
         .th ブランド
         .td
@@ -68,14 +64,10 @@
       = @item.price
     %span.item-tax 円(税込)
     %span.item-shipping-fee 送料込み
-
-    -# 条件分岐
   - if @item.user_id == current_user.id
     .text-center
-
       .item-buy-btn
         = link_to '商品を削除する', item_path(@item),method: :delete
-
   - else
     .text-center
       .item-buy-btn
@@ -84,24 +76,20 @@
     %p.item-description-inner
       = @item.description
   .item-button-container
-    .item-button-left
+    .item-button-container-left
       %button.item-button.item-button-like{"data-ga": "element", "data-ga-category": "LIKE", "data-ga-label": "like!", "data-id": "m11168273272", "data-toggle": "like", name: "like!", type: "button"}
-        %i.icon-like-border
         %span いいね!
         %span.fade-in-down{"data-num": "like"} 21
       %a.item-button.item-button-report
-        %i.icon-flag
         %span 不適切な商品の報告
-    .item-button-right
+    .item-button-container-right
       %span あんしん・あんぜんへの取り組み
-
   .message-content
     .comments-container
     - if current_user
       = form_tag("/jp/items/#{@item.id}/item_comments", method: :post) do
         %textarea{:cols => "30", :name => "comment", :placeholder => "相手のことを考え丁寧なコメントを心がけましょう。\n不快な言葉遣いなどは利用制限や退会処分となることがあります。", :rows => "2"}
         %input{:type => "submit", :value => "コメントする"}/
-
     .comments
       %h4 ＜コメント一覧＞
       - if @comments
@@ -110,13 +98,7 @@
             %strong
               = link_to comment.user.nickname
             = comment.comment
-
-
-
-
-
-
-  .item-link-prev-next
+  .item-link
     .item-link-prev
       -if @prev_item.present?
         = link_to item_path(@prev_item), class: 'prev-next-left' do
@@ -130,8 +112,6 @@
             = @next_item.name
             = fa_icon 'chevron-right'
   .item-social-media-box
-    .fb-save{"data-uri" => "product://113299479059860/m46057519022"}
-
   %ul.social-media-box
     = fa_icon 'facebook-square', class: "contents-icon"
     = fa_icon 'twitter-square', class: "contents-icon"
@@ -155,7 +135,6 @@
   .items-box-content1
   %h2.items-box-head_sub
     おすすめアイテム
-
   .pickup__item__category__title
   - @products.each do |product|
     .pickup__item__box__content
