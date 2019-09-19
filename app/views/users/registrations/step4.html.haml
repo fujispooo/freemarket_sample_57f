@@ -35,7 +35,7 @@
             = a.label :name, "都道府県"
             = a.label :name, "必須", class: "write-must"
             .sign-up__main__body__forms-container__form-box__inner
-              = a.collection_select :prefecture_id, Prefecture.all, :id, :name, class: "normal-form"
+              = a.collection_select :prefecture_id, Prefecture.all, :id, :name, class: "normal-form",id:"prefecture-form"
           .sign-up__main__body__forms-container__form-box
             = a.label :name, "市区町村"
             = a.label :name, "必須", class: "write-must"

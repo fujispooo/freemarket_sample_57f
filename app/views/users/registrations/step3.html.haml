@@ -27,9 +27,9 @@
           = f.label :name, "認証番号"
 
           .sign-up__main__body__forms-container__form-box__inner
-            %input.normal-form{type: "text",placeholder: "認証番号を入力"}
+            %input.normal-form{type: "text",placeholder: "認証番号を入力",id:"Authentication"}
           %h4 SMSで届いた認証番号を入力してください。
-          = f.submit "認証して完了", class: "form__sent-btn"
+          = f.submit "認証して完了", class: "form__sent-btn Authentication-btn"
         .sign-up__main__body__forms-container__form-box.phone
           %h4 30秒たっても認証番号が届かない方へ
           %h4 電話で認証番号を聞くこともできます。
