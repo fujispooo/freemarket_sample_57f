@@ -15,13 +15,17 @@ window.addEventListener("turbolinks:load", function() {
     jQuery.validator.addMethod("postnum", function(value, element) {
       return this.optional(element) || /^\d{3}\-\d{4}$/.test(value);
     });
+    //オリジナルemail
+    jQuery.validator.addMethod("emailfilter", function(value, element) {
+      return this.optional(element) || /^[a-zA-Z\d]+((?!\-{2,})[\w+\-])+[a-zA-Z\d]@[a-z\d]+(\.[a-z]+)*\.[a-z]+$/.test(value);
+    });
 
 
   // フォームの項目ごとのバリデーション
   $("#user_signup-form").validate({
     rules : {
       "user[nickname]"                         :{required: true,minlength: 2,maxlength: 10},
-      "user[email]"                            :{required: true,email:  true},
+      "user[email]"                            :{required: true,emailfilter: true},
       "user[password]"                         :{required: true,minlength: 7},
       "user[password_confirmation]"            :{required: true,minlength: 7,equalTo: "#user_password"},
       "user[first_name]"                       :{required: true},
@@ -47,7 +51,7 @@ window.addEventListener("turbolinks:load", function() {
       },
       "user[email]":{
         required: "※ メールアドレス は必須項目です",
-        email: "※ 不正なメールアドレスです"
+        emailfilter: "※ 不正なメールアドレスです"
       },
       "user[password]":{
         required: "※ パスワード は必須項目です",
