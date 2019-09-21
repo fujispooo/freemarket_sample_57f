@@ -67,6 +67,7 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @images = @item.item_images
+    # @item.item_images.cache! unless @item.item_images.blank?
     @category_parent_array = Category.where(ancestry: nil)
     @category_child_array = @item.category.parent.siblings
     @category_grandchild_array = @item.category.siblings
@@ -76,6 +77,9 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
+    @images = @item.item_images
+    # @images = ItemImage.where(item_id:params[:id])
+    # binding.pry
     if @item.update(item_params)
       redirect_to root_path, notice: '商品を編集しました'
     else
@@ -110,7 +114,7 @@ class ItemsController < ApplicationController
       :category_id,
       :prefecture_id,
       :size_id,
-      item_images_attributes: [:image]
+      item_images_attributes: [:image, :id]
     ).merge(user_id: current_user.id)
   end
 end
