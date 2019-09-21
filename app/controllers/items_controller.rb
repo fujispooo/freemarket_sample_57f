@@ -110,7 +110,7 @@ class ItemsController < ApplicationController
       :category_id,
       :prefecture_id,
       :size_id,
-      item_images_attributes: [:image]
+      item_images_attributes: [:image, :id]
     ).merge(user_id: current_user.id)
   end
 end
