@@ -11,7 +11,11 @@
   ####サーバーサイド
   ルーティング構築
   本家のフリーマーケットサイトのurlに合わせるためにscorpメソッドを用いて実装しています.
-  <img src="https://user-images.githubusercontent.com/53245774/65757683-9bdc8880-e152-11e9-9d80-e6721b8af0c7.png">
+
+  ```ruby:qiita.rb
+puts 'The best way to log and share programmers knowledge.'
+```
+
   ユーザ新規登録機能
   sessionを用いて複数ページに入力された情報を引き継ぎつつ、ユーザ登録を行う機能を実装。また、同時に複数のテーブルに情報を保存するためにfildes_forメソッドを用いたフォームも扱いました。
   sns認証を用いたログイン機能
