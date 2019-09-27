@@ -16,8 +16,10 @@
   ルーティング構築
   本家のフリーマーケットサイトのurlに合わせるためにscorpメソッドを用いて実装しています.
 
-  ```ruby:qiita.rb
-puts 'The best way to log and share programmers knowledge.'
+  ```
+ scope :jp do
+      scope :signup do
+        get  '/'                    => 'users/registrations#new'
 ```
 
   ユーザ新規登録機能
