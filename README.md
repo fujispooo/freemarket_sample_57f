@@ -10,7 +10,9 @@
 
   #### フロントエンド
   ###### ユーザ新規登録ページ
+  ![85a58222b3ea2869245522d3d65482aa](https://user-images.githubusercontent.com/53245774/65762506-1eb61100-e15c-11e9-8c09-6c8e3b09367e.gif)
   ###### ユーザマイページ
+  ![7693f9d732f1dfb8fed61e3ac7a097bf](https://user-images.githubusercontent.com/53245774/65762393-e44c7400-e15b-11e9-9c7b-afd5208fc3c5.gif)
 
   #### サーバーサイド
   ###### ルーティング構築
@@ -24,12 +26,34 @@
 
   ###### ユーザ新規登録機能
   sessionを用いて複数ページに入力された情報を引き継ぎつつ、ユーザ登録を行う機能を実装。また、同時に複数のテーブルに情報を保存するためにfildes_forメソッドを用いたフォームも扱いました。
+  ```
+  def step2
+    @user = User.new()
+    session[:nickname]        = user_params[:nickname]
+  ```
+
+  ```
+  = form_for @user, url: registration_create_path,html:{id:"user_signup-form" }, method: :post do |f|
+    = f.fields_for :address do |a|
+      .sign-up__main__header 
+        %h2.sign-up__main__header__main-title 発送・お届け先住所入力
+      .sign-up__main__body
+        .sign-up__main__body__forms-container
+          .sign-up__main__body__forms-container__form-box
+            = a.label :name, "郵便番号"
+            = a.label :name, "必須", class: "write-must"
+  ```
   ###### sns認証を用いたログイン機能
+  omniauthを用いてfacebookとgoogleのアカウント情報を用いてログイン可能です。
   ###### 商品削除機能
 
   #### その他
   ###### デプロイ
+  awsのサービス（EC2,S3）を用いてデプロイをしました。
+  http://13.114.65.20/jp でアクセス可能です。basic認証をかけていますので、ご閲覧希望の際はご連絡ください。
+
   ###### スクラムマスター
+  ウィクリースクラム、デイリースクラムを立てアジャイル開発をしました。
   ###### データベース設計（補助）
 
 
