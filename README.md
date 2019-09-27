@@ -1,5 +1,5 @@
   # README
-
+<!-- 
   ## usersテーブル
 
   |Column|Type|Options|
@@ -267,6 +267,6 @@
 
   ```ruby:qiita.rb
   puts 'The best way to log and share programmers knowledge.'
-  ```
-  ### Association
+  ``` -->
+  ##ER図
   ![ER図](https://user-images.githubusercontent.com/53245774/65752856-a7c34d00-e148-11e9-9dac-73fa10cc3024.png)
