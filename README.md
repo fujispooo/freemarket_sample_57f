@@ -7,17 +7,40 @@
   ## メンバー毎の担当範囲
   <details>
     <summary>fujispoooの担当範囲</summary>
-    <h4>フロントエンド</h4>
+    <h5>フロントエンド</h5>
     <ul>
       <li>ユーザ新規登録ページ</li>
       <li>ユーザマイページ</li>
     </ul>
+    <h5>サーバーサイド</h5>
+    <ul>
+      <li>ユーザ新規登録ページ</li>
+      <li>ユーザマイページ</li>
+    </ul>
+    <h5>その他</h5>
+    <ul>
+      <li>デプロイ</li>
+      <li>スクラムマスター</li>
+      <li>データベース設計（補助）</li>
+    </ul>
   </details>
   <details>
     <summary>domesooの担当範囲</summary>
+    <h5>フロントエンド</h5>
     <ul>
-      <li>フロントエンド</li>
-      <li>サーバーサイド</li>
+      <li>ユーザ新規登録ページ</li>
+      <li>ユーザマイページ</li>
+    </ul>
+    <h5>サーバーサイド</h5>
+    <ul>
+      <li>ユーザ新規登録ページ</li>
+      <li>ユーザマイページ</li>
+    </ul>
+    <h5>その他</h5>
+    <ul>
+      <li>デプロイ</li>
+      <li>スクラムマスター</li>
+      <li>データベース設計（補助）</li>
     </ul>
   </details>
   <details>
