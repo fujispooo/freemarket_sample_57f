@@ -8,11 +8,10 @@
   ![ER図](https://user-images.githubusercontent.com/53245774/65752856-a7c34d00-e148-11e9-9dac-73fa10cc3024.png)
   
   ## メンバー毎の担当範囲
-  fujispoooの担当範囲
-
-  <details><summary>Qiita(キータ)は、プログラマのための技術情報共有サービスです。</summary>プログラミングに関することをどんどん投稿して、知識を記録、共有しましょう。
-Qiitaに投稿すると、自分のコードやノウハウを見やすい形で残すことができます。
-技術情報はテキストファイルへのメモではなく、タグを付けた文章、シンタックスハイライトされたコードで保存することで初めて再利用可能な知識になる、そうQiitaでは考えています。</details>
+  <details><summary>fujispoooの担当範囲</summary></details>
+  <details><summary>domesooの担当範囲</summary></details>
+  <details><summary>Ryousuke-Nishiokaの担当範囲</summary></details>
+  <details><summary>kcazukiの担当範囲</summary></details>
  
 <!-- 
   ## usersテーブル
