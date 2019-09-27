@@ -5,11 +5,7 @@
   ## ER図
   ![ER図](https://user-images.githubusercontent.com/53245774/65752856-a7c34d00-e148-11e9-9dac-73fa10cc3024.png)
   ## メンバー毎の担当範囲
-
-  ```ruby:qiita.rb
-puts 'The best way to log and share programmers knowledge.'
-```
-
+  
   <details>
     <summary>fujispoooの担当範囲</summary>
     <h5>フロントエンド</h5>
@@ -21,6 +17,9 @@ puts 'The best way to log and share programmers knowledge.'
     <ul>
       <li>ルーティング構築</li>
         <p>本家のフリーマーケットサイトのurlに合わせるためにscorpメソッドを用いて実装しています。</p>
+        ```ruby:qiita.rb
+puts 'The best way to log and share programmers knowledge.'
+```
         <img src="https://user-images.githubusercontent.com/53245774/65752856-a7c34d00-e148-11e9-9dac-73fa10cc3024.png">
       <li>ユーザ新規登録機能</li>
         <p>sessionを用いて複数ページに入力された情報を引き継ぎつつ、ユーザ登録を行う機能を実装。また、同時に複数のテーブルに情報を保存するためにfildes_forメソッドを用いたフォームも扱いました。</p>
