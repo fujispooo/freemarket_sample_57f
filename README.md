@@ -7,7 +7,9 @@
   ## メンバー毎の担当範囲
   <details>
     <summary>fujispoooの担当範囲</summary>
-    *フロントエンド
+    <ul>
+      <li>フロントエンド</li>
+    </ul>
 
   </details>
   <details>
