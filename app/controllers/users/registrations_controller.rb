@@ -2,7 +2,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   skip_before_action :authenticate_user!
   before_action :validates_step1, only: :step2 # step1のバリデーション
   before_action :validates_step2, only: :step3 # step2のバリデーション
-  before_action :validates_step3, only: :create # createのバリデーション
 
 
   def new
@@ -80,6 +79,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
         address_attributes: user_params[:address_attributes]
       )
     end
+    render "step4.html.haml" unless @user.valid?
     @user.save
     sign_in @user
   end
@@ -134,49 +134,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # 仮で作成したインスタンスのバリデーションチェック
     render "step2.html.haml" unless @user.valid?
   end 
-
-  def validates_step3
-    if session[:provider_data].present?
-      @user = User.new(
-        nickname:           session[:nickname],
-        email:              session[:email],
-        password:           session[:password],
-        first_name:         session[:first_name],
-        last_name:          session[:last_name],
-        first_name_kana:    session[:first_name_kana],
-        last_name_kana:     session[:last_name_kana],
-        birth_year:         session[:birth_year],
-        birth_month:        session[:birth_month],
-        birth_day:          session[:birth_day],
-        phone_number:       session[:phone_number],
-        address_attributes: user_params[:address_attributes],
-        SnsCredential_attributes: {
-          uid:              session[:provider_data]["uid"],
-          provider:         session[:provider_data]["provider"],
-          sns_name:         "",
-          user_id:          "",
-          created_at:       "",
-          updated_at:       ""
-        }
-      )
-    else
-      @user = User.new(
-        nickname:           session[:nickname],
-        email:              session[:email],
-        password:           session[:password],
-        first_name:         session[:first_name],
-        last_name:          session[:last_name],
-        first_name_kana:    session[:first_name_kana],
-        last_name_kana:     session[:last_name_kana],
-        birth_year:         session[:birth_year],
-        birth_month:        session[:birth_month],
-        birth_day:          session[:birth_day],
-        phone_number:       session[:phone_number],
-        address_attributes: user_params[:address_attributes]
-      )
-    end
-    render "step4.html.haml" unless @user.valid?
-  end
   
   private
   def user_params
