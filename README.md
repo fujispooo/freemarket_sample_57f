@@ -1,4 +1,3 @@
-  # Overview
 
   ## about
    プログラミングスクールの最終課題です。４人チームでアジャイル開発をしました。作ったのは某フリーマーケットサービスのクローンサイトです。
@@ -11,6 +10,22 @@
   #### フロントエンド
   ###### ユーザ新規登録ページ
   ![85a58222b3ea2869245522d3d65482aa](https://user-images.githubusercontent.com/53245774/65762506-1eb61100-e15c-11e9-8c09-6c8e3b09367e.gif)
+  mixinを用いてフォーム窓、フォームボタンをコンパクトに記述することを意識しました
+
+  ```
+  // ログイン画面で用いるボタン
+  @mixin login_botton($block-type,$font-color,$background-color,$border-color){
+    height: 42px;
+    width: 100%;
+    display: $block-type;
+    line-height: 42px;
+    color:$font-color;
+    background-color: $background-color;
+    border: solid 1px $border-color;
+    text-decoration: none;
+  }
+  ```
+
   ###### ユーザマイページ
   ![7693f9d732f1dfb8fed61e3ac7a097bf](https://user-images.githubusercontent.com/53245774/65762393-e44c7400-e15b-11e9-9c7b-afd5208fc3c5.gif)
 
@@ -77,6 +92,6 @@
   ![S3,EC2](https://user-images.githubusercontent.com/53245774/65764325-53c46280-e160-11e9-94af-3bf73a705f47.png)
 
   ###### スクラムマスター
-  ウィクリースクラム、デイリースクラムを立てアジャイル開発をしました。
+  ウィークリースクラム、デイリースクラムを立てアジャイル開発をしました。
   ###### データベース設計（補助）
   ![ER図](https://user-images.githubusercontent.com/53245774/65752856-a7c34d00-e148-11e9-9dac-73fa10cc3024.png)
