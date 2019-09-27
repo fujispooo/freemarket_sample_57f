@@ -19,17 +19,17 @@
   本家のフリーマーケットサイトのurlに合わせるためにscorpメソッドを用いて実装しています.
 
   ```
- scope :jp do
-      scope :signup do
-        get  '/'                    => 'users/registrations#new'
-```
+  scope :jp do
+    scope :signup do
+      get  '/'   => 'users/registrations#new'
+  ```
 
   ###### ユーザ新規登録機能
   sessionを用いて複数ページに入力された情報を引き継ぎつつ、ユーザ登録を行う機能を実装。また、同時に複数のテーブルに情報を保存するためにfildes_forメソッドを用いたフォームも扱いました。
   ```
   def step2
     @user = User.new()
-    session[:nickname]        = user_params[:nickname]
+    session[:nickname]   = user_params[:nickname]
   ```
 
   ```
@@ -43,6 +43,7 @@
             = a.label :name, "郵便番号"
             = a.label :name, "必須", class: "write-must"
   ```
+
   ###### sns認証を用いたログイン機能
   omniauthを用いてfacebookとgoogleのアカウント情報を用いてログイン可能です。
   ###### 商品削除機能
