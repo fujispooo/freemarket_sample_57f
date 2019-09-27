@@ -1,11 +1,9 @@
   # Overview
   ## about
    プログラミングスクールの最終課題です。４人チームでアジャイル開発をしました。作ったのは某フリーマーケットサービスのクローンサイトです。
+   ![d13ab92935d6951755b368c03009e19b](https://user-images.githubusercontent.com/53245774/65754307-b95a2400-e14b-11e9-9866-7870b330dd62.gif)
   ## member
-   fujispoo
-   domesoo
-   Ryousuke-Nishioka
-   kcazuki
+   fujispoo(スクラムマスター), domesoo, Ryousuke-Nishioka, kcazuki
   ## ER図
   ![ER図](https://user-images.githubusercontent.com/53245774/65752856-a7c34d00-e148-11e9-9dac-73fa10cc3024.png)
   
