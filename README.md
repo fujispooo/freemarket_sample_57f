@@ -10,6 +10,7 @@
     <h5>フロントエンド</h5>
     <ul>
       <li>ユーザ新規登録ページ</li>
+      ![d13ab92935d6951755b368c03009e19b](https://user-images.githubusercontent.com/53245774/65754307-b95a2400-e14b-11e9-9866-7870b330dd62.gif)
       <li>ユーザマイページ</li>
     </ul>
     <h5>サーバーサイド</h5>
