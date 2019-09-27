@@ -7,19 +7,32 @@
   ## メンバー毎の担当範囲
   <details>
     <summary>fujispoooの担当範囲</summary>
+    <h4>フロントエンド</h4>
     <ul>
-      <li>フロントエンド</li>
+      <li>ユーザ新規登録ページ</li>
+      <li>ユーザマイページ</li>
     </ul>
-
   </details>
   <details>
     <summary>domesooの担当範囲</summary>
+    <ul>
+      <li>フロントエンド</li>
+      <li>サーバーサイド</li>
+    </ul>
   </details>
   <details>
     <summary>Ryousuke-Nishiokaの担当範囲</summary>
+    <ul>
+      <li>フロントエンド</li>
+      <li>サーバーサイド</li>
+    </ul>
   </details>
   <details>
     <summary>kcazukiの担当範囲</summary>
+    <ul>
+      <li>フロントエンド</li>
+      <li>サーバーサイド</li>
+    </ul>
   </details>
  
 <!-- 
