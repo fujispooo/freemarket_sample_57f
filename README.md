@@ -4,68 +4,24 @@
    ![d13ab92935d6951755b368c03009e19b](https://user-images.githubusercontent.com/53245774/65754307-b95a2400-e14b-11e9-9866-7870b330dd62.gif)
   ## ER図
   ![ER図](https://user-images.githubusercontent.com/53245774/65752856-a7c34d00-e148-11e9-9dac-73fa10cc3024.png)
-  ## メンバー毎の担当範囲
-  
-  <details>
-    <summary>fujispoooの担当範囲</summary>
-    <h5>フロントエンド</h5>
-    <ul>
-      <li>ユーザ新規登録ページ</li>
-      <li>ユーザマイページ</li>
-    </ul>
-    <h5>サーバーサイド</h5>
-    <ul>
-      <li>ルーティング構築</li>
-        <p>本家のフリーマーケットサイトのurlに合わせるためにscorpメソッドを用いて実装しています。</p>
-        ```ruby:qiita.rb
-puts 'The best way to log and share programmers knowledge.'
-```
-        <img src="https://user-images.githubusercontent.com/53245774/65752856-a7c34d00-e148-11e9-9dac-73fa10cc3024.png">
-      <li>ユーザ新規登録機能</li>
-        <p>sessionを用いて複数ページに入力された情報を引き継ぎつつ、ユーザ登録を行う機能を実装。また、同時に複数のテーブルに情報を保存するためにfildes_forメソッドを用いたフォームも扱いました。</p>
-      <li>sns認証を用いたログイン機能</li>
-      <li>商品削除機能</li>
-    </ul>
-    <h5>その他</h5>
-    <ul>
-      <li>デプロイ</li>
-      <li>スクラムマスター</li>
-      <li>データベース設計（補助）</li>
-    </ul>
-  </details>
-  <details>
-    <summary>domesooの担当範囲</summary>
-    <h5>フロントエンド</h5>
-    <ul>
-      <li>ユーザ新規登録ページ</li>
-      <li>ユーザマイページ</li>
-    </ul>
-    <h5>サーバーサイド</h5>
-    <ul>
-      <li>ユーザ新規登録ページ</li>
-      <li>ユーザマイページ</li>
-    </ul>
-    <h5>その他</h5>
-    <ul>
-      <li>デプロイ</li>
-      <li>スクラムマスター</li>
-      <li>データベース設計（補助）</li>
-    </ul>
-  </details>
-  <details>
-    <summary>Ryousuke-Nishiokaの担当範囲</summary>
-    <ul>
-      <li>フロントエンド</li>
-      <li>サーバーサイド</li>
-    </ul>
-  </details>
-  <details>
-    <summary>kcazukiの担当範囲</summary>
-    <ul>
-      <li>フロントエンド</li>
-      <li>サーバーサイド</li>
-    </ul>
-  </details>
+  ## fujispoooの担当範囲
+  ####フロントエンド
+  ユーザ新規登録ページ
+  ユーザマイページ
+  ####サーバーサイド
+  ルーティング構築
+  本家のフリーマーケットサイトのurlに合わせるためにscorpメソッドを用いて実装しています.
+  <img src="https://user-images.githubusercontent.com/53245774/65757683-9bdc8880-e152-11e9-9d80-e6721b8af0c7.png">
+  ユーザ新規登録機能
+  sessionを用いて複数ページに入力された情報を引き継ぎつつ、ユーザ登録を行う機能を実装。また、同時に複数のテーブルに情報を保存するためにfildes_forメソッドを用いたフォームも扱いました。
+  sns認証を用いたログイン機能
+  商品削除機能
+  ####その他
+  デプロイ
+  スクラムマスター
+  データベース設計（補助）
+
+
  
 <!-- 
   ## usersテーブル
